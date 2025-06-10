@@ -4819,7 +4819,7 @@
                 "required": false,
                 "description": "(Optional) Sets the VM password",
                 "priority": 10000,
-                "schema": "admin_password /*O*/ = \"P@ssw0rd1234!\"\n"
+                "schema": "admin_password /*O*/ = \"<replace with your credential>\"\n"
             },
             "capacity_reservation_group_id": {
                 "required": false,
@@ -15420,7 +15420,7 @@
             },
             "basic_auth": {
                 "required": false,
-                "description": "  Object that controls basic authentication access\n\n  ```terraform\n\n  basic_auth = {\n    password = \"P@55word1234\"\n    environments = \"StagingEnvironment\"\n  }\n\n  ```",
+                "description": "  Object that controls basic authentication access\n\n  ```terraform\n\n  basic_auth = {\n    password = \"<replace with your credential>\"\n    environments = \"StagingEnvironment\"\n  }\n\n  ```",
                 "priority": 10015,
                 "schema": "basic_auth /*O*/ = {\n  password /*R*/     = \"<replace with your credential>\"\n  environments /*R*/ = \"StagingEnvironments\"\n}\n\n"
             },
