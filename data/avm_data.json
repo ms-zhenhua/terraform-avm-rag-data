@@ -8,9 +8,9 @@
         "priority": 79,
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-network-virtualnetwork",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -277,8 +277,8 @@
         "priority": 78,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -625,8 +625,8 @@
         "priority": 64,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -1131,8 +1131,8 @@
         "priority": 65,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3306,9 +3306,9 @@
         "priority": 66,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3327,8 +3327,8 @@
             "optional": {
                 "cognitive_deployments": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "custom_question_answering_search_service_id": [],
                 "custom_question_answering_search_service_key": [],
@@ -3840,12 +3840,12 @@
         "priority": 67,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -4352,16 +4352,16 @@
         "priority": 70,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-network-applicationsecuritygroup",
                 "avm-res-network-loadbalancer",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-network-applicationsecuritygroup",
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-networksecuritygroup"
             ],
             "required_depends_on": [
+                "avm-res-network-applicationsecuritygroup",
                 "avm-res-network-loadbalancer",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-network-applicationsecuritygroup",
                 "avm-res-resources-resourcegroup"
             ],
             "required": {
@@ -4370,9 +4370,9 @@
                 ],
                 "name": [],
                 "network_interfaces": [
+                    "avm-res-network-applicationsecuritygroup",
                     "avm-res-network-loadbalancer",
-                    "avm-res-network-networksecuritygroup",
-                    "avm-res-network-applicationsecuritygroup"
+                    "avm-res-network-networksecuritygroup"
                 ],
                 "resource_group_name": [
                     "avm-res-resources-resourcegroup"
@@ -5400,9 +5400,9 @@
         "priority": 63,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -5418,8 +5418,8 @@
             },
             "optional": {
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "diagnostic_settings": [],
                 "enable_telemetry": [],
@@ -7319,9 +7319,6 @@
                 "avm-res-resources-resourcegroup"
             ],
             "required": {
-                "resource_group_name": [
-                    "avm-res-resources-resourcegroup"
-                ],
                 "virtual_desktop_workspace_location": [
                     "avm-res-resources-resourcegroup"
                 ],
@@ -7334,10 +7331,7 @@
                 "diagnostic_settings": [],
                 "enable_telemetry": [],
                 "lock": [],
-                "private_endpoints": [],
                 "public_network_access_enabled": [],
-                "subresource_names": [],
-                "tags": [],
                 "tracing_tags_enabled": [],
                 "tracing_tags_prefix": [],
                 "virtual_desktop_workspace_description": [],
@@ -7347,28 +7341,22 @@
             }
         },
         "variables": {
-            "resource_group_name": {
-                "required": true,
-                "description": "resource_group_name",
-                "priority": 2,
-                "schema": "# `resource_group_name` is Required in module\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n"
-            },
             "virtual_desktop_workspace_location": {
                 "required": true,
                 "description": "virtual_desktop_workspace_location",
-                "priority": 3,
+                "priority": 2,
                 "schema": "# `virtual_desktop_workspace_location` is Required in module\nvirtual_desktop_workspace_location = module.avm_res_resources_resourcegroup.resource.location\n"
             },
             "virtual_desktop_workspace_name": {
                 "required": true,
                 "description": "virtual_desktop_workspace_name",
-                "priority": 4,
+                "priority": 3,
                 "schema": "# `virtual_desktop_workspace_name` is Required in module\nvirtual_desktop_workspace_name = var.string_virtual_desktop_workspace_name\n"
             },
             "virtual_desktop_workspace_resource_group_name": {
                 "required": true,
                 "description": "virtual_desktop_workspace_resource_group_name",
-                "priority": 5,
+                "priority": 4,
                 "schema": "# `virtual_desktop_workspace_resource_group_name` is Required in module\nvirtual_desktop_workspace_resource_group_name = module.avm_res_resources_resourcegroup.resource.name\n"
             },
             "enable_telemetry": {
@@ -7383,71 +7371,53 @@
                 "priority": 10001,
                 "schema": "# `public_network_access_enabled` is Optional in module\npublic_network_access_enabled = false\n"
             },
-            "subresource_names": {
-                "required": false,
-                "description": "The names of the subresources to assosciatied with the private endpoint. The target subresource must be one of: 'feed', or 'global'.",
-                "priority": 10002,
-                "schema": "# `subresource_names` is Optional in module\nsubresource_names = []\n"
-            },
             "tracing_tags_enabled": {
                 "required": false,
                 "description": "Whether enable tracing tags that generated by BridgeCrew Yor.",
-                "priority": 10003,
+                "priority": 10002,
                 "schema": "# `tracing_tags_enabled` is Optional in module\ntracing_tags_enabled = false\n"
             },
             "tracing_tags_prefix": {
                 "required": false,
                 "description": "Default prefix for generated tracing tags",
-                "priority": 10004,
+                "priority": 10003,
                 "schema": "# `tracing_tags_prefix` is Optional in module\ntracing_tags_prefix = \"\"\n"
             },
             "virtual_desktop_workspace_description": {
                 "required": false,
                 "description": "(Optional) A description for the Virtual Desktop Workspace.",
-                "priority": 10005,
+                "priority": 10004,
                 "schema": "# `virtual_desktop_workspace_description` is Optional in module\nvirtual_desktop_workspace_description = \"\"\n"
             },
             "virtual_desktop_workspace_friendly_name": {
                 "required": false,
                 "description": "(Optional) A friendly name for the Virtual Desktop Workspace. It can be null or a string between 1 and 64 characters long.",
-                "priority": 10006,
+                "priority": 10005,
                 "schema": "# `virtual_desktop_workspace_friendly_name` is Optional in module\nvirtual_desktop_workspace_friendly_name = \"\"\n"
-            },
-            "tags": {
-                "required": false,
-                "description": "(Optional) Tags of the resource.",
-                "priority": 10007,
-                "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "virtual_desktop_workspace_tags": {
                 "required": false,
                 "description": "(Optional) A mapping of tags to assign to the resource.",
-                "priority": 10008,
+                "priority": 10006,
                 "schema": "# `virtual_desktop_workspace_tags` is Optional in module\nvirtual_desktop_workspace_tags = {\n  example_key = \"\"\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "  Controls the Resource Lock configuration for this resource. The following properties can be specified:\n  \n  - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n  - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10009,
+                "priority": 10007,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\n  kind = var.string_lock_kind\n  # `name` is Optional in `lock`\n  name = \"\"\n}\n\n"
             },
             "virtual_desktop_workspace_timeouts": {
                 "required": false,
                 "description": "- `create` - (Defaults to 60 minutes) Used when creating the Virtual Desktop Workspace.\n- `delete` - (Defaults to 60 minutes) Used when deleting the Virtual Desktop Workspace.\n- `read` - (Defaults to 5 minutes) Used when retrieving the Virtual Desktop Workspace.\n- `update` - (Defaults to 60 minutes) Used when updating the Virtual Desktop Workspace.",
-                "priority": 10010,
+                "priority": 10008,
                 "schema": "# `virtual_desktop_workspace_timeouts` is Optional in module\nvirtual_desktop_workspace_timeouts = {\n  # `create` is Optional in `virtual_desktop_workspace_timeouts`\n  create = \"\"\n  # `delete` is Optional in `virtual_desktop_workspace_timeouts`\n  delete = \"\"\n  # `read` is Optional in `virtual_desktop_workspace_timeouts`\n  read = \"\"\n  # `update` is Optional in `virtual_desktop_workspace_timeouts`\n  update = \"\"\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10011,
+                "priority": 10009,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  to_law = {\n    # `name` is Optional in `diagnostic_settings`\n    name = \"to-law\"\n    # `log_categories` is Optional in `diagnostic_settings`\n    log_categories = []\n    # `log_groups` is Optional in `diagnostic_settings`\n    log_groups = []\n    # `metric_categories` is Optional in `diagnostic_settings`\n    metric_categories = []\n    # `log_analytics_destination_type` is Optional in `diagnostic_settings`\n    log_analytics_destination_type = \"Dedicated\"\n    # `workspace_resource_id` is Optional in `diagnostic_settings`\n    workspace_resource_id = \"\"\n    # `storage_account_resource_id` is Optional in `diagnostic_settings`\n    storage_account_resource_id = \"\"\n    # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\n    event_hub_authorization_rule_resource_id = \"\"\n    # `event_hub_name` is Optional in `diagnostic_settings`\n    event_hub_name = \"\"\n    # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\n    marketplace_partner_resource_id = \"\"\n  }\n\n}\n\n"
-            },
-            "private_endpoints": {
-                "required": false,
-                "description": "A map of private endpoints to create on the resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `subresource_name` - The service name of the private endpoint.  Possible value are `blob`, 'dfs', 'file', `queue`, `table`, and `web`.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of the resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the IP configuration.\n  - `private_ip_address` - The private IP address of the IP configuration.",
-                "priority": 10012,
-                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n    # `subnet_resource_id` is Required in `private_endpoints`\n    subnet_resource_id = var.string_private_endpoints_subnet_resource_id\n    # `name` is Optional in `private_endpoints`\n    name = \"\"\n    # `role_assignments` is Optional in `private_endpoints`\n    role_assignments = {\n      example_key = {\n        # `role_definition_id_or_name` is Required in `role_assignments`\n        role_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n        # `principal_id` is Required in `role_assignments`\n        principal_id = \"00000000-0000-0000-0000-000000000000\"\n        # `description` is Optional in `role_assignments`\n        description = \"\"\n        # `skip_service_principal_aad_check` is Optional in `role_assignments`\n        skip_service_principal_aad_check = false\n        # `condition` is Optional in `role_assignments`\n        condition = \"\"\n        # `condition_version` is Optional in `role_assignments`\n        condition_version = \"\"\n        # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\n        delegated_managed_identity_resource_id = \"\"\n        # `principal_type` is Optional in `role_assignments`\n        principal_type = \"\"\n      }\n\n    }\n\n    # `lock` is Optional in `private_endpoints`\n    lock = {\n      # `kind` is Required in `lock`\n      kind = var.string_lock_kind\n      # `name` is Optional in `lock`\n      name = \"\"\n    }\n\n    # `tags` is Optional in `private_endpoints`\n    tags = {\n      example_key = \"\"\n    }\n\n    # `private_dns_zone_group_name` is Optional in `private_endpoints`\n    private_dns_zone_group_name = \"default\"\n    # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\n    private_dns_zone_resource_ids = []\n    # `application_security_group_associations` is Optional in `private_endpoints`\n    application_security_group_associations = {\n      example_key = \"\"\n    }\n\n    # `private_service_connection_name` is Optional in `private_endpoints`\n    private_service_connection_name = \"\"\n    # `network_interface_name` is Optional in `private_endpoints`\n    network_interface_name = \"\"\n    # `location` is Optional in `private_endpoints`\n    location = \"\"\n    # `resource_group_name` is Optional in `private_endpoints`\n    resource_group_name = \"\"\n    # `ip_configurations` is Optional in `private_endpoints`\n    ip_configurations = {\n      example_key = {\n        # `name` is Required in `ip_configurations`\n        name = \"example1\"\n        # `private_ip_address` is Required in `ip_configurations`\n        private_ip_address = var.string_ip_configurations_private_ip_address\n      }\n\n    }\n\n  }\n\n}\n\n"
             }
         },
         "outputs": [
@@ -7795,9 +7765,9 @@
         "priority": 68,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -7822,8 +7792,8 @@
                 "consistency_policy": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "diagnostic_settings": [],
                 "enable_telemetry": [],
@@ -9667,11 +9637,11 @@
         "priority": 81,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-search-searchservice",
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-virtualnetwork",
-                "avm-res-keyvault-vault"
+                "avm-res-search-searchservice",
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9691,8 +9661,8 @@
                 "application_insights": [],
                 "container_registry": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "diagnostic_settings": [],
                 "enable_telemetry": [],
@@ -10680,7 +10650,7 @@
         "source": "Azure/avm-res-network-applicationsecuritygroup/azurerm",
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-network-applicationsecuritygroup",
         "description": "Manages Application Security Group (ASG).",
-        "priority": 18,
+        "priority": 19,
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10913,8 +10883,8 @@
         "priority": 82,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11352,12 +11322,12 @@
         "priority": 83,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -12200,7 +12170,7 @@
         "source": "Azure/avm-res-network-loadbalancer/azurerm",
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-network-loadbalancer",
         "description": "Manages Loadbalancer.",
-        "priority": 19,
+        "priority": 18,
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12508,8 +12478,8 @@
         "priority": 62,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-publicipaddress"
+                "avm-res-network-publicipaddress",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12766,8 +12736,8 @@
         "priority": 84,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12994,10 +12964,10 @@
         "priority": 89,
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-network-virtualnetwork",
                 "avm-res-operationalinsights-workspace",
                 "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13016,9 +12986,9 @@
                 "condition_monitor": [],
                 "enable_telemetry": [],
                 "flow_logs": [
+                    "avm-res-network-virtualnetwork",
                     "avm-res-operationalinsights-workspace",
-                    "avm-res-storage-storageaccount",
-                    "avm-res-network-virtualnetwork"
+                    "avm-res-storage-storageaccount"
                 ],
                 "lock": [],
                 "role_assignments": [],
@@ -13261,12 +13231,12 @@
         "priority": 69,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -13406,7 +13376,7 @@
         "source": "Azure/avm-res-network-publicipaddress/azurerm",
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-network-publicipaddress",
         "description": "Manages Public IP Address.",
-        "priority": 3,
+        "priority": 4,
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13693,7 +13663,7 @@
         "source": "Azure/avm-res-network-routetable/azurerm",
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-network-routetable",
         "description": "Manages Route Table.",
-        "priority": 4,
+        "priority": 3,
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13800,11 +13770,11 @@
         "priority": 77,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-routetable",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-network-natgateway",
+                "avm-res-network-networksecuritygroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13835,9 +13805,9 @@
                     "avm-res-managedidentity-userassignedidentity"
                 ],
                 "subnets": [
+                    "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-natgateway",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-routetable"
                 ],
                 "subscription_id": [],
@@ -14307,14 +14277,14 @@
         "priority": 85,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "backup_subnet_cidr": [],
@@ -15558,10 +15528,10 @@
         "priority": 80,
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-virtualnetwork",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15587,8 +15557,8 @@
                 "containers": [],
                 "cross_tenant_replication_enabled": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "custom_domain": [],
                 "default_to_oauth_authentication": [],
