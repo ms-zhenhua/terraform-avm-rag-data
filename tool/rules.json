@@ -1,0 +1,307 @@
+{
+    "avm-res-apimanagement-service": {
+        "rules": "For cloud resource of API Management Service: it should be configured with module(source=\"Azure/avm-res-apimanagement-service/azurerm\");"
+    },
+    "avm-res-app-containerapp": {
+        "rules": "For cloud resource of Container App: it should be configured with module(source=\"Azure/avm-res-app-containerapp/azurerm\");",
+        "variables": {
+            "container_app_environment_resource_id": "`container_app_environment_resource_id` should be set with a variable;"
+        }
+    },
+    "avm-res-app-job": {
+        "rules": "For cloud resource of App Job: it should be configured with module(source=\"Azure/avm-res-app-job/azurerm\");"
+    },
+    "avm-res-app-managedenvironment": {
+        "rules": "For cloud resource of App Managed Environment: it should be configured with module(source=\"Azure/avm-res-app-managedenvironment/azurerm\");"
+    },
+    "avm-res-appconfiguration-configurationstore": {
+        "rules": "For cloud resource of App Configuration Store: it should be configured with module(source=\"Azure/avm-res-appconfiguration-configurationstore/azure\");",
+        "variables": {
+            "sku": "`sku` must be one of `free`, `standard`, `premium`;"
+        }
+    },
+    "avm-res-authorization-roleassignment": {
+        "rules": "For cloud resource of Role Assignment: it should be configured with module(source=\"Azure/avm-res-authorization-roleassignment/azurerm\");"
+    },
+    "avm-res-automation-automationaccount": {
+        "rules": "For cloud resource of Automation Account: it should be configured with module(source=\"Azure/avm-res-automation-automationaccount/azurerm\");"
+    },
+    "avm-res-avs-privatecloud": {
+        "rules": "For cloud resource of AVS Private Cloud: it should be configured with module(source=\"Azure/avm-res-avs-privatecloud/azurerm\");"
+    },
+    "avm-res-azurestackhci-cluster": {
+        "rules": "For cloud resource of Azure Stack HCI Cluster: it should be configured with module(source=\"Azure/avm-res-azurestackhci-cluster/azurerm\");"
+    },
+    "avm-res-azurestackhci-logicalnetwork": {
+        "rules": "For cloud resource of AzureStackHCI logical network: it should be configured with module(source=\"Azure/avm-res-azurestackhci-logicalnetwork/azurerm\");"
+    },
+    "avm-res-azurestackhci-virtualmachineinstance": {
+        "rules": "For cloud resource of Stack HCI Virtual Machine Instance: it should be configured with module(source=\"Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm\");"
+    },
+    "avm-res-batch-batchaccount": {
+        "rules": "For cloud resource of Batch Account: it should be configured with module(source=\"Azure/avm-res-batch-batchaccount/azurerm\");"
+    },
+    "avm-res-cache-redis": {
+        "rules": "For cloud resource of Redis Cache: it should be configured with module(source=\"Azure/avm-res-cache-redis/azurerm\");"
+    },
+    "avm-res-cdn-profile": {
+        "rules": "For cloud resource of CDN Profile: it should be configured with module(source=\"Azure/avm-res-cdn-profile/azurerm\");",
+        "variables": {
+            "diagnostic_settings": "`log_groups` must be set to empty if `log_categories` is not empty in `diagnostic_settings`; at least one of `workspace_resource_id`, `storage_account_resource_id`, `marketplace_partner_resource_id`, `event_hub_authorization_rule_resource_id` must be set in `diagnostic_settings`;"
+        }
+    },
+    "avm-res-cognitiveservices-account": {
+        "rules": "For cloud resource of Cognitive Service: it should be configured with module(source=\"Azure/avm-res-cognitiveservices-account/azurerm\");"
+    },
+    "avm-res-compute-disk": {
+        "rules": "For cloud resource of Compute Disk: it should be configured with module(source=\"Azure/avm-res-compute-disk/azurerm\");"
+    },
+    "avm-res-compute-diskencryptionset": {
+        "rules": "For cloud resource of Disk Encryption Set: it should be configured with module(source=\"Azure/avm-res-compute-diskencryptionset/azurerm\");"
+    },
+    "avm-res-compute-gallery": {
+        "rules": "For cloud resource of Azure Compute Gallery: it should be configured with module(source=\"Azure/avm-res-compute-gallery/azurerm\");"
+    },
+    "avm-res-compute-hostgroup": {
+        "rules": "For cloud resource of Host Groups: it should be configured with module(source=\"Azure/avm-res-compute-hostgroup/azurerm\");"
+    },
+    "avm-res-compute-proximityplacementgroup": {
+        "rules": "For cloud resource of Proximity Placement Group: it should be configured with module(source=\"Azure/avm-res-compute-proximityplacementgroup/azurerm\");"
+    },
+    "avm-res-compute-sshpublickey": {
+        "rules": "For cloud resource of Public SSH Key: it should be configured with module(source=\"Azure/avm-res-compute-sshpublickey/azurerm\");"
+    },
+    "avm-res-compute-virtualmachine": {
+        "rules": "For cloud resource of Virtual Machine: it should be configured with module(source=\"Azure/avm-res-compute-virtualmachine/azurerm\");",
+        "variables": {
+            "account_credentials": "`generate_admin_password_or_ssh_key` must be set to false if `ssh_keys` is output;"
+        }
+    },
+    "avm-res-compute-virtualmachinescaleset": {
+        "rules": "For cloud resource of Virtual Machine Scale Set: it should be configured with module(source=\"Azure/avm-res-compute-virtualmachinescaleset/azurerm\");"
+    },
+    "avm-res-containerinstance-containergroup": {
+        "rules": "For cloud resource of Container Instance: it should be configured with module(source=\"Azure/avm-res-containerinstance-containergroup/azurerm\");"
+    },
+    "avm-res-containerregistry-registry": {
+        "rules": "For cloud resource of Azure Container Registry (ACR): it should be configured with module(source=\"Azure/avm-res-containerregistry-registry/azurerm\");"
+    },
+    "avm-res-containerservice-managedcluster": {
+        "rules": "For cloud resource of AKS managed clusters: it should be configured with module(source=\"Azure/avm-res-containerservice-managedcluster/azurerm\");"
+    },
+    "avm-res-databricks-workspace": {
+        "rules": "For cloud resource of Azure Databricks Workspace: it should be configured with module(source=\"Azure/avm-res-databricks-workspace/azurerm\");"
+    },
+    "avm-res-datafactory-factory": {
+        "rules": "For cloud resource of Data Factory: it should be configured with module(source=\"Azure/avm-res-datafactory-factory/azurerm\");"
+    },
+    "avm-res-dataprotection-backupvault": {
+        "rules": "For cloud resource of Data Protection Backup Vault: it should be configured with module(source=\"Azure/avm-res-dataprotection-backupvault/azurerm\");"
+    },
+    "avm-res-dbformysql-flexibleserver": {
+        "rules": "For cloud resource of DB for MySQL Flexible Server: it should be configured with module(source=\"Azure/avm-res-dbformysql-flexibleserver/azurerm\");"
+    },
+    "avm-res-dbforpostgresql-flexibleserver": {
+        "rules": "For cloud resource of DB for Postgre SQL Flexible Server: it should be configured with module(source=\"Azure/avm-res-dbforpostgresql-flexibleserver/azurerm\");"
+    },
+    "avm-res-desktopvirtualization-applicationgroup": {
+        "rules": "For cloud resource of Azure Virtual Desktop (AVD) Application Group: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-applicationgroup/azurerm\");"
+    },
+    "avm-res-desktopvirtualization-hostpool": {
+        "rules": "For cloud resource of Azure Virtual Desktop (AVD) Host Pool: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-hostpool/azurerm\");"
+    },
+    "avm-res-desktopvirtualization-scalingplan": {
+        "rules": "For cloud resource of Azure Virtual Desktop (AVD) Scaling Plan: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-scalingplan/azurerm\");"
+    },
+    "avm-res-desktopvirtualization-workspace": {
+        "rules": "For cloud resource of Azure Virtual Desktop (AVD) Workspace: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-workspace/azurerm\");"
+    },
+    "avm-res-devcenter-devcenter": {
+        "rules": "For cloud resource of Dev Center: it should be configured with module(source=\"Azure/avm-res-devcenter-devcenter/azurerm\");"
+    },
+    "avm-res-devopsinfrastructure-pool": {
+        "rules": "For cloud resource of DevOps Pools: it should be configured with module(source=\"Azure/avm-res-devopsinfrastructure-pool/azurerm\");"
+    },
+    "avm-res-documentdb-databaseaccount": {
+        "rules": "For cloud resource of CosmosDB Database Account: it should be configured with module(source=\"Azure/avm-res-documentdb-databaseaccount/azurerm\");"
+    },
+    "avm-res-edge-site": {
+        "rules": "For cloud resource of Azure Arc Site manager: it should be configured with module(source=\"Azure/avm-res-edge-site/azurerm\");"
+    },
+    "avm-res-eventhub-namespace": {
+        "rules": "For cloud resource of Event Hub Namespace: it should be configured with module(source=\"Azure/avm-res-eventhub-namespace/azurerm\");"
+    },
+    "avm-res-hybridcontainerservice-provisionedclusterinstance": {
+        "rules": "For cloud resource of AKS Arc: it should be configured with module(source=\"Azure/avm-res-hybridcontainerservice-provisionedclusterinstance/azurerm\");",
+        "variables": {
+            "agent_pool_profiles": "`agent_pool_profiles` must contain at least one element;"
+        }
+    },
+    "avm-res-insights-autoscalesetting": {
+        "rules": "For cloud resource of Auto scale settings: it should be configured with module(source=\"Azure/avm-res-insights-autoscalesetting/azurerm\");"
+    },
+    "avm-res-insights-component": {
+        "rules": "For cloud resource of Application Insight: it should be configured with module(source=\"Azure/avm-res-insights-component/azurerm\");"
+    },
+    "avm-res-insights-datacollectionendpoint": {
+        "rules": "For cloud resource of Data Collection Endpoint: it should be configured with module(source=\"Azure/avm-res-insights-datacollectionendpoint/azurerm\");"
+    },
+    "avm-res-keyvault-vault": {
+        "rules": "For cloud resource of Key Vault: it should be configured with module(source=\"Azure/avm-res-keyvault-vault/azurerm\");"
+    },
+    "avm-res-kusto-cluster": {
+        "rules": "For cloud resource of Kusto Clusters: it should be configured with module(source=\"Azure/avm-res-kusto-cluster/azurerm\");",
+        "variables": {
+            "sku": "`sku` should be set `Dev(No SLA)_Standard_D11_v2` by default;",
+            "kusto_cluster_principal_assignments": "`kusto_cluster_principal_assignments` should not be set by default;"
+        }
+    },
+    "avm-res-logic-workflow": {
+        "rules": "For cloud resource of Logic Apps (Workflow): it should be configured with module(source=\"Azure/avm-res-logic-workflow/azurerm\");"
+    },
+    "avm-res-machinelearningservices-workspace": {
+        "rules": "For cloud resource of Machine Learning Services Workspace: it should be configured with module(source=\"Azure/avm-res-machinelearningservices-workspace/azurerm\");"
+    },
+    "avm-res-maintenance-maintenanceconfiguration": {
+        "rules": "For cloud resource of Maintenance Configuration: it should be configured with module(source=\"Azure/avm-res-maintenance-maintenanceconfiguration/azurerm\");"
+    },
+    "avm-res-managedidentity-userassignedidentity": {
+        "rules": "For cloud resource of User Assigned Identity: it should be configured with module(source=\"Azure/avm-res-managedidentity-userassignedidentity/azurerm\");"
+    },
+    "avm-res-netapp-netappaccount": {
+        "rules": "For cloud resource of Azure NetApp File: it should be configured with module(source=\"Azure/avm-res-netapp-netappaccount/azurerm\");"
+    },
+    "avm-res-network-applicationgateway": {
+        "rules": "For cloud resource of Application Gateway: it should be configured with module(source=\"Azure/avm-res-network-applicationgateway/azurerm\");"
+    },
+    "avm-res-network-applicationgatewaywebapplicationfirewallpolicy": {
+        "rules": "For cloud resource of Application Gateway Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-applicationgatewaywebapplicationfirewallpolicy/azurerm\");"
+    },
+    "avm-res-network-applicationsecuritygroup": {
+        "rules": "For cloud resource of Application Security Group (ASG): it should be configured with module(source=\"Azure/avm-res-network-applicationsecuritygroup/azurerm\");"
+    },
+    "avm-res-network-azurefirewall": {
+        "rules": "For cloud resource of Azure Firewall: it should be configured with module(source=\"Azure/avm-res-network-azurefirewall/azurerm\");"
+    },
+    "avm-res-network-bastionhost": {
+        "rules": "For cloud resource of Bastion Host: it should be configured with module(source=\"Azure/avm-res-network-bastionhost/azurerm\");"
+    },
+    "avm-res-network-connection": {
+        "rules": "For cloud resource of Virtual Network Gateway Connection: it should be configured with module(source=\"Azure/avm-res-network-connection/azurerm\");"
+    },
+    "avm-res-network-ddosprotectionplan": {
+        "rules": "For cloud resource of DDoS Protection: it should be configured with module(source=\"Azure/avm-res-network-ddosprotectionplan/azurerm\");"
+    },
+    "avm-res-network-dnsresolver": {
+        "rules": "For cloud resource of DNS Resolver: it should be configured with module(source=\"Azure/avm-res-network-dnsresolver/azurerm\");"
+    },
+    "avm-res-network-dnszone": {
+        "rules": "For cloud resource of Public DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-dnszone/azurerm\");"
+    },
+    "avm-res-network-expressroutecircuit": {
+        "rules": "For cloud resource of ExpressRoute Circuit: it should be configured with module(source=\"Azure/avm-res-network-expressroutecircuit/azurerm\");",
+        "variables": {
+            "er_gw_connections": "if `er_gw_connections` is output, at least one of `express_route_circuit_peering_resource_id`, `peering_map_key` must be output;"
+        }
+    },
+    "avm-res-network-firewallpolicy": {
+        "rules": "For cloud resource of Azure Firewall Policy: it should be configured with module(source=\"Azure/avm-res-network-firewallpolicy/azurerm\");"
+    },
+    "avm-res-network-frontdoorwebapplicationfirewallpolicy": {
+        "rules": "For cloud resource of Front Door Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-frontdoorwebapplicationfirewallpolicy/azurerm\");"
+    },
+    "avm-res-network-ipgroup": {
+        "rules": "For cloud resource of IP Group: it should be configured with module(source=\"Azure/avm-res-network-ipgroup/azurerm\");"
+    },
+    "avm-res-network-loadbalancer": {
+        "rules": "For cloud resource of Loadbalancer: it should be configured with module(source=\"Azure/avm-res-network-loadbalancer/azurerm\");"
+    },
+    "avm-res-network-localnetworkgateway": {
+        "rules": "For cloud resource of Local Network Gateway: it should be configured with module(source=\"Azure/avm-res-network-localnetworkgateway/azurerm\");"
+    },
+    "avm-res-network-natgateway": {
+        "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
+    },
+    "avm-res-network-networkinterface": {
+        "rules": "For cloud resource of Network Interface: it should be configured with module(source=\"Azure/avm-res-network-networkinterface/azurerm\");"
+    },
+    "avm-res-network-networkmanager": {
+        "rules": "For cloud resource of Azure Virtual Network Manager: it should be configured with module(source=\"Azure/avm-res-network-networkmanager/azurerm\");"
+    },
+    "avm-res-network-networksecuritygroup": {
+        "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
+    },
+    "avm-res-network-networkwatcher": {
+        "rules": "For cloud resource of Azure Network Watcher: it should be configured with module(source=\"Azure/avm-res-network-networkwatcher/azurerm\");"
+    },
+    "avm-res-network-privatednszone": {
+        "rules": "For cloud resource of Private DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-privatednszone/azurerm\");"
+    },
+    "avm-res-network-privateendpoint": {
+        "rules": "For cloud resource of Private Endpoint: it should be configured with module(source=\"Azure/avm-res-network-privateendpoint/azurerm\");"
+    },
+    "avm-res-network-publicipaddress": {
+        "rules": "For cloud resource of Public IP Address: it should be configured with module(source=\"Azure/avm-res-network-publicipaddress/azurerm\");"
+    },
+    "avm-res-network-publicipprefix": {
+        "rules": "For cloud resource of Public IP Prefix: it should be configured with module(source=\"Azure/avm-res-network-publicipprefix/azurerm\");"
+    },
+    "avm-res-network-routetable": {
+        "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");",
+        "variables": {
+            "routes": "`next_hop_in_ip_address` should not be set by default;"
+        }
+    },
+    "avm-res-network-virtualnetwork": {
+        "rules": "For cloud resource of Virtual Network: it should be configured with module(source=\"Azure/avm-res-network-virtualnetwork/azurerm\");"
+    },
+    "avm-res-operationalinsights-workspace": {
+        "rules": "For cloud resource of Log Analytics workspace: it should be configured with module(source=\"Azure/avm-res-operationalinsights-workspace/azurerm\");"
+    },
+    "avm-res-oracledatabase-cloudexadatainfrastructure": {
+        "rules": "For cloud resource of Oracle Exadata Infrastructure: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudexadatainfrastructure/azurerm\");"
+    },
+    "avm-res-oracledatabase-cloudvmcluster": {
+        "rules": "For cloud resource of Oracle VM cluster: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudvmcluster/azurerm\");"
+    },
+    "avm-res-portal-dashboard": {
+        "rules": "For cloud resource of Azure Portal Dashboard: it should be configured with module(source=\"Azure/avm-res-portal-dashboard/azurerm\");"
+    },
+    "avm-res-resourcegraph-query": {
+        "rules": "For cloud resource of Resource Graph Query: it should be configured with module(source=\"Azure/avm-res-resourcegraph-query/azurerm\");"
+    },
+    "avm-res-resources-resourcegroup": {
+        "rules": "For cloud resource of Resource Group: it should be configured with module(source=\"Azure/avm-res-resources-resourcegroup/azurerm\");"
+    },
+    "avm-res-search-searchservice": {
+        "rules": "For cloud resource of Search Service: it should be configured with module(source=\"Azure/avm-res-search-searchservice/azurerm\");"
+    },
+    "avm-res-servicebus-namespace": {
+        "rules": "For cloud resource of Service Bus Namespace: it should be configured with module(source=\"Azure/avm-res-servicebus-namespace/azurerm\");"
+    },
+    "avm-res-sql-managedinstance": {
+        "rules": "For cloud resource of SQL Managed Instance: it should be configured with module(source=\"Azure/avm-res-sql-managedinstance/azurerm\");"
+    },
+    "avm-res-sql-server": {
+        "rules": "For cloud resource of Azure SQL Server: it should be configured with module(source=\"Azure/avm-res-sql-server/azurerm\");"
+    },
+    "avm-res-storage-storageaccount": {
+        "rules": "For cloud resource of Storage Account: it should be configured with module(source=\"Azure/avm-res-storage-storageaccount/azurerm\");"
+    },
+    "avm-res-web-hostingenvironment": {
+        "rules": "For cloud resource of App Service Environment: it should be configured with module(source=\"Azure/avm-res-web-hostingenvironment/azurerm\");"
+    },
+    "avm-res-web-serverfarm": {
+        "rules": "For cloud resource of App Service Plan: it should be configured with module(source=\"Azure/avm-res-web-serverfarm/azurerm\");"
+    },
+    "avm-res-web-site": {
+        "rules": "For cloud resource of Web/Function App: it should be configured with module(source=\"Azure/avm-res-web-site/azurerm\");",
+        "variables": {
+            "os_type": "`os_type` must be set to `Linux` or `Windows`;",
+            "logs": "If `http_logs` is output in `logs`, `application_logs` must also be output."
+        }
+    },
+    "avm-res-web-staticsite": {
+        "rules": "For cloud resource of Static Web App: it should be configured with module(source=\"Azure/avm-res-web-staticsite/azurerm\");"
+    }
+}
