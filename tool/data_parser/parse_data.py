@@ -1,7 +1,7 @@
 import asyncio
 import json
 import logging
-from utils import run_tasks
+from ..utils import run_tasks
 from .output_parser import parse as parse_module_outputs
 from .variable_parser import VariableParser
 

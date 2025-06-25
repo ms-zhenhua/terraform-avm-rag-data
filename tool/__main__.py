@@ -4,11 +4,11 @@ import os
 import json
 import logging
 
-from data_loader import load_data
-from data_parser.parse_data import parse_data
-from dependency_generator import generate as generate_dependencies
-from rule_generator import generate as generate_rules
-from utils import DATA_DIRECTORY_PATH, DATA_FILE_PATH
+from .data_loader import load_data
+from .data_parser.parse_data import parse_data
+from .dependency_generator import generate as generate_dependencies
+from .rule_generator import generate as generate_rules
+from .utils import DATA_DIRECTORY_PATH, DATA_FILE_PATH
 
 async def main():
     if os.path.exists(DATA_DIRECTORY_PATH):

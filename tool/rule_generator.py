@@ -1,7 +1,6 @@
-import asyncio
 import json
 import logging
-from utils import RULES_FILE_PATH
+from .utils import RULES_FILE_PATH
 
 def generate(modules: dict[str, dict]):
     with open(RULES_FILE_PATH, 'r', encoding='utf-8') as f:

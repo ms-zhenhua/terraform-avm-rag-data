@@ -1,7 +1,7 @@
 import os
 import logging
 import hcl2
-from utils import DATA_DIRECTORY_PATH, raise_error
+from ..utils import DATA_DIRECTORY_PATH, raise_error
 
 def parse(module: dict) -> dict:
     logging.info(f"Parsing outputs for module: {module['module_name']}")

@@ -17,7 +17,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from utils import AVM_OFFICIAL_URL, ORIGIN_DATA_FILE_PATH, DATA_DIRECTORY_PATH, DOWNLOADED_TAR_PATH, run_tasks, raise_error
+from .utils import AVM_OFFICIAL_URL, ORIGIN_DATA_FILE_PATH, DATA_DIRECTORY_PATH, DOWNLOADED_TAR_PATH, run_tasks, raise_error
 
 def load_modules_info() -> dict[str, dict]:
     logging.info("Loading modules info from AVM official website...")
@@ -176,12 +176,12 @@ async def load_data() -> dict[str, dict]:
     try:
         data = load_modules_info()
     except Exception as e:
-        raise_error("Failed to load modules info: %s", e)
+        raise_error(f"Failed to load modules info: {e}")
     
     try:
         await download_the_latest_version_modules(data)
     except Exception as e:
-        raise_error("Failed to download the latest version: %s", e)
+        raise_error(f"Failed to download the latest version: {e}")
     
     return data
 

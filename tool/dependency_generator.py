@@ -2,7 +2,7 @@ import asyncio
 import os
 import json
 import logging
-from utils import run_tasks, raise_error
+from .utils import run_tasks, raise_error
 
 class DependencyGenerator:
     def __init__(self, modules: dict[str, dict]):

@@ -4,7 +4,7 @@ import json
 import logging
 import hcl2
 from asyncio.subprocess import Process
-from utils import DATA_DIRECTORY_PATH, AZURERM_TO_AVM_FILE_PATH, raise_error
+from ..utils import DATA_DIRECTORY_PATH, AZURERM_TO_AVM_FILE_PATH, raise_error
 from .example_parser import ExampleParser
 from abc import ABC, abstractmethod
 import hashlib

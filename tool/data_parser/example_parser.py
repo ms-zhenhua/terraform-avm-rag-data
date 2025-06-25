@@ -4,7 +4,7 @@ import logging
 import hcl2
 import re
 
-from utils import DATA_DIRECTORY_PATH, TOOL_DIRECTORY_PATH, AZURERM_TO_AVM_FILE_PATH, raise_error
+from ..utils import DATA_DIRECTORY_PATH, TOOL_DIRECTORY_PATH, AZURERM_TO_AVM_FILE_PATH, raise_error
 
 class ExampleFileParser:
     def __init__(self, modules: dict[str, dict], azurerm_to_avm: dict[str, str], module_name: str, file_path: str):
