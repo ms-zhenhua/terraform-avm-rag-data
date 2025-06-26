@@ -39,6 +39,7 @@ jobs:
             echo "No changes detected in avm_data.json"
           else
             echo "Changes detected in avm_data.json, committing and pushing..."
+            git add data/avm_data.json
             git commit -m "Update avm_data.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             git push origin main
             echo "Successfully pushed changes to main branch"
