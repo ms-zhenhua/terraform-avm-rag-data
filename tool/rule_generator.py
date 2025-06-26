@@ -20,13 +20,13 @@ def generate(modules: dict[str, dict]):
             modules[k]['variables'][vk]['rules'] = vv
 
 def main():
-    from utils import DATA_FILE_PATH
-    with open(DATA_FILE_PATH, 'r', encoding='utf-8') as f:
+    from utils import DEBUG_DATA_FILE_PATH
+    with open(DEBUG_DATA_FILE_PATH, 'r', encoding='utf-8') as f:
         data = json.load(f)
     
     generate(data)
 
-    with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+    with open(DEBUG_DATA_FILE_PATH, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data, indent=4))
 
 if __name__ == "__main__":

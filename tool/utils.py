@@ -8,7 +8,7 @@ DATA_DIRECTORY_PATH = os.path.join(TOOL_DIRECTORY_PATH, 'e9666d6d-96ee-4eb0-94e4
 DOWNLOADED_TAR_PATH = os.path.join(DATA_DIRECTORY_PATH, 'downloaded')
 DATA_FILE_NAME = 'avm_data.json'
 ORIGIN_DATA_FILE_PATH = os.path.join(os.path.dirname(TOOL_DIRECTORY_PATH), 'data', 'avm_data.json')
-DATA_FILE_PATH = os.path.join(DATA_DIRECTORY_PATH, DATA_FILE_NAME)
+DEBUG_DATA_FILE_PATH = os.path.join(DATA_DIRECTORY_PATH, DATA_FILE_NAME)
 RULES_FILE_PATH = os.path.join(TOOL_DIRECTORY_PATH, 'rules.json')
 
 AVM_OFFICIAL_URL = 'https://azure.github.io/Azure-Verified-Modules/indexes/terraform/tf-resource-modules/'

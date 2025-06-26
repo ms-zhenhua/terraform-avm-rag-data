@@ -1,0 +1,47 @@
+name: Update Data Task
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  data-update-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run data processing tool
+        run: |
+          python -m tool
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for changes and commit if needed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if git diff --exit-code data/avm_data.json; then
+            echo "No changes detected in avm_data.json"
+          else
+            echo "Changes detected in avm_data.json, committing and pushing..."
+            git commit -m "Update avm_data.json - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git push origin main
+            echo "Successfully pushed changes to main branch"
+          fi
+
+
+      

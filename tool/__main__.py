@@ -8,7 +8,7 @@ from .data_loader import load_data
 from .data_parser.parse_data import parse_data
 from .dependency_generator import generate as generate_dependencies
 from .rule_generator import generate as generate_rules
-from .utils import DATA_DIRECTORY_PATH, DATA_FILE_PATH
+from .utils import DATA_DIRECTORY_PATH, ORIGIN_DATA_FILE_PATH
 
 async def main():
     if os.path.exists(DATA_DIRECTORY_PATH):
@@ -21,7 +21,7 @@ async def main():
     await generate_dependencies(data)
     generate_rules(data)
 
-    with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+    with open(ORIGIN_DATA_FILE_PATH, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data, indent=4))
 
     # generate questions and check list

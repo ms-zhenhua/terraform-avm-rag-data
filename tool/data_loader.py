@@ -186,9 +186,9 @@ async def load_data() -> dict[str, dict]:
     return data
 
 async def main():
-    from utils import DATA_FILE_PATH
+    from utils import DEBUG_DATA_FILE_PATH
     data = await load_data()
-    with open(DATA_FILE_PATH, 'w', encoding='utf-8') as f:
+    with open(DEBUG_DATA_FILE_PATH, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data, indent=4))
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
