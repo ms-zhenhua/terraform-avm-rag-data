@@ -3142,12 +3142,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -9890,12 +9890,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -10988,8 +10988,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-search-searchservice",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12185,9 +12185,9 @@
             },
             "ip_configuration": {
                 "required": false,
-                "description": "The IP configuration for the Azure Bastion Host.\n- `name` - The name of the IP configuration.\n- `subnet_id` - The ID of the subnet where the Azure Bastion Host will be deployed.\n- `create_public_ip` - Specifies whether a public IP address should be created by the module. if both `create_public_ip` and `public_ip_address_id` are set, the `public_ip_address_id` will be ignored.\n- `public_ip_address_name` - The Name of the public IP address to create. Will be ignored if `public_ip_address_id` is set.\n- `public_ip_address_id` - The ID of the public IP address associated with the Azure Bastion Host.",
+                "description": "The IP configuration for the Azure Bastion Host.\n- `name` - The name of the IP configuration.\n- `subnet_id` - The ID of the subnet where the Azure Bastion Host will be deployed.\n- `create_public_ip` - Specifies whether a public IP address should be created by the module.\n- `public_ip_tags` - A map of tags to apply to the public IP address.\n- `public_ip_merge_with_module_tags` - If set to true, the public IP tags will be merged with the module's tags. If set to false, only the `public_ip_tags` will be applied to the public IP address.\n- `public_ip_address_name` - The Name of the public IP address to create. Will be ignored if `public_ip_address_id` is set.\n- `public_ip_address_id` - The ID of the public IP address associated with the Azure Bastion Host. If Set, create_public_ip must be set to false.",
                 "priority": 10015,
-                "schema": "# `ip_configuration` is Optional in module\nip_configuration = {\n  # `subnet_id` is Required in `ip_configuration`\nsubnet_id = var.string_ip_configuration_subnet_id\n  # `name` is Optional in `ip_configuration`\nname = \"\"\n  # `create_public_ip` is Optional in `ip_configuration`\ncreate_public_ip = true\n  # `public_ip_address_name` is Optional in `ip_configuration`\npublic_ip_address_name = \"\"\n  # `public_ip_address_id` is Optional in `ip_configuration`\npublic_ip_address_id = \"\"\n}\n\n"
+                "schema": "# `ip_configuration` is Optional in module\nip_configuration = {\n  # `subnet_id` is Required in `ip_configuration`\nsubnet_id = var.string_ip_configuration_subnet_id\n  # `name` is Optional in `ip_configuration`\nname = \"\"\n  # `create_public_ip` is Optional in `ip_configuration`\ncreate_public_ip = true\n  # `public_ip_tags` is Optional in `ip_configuration`\npublic_ip_tags = {\n  example_key = \"\"\n}\n\n  # `public_ip_merge_with_module_tags` is Optional in `ip_configuration`\npublic_ip_merge_with_module_tags = true\n  # `public_ip_address_name` is Optional in `ip_configuration`\npublic_ip_address_name = \"\"\n  # `public_ip_address_id` is Optional in `ip_configuration`\npublic_ip_address_id = \"\"\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
@@ -12612,12 +12612,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14084,8 +14084,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15770,14 +15770,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
@@ -18121,8 +18121,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
