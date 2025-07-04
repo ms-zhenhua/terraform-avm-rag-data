@@ -754,7 +754,8 @@
         "outputs": [
             "name",
             "private_endpoint_resource_ids",
-            "resource_id"
+            "resource_id",
+            "test"
         ],
         "variables": {
             "location": {
@@ -881,8 +882,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -1710,8 +1711,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4333,12 +4334,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5165,8 +5166,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8010,12 +8011,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8375,8 +8376,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10988,8 +10989,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
-                "avm-res-search-searchservice"
+                "avm-res-search-searchservice",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11031,7 +11032,7 @@
                 ]
             }
         },
-        "priority": 90,
+        "priority": 88,
         "rules": "For cloud resource of Machine Learning Services Workspace: it should be configured with module(source=\"Azure/avm-res-machinelearningservices-workspace/azurerm\");"
     },
     "avm-res-maintenance-maintenanceconfiguration": {
@@ -12638,7 +12639,7 @@
                 "outbound_endpoints": []
             }
         },
-        "priority": 88,
+        "priority": 89,
         "rules": "For cloud resource of DNS Resolver: it should be configured with module(source=\"Azure/avm-res-network-dnsresolver/azurerm\");"
     },
     "avm-res-network-dnszone": {
@@ -14114,7 +14115,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 89,
+        "priority": 90,
         "rules": "For cloud resource of Azure Virtual Network Manager: it should be configured with module(source=\"Azure/avm-res-network-networkmanager/azurerm\");"
     },
     "avm-res-network-networksecuritygroup": {
@@ -14590,12 +14591,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15194,7 +15195,7 @@
                 "peerings": []
             }
         },
-        "priority": 39,
+        "priority": 40,
         "rules": "For cloud resource of Virtual Network: it should be configured with module(source=\"Azure/avm-res-network-virtualnetwork/azurerm\");"
     },
     "avm-res-operationalinsights-workspace": {
@@ -15770,14 +15771,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "backup_subnet_cidr": [],
@@ -16252,7 +16253,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 40,
+        "priority": 39,
         "rules": "For cloud resource of Search Service: it should be configured with module(source=\"Azure/avm-res-search-searchservice/azurerm\");"
     },
     "avm-res-servicebus-namespace": {
