@@ -4327,12 +4327,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5159,8 +5159,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10986,8 +10986,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12200,8 +12200,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12611,12 +12611,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -14083,8 +14083,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14589,12 +14589,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -15769,14 +15769,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "backup_subnet_cidr": [],
