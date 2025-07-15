@@ -107,7 +107,7 @@
                 "required": false,
                 "description": "The SKU name of the API Management service.",
                 "priority": 10009,
-                "schema": "# `sku_name` is Optional in module\nsku_name = \"Premium_1\"\n"
+                "schema": "# `sku_name` is Optional in module\nsku_name = \"Premium_3\"\n"
             },
             "virtual_network_subnet_id": {
                 "required": false,
@@ -125,7 +125,7 @@
                 "required": false,
                 "description": "Specifies a list of Availability Zones in which this API Management service should be located. Only supported in the Premium tier.",
                 "priority": 10012,
-                "schema": "# `zones` is Optional in module\nzones = []\n"
+                "schema": "# `zones` is Optional in module\nzones = [\"3\"]\n"
             },
             "tags": {
                 "required": false,
@@ -266,7 +266,7 @@
                 "hostname_configuration": []
             }
         },
-        "priority": 1,
+        "priority": 2,
         "rules": "For cloud resource of API Management Service: it should be configured with module(source=\"Azure/avm-res-apimanagement-service/azurerm\");"
     },
     "avm-res-app-containerapp": {
@@ -423,7 +423,7 @@
                 "auth_configs": []
             }
         },
-        "priority": 2,
+        "priority": 3,
         "rules": "For cloud resource of Container App: it should be configured with module(source=\"Azure/avm-res-app-containerapp/azurerm\");"
     },
     "avm-res-app-job": {
@@ -524,7 +524,7 @@
                 "trigger_config": []
             }
         },
-        "priority": 3,
+        "priority": 4,
         "rules": "For cloud resource of App Job: it should be configured with module(source=\"Azure/avm-res-app-job/azurerm\");"
     },
     "avm-res-app-managedenvironment": {
@@ -915,7 +915,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 5,
+        "priority": 6,
         "rules": "For cloud resource of App Configuration Store: it should be configured with module(source=\"Azure/avm-res-appconfiguration-configurationstore/azure\");"
     },
     "avm-res-authorization-roleassignment": {
@@ -1171,7 +1171,7 @@
                 "role_assignments_for_management_groups": []
             }
         },
-        "priority": 6,
+        "priority": 7,
         "rules": "For cloud resource of Role Assignment: it should be configured with module(source=\"Azure/avm-res-authorization-roleassignment/azurerm\");"
     },
     "avm-res-automation-automationaccount": {
@@ -1472,7 +1472,7 @@
                 "automation_runbooks": []
             }
         },
-        "priority": 7,
+        "priority": 8,
         "rules": "For cloud resource of Automation Account: it should be configured with module(source=\"Azure/avm-res-automation-automationaccount/azurerm\");"
     },
     "avm-res-avs-privatecloud": {
@@ -1760,7 +1760,7 @@
                 "expressroute_connections": []
             }
         },
-        "priority": 8,
+        "priority": 9,
         "rules": "For cloud resource of AVS Private Cloud: it should be configured with module(source=\"Azure/avm-res-avs-privatecloud/azurerm\");"
     },
     "avm-res-azurestackhci-cluster": {
@@ -2539,7 +2539,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 9,
+        "priority": 10,
         "rules": "For cloud resource of Azure Stack HCI Cluster: it should be configured with module(source=\"Azure/avm-res-azurestackhci-cluster/azurerm\");"
     },
     "avm-res-azurestackhci-logicalnetwork": {
@@ -2702,7 +2702,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 10,
+        "priority": 11,
         "rules": "For cloud resource of AzureStackHCI logical network: it should be configured with module(source=\"Azure/avm-res-azurestackhci-logicalnetwork/azurerm\");"
     },
     "avm-res-azurestackhci-virtualmachineinstance": {
@@ -2998,7 +2998,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 11,
+        "priority": 12,
         "rules": "For cloud resource of Stack HCI Virtual Machine Instance: it should be configured with module(source=\"Azure/avm-res-azurestackhci-virtualmachineinstance/azurerm\");"
     },
     "avm-res-batch-batchaccount": {
@@ -3136,12 +3136,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -3425,7 +3425,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 13,
+        "priority": 14,
         "rules": "For cloud resource of Redis Cache: it should be configured with module(source=\"Azure/avm-res-cache-redis/azurerm\");"
     },
     "avm-res-cdn-profile": {
@@ -3639,7 +3639,7 @@
                 "cdn_endpoints": []
             }
         },
-        "priority": 14,
+        "priority": 15,
         "rules": "For cloud resource of CDN Profile: it should be configured with module(source=\"Azure/avm-res-cdn-profile/azurerm\");"
     },
     "avm-res-cognitiveservices-account": {
@@ -3910,7 +3910,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 15,
+        "priority": 16,
         "rules": "For cloud resource of Cognitive Service: it should be configured with module(source=\"Azure/avm-res-cognitiveservices-account/azurerm\");"
     },
     "avm-res-compute-disk": {
@@ -4231,7 +4231,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 16,
+        "priority": 17,
         "rules": "For cloud resource of Compute Disk: it should be configured with module(source=\"Azure/avm-res-compute-disk/azurerm\");"
     },
     "avm-res-compute-diskencryptionset": {
@@ -4466,7 +4466,7 @@
                 "shared_image_definitions": []
             }
         },
-        "priority": 18,
+        "priority": 19,
         "rules": "For cloud resource of Azure Compute Gallery: it should be configured with module(source=\"Azure/avm-res-compute-gallery/azurerm\");"
     },
     "avm-res-compute-hostgroup": {
@@ -4560,7 +4560,7 @@
                 "dedicated_hosts": []
             }
         },
-        "priority": 19,
+        "priority": 20,
         "rules": "For cloud resource of Host Groups: it should be configured with module(source=\"Azure/avm-res-compute-hostgroup/azurerm\");"
     },
     "avm-res-compute-proximityplacementgroup": {
@@ -4649,7 +4649,7 @@
                 "lock": []
             }
         },
-        "priority": 20,
+        "priority": 21,
         "rules": "For cloud resource of Proximity Placement Group: it should be configured with module(source=\"Azure/avm-res-compute-proximityplacementgroup/azurerm\");"
     },
     "avm-res-compute-sshpublickey": {
@@ -4740,7 +4740,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 21,
+        "priority": 22,
         "rules": "For cloud resource of Public SSH Key: it should be configured with module(source=\"Azure/avm-res-compute-sshpublickey/azurerm\");"
     },
     "avm-res-compute-virtualmachine": {
@@ -5569,7 +5569,7 @@
                 "os_profile": []
             }
         },
-        "priority": 22,
+        "priority": 23,
         "rules": "For cloud resource of Virtual Machine Scale Set: it should be configured with module(source=\"Azure/avm-res-compute-virtualmachinescaleset/azurerm\");"
     },
     "avm-res-containerinstance-containergroup": {
@@ -5983,7 +5983,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 23,
+        "priority": 24,
         "rules": "For cloud resource of Azure Container Registry (ACR): it should be configured with module(source=\"Azure/avm-res-containerregistry-registry/azurerm\");"
     },
     "avm-res-containerservice-managedcluster": {
@@ -6486,7 +6486,7 @@
                 "node_pools": []
             }
         },
-        "priority": 24,
+        "priority": 25,
         "rules": "For cloud resource of AKS managed clusters: it should be configured with module(source=\"Azure/avm-res-containerservice-managedcluster/azurerm\");"
     },
     "avm-res-databricks-workspace": {
@@ -6690,7 +6690,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 25,
+        "priority": 26,
         "rules": "For cloud resource of Azure Databricks Workspace: it should be configured with module(source=\"Azure/avm-res-databricks-workspace/azurerm\");"
     },
     "avm-res-datafactory-factory": {
@@ -6877,8 +6877,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -7595,7 +7595,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 27,
+        "priority": 28,
         "rules": "For cloud resource of DB for MySQL Flexible Server: it should be configured with module(source=\"Azure/avm-res-dbformysql-flexibleserver/azurerm\");"
     },
     "avm-res-dbforpostgresql-flexibleserver": {
@@ -7896,7 +7896,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 28,
+        "priority": 29,
         "rules": "For cloud resource of DB for Postgre SQL Flexible Server: it should be configured with module(source=\"Azure/avm-res-dbforpostgresql-flexibleserver/azurerm\");"
     },
     "avm-res-desktopvirtualization-applicationgroup": {
@@ -8267,7 +8267,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 29,
+        "priority": 30,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Host Pool: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-hostpool/azurerm\");"
     },
     "avm-res-desktopvirtualization-scalingplan": {
@@ -8528,7 +8528,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 30,
+        "priority": 31,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Workspace: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-workspace/azurerm\");"
     },
     "avm-res-devcenter-devcenter": {
@@ -8630,7 +8630,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 31,
+        "priority": 32,
         "rules": "For cloud resource of Dev Center: it should be configured with module(source=\"Azure/avm-res-devcenter-devcenter/azurerm\");"
     },
     "avm-res-devopsinfrastructure-pool": {
@@ -8879,7 +8879,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 32,
+        "priority": 33,
         "rules": "For cloud resource of DevOps Pools: it should be configured with module(source=\"Azure/avm-res-devopsinfrastructure-pool/azurerm\");"
     },
     "avm-res-documentdb-databaseaccount": {
@@ -9173,7 +9173,7 @@
                 "sql_databases": []
             }
         },
-        "priority": 33,
+        "priority": 34,
         "rules": "For cloud resource of CosmosDB Database Account: it should be configured with module(source=\"Azure/avm-res-documentdb-databaseaccount/azurerm\");"
     },
     "avm-res-edge-site": {
@@ -9372,7 +9372,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 34,
+        "priority": 35,
         "rules": "For cloud resource of Azure Arc Site manager: it should be configured with module(source=\"Azure/avm-res-edge-site/azurerm\");"
     },
     "avm-res-eventhub-namespace": {
@@ -9561,7 +9561,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 35,
+        "priority": 36,
         "rules": "For cloud resource of Event Hub Namespace: it should be configured with module(source=\"Azure/avm-res-eventhub-namespace/azurerm\");"
     },
     "avm-res-hybridcontainerservice-provisionedclusterinstance": {
@@ -9811,7 +9811,7 @@
                 "additional_nodepools": []
             }
         },
-        "priority": 36,
+        "priority": 37,
         "rules": "For cloud resource of AKS Arc: it should be configured with module(source=\"Azure/avm-res-hybridcontainerservice-provisionedclusterinstance/azurerm\");"
     },
     "avm-res-insights-autoscalesetting": {
@@ -10178,7 +10178,7 @@
                 "tags": []
             }
         },
-        "priority": 37,
+        "priority": 38,
         "rules": "For cloud resource of Data Collection Endpoint: it should be configured with module(source=\"Azure/avm-res-insights-datacollectionendpoint/azurerm\");"
     },
     "avm-res-keyvault-vault": {
@@ -10411,7 +10411,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 17,
+        "priority": 18,
         "rules": "For cloud resource of Key Vault: it should be configured with module(source=\"Azure/avm-res-keyvault-vault/azurerm\");"
     },
     "avm-res-kusto-cluster": {
@@ -10656,7 +10656,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 38,
+        "priority": 39,
         "rules": "For cloud resource of Kusto Clusters: it should be configured with module(source=\"Azure/avm-res-kusto-cluster/azurerm\");"
     },
     "avm-res-logic-workflow": {
@@ -10808,7 +10808,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 39,
+        "priority": 40,
         "rules": "For cloud resource of Logic Apps (Workflow): it should be configured with module(source=\"Azure/avm-res-logic-workflow/azurerm\");"
     },
     "avm-res-machinelearningservices-workspace": {
@@ -11149,7 +11149,7 @@
                 "install_patches": []
             }
         },
-        "priority": 41,
+        "priority": 42,
         "rules": "For cloud resource of Maintenance Configuration: it should be configured with module(source=\"Azure/avm-res-maintenance-maintenanceconfiguration/azurerm\");"
     },
     "avm-res-managedidentity-userassignedidentity": {
@@ -11226,7 +11226,7 @@
                 "lock": []
             }
         },
-        "priority": 26,
+        "priority": 27,
         "rules": "For cloud resource of User Assigned Identity: it should be configured with module(source=\"Azure/avm-res-managedidentity-userassignedidentity/azurerm\");"
     },
     "avm-res-netapp-netappaccount": {
@@ -11378,7 +11378,7 @@
                 "volumes": []
             }
         },
-        "priority": 42,
+        "priority": 43,
         "rules": "For cloud resource of Azure NetApp File: it should be configured with module(source=\"Azure/avm-res-netapp-netappaccount/azurerm\");"
     },
     "avm-res-network-applicationgateway": {
@@ -11708,7 +11708,7 @@
                 "rewrite_rule_set": []
             }
         },
-        "priority": 43,
+        "priority": 44,
         "rules": "For cloud resource of Application Gateway: it should be configured with module(source=\"Azure/avm-res-network-applicationgateway/azurerm\");"
     },
     "avm-res-network-applicationgatewaywebapplicationfirewallpolicy": {
@@ -11818,7 +11818,7 @@
                 "custom_rules": []
             }
         },
-        "priority": 44,
+        "priority": 45,
         "rules": "For cloud resource of Application Gateway Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-applicationgatewaywebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-applicationsecuritygroup": {
@@ -11898,7 +11898,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 45,
+        "priority": 46,
         "rules": "For cloud resource of Application Security Group (ASG): it should be configured with module(source=\"Azure/avm-res-network-applicationsecuritygroup/azurerm\");"
     },
     "avm-res-network-azurefirewall": {
@@ -12055,7 +12055,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 46,
+        "priority": 47,
         "rules": "For cloud resource of Azure Firewall: it should be configured with module(source=\"Azure/avm-res-network-azurefirewall/azurerm\");"
     },
     "avm-res-network-bastionhost": {
@@ -12450,7 +12450,7 @@
                 "ipsec_policy": []
             }
         },
-        "priority": 47,
+        "priority": 48,
         "rules": "For cloud resource of Virtual Network Gateway Connection: it should be configured with module(source=\"Azure/avm-res-network-connection/azurerm\");"
     },
     "avm-res-network-ddosprotectionplan": {
@@ -12529,7 +12529,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 48,
+        "priority": 49,
         "rules": "For cloud resource of DDoS Protection: it should be configured with module(source=\"Azure/avm-res-network-ddosprotectionplan/azurerm\");"
     },
     "avm-res-network-dnsresolver": {
@@ -12786,7 +12786,7 @@
                 ]
             }
         },
-        "priority": 49,
+        "priority": 50,
         "rules": "For cloud resource of Public DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-dnszone/azurerm\");"
     },
     "avm-res-network-expressroutecircuit": {
@@ -12979,7 +12979,7 @@
                 "peerings": []
             }
         },
-        "priority": 50,
+        "priority": 51,
         "rules": "For cloud resource of ExpressRoute Circuit: it should be configured with module(source=\"Azure/avm-res-network-expressroutecircuit/azurerm\");"
     },
     "avm-res-network-firewallpolicy": {
@@ -13164,7 +13164,7 @@
                 "firewall_policy_intrusion_detection": []
             }
         },
-        "priority": 51,
+        "priority": 52,
         "rules": "For cloud resource of Azure Firewall Policy: it should be configured with module(source=\"Azure/avm-res-network-firewallpolicy/azurerm\");"
     },
     "avm-res-network-frontdoorwebapplicationfirewallpolicy": {
@@ -13298,7 +13298,7 @@
                 "managed_rules": []
             }
         },
-        "priority": 52,
+        "priority": 53,
         "rules": "For cloud resource of Front Door Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-frontdoorwebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-ipgroup": {
@@ -13385,7 +13385,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 53,
+        "priority": 54,
         "rules": "For cloud resource of IP Group: it should be configured with module(source=\"Azure/avm-res-network-ipgroup/azurerm\");"
     },
     "avm-res-network-loadbalancer": {
@@ -13582,7 +13582,7 @@
                 "public_ip_address_configuration": []
             }
         },
-        "priority": 54,
+        "priority": 55,
         "rules": "For cloud resource of Loadbalancer: it should be configured with module(source=\"Azure/avm-res-network-loadbalancer/azurerm\");"
     },
     "avm-res-network-localnetworkgateway": {
@@ -13697,7 +13697,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 55,
+        "priority": 56,
         "rules": "For cloud resource of Local Network Gateway: it should be configured with module(source=\"Azure/avm-res-network-localnetworkgateway/azurerm\");"
     },
     "avm-res-network-natgateway": {
@@ -13835,7 +13835,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 56,
+        "priority": 57,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -13987,7 +13987,7 @@
                 "nat_rule_association": []
             }
         },
-        "priority": 57,
+        "priority": 58,
         "rules": "For cloud resource of Network Interface: it should be configured with module(source=\"Azure/avm-res-network-networkinterface/azurerm\");"
     },
     "avm-res-network-networkmanager": {
@@ -14215,7 +14215,7 @@
                 "security_rules": []
             }
         },
-        "priority": 58,
+        "priority": 59,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -14318,7 +14318,7 @@
                 "condition_monitor": []
             }
         },
-        "priority": 59,
+        "priority": 60,
         "rules": "For cloud resource of Azure Network Watcher: it should be configured with module(source=\"Azure/avm-res-network-networkwatcher/azurerm\");"
     },
     "avm-res-network-privatednszone": {
@@ -14336,6 +14336,7 @@
             "ptr_record_outputs",
             "resource",
             "resource_id",
+            "soa_record_outputs",
             "srv_record_outputs",
             "txt_record_outputs",
             "virtual_network_link_outputs"
@@ -14347,11 +14348,11 @@
                 "priority": 2,
                 "schema": "# `domain_name` is Required in module\ndomain_name = var.string_domain_name\n"
             },
-            "resource_group_name": {
+            "parent_id": {
                 "required": true,
-                "description": "The resource group where the resources will be deployed.",
+                "description": "The ID of the parent resource. This is typically the ID of the resource group or a virtual network where the DNS zone will be created.",
                 "priority": 3,
-                "schema": "# `resource_group_name` is Required in module\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n"
+                "schema": "# `parent_id` is Required in module\nparent_id = var.string_parent_id\n"
             },
             "enable_telemetry": {
                 "required": false,
@@ -14365,117 +14366,104 @@
                 "priority": 10001,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
-            "virtual_network_links": {
+            "retry": {
                 "required": false,
-                "description": "A map of objects where each object contains information to create a virtual network link.",
+                "description": "Retry configuration for the resource operations",
                 "priority": 10002,
-                "schema": "# `virtual_network_links` is Optional in module\nvirtual_network_links = {\n  example_key = {\n  # `vnetlinkname` is Required in `virtual_network_links`\nvnetlinkname = var.string_virtual_network_links_vnetlinkname\n  # `vnetid` is Required in `virtual_network_links`\nvnetid = var.string_virtual_network_links_vnetid\n  # `autoregistration` is Optional in `virtual_network_links`\nautoregistration = false\n  # `tags` is Optional in `virtual_network_links`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
-            },
-            "soa_record": {
-                "required": false,
-                "description": "optional soa_record variable, if included only email is required, rest are optional. Email must use username.corp.com and not username@corp.com",
-                "priority": 10003,
-                "schema": "# `soa_record` is Optional in module\nsoa_record = {\n  # `email` is Required in `soa_record`\nemail = \"example@example.com\"\n  # `expire_time` is Optional in `soa_record`\nexpire_time = 2419200\n  # `minimum_ttl` is Optional in `soa_record`\nminimum_ttl = 10\n  # `refresh_time` is Optional in `soa_record`\nrefresh_time = 3600\n  # `retry_time` is Optional in `soa_record`\nretry_time = 300\n  # `ttl` is Optional in `soa_record`\nttl = 3600\n  # `tags` is Optional in `soa_record`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n"
+                "schema": "# `retry` is Optional in module\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = [\"CannotDeleteResource\"]\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n"
             },
             "a_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a A record.",
-                "priority": 10004,
-                "schema": "# `a_records` is Optional in module\na_records = {\n  example_key = {\n  # `name` is Required in `a_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `a_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `a_records`\nzone_name = var.string_a_records_zone_name\n  # `ttl` is Required in `a_records`\nttl = 0\n  # `records` is Required in `a_records`\nrecords = []\n  # `tags` is Optional in `a_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "priority": 10003,
+                "schema": "# `a_records` is Optional in module\na_records = {\n  example_key = {\n  # `name` is Required in `a_records`\nname = \"example1\"\n  # `ttl` is Required in `a_records`\nttl = 0\n  # `records` is Optional in `a_records`\nrecords = []\n  # `ip_addresses` is Optional in `a_records`\nip_addresses = []\n}\n\n}\n\n"
             },
             "aaaa_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a AAAA record.",
-                "priority": 10005,
-                "schema": "# `aaaa_records` is Optional in module\naaaa_records = {\n  example_key = {\n  # `name` is Required in `aaaa_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `aaaa_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `aaaa_records`\nzone_name = var.string_aaaa_records_zone_name\n  # `ttl` is Required in `aaaa_records`\nttl = 0\n  # `records` is Required in `aaaa_records`\nrecords = []\n  # `tags` is Optional in `aaaa_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "priority": 10004,
+                "schema": "# `aaaa_records` is Optional in module\naaaa_records = {\n  example_key = {\n  # `name` is Required in `aaaa_records`\nname = \"example1\"\n  # `ttl` is Required in `aaaa_records`\nttl = 0\n  # `records` is Optional in `aaaa_records`\nrecords = []\n  # `ip_addresses` is Optional in `aaaa_records`\nip_addresses = []\n}\n\n}\n\n"
             },
             "cname_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a CNAME record.",
-                "priority": 10006,
-                "schema": "# `cname_records` is Optional in module\ncname_records = {\n  example_key = {\n  # `name` is Required in `cname_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `cname_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `cname_records`\nzone_name = var.string_cname_records_zone_name\n  # `ttl` is Required in `cname_records`\nttl = 0\n  # `record` is Required in `cname_records`\nrecord = var.string_cname_records_record\n  # `tags` is Optional in `cname_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "priority": 10005,
+                "schema": "# `cname_records` is Optional in module\ncname_records = {\n  example_key = {\n  # `name` is Required in `cname_records`\nname = \"example1\"\n  # `ttl` is Required in `cname_records`\nttl = 0\n  # `record` is Optional in `cname_records`\nrecord = \"\"\n  # `cname` is Optional in `cname_records`\ncname = \"\"\n}\n\n}\n\n"
             },
             "ptr_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a PTR record.",
+                "priority": 10006,
+                "schema": "# `ptr_records` is Optional in module\nptr_records = {\n  example_key = {\n  # `name` is Required in `ptr_records`\nname = \"example1\"\n  # `ttl` is Required in `ptr_records`\nttl = 0\n  # `records` is Optional in `ptr_records`\nrecords = []\n  # `domain_names` is Optional in `ptr_records`\ndomain_names = []\n}\n\n}\n\n"
+            },
+            "soa_record": {
+                "required": false,
+                "description": "optional soa_record variable, if included only email is required, rest are optional. Email must use username.corp.com and not username@corp.com",
                 "priority": 10007,
-                "schema": "# `ptr_records` is Optional in module\nptr_records = {\n  example_key = {\n  # `name` is Required in `ptr_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `ptr_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `ptr_records`\nzone_name = var.string_ptr_records_zone_name\n  # `ttl` is Required in `ptr_records`\nttl = 0\n  # `records` is Required in `ptr_records`\nrecords = []\n  # `tags` is Optional in `ptr_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
-            },
-            "role_assignments": {
-                "required": false,
-                "description": "  A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10008,
-                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
-            },
-            "timeouts": {
-                "required": false,
-                "description": "A map of timeouts objects, per resource type, to apply to the creation and destruction of resources the following resources:\n\n- `dns_zones` - (Optional) The timeouts for DNS Zones.\n- `vnet_links` - (Optional) The timeouts for DNS Zones Virtual Network Links.\n\nEach timeout object has the following optional attributes:\n\n- `create` - (Optional) The timeout for creating the resource. Defaults to `5m` apart from policy assignments, where this is set to `15m`.\n- `delete` - (Optional) The timeout for deleting the resource. Defaults to `5m`.\n- `update` - (Optional) The timeout for updating the resource. Defaults to `5m`.\n- `read` - (Optional) The timeout for reading the resource. Defaults to `5m`.",
-                "priority": 10009,
-                "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `dns_zones` is Optional in `timeouts`\ndns_zones = {\n  # `create` is Optional in `dns_zones`\ncreate = \"30m\"\n  # `delete` is Optional in `dns_zones`\ndelete = \"30m\"\n  # `update` is Optional in `dns_zones`\nupdate = \"30m\"\n  # `read` is Optional in `dns_zones`\nread = \"5m\"\n}\n\n  # `vnet_links` is Optional in `timeouts`\nvnet_links = {\n  # `create` is Optional in `vnet_links`\ncreate = \"30m\"\n  # `delete` is Optional in `vnet_links`\ndelete = \"30m\"\n  # `update` is Optional in `vnet_links`\nupdate = \"30m\"\n  # `read` is Optional in `vnet_links`\nread = \"5m\"\n}\n\n}\n\n"
+                "schema": "# `soa_record` is Optional in module\nsoa_record = {\n  # `email` is Required in `soa_record`\nemail = \"example@example.com\"\n  # `name` is Optional in `soa_record`\nname = \"@\"\n  # `expire_time` is Optional in `soa_record`\nexpire_time = 2419200\n  # `minimum_ttl` is Optional in `soa_record`\nminimum_ttl = 10\n  # `refresh_time` is Optional in `soa_record`\nrefresh_time = 3600\n  # `retry_time` is Optional in `soa_record`\nretry_time = 300\n  # `ttl` is Optional in `soa_record`\nttl = 3600\n}\n\n"
             },
             "txt_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a TXT record.",
-                "priority": 10010,
-                "schema": "# `txt_records` is Optional in module\ntxt_records = {\n  example_key = {\n  # `name` is Required in `txt_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `txt_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `txt_records`\nzone_name = var.string_txt_records_zone_name\n  # `ttl` is Required in `txt_records`\nttl = 0\n  # `records` is Required in `txt_records`\nrecords = {\n  example_key = {\n  # `value` is Required in `records`\nvalue = var.string_records_value\n}\n\n}\n\n  # `tags` is Optional in `txt_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "priority": 10008,
+                "schema": "# `txt_records` is Optional in module\ntxt_records = {\n  example_key = {\n  # `name` is Required in `txt_records`\nname = \"example1\"\n  # `ttl` is Required in `txt_records`\nttl = 0\n  # `records` is Required in `txt_records`\nrecords = {\n  example_key = {\n  # `value` is Required in `records`\nvalue = []\n}\n\n}\n\n}\n\n}\n\n"
             },
             "mx_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a MX record.",
-                "priority": 10011,
-                "schema": "# `mx_records` is Optional in module\nmx_records = {\n  example_key = {\n  # `resource_group_name` is Required in `mx_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `mx_records`\nzone_name = var.string_mx_records_zone_name\n  # `ttl` is Required in `mx_records`\nttl = 0\n  # `records` is Required in `mx_records`\nrecords = {\n  example_key = {\n  # `preference` is Required in `records`\npreference = 0\n  # `exchange` is Required in `records`\nexchange = var.string_records_exchange\n}\n\n}\n\n  # `name` is Optional in `mx_records`\nname = \"@\"\n  # `tags` is Optional in `mx_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "priority": 10009,
+                "schema": "# `mx_records` is Optional in module\nmx_records = {\n  example_key = {\n  # `ttl` is Required in `mx_records`\nttl = 0\n  # `records` is Required in `mx_records`\nrecords = {\n  example_key = {\n  # `preference` is Required in `records`\npreference = 0\n  # `exchange` is Required in `records`\nexchange = var.string_records_exchange\n}\n\n}\n\n  # `name` is Optional in `mx_records`\nname = \"@\"\n}\n\n}\n\n"
+            },
+            "role_assignments": {
+                "required": false,
+                "description": "  A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
+                "priority": 10010,
+                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "srv_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a SRV record.",
+                "priority": 10011,
+                "schema": "# `srv_records` is Optional in module\nsrv_records = {\n  example_key = {\n  # `name` is Required in `srv_records`\nname = \"example1\"\n  # `ttl` is Required in `srv_records`\nttl = 0\n  # `records` is Required in `srv_records`\nrecords = {\n  example_key = {\n  # `priority` is Required in `records`\npriority = 0\n  # `weight` is Required in `records`\nweight = 0\n  # `port` is Required in `records`\nport = 0\n  # `target` is Required in `records`\ntarget = var.string_records_target\n}\n\n}\n\n}\n\n}\n\n"
+            },
+            "timeouts": {
+                "required": false,
+                "description": "A map of timeouts objects, per resource type, to apply to the creation and destruction of resources the following resources:\n\n- `dns_zones` - (Optional) The timeouts for DNS Zones.\n- `vnet_links` - (Optional) The timeouts for DNS Zones Virtual Network Links.\n\nEach timeout object has the following optional attributes:\n\n- `create` - (Optional) The timeout for creating the resource. Defaults to `5m` apart from policy assignments, where this is set to `15m`.\n- `delete` - (Optional) The timeout for deleting the resource. Defaults to `5m`.\n- `update` - (Optional) The timeout for updating the resource. Defaults to `5m`.\n- `read` - (Optional) The timeout for reading the resource. Defaults to `5m`.",
                 "priority": 10012,
-                "schema": "# `srv_records` is Optional in module\nsrv_records = {\n  example_key = {\n  # `name` is Required in `srv_records`\nname = \"example1\"\n  # `resource_group_name` is Required in `srv_records`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `zone_name` is Required in `srv_records`\nzone_name = var.string_srv_records_zone_name\n  # `ttl` is Required in `srv_records`\nttl = 0\n  # `records` is Required in `srv_records`\nrecords = {\n  example_key = {\n  # `priority` is Required in `records`\npriority = 0\n  # `weight` is Required in `records`\nweight = 0\n  # `port` is Required in `records`\nport = 0\n  # `target` is Required in `records`\ntarget = var.string_records_target\n}\n\n}\n\n  # `tags` is Optional in `srv_records`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
+                "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `dns_zones` is Optional in `timeouts`\ndns_zones = {\n  # `create` is Optional in `dns_zones`\ncreate = \"50m\"\n  # `delete` is Optional in `dns_zones`\ndelete = \"50m\"\n  # `update` is Optional in `dns_zones`\nupdate = \"50m\"\n  # `read` is Optional in `dns_zones`\nread = \"10m\"\n}\n\n  # `vnet_links` is Optional in `timeouts`\nvnet_links = {\n  # `create` is Optional in `vnet_links`\ncreate = \"50m\"\n  # `delete` is Optional in `vnet_links`\ndelete = \"50m\"\n  # `update` is Optional in `vnet_links`\nupdate = \"50m\"\n  # `read` is Optional in `vnet_links`\nread = \"10m\"\n}\n\n}\n\n"
+            },
+            "virtual_network_links": {
+                "required": false,
+                "description": "A map of objects where each object contains information to create a virtual network link. Either vnetlinkname or name must be provided, and either vnetid or virtual_network_id must be provided.",
+                "priority": 10013,
+                "schema": "# `virtual_network_links` is Optional in module\nvirtual_network_links = {\n  example_key = {\n  # `vnetlinkname` is Optional in `virtual_network_links`\nvnetlinkname = \"\"\n  # `name` is Optional in `virtual_network_links`\nname = \"\"\n  # `vnetid` is Optional in `virtual_network_links`\nvnetid = \"\"\n  # `virtual_network_id` is Optional in `virtual_network_links`\nvirtual_network_id = \"\"\n  # `autoregistration` is Optional in `virtual_network_links`\nautoregistration = false\n  # `registration_enabled` is Optional in `virtual_network_links`\nregistration_enabled = false\n  # `private_dns_zone_supports_private_link` is Optional in `virtual_network_links`\nprivate_dns_zone_supports_private_link = false\n  # `resolution_policy` is Optional in `virtual_network_links`\nresolution_policy = \"Default\"\n  # `tags` is Optional in `virtual_network_links`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
-            "avm_depends_on": [
-                "avm-res-resources-resourcegroup"
-            ],
-            "required_depends_on": [
-                "avm-res-resources-resourcegroup"
-            ],
+            "avm_depends_on": [],
+            "required_depends_on": [],
             "required": {
                 "domain_name": [],
-                "resource_group_name": [
-                    "avm-res-resources-resourcegroup"
-                ]
+                "parent_id": []
             },
             "optional": {
                 "enable_telemetry": [],
                 "tags": [],
-                "virtual_network_links": [],
+                "retry": [],
+                "a_records": [],
+                "aaaa_records": [],
+                "cname_records": [],
+                "ptr_records": [],
                 "soa_record": [],
-                "a_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
-                "aaaa_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
-                "cname_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
-                "ptr_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
+                "txt_records": [],
+                "mx_records": [],
                 "role_assignments": [],
+                "srv_records": [],
                 "timeouts": [],
-                "txt_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
-                "mx_records": [
-                    "avm-res-resources-resourcegroup"
-                ],
-                "srv_records": [
-                    "avm-res-resources-resourcegroup"
-                ]
+                "virtual_network_links": []
             }
         },
-        "priority": 60,
+        "priority": 1,
         "rules": "For cloud resource of Private DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-privatednszone/azurerm\");"
     },
     "avm-res-network-privateendpoint": {
@@ -15195,7 +15183,7 @@
                 "peerings": []
             }
         },
-        "priority": 40,
+        "priority": 41,
         "rules": "For cloud resource of Virtual Network: it should be configured with module(source=\"Azure/avm-res-network-virtualnetwork/azurerm\");"
     },
     "avm-res-operationalinsights-workspace": {
@@ -15402,7 +15390,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 4,
+        "priority": 5,
         "rules": "For cloud resource of Log Analytics workspace: it should be configured with module(source=\"Azure/avm-res-operationalinsights-workspace/azurerm\");"
     },
     "avm-res-oracledatabase-cloudexadatainfrastructure": {
@@ -15769,13 +15757,13 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup"
             ],
             "required": {
@@ -17382,7 +17370,7 @@
                 "storage_management_policy_rule": []
             }
         },
-        "priority": 12,
+        "priority": 13,
         "rules": "For cloud resource of Storage Account: it should be configured with module(source=\"Azure/avm-res-storage-storageaccount/azurerm\");"
     },
     "avm-res-web-hostingenvironment": {
