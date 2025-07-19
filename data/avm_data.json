@@ -434,6 +434,7 @@
         "description": "Manages App Job",
         "outputs": [
             "container_app_job_name",
+            "managed_identities",
             "resource_id"
         ],
         "variables": {
@@ -465,7 +466,7 @@
                 "required": true,
                 "description": "The template block describes the configuration for the Container App Job.\nIt defines the main container, optional init containers, resource requirements,\nenvironment variables, probes (liveness, readiness, startup), and volume mounts.\nUse this variable to specify the container image, CPU/memory, commands, arguments,\nenvironment variables, and any additional configuration needed for the job's execution environment.",
                 "priority": 4,
-                "schema": "# `template` is Required in module\ntemplate = {\n  # `container` is Required in `template`\ncontainer = {\n  # `name` is Required in `container`\nname = \"my-container\"\n  # `image` is Required in `container`\nimage = \"docker.io/ubuntu\"\n  # `cpu` is Required in `container`\ncpu = 0.5\n  # `memory` is Required in `container`\nmemory = \"1Gi\"\n  # `command` is Optional in `container`\ncommand = [\"echo\"]\n  # `args` is Optional in `container`\nargs = [\"Hello, World!\"]\n  # `env` is Optional in `container`\nenv = [{\n  # `name` is Required in `env`\nname = \"example1\"\n  # `secret_name` is Optional in `env`\nsecret_name = \"\"\n  # `value` is Optional in `env`\nvalue = \"\"\n}\n]\n  # `liveness_probe` is Optional in `container`\nliveness_probe = [{\n  # `port` is Required in `liveness_probe`\nport = 0\n  # `transport` is Required in `liveness_probe`\ntransport = var.string_liveness_probe_transport\n  # `failure_count_threshold` is Required in `liveness_probe`\nfailure_count_threshold = 0\n  # `period` is Required in `liveness_probe`\nperiod = 0\n  # `header` is Optional in `liveness_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `liveness_probe`\nhost = \"\"\n  # `initial_delay` is Optional in `liveness_probe`\ninitial_delay = 0\n  # `interval_seconds` is Optional in `liveness_probe`\ninterval_seconds = 0\n  # `path` is Optional in `liveness_probe`\npath = \"\"\n  # `timeout` is Optional in `liveness_probe`\ntimeout = 0\n}\n]\n  # `readiness_probe` is Optional in `container`\nreadiness_probe = [{\n  # `port` is Required in `readiness_probe`\nport = 0\n  # `transport` is Required in `readiness_probe`\ntransport = var.string_readiness_probe_transport\n  # `failure_count_threshold` is Required in `readiness_probe`\nfailure_count_threshold = 0\n  # `header` is Optional in `readiness_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `readiness_probe`\nhost = \"\"\n  # `interval_seconds` is Optional in `readiness_probe`\ninterval_seconds = 0\n  # `path` is Optional in `readiness_probe`\npath = \"\"\n  # `success_count_threshold` is Optional in `readiness_probe`\nsuccess_count_threshold = 0\n  # `timeout` is Optional in `readiness_probe`\ntimeout = 0\n}\n]\n  # `startup_probe` is Optional in `container`\nstartup_probe = [{\n  # `port` is Required in `startup_probe`\nport = 0\n  # `transport` is Required in `startup_probe`\ntransport = var.string_startup_probe_transport\n  # `failure_count_threshold` is Required in `startup_probe`\nfailure_count_threshold = 0\n  # `header` is Optional in `startup_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `startup_probe`\nhost = \"\"\n  # `interval_seconds` is Optional in `startup_probe`\ninterval_seconds = 0\n  # `path` is Optional in `startup_probe`\npath = \"\"\n  # `timeout` is Optional in `startup_probe`\ntimeout = 0\n}\n]\n  # `volume_mounts` is Optional in `container`\nvolume_mounts = [{\n  # `name` is Required in `volume_mounts`\nname = \"example1\"\n  # `path` is Required in `volume_mounts`\npath = var.string_volume_mounts_path\n}\n]\n}\n\n  # `max_replicas` is Optional in `template`\nmax_replicas = 0\n  # `min_replicas` is Optional in `template`\nmin_replicas = 0\n  # `init_container` is Optional in `template`\ninit_container = [{\n  # `name` is Required in `init_container`\nname = \"example1\"\n  # `image` is Required in `init_container`\nimage = var.string_init_container_image\n  # `cpu` is Required in `init_container`\ncpu = 0\n  # `memory` is Required in `init_container`\nmemory = var.string_init_container_memory\n  # `command` is Required in `init_container`\ncommand = []\n  # `args` is Required in `init_container`\nargs = []\n  # `env` is Optional in `init_container`\nenv = [{\n  # `name` is Required in `env`\nname = \"example1\"\n  # `secret_name` is Optional in `env`\nsecret_name = \"\"\n  # `value` is Optional in `env`\nvalue = \"\"\n}\n]\n}\n]\n  # `volume` is Optional in `template`\nvolume = [{\n  # `name` is Optional in `volume`\nname = \"\"\n  # `storage_type` is Optional in `volume`\nstorage_type = \"\"\n  # `storage_name` is Optional in `volume`\nstorage_name = \"\"\n}\n]\n}\n\n"
+                "schema": "# `template` is Required in module\ntemplate = {\n  # `container` is Required in `template`\ncontainer = {\n  # `name` is Required in `container`\nname = \"my-container\"\n  # `image` is Required in `container`\nimage = \"docker.io/ubuntu\"\n  # `cpu` is Required in `container`\ncpu = 0.5\n  # `memory` is Required in `container`\nmemory = \"1Gi\"\n  # `command` is Optional in `container`\ncommand = [\"echo\"]\n  # `args` is Optional in `container`\nargs = [\"Hello, World!\"]\n  # `env` is Optional in `container`\nenv = [{\n  # `name` is Required in `env`\nname = \"example1\"\n  # `secret_name` is Optional in `env`\nsecret_name = \"\"\n  # `value` is Optional in `env`\nvalue = \"\"\n}\n]\n  # `liveness_probe` is Optional in `container`\nliveness_probe = [{\n  # `port` is Required in `liveness_probe`\nport = 0\n  # `transport` is Required in `liveness_probe`\ntransport = var.string_liveness_probe_transport\n  # `failure_count_threshold` is Required in `liveness_probe`\nfailure_count_threshold = 0\n  # `period` is Required in `liveness_probe`\nperiod = 0\n  # `header` is Optional in `liveness_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `liveness_probe`\nhost = \"\"\n  # `initial_delay` is Optional in `liveness_probe`\ninitial_delay = 0\n  # `interval_seconds` is Optional in `liveness_probe`\ninterval_seconds = 0\n  # `path` is Optional in `liveness_probe`\npath = \"\"\n  # `timeout` is Optional in `liveness_probe`\ntimeout = 0\n}\n]\n  # `readiness_probe` is Optional in `container`\nreadiness_probe = [{\n  # `port` is Required in `readiness_probe`\nport = 0\n  # `transport` is Required in `readiness_probe`\ntransport = var.string_readiness_probe_transport\n  # `failure_count_threshold` is Required in `readiness_probe`\nfailure_count_threshold = 0\n  # `header` is Optional in `readiness_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `readiness_probe`\nhost = \"\"\n  # `interval_seconds` is Optional in `readiness_probe`\ninterval_seconds = 0\n  # `path` is Optional in `readiness_probe`\npath = \"\"\n  # `success_count_threshold` is Optional in `readiness_probe`\nsuccess_count_threshold = 0\n  # `timeout` is Optional in `readiness_probe`\ntimeout = 0\n}\n]\n  # `startup_probe` is Optional in `container`\nstartup_probe = [{\n  # `port` is Required in `startup_probe`\nport = 0\n  # `transport` is Required in `startup_probe`\ntransport = var.string_startup_probe_transport\n  # `failure_count_threshold` is Required in `startup_probe`\nfailure_count_threshold = 0\n  # `header` is Optional in `startup_probe`\nheader = [{\n  # `name` is Required in `header`\nname = \"example1\"\n  # `value` is Required in `header`\nvalue = var.string_header_value\n}\n]\n  # `host` is Optional in `startup_probe`\nhost = \"\"\n  # `interval_seconds` is Optional in `startup_probe`\ninterval_seconds = 0\n  # `path` is Optional in `startup_probe`\npath = \"\"\n  # `timeout` is Optional in `startup_probe`\ntimeout = 0\n}\n]\n  # `volume_mounts` is Optional in `container`\nvolume_mounts = [{\n  # `name` is Required in `volume_mounts`\nname = \"example1\"\n  # `path` is Required in `volume_mounts`\npath = var.string_volume_mounts_path\n}\n]\n}\n\n  # `max_replicas` is Optional in `template`\nmax_replicas = 0\n  # `min_replicas` is Optional in `template`\nmin_replicas = 0\n  # `init_container` is Optional in `template`\ninit_container = [{\n  # `name` is Required in `init_container`\nname = \"example1\"\n  # `image` is Required in `init_container`\nimage = var.string_init_container_image\n  # `cpu` is Required in `init_container`\ncpu = 0\n  # `memory` is Required in `init_container`\nmemory = var.string_init_container_memory\n  # `command` is Required in `init_container`\ncommand = []\n  # `args` is Required in `init_container`\nargs = []\n  # `env` is Optional in `init_container`\nenv = [{\n  # `name` is Required in `env`\nname = \"example1\"\n  # `secret_name` is Optional in `env`\nsecret_name = \"\"\n  # `value` is Optional in `env`\nvalue = \"\"\n}\n]\n  # `volume_mounts` is Optional in `init_container`\nvolume_mounts = [{\n  # `name` is Required in `volume_mounts`\nname = \"example1\"\n  # `path` is Required in `volume_mounts`\npath = var.string_volume_mounts_path\n}\n]\n}\n]\n  # `volume` is Optional in `template`\nvolume = [{\n  # `name` is Optional in `volume`\nname = \"\"\n  # `storage_type` is Optional in `volume`\nstorage_type = \"\"\n  # `storage_name` is Optional in `volume`\nstorage_name = \"\"\n}\n]\n}\n\n"
             },
             "enable_telemetry": {
                 "required": false,
@@ -473,29 +474,53 @@
                 "priority": 10000,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
+            "replica_retry_limit": {
+                "required": false,
+                "description": "(Optional) The maximum number of retries before considering a Container App Job execution failed.",
+                "priority": 10001,
+                "schema": "# `replica_retry_limit` is Optional in module\nreplica_retry_limit = 0\n"
+            },
             "replica_timeout_in_seconds": {
                 "required": false,
                 "description": "The timeout in seconds for the job to complete.",
-                "priority": 10001,
+                "priority": 10002,
                 "schema": "# `replica_timeout_in_seconds` is Optional in module\nreplica_timeout_in_seconds = 0\n"
+            },
+            "workload_profile_name": {
+                "required": false,
+                "description": "(Optional) The name of the workload profile within the Container App Environment to place this Container App Job.",
+                "priority": 10003,
+                "schema": "# `workload_profile_name` is Optional in module\nworkload_profile_name = \"\"\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) A mapping of tags to assign to the Container App Job.",
-                "priority": 10002,
+                "priority": 10004,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "  Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n  - `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n  - `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10003,
+                "priority": 10005,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
+            },
+            "registries": {
+                "required": false,
+                "description": "A list of container registries used by the Container App Job. Each registry can be defined with:\n- `identity` - (Optional) The identity to use for accessing the registry. This can either be the Resource ID of a User Assigned Identity, or System for the System Assigned Identity.\n- `password_secret_name` - (Optional) The name of the secret that contains the registry password.\n- `server` - (Required) The hostname of the registry server.\n- `username` - (Optional) The username to use for this registry.\n\nNOTE: `identity` cannot be used with `username` and `password_secret_name`. When using `identity`, the identity must have access to the container registry.",
+                "priority": 10006,
+                "schema": "# `registries` is Optional in module\nregistries = [{\n  # `server` is Required in `registries`\nserver = var.string_registries_server\n  # `identity` is Optional in `registries`\nidentity = \"\"\n  # `password_secret_name` is Optional in `registries`\npassword_secret_name = \"\"\n  # `username` is Optional in `registries`\nusername = \"\"\n}\n]\n"
+            },
+            "secrets": {
+                "required": false,
+                "description": "A list of secrets for the Container App Job. Each secret can be defined with:\n- `name` - (Required) The secret name.\n- `identity` - (Optional) The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or System for the System Assigned Identity.\n- `key_vault_secret_id` - (Optional) The ID of a Key Vault secret. This can be a versioned or version-less ID.\n- `value` - (Optional) The value for this secret.\n\nNOTE: `identity` must be used together with `key_vault_secret_id`. When using `key_vault_secret_id`, ignore_changes should be used to ignore any changes to value. `value` will be ignored if `key_vault_secret_id` and `identity` are provided.",
+                "priority": 10007,
+                "schema": "# `secrets` is Optional in module\nsecrets = [{\n  # `name` is Required in `secrets`\nname = \"servicebus-connection\"\n  # `identity` is Optional in `secrets`\nidentity = \"\"\n  # `key_vault_secret_id` is Optional in `secrets`\nkey_vault_secret_id = \"\"\n  # `value` is Optional in `secrets`\nvalue = \"\"\n}\n]\n"
             },
             "trigger_config": {
                 "required": false,
                 "description": "Configuration for the trigger. Only one of manual_trigger_config, event_trigger_config, or schedule_trigger_config can be specified.",
-                "priority": 10004,
-                "schema": "# `trigger_config` is Optional in module\ntrigger_config = {\n  # `manual_trigger_config` is Optional in `trigger_config`\nmanual_trigger_config = {\n  # `parallelism` is Optional in `manual_trigger_config`\nparallelism = 1\n  # `replica_completion_count` is Optional in `manual_trigger_config`\nreplica_completion_count = 1\n}\n\n  # `event_trigger_config` is Optional in `trigger_config`\nevent_trigger_config = {\n  # `parallelism` is Optional in `event_trigger_config`\nparallelism = 0\n  # `replica_completion_count` is Optional in `event_trigger_config`\nreplica_completion_count = 0\n  # `scale` is Optional in `event_trigger_config`\nscale = {\n  # `max_executions` is Optional in `scale`\nmax_executions = 0\n  # `min_executions` is Optional in `scale`\nmin_executions = 0\n  # `polling_interval_in_seconds` is Optional in `scale`\npolling_interval_in_seconds = 0\n  # `rules` is Optional in `scale`\nrules = {\n  # `name` is Optional in `rules`\nname = \"\"\n  # `custom_rule_type` is Optional in `rules`\ncustom_rule_type = \"\"\n  # `metadata` is Optional in `rules`\nmetadata = {\n  example_key = \"\"\n}\n\n  # `authentication` is Optional in `rules`\nauthentication = {\n  # `secret_name` is Optional in `authentication`\nsecret_name = \"\"\n  # `trigger_parameter` is Optional in `authentication`\ntrigger_parameter = \"\"\n}\n\n}\n\n}\n\n}\n\n  # `schedule_trigger_config` is Optional in `trigger_config`\nschedule_trigger_config = {\n  # `cron_expression` is Optional in `schedule_trigger_config`\ncron_expression = \"0 * * * *\"\n  # `parallelism` is Optional in `schedule_trigger_config`\nparallelism = 1\n  # `replica_completion_count` is Optional in `schedule_trigger_config`\nreplica_completion_count = 1\n}\n\n}\n\n"
+                "priority": 10008,
+                "schema": "# `trigger_config` is Optional in module\ntrigger_config = {\n  # `manual_trigger_config` is Optional in `trigger_config`\nmanual_trigger_config = {\n  # `parallelism` is Optional in `manual_trigger_config`\nparallelism = 1\n  # `replica_completion_count` is Optional in `manual_trigger_config`\nreplica_completion_count = 1\n}\n\n  # `event_trigger_config` is Optional in `trigger_config`\nevent_trigger_config = {\n  # `parallelism` is Optional in `event_trigger_config`\nparallelism = 1\n  # `replica_completion_count` is Optional in `event_trigger_config`\nreplica_completion_count = 1\n  # `scale` is Optional in `event_trigger_config`\nscale = {\n  # `max_executions` is Optional in `scale`\nmax_executions = 10\n  # `min_executions` is Optional in `scale`\nmin_executions = 0\n  # `polling_interval_in_seconds` is Optional in `scale`\npolling_interval_in_seconds = 30\n  # `rules` is Optional in `scale`\nrules = [{\n  # `name` is Optional in `rules`\nname = \"my-custom-rule\"\n  # `custom_rule_type` is Optional in `rules`\ncustom_rule_type = \"azure-servicebus\"\n  # `metadata` is Optional in `rules`\nmetadata = {\n  queueName = \"\"\n}\n\n  # `authentication` is Optional in `rules`\nauthentication = {\n  # `secret_name` is Optional in `authentication`\nsecret_name = \"servicebus-connection\"\n  # `trigger_parameter` is Optional in `authentication`\ntrigger_parameter = \"connection\"\n}\n\n}\n]\n}\n\n}\n\n  # `schedule_trigger_config` is Optional in `trigger_config`\nschedule_trigger_config = {\n  # `cron_expression` is Optional in `schedule_trigger_config`\ncron_expression = \"0 * * * *\"\n  # `parallelism` is Optional in `schedule_trigger_config`\nparallelism = 1\n  # `replica_completion_count` is Optional in `schedule_trigger_config`\nreplica_completion_count = 1\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -518,9 +543,13 @@
             },
             "optional": {
                 "enable_telemetry": [],
+                "replica_retry_limit": [],
                 "replica_timeout_in_seconds": [],
+                "workload_profile_name": [],
                 "tags": [],
                 "managed_identities": [],
+                "registries": [],
+                "secrets": [],
                 "trigger_config": []
             }
         },
@@ -3136,12 +3165,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -4334,12 +4363,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5166,8 +5195,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6884,8 +6913,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -7281,8 +7310,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9896,12 +9925,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -10231,7 +10260,7 @@
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see https://aka.ms/avm/telemetryinfo.\nIf it is set to false, then no telemetry will be collected.",
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
                 "priority": 10000,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
@@ -10339,7 +10368,7 @@
             },
             "legacy_access_policies": {
                 "required": false,
-                "description": "A map of legacy access policies to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\nRequires `var.legacy_access_policies_enabled` to be `true`.\n\n- `object_id` - (Required) The object ID of the principal to assign the access policy to.\n- `application_id` - (Optional) The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.\n- `certifiate_permissions` - (Optional) A list of certificate permissions. Possible values are: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers`, and `Update`.\n- `key_permissions` - (Optional) A list of key permissions. Possible value are: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.\n- `secret_permissions` - (Optional) A list of secret permissions. Possible values are: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore`, and `Set`.\n- `storage_permissions` - (Optional) A list of storage permissions. Possible values are: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSas`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS`, and `Update`.",
+                "description": "A map of legacy access policies to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\nRequires `var.legacy_access_policies_enabled` to be `true`.\n\n- `object_id` - (Required) The object ID of the principal to assign the access policy to.\n- `application_id` - (Optional) The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.\n- `certifiate_permissions` - (Optional) A list of certificate permissions. Possible values are: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers`, and `Update`.\n- `key_permissions` - (Optional) A list of key permissions. Possible value are: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.\n- `secret_permissions` - (Optional) A list of secret permissions. Possible values are: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore`, and `Set`.\n- `storage_permissions` - (Optional) A list of storage permissions. Possible values are: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS`, and `Update`.",
                 "priority": 10018,
                 "schema": "# `legacy_access_policies` is Optional in module\nlegacy_access_policies = {\n  example_key = {\n  # `object_id` is Required in `legacy_access_policies`\nobject_id = var.string_legacy_access_policies_object_id\n  # `application_id` is Optional in `legacy_access_policies`\napplication_id = \"\"\n  # `certificate_permissions` is Optional in `legacy_access_policies`\ncertificate_permissions = []\n  # `key_permissions` is Optional in `legacy_access_policies`\nkey_permissions = []\n  # `secret_permissions` is Optional in `legacy_access_policies`\nsecret_permissions = []\n  # `storage_permissions` is Optional in `legacy_access_policies`\nstorage_permissions = []\n}\n\n}\n\n"
             },
@@ -10996,8 +11025,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12211,8 +12240,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12622,12 +12651,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14094,8 +14123,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14588,12 +14617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15769,13 +15798,13 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
