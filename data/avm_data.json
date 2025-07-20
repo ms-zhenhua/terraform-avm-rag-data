@@ -731,8 +731,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -5769,8 +5769,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8410,8 +8410,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10094,12 +10094,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -15797,14 +15797,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "backup_subnet_cidr": [],
