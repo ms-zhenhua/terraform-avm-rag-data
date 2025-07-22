@@ -731,8 +731,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -975,21 +975,21 @@
             },
             "skip_service_principal_aad_check": {
                 "required": false,
-                "description": "(Optional) Skip the check for the service principal in Azure AD.\nThis is useful when the service principal is not yet created in Azure AD.",
+                "description": "DEPRECATED: Please use the new `skip_service_principal_aad_check` variable inside of the different `role_assignments` blocks.\n\n(Optional) Skip the check for the service principal in Azure AD.\nThis is useful when the service principal is not yet created in Azure AD.",
                 "priority": 10001,
                 "schema": "# `skip_service_principal_aad_check` is Optional in module\nskip_service_principal_aad_check = false\n"
-            },
-            "user_assigned_managed_identities_by_display_name": {
-                "required": false,
-                "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the display name of the identity.\n\nExample Input:\n\n```hcl\nuser_assigned_managed_identities_by_display_name = {\n  my-identity-1 = \"My Identity 1\"\n  my-identity-2 = \"My Identity 2\"\n}\n```",
-                "priority": 10002,
-                "schema": "# `user_assigned_managed_identities_by_display_name` is Optional in module\nuser_assigned_managed_identities_by_display_name = {\n  example_key = \"\"\n}\n\n"
             },
             "user_assigned_managed_identities_by_client_id": {
                 "required": false,
                 "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the client id of the identity.\n\nExample Input:\n\n```hcl\nuser_assigned_managed_identities_by_client_id = {\n  my-identity-1 = \"00000000-0000-0000-0000-000000000001\"\n  my-identity-2 = \"00000000-0000-0000-0000-000000000002\"\n}\n```",
-                "priority": 10003,
+                "priority": 10002,
                 "schema": "# `user_assigned_managed_identities_by_client_id` is Optional in module\nuser_assigned_managed_identities_by_client_id = {\n  example_key = \"\"\n}\n\n"
+            },
+            "user_assigned_managed_identities_by_display_name": {
+                "required": false,
+                "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the display name of the identity.\n\nExample Input:\n\n```hcl\nuser_assigned_managed_identities_by_display_name = {\n  my-identity-1 = \"My Identity 1\"\n  my-identity-2 = \"My Identity 2\"\n}\n```",
+                "priority": 10003,
+                "schema": "# `user_assigned_managed_identities_by_display_name` is Optional in module\nuser_assigned_managed_identities_by_display_name = {\n  example_key = \"\"\n}\n\n"
             },
             "user_assigned_managed_identities_by_principal_id": {
                 "required": false,
@@ -997,17 +997,17 @@
                 "priority": 10004,
                 "schema": "# `user_assigned_managed_identities_by_principal_id` is Optional in module\nuser_assigned_managed_identities_by_principal_id = {\n  example_key = \"\"\n}\n\n"
             },
-            "app_registrations_by_display_name": {
-                "required": false,
-                "description": "(Optional) A map of Entra ID application registrations to reference in role assignments.\nThe key is something unique to you. The value is the display name of the application registration.\n\nExample Input:\n\n```hcl\napp_registrations_by_display_name = {\n  my-app-1 = \"My App 1\"\n  my-app-2 = \"My App 2\"\n}\n```",
-                "priority": 10005,
-                "schema": "# `app_registrations_by_display_name` is Optional in module\napp_registrations_by_display_name = {\n  example_key = \"\"\n}\n\n"
-            },
             "app_registrations_by_client_id": {
                 "required": false,
                 "description": "(Optional) A map of Entra ID application registrations to reference in role assignments.\nThe key is something unique to you. The value is the client ID (application ID) of the application registration.\n\nExample Input:\n\n```hcl\napp_registrations_by_client_id = {\n  my-app-1 = \"00000000-0000-0000-0000-000000000001\"\n  my-app-2 = \"00000000-0000-0000-0000-000000000002\"\n}\n```",
-                "priority": 10006,
+                "priority": 10005,
                 "schema": "# `app_registrations_by_client_id` is Optional in module\napp_registrations_by_client_id = {\n  example_key = \"\"\n}\n\n"
+            },
+            "app_registrations_by_display_name": {
+                "required": false,
+                "description": "(Optional) A map of Entra ID application registrations to reference in role assignments.\nThe key is something unique to you. The value is the display name of the application registration.\n\nExample Input:\n\n```hcl\napp_registrations_by_display_name = {\n  my-app-1 = \"My App 1\"\n  my-app-2 = \"My App 2\"\n}\n```",
+                "priority": 10006,
+                "schema": "# `app_registrations_by_display_name` is Optional in module\napp_registrations_by_display_name = {\n  example_key = \"\"\n}\n\n"
             },
             "app_registrations_by_object_id": {
                 "required": false,
@@ -1021,17 +1021,17 @@
                 "priority": 10008,
                 "schema": "# `app_registrations_by_principal_id` is Optional in module\napp_registrations_by_principal_id = {\n  example_key = \"\"\n}\n\n"
             },
-            "system_assigned_managed_identities_by_display_name": {
-                "required": false,
-                "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the display name of the identity / compute instance.\n\nExample Input:\n\n```hcl\nsystem_assigned_managed_identities_by_display_name = {\n  my-vm-1 = \"My VM 1\"\n  my-vm-2 = \"My VM 2\"\n}\n```",
-                "priority": 10009,
-                "schema": "# `system_assigned_managed_identities_by_display_name` is Optional in module\nsystem_assigned_managed_identities_by_display_name = {\n  example_key = \"\"\n}\n\n"
-            },
             "system_assigned_managed_identities_by_client_id": {
                 "required": false,
                 "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the client id of the identity.\n\nExample Input:\n\n```hcl\nsystem_assigned_managed_identities_by_client_id = {\n  my-vm-1 = \"00000000-0000-0000-0000-000000000001\"\n  my-vm-2 = \"00000000-0000-0000-0000-000000000002\"\n}\n```",
-                "priority": 10010,
+                "priority": 10009,
                 "schema": "# `system_assigned_managed_identities_by_client_id` is Optional in module\nsystem_assigned_managed_identities_by_client_id = {\n  example_key = \"\"\n}\n\n"
+            },
+            "system_assigned_managed_identities_by_display_name": {
+                "required": false,
+                "description": "(Optional) A map of system assigned managed identities to reference in role assignments.\nThe key is something unique to you. The value is the display name of the identity / compute instance.\n\nExample Input:\n\n```hcl\nsystem_assigned_managed_identities_by_display_name = {\n  my-vm-1 = \"My VM 1\"\n  my-vm-2 = \"My VM 2\"\n}\n```",
+                "priority": 10010,
+                "schema": "# `system_assigned_managed_identities_by_display_name` is Optional in module\nsystem_assigned_managed_identities_by_display_name = {\n  example_key = \"\"\n}\n\n"
             },
             "system_assigned_managed_identities_by_principal_id": {
                 "required": false,
@@ -1039,11 +1039,11 @@
                 "priority": 10011,
                 "schema": "# `system_assigned_managed_identities_by_principal_id` is Optional in module\nsystem_assigned_managed_identities_by_principal_id = {\n  example_key = \"\"\n}\n\n"
             },
-            "users_by_user_principal_name": {
+            "users_by_employee_id": {
                 "required": false,
-                "description": "(Optional) A map of Entra ID users to reference in role assignments.\nThe key is something unique to you. The value is the user principal name (UPN) of the user.\n\nExample Input:\n\n```hcl\nusers_by_user_principal_name = {\n  my-user-1 = \"user1@example.com\"\n  my-user-2 = \"user2@example.com\"\n}\n```",
+                "description": "(Optional) A map of Entra ID users to reference in role assignments.\nThe key is something unique to you. The value is the employee ID of the user.\n\nExample Input:\n\n```hcl\nusers_by_employee_id = {\n  my-user-1 = \"1234567890\"\n  my-user-2 = \"0987654321\"\n}\n```",
                 "priority": 10012,
-                "schema": "# `users_by_user_principal_name` is Optional in module\nusers_by_user_principal_name = {\n  example_key = \"\"\n}\n\n"
+                "schema": "# `users_by_employee_id` is Optional in module\nusers_by_employee_id = {\n  example_key = \"\"\n}\n\n"
             },
             "users_by_mail": {
                 "required": false,
@@ -1057,17 +1057,17 @@
                 "priority": 10014,
                 "schema": "# `users_by_mail_nickname` is Optional in module\nusers_by_mail_nickname = {\n  example_key = \"\"\n}\n\n"
             },
-            "users_by_employee_id": {
-                "required": false,
-                "description": "(Optional) A map of Entra ID users to reference in role assignments.\nThe key is something unique to you. The value is the employee ID of the user.\n\nExample Input:\n\n```hcl\nusers_by_employee_id = {\n  my-user-1 = \"1234567890\"\n  my-user-2 = \"0987654321\"\n}\n```",
-                "priority": 10015,
-                "schema": "# `users_by_employee_id` is Optional in module\nusers_by_employee_id = {\n  example_key = \"\"\n}\n\n"
-            },
             "users_by_object_id": {
                 "required": false,
                 "description": "(Optional) A map of Entra ID users to reference in role assignments.\nThe key is something unique to you. The value is the object ID of the user.\n\nExample Input:\n\n```hcl\nusers_by_object_id = {\n  my-user-1 = \"00000000-0000-0000-0000-000000000001\"\n  my-user-2 = \"00000000-0000-0000-0000-000000000002\"\n}\n```",
-                "priority": 10016,
+                "priority": 10015,
                 "schema": "# `users_by_object_id` is Optional in module\nusers_by_object_id = {\n  example_key = \"\"\n}\n\n"
+            },
+            "users_by_user_principal_name": {
+                "required": false,
+                "description": "(Optional) A map of Entra ID users to reference in role assignments.\nThe key is something unique to you. The value is the user principal name (UPN) of the user.\n\nExample Input:\n\n```hcl\nusers_by_user_principal_name = {\n  my-user-1 = \"user1@example.com\"\n  my-user-2 = \"user2@example.com\"\n}\n```",
+                "priority": 10016,
+                "schema": "# `users_by_user_principal_name` is Optional in module\nusers_by_user_principal_name = {\n  example_key = \"\"\n}\n\n"
             },
             "groups_by_display_name": {
                 "required": false,
@@ -1113,9 +1113,9 @@
             },
             "role_assignments_azure_resource_manager": {
                 "required": false,
-                "description": "Basic Azure Resource Manager role assignments to create. This variable does not do any validation that principals or roles exist and you need to supply the principalID, scope, and roleDefinitionID or roleDefinitionName yourself.\nThe key is something unique to you. The value is a map of role assignment attributes.\n\n- `role_definition_id` - (Optional) The ID of the role definition to assign.\n- `role_definition_name` - (Optional) The name of the role definition to assign.\n- `principal_type` - (Optional) The type of principal to assign the role to. Possible values are `User`, `Group`, `ServicePrincipal`, `SystemAssignedManagedIdentity`, `UserAssignedManagedIdentity`.\n- `principal_id` - The ID of the principal to assign the role to.\n- `scope` - The scope at which the role assignment applies.\n- `condition` - (Optional) The condition under which the role assignment is active.\n- `condition_version` - (Optional) The version of the condition.\n- `delegated_managed_identity_resource_id` - (Optional) The resource ID of the delegated managed identity.\n- `description` - (Optional) The description of the role assignment.",
+                "description": "Basic Azure Resource Manager role assignments to create. This variable does not do any validation that principals or roles exist and you need to supply the principalID, scope, and roleDefinitionID or roleDefinitionName yourself.\nThe key is something unique to you. The value is a map of role assignment attributes.\n\n- `role_definition_id` - (Optional) The ID of the role definition to assign.\n- `role_definition_name` - (Optional) The name of the role definition to assign.\n- `principal_type` - (Optional) The type of principal to assign the role to. Possible values are `User`, `Group`, `ServicePrincipal`, `SystemAssignedManagedIdentity`, `UserAssignedManagedIdentity`.\n- `principal_id` - The ID of the principal to assign the role to.\n- `scope` - The scope at which the role assignment applies.\n- `condition` - (Optional) The condition under which the role assignment is active.\n- `condition_version` - (Optional) The version of the condition.\n- `delegated_managed_identity_resource_id` - (Optional) The resource ID of the delegated managed identity.\n- `description` - (Optional) The description of the role assignment.\n- `skip_service_principal_aad_check` - (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.",
                 "priority": 10024,
-                "schema": "# `role_assignments_azure_resource_manager` is Optional in module\nrole_assignments_azure_resource_manager = {\n  example_key = {\n  # `principal_id` is Required in `role_assignments_azure_resource_manager`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `scope` is Required in `role_assignments_azure_resource_manager`\nscope = var.string_role_assignments_azure_resource_manager_scope\n  # `role_definition_id` is Optional in `role_assignments_azure_resource_manager`\nrole_definition_id = \"\"\n  # `role_definition_name` is Optional in `role_assignments_azure_resource_manager`\nrole_definition_name = \"\"\n  # `principal_type` is Optional in `role_assignments_azure_resource_manager`\nprincipal_type = \"\"\n  # `condition` is Optional in `role_assignments_azure_resource_manager`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments_azure_resource_manager`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments_azure_resource_manager`\ndelegated_managed_identity_resource_id = \"\"\n  # `description` is Optional in `role_assignments_azure_resource_manager`\ndescription = \"\"\n}\n\n}\n\n"
+                "schema": "# `role_assignments_azure_resource_manager` is Optional in module\nrole_assignments_azure_resource_manager = {\n  example_key = {\n  # `principal_id` is Required in `role_assignments_azure_resource_manager`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `scope` is Required in `role_assignments_azure_resource_manager`\nscope = var.string_role_assignments_azure_resource_manager_scope\n  # `role_definition_id` is Optional in `role_assignments_azure_resource_manager`\nrole_definition_id = \"\"\n  # `role_definition_name` is Optional in `role_assignments_azure_resource_manager`\nrole_definition_name = \"\"\n  # `principal_type` is Optional in `role_assignments_azure_resource_manager`\nprincipal_type = \"\"\n  # `condition` is Optional in `role_assignments_azure_resource_manager`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments_azure_resource_manager`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments_azure_resource_manager`\ndelegated_managed_identity_resource_id = \"\"\n  # `description` is Optional in `role_assignments_azure_resource_manager`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments_azure_resource_manager`\nskip_service_principal_aad_check = false\n}\n\n}\n\n"
             },
             "role_assignments_for_entra_id": {
                 "required": false,
@@ -1125,33 +1125,33 @@
             },
             "role_assignments_for_scopes": {
                 "required": false,
-                "description": "(Optional) Role assignments to be applied to specific scope ids. The scope id is the id of the resource, resource group, subscription or management group.\n\n- scope: (Required) The scope / id of the resource, resource group, subscription or management group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n\nExample Input:\n\n```hcl\nrole_assignments_for_scopes = {\n  scope            = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group\"\n  role_assignments = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
+                "description": "(Optional) Role assignments to be applied to specific scope ids. The scope id is the id of the resource, resource group, subscription or management group.\n\n- scope: (Required) The scope / id of the resource, resource group, subscription or management group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n  - skip_service_principal_aad_check: (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.\n\nExample Input:\n\n```hcl\nrole_assignments_for_scopes = {\n  scope            = \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group\"\n  role_assignments = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
                 "priority": 10026,
-                "schema": "# `role_assignments_for_scopes` is Optional in module\nrole_assignments_for_scopes = {\n  example_key = {\n  # `scope` is Required in `role_assignments_for_scopes`\nscope = var.string_role_assignments_for_scopes_scope\n  # `role_assignments` is Required in `role_assignments_for_scopes`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n}\n\n}\n\n}\n\n}\n\n"
+                "schema": "# `role_assignments_for_scopes` is Optional in module\nrole_assignments_for_scopes = {\n  example_key = {\n  # `scope` is Required in `role_assignments_for_scopes`\nscope = var.string_role_assignments_for_scopes_scope\n  # `role_assignments` is Required in `role_assignments_for_scopes`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n}\n\n}\n\n}\n\n}\n\n"
             },
             "role_assignments_for_subscriptions": {
                 "required": false,
-                "description": "(Optional) Role assignments to be applied to subscriptions.\nThis will default to the current subscription (default) or a `subscription_id` can be supplied to target another subscription.\nThis is a convenience variable that avoids the need to find the resource id of the subscription.\n\n- subscription_id: (Optional) The id of the subscription. If not supplied the current subscription is used.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n\nExample Input:\n\n```hcl\nrole_assignments_for_subscriptions = {\n  subscription_id     = \"00000000-0000-0000-0000-000000000000\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
+                "description": "(Optional) Role assignments to be applied to subscriptions.\nThis will default to the current subscription (default) or a `subscription_id` can be supplied to target another subscription.\nThis is a convenience variable that avoids the need to find the resource id of the subscription.\n\n- subscription_id: (Optional) The id of the subscription. If not supplied the current subscription is used.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n  - skip_service_principal_aad_check: (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.\n\nExample Input:\n\n```hcl\nrole_assignments_for_subscriptions = {\n  subscription_id     = \"00000000-0000-0000-0000-000000000000\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
                 "priority": 10027,
-                "schema": "# `role_assignments_for_subscriptions` is Optional in module\nrole_assignments_for_subscriptions = {\n  example_key = {\n  # `role_assignments` is Required in `role_assignments_for_subscriptions`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n}\n\n}\n\n  # `subscription_id` is Optional in `role_assignments_for_subscriptions`\nsubscription_id = \"\"\n}\n\n}\n\n"
-            },
-            "role_assignments_for_resources": {
-                "required": false,
-                "description": "(Optional) Role assignments to be applied to resources. The resource is defined by the resource name and the resource group name.\nThis variable only works with the current provider subscription. This is a convenience variable that avoids the need to find the resource id.\n\n- resouce_name: (Required) The names of the resource.\n- resource_group_name: (Required) The name of the resource group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n\nExample Input:\n\n```hcl\nrole_assignments_for_resources = {\n  resource_name       = \"my-resource-name\"\n  resource_group_name = \"my-resource-group-name\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
-                "priority": 10028,
-                "schema": "# `role_assignments_for_resources` is Optional in module\nrole_assignments_for_resources = {\n  example_key = {\n  # `resource_name` is Required in `role_assignments_for_resources`\nresource_name = var.string_role_assignments_for_resources_resource_name\n  # `resource_group_name` is Required in `role_assignments_for_resources`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `role_assignments` is Required in `role_assignments_for_resources`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n}\n\n}\n\n}\n\n}\n\n"
-            },
-            "role_assignments_for_resource_groups": {
-                "required": false,
-                "description": "(Optional) Role assignments to be applied to resource groups.\nThe resource group can be in the current subscription (default) or a `subscription_id` can be supplied to target a resource group in another subscription.\nThis is a convenience variable that avoids the need to find the resource id of the resource group.\n\n- resource_group_name: (Required) The name of the resource group.\n- subscription_id: (Optional) The id of the subscription. If not supplied the current subscription is used.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n\nExample Input:\n\n```hcl\nrole_assignments_for_resource_groups = {\n  resource_group_name = \"my-resource-group-name\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
-                "priority": 10029,
-                "schema": "# `role_assignments_for_resource_groups` is Optional in module\nrole_assignments_for_resource_groups = {\n  example_key = {\n  # `resource_group_name` is Required in `role_assignments_for_resource_groups`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `role_assignments` is Required in `role_assignments_for_resource_groups`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n}\n\n}\n\n  # `subscription_id` is Optional in `role_assignments_for_resource_groups`\nsubscription_id = \"\"\n}\n\n}\n\n"
+                "schema": "# `role_assignments_for_subscriptions` is Optional in module\nrole_assignments_for_subscriptions = {\n  example_key = {\n  # `role_assignments` is Required in `role_assignments_for_subscriptions`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n}\n\n}\n\n  # `subscription_id` is Optional in `role_assignments_for_subscriptions`\nsubscription_id = \"\"\n}\n\n}\n\n"
             },
             "role_assignments_for_management_groups": {
                 "required": false,
-                "description": "(Optional) Role assignments to be applied to management groups.\nThis is a convenience variable that avoids the need to find the resource id of the management group.\n\n- management_group_id: (Optional) The id of the management group (one of `management_group_id` or `management_group_display_name` must be supplied).\n- management_group_display_name: (Optional) The display name of the management group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n\nExample Input:\n\n```hcl\nrole_assignments_for_management_groups = {\n  management_group_id = \"mg-1-id\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n\nrole_assignments_for_management_groups = {\n  management_group_display_name = \"mg-1-display-name\"\n  role_assignments              = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
+                "description": "(Optional) Role assignments to be applied to management groups.\nThis is a convenience variable that avoids the need to find the resource id of the management group.\n\n- management_group_id: (Optional) The id of the management group (one of `management_group_id` or `management_group_display_name` must be supplied).\n- management_group_display_name: (Optional) The display name of the management group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n  - skip_service_principal_aad_check: (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.\n\nExample Input:\n\n```hcl\nrole_assignments_for_management_groups = {\n  management_group_id = \"mg-1-id\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n\nrole_assignments_for_management_groups = {\n  management_group_display_name = \"mg-1-display-name\"\n  role_assignments              = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
+                "priority": 10028,
+                "schema": "# `role_assignments_for_management_groups` is Optional in module\nrole_assignments_for_management_groups = {\n  example_key = {\n  # `role_assignments` is Required in `role_assignments_for_management_groups`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n}\n\n}\n\n  # `management_group_id` is Optional in `role_assignments_for_management_groups`\nmanagement_group_id = \"\"\n  # `management_group_display_name` is Optional in `role_assignments_for_management_groups`\nmanagement_group_display_name = \"\"\n}\n\n}\n\n"
+            },
+            "role_assignments_for_resource_groups": {
+                "required": false,
+                "description": "(Optional) Role assignments to be applied to resource groups.\nThe resource group can be in the current subscription (default) or a `subscription_id` can be supplied to target a resource group in another subscription.\nThis is a convenience variable that avoids the need to find the resource id of the resource group.\n\n- resource_group_name: (Required) The name of the resource group.\n- subscription_id: (Optional) The id of the subscription. If not supplied the current subscription is used.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n  - skip_service_principal_aad_check: (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.\n\nExample Input:\n\n```hcl\nrole_assignments_for_resource_groups = {\n  resource_group_name = \"my-resource-group-name\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
+                "priority": 10029,
+                "schema": "# `role_assignments_for_resource_groups` is Optional in module\nrole_assignments_for_resource_groups = {\n  example_key = {\n  # `resource_group_name` is Required in `role_assignments_for_resource_groups`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `role_assignments` is Required in `role_assignments_for_resource_groups`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n}\n\n}\n\n  # `subscription_id` is Optional in `role_assignments_for_resource_groups`\nsubscription_id = \"\"\n}\n\n}\n\n"
+            },
+            "role_assignments_for_resources": {
+                "required": false,
+                "description": "(Optional) Role assignments to be applied to resources. The resource is defined by the resource name and the resource group name.\nThis variable only works with the current provider subscription. This is a convenience variable that avoids the need to find the resource id.\n\n- resouce_name: (Required) The names of the resource.\n- resource_group_name: (Required) The name of the resource group.\n- role_assignments: (Required) The role assignments to be applied to the scope.\n  - role_definition: (Required) The key of the role definition as defined in the `role_definitions` variable.\n  - users: (Optional) The keys of the users as defined in one of the `users_by_...` variables.\n  - groups: (Optional) The keys of the groups as defined in one of the `groups_by_...` variables.\n  - app_registrations: (Optional) The keys of the app registrations as defined in one of the `app_registrations_by_...` variables.\n  - system_assigned_managed_identities: (Optional) The keys of the system assigned managed identities as defined in one of the `system_assigned_managed_identities_by_...` variables.\n  - user_assigned_managed_identities: (Optional) The keys of the user assigned managed identities as defined in one of the `user_assigned_managed_identities_by_...` variables.\n  - any_principals: (Optional) The keys of the principals as defined in any of the `[principal_type]_by_...` variables. This is a convenience method that can be used in combination with or instrad of the specific principal type options.\n  - skip_service_principal_aad_check: (Optional) If set to true, the service principal AAD check is skipped. This is useful for role assignments where the Service Principal is newly created and not yet available in AAD. Defaults to `false`.\n\nExample Input:\n\n```hcl\nrole_assignments_for_resources = {\n  resource_name       = \"my-resource-name\"\n  resource_group_name = \"my-resource-group-name\"\n  role_assignments    = {\n    role_definition = \"contributor\"\n    users = [\n      \"my-user-1\",\n      \"my-user-2\"\n    ]\n    groups = [\n      \"my-group-1\",\n      \"my-group-2\"\n    ]\n    app_registrations = [\n      \"my-app-1\",\n      \"my-app-2\"\n    ]\n    system_assigned_managed_identities = [\n      \"my-vm-1\",\n      \"my-vm-2\"\n    ]\n    user_assigned_managed_identities = [\n      \"my-user-assigned-managed-identity-1\",\n      \"my-user-assigned-managed-identity-2\"\n    ]\n  }\n}\n```",
                 "priority": 10030,
-                "schema": "# `role_assignments_for_management_groups` is Optional in module\nrole_assignments_for_management_groups = {\n  example_key = {\n  # `role_assignments` is Required in `role_assignments_for_management_groups`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n}\n\n}\n\n  # `management_group_id` is Optional in `role_assignments_for_management_groups`\nmanagement_group_id = \"\"\n  # `management_group_display_name` is Optional in `role_assignments_for_management_groups`\nmanagement_group_display_name = \"\"\n}\n\n}\n\n"
+                "schema": "# `role_assignments_for_resources` is Optional in module\nrole_assignments_for_resources = {\n  example_key = {\n  # `resource_name` is Required in `role_assignments_for_resources`\nresource_name = var.string_role_assignments_for_resources_resource_name\n  # `resource_group_name` is Required in `role_assignments_for_resources`\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n  # `role_assignments` is Required in `role_assignments_for_resources`\nrole_assignments = {\n  example_key = {\n  # `role_definition` is Required in `role_assignments`\nrole_definition = var.string_role_assignments_role_definition\n  # `users` is Optional in `role_assignments`\nusers = []\n  # `groups` is Optional in `role_assignments`\ngroups = []\n  # `app_registrations` is Optional in `role_assignments`\napp_registrations = []\n  # `system_assigned_managed_identities` is Optional in `role_assignments`\nsystem_assigned_managed_identities = []\n  # `user_assigned_managed_identities` is Optional in `role_assignments`\nuser_assigned_managed_identities = []\n  # `any_principals` is Optional in `role_assignments`\nany_principals = []\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -1163,21 +1163,21 @@
             "optional": {
                 "enable_telemetry": [],
                 "skip_service_principal_aad_check": [],
-                "user_assigned_managed_identities_by_display_name": [],
                 "user_assigned_managed_identities_by_client_id": [],
+                "user_assigned_managed_identities_by_display_name": [],
                 "user_assigned_managed_identities_by_principal_id": [],
-                "app_registrations_by_display_name": [],
                 "app_registrations_by_client_id": [],
+                "app_registrations_by_display_name": [],
                 "app_registrations_by_object_id": [],
                 "app_registrations_by_principal_id": [],
-                "system_assigned_managed_identities_by_display_name": [],
                 "system_assigned_managed_identities_by_client_id": [],
+                "system_assigned_managed_identities_by_display_name": [],
                 "system_assigned_managed_identities_by_principal_id": [],
-                "users_by_user_principal_name": [],
+                "users_by_employee_id": [],
                 "users_by_mail": [],
                 "users_by_mail_nickname": [],
-                "users_by_employee_id": [],
                 "users_by_object_id": [],
+                "users_by_user_principal_name": [],
                 "groups_by_display_name": [],
                 "groups_by_mail_nickname": [],
                 "groups_by_object_id": [],
@@ -1191,13 +1191,13 @@
                 "role_assignments_for_entra_id": [],
                 "role_assignments_for_scopes": [],
                 "role_assignments_for_subscriptions": [],
-                "role_assignments_for_resources": [
-                    "avm-res-resources-resourcegroup"
-                ],
+                "role_assignments_for_management_groups": [],
                 "role_assignments_for_resource_groups": [
                     "avm-res-resources-resourcegroup"
                 ],
-                "role_assignments_for_management_groups": []
+                "role_assignments_for_resources": [
+                    "avm-res-resources-resourcegroup"
+                ]
             }
         },
         "priority": 7,
@@ -4363,12 +4363,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5195,8 +5195,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -5769,8 +5769,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6029,8 +6029,10 @@
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-containerservice-managedcluster",
         "description": "Manages AKS managed clusters.",
         "outputs": [
+            "aci_connector_object_id",
             "cluster_ca_certificate",
             "host",
+            "ingress_app_object_id",
             "key_vault_secrets_provider_object_id",
             "kube_admin_config",
             "kube_config",
@@ -6040,7 +6042,8 @@
             "nodepool_resource_ids",
             "oidc_issuer_url",
             "private_endpoints",
-            "resource_id"
+            "resource_id",
+            "web_app_routing_object_id"
         ],
         "variables": {
             "location": {
@@ -6437,7 +6440,7 @@
                 "required": false,
                 "description": "Optional. The additional node pools for the Kubernetes cluster.",
                 "priority": 10061,
-                "schema": "# `node_pools` is Optional in module\nnode_pools = {\n  unp1 = {\n  # `name` is Required in `node_pools`\nname = \"userpool2\"\n  # `vm_size` is Required in `node_pools`\nvm_size = \"Standard_DS2_v2\"\n  # `capacity_reservation_group_id` is Optional in `node_pools`\ncapacity_reservation_group_id = \"\"\n  # `auto_scaling_enabled` is Optional in `node_pools`\nauto_scaling_enabled = true\n  # `max_count` is Optional in `node_pools`\nmax_count = 4\n  # `min_count` is Optional in `node_pools`\nmin_count = 2\n  # `node_count` is Optional in `node_pools`\nnode_count = 0\n  # `host_encryption_enabled` is Optional in `node_pools`\nhost_encryption_enabled = false\n  # `node_public_ip_enabled` is Optional in `node_pools`\nnode_public_ip_enabled = false\n  # `eviction_policy` is Optional in `node_pools`\neviction_policy = \"\"\n  # `host_group_id` is Optional in `node_pools`\nhost_group_id = \"\"\n  # `fips_enabled` is Optional in `node_pools`\nfips_enabled = false\n  # `gpu_instance` is Optional in `node_pools`\ngpu_instance = \"\"\n  # `kubelet_disk_type` is Optional in `node_pools`\nkubelet_disk_type = \"\"\n  # `max_pods` is Optional in `node_pools`\nmax_pods = 30\n  # `mode` is Optional in `node_pools`\nmode = \"\"\n  # `node_network_profile` is Optional in `node_pools`\nnode_network_profile = {\n  # `allowed_host_ports` is Optional in `node_network_profile`\nallowed_host_ports = [{\n  # `port_start` is Optional in `allowed_host_ports`\nport_start = 0\n  # `port_end` is Optional in `allowed_host_ports`\nport_end = 0\n  # `protocol` is Optional in `allowed_host_ports`\nprotocol = \"\"\n}\n]\n  # `application_security_group_ids` is Optional in `node_network_profile`\napplication_security_group_ids = []\n  # `node_public_ip_tags` is Optional in `node_network_profile`\nnode_public_ip_tags = {\n  example_key = \"\"\n}\n\n}\n\n  # `node_labels` is Optional in `node_pools`\nnode_labels = {\n  example_key = \"\"\n}\n\n  # `node_public_ip_prefix_id` is Optional in `node_pools`\nnode_public_ip_prefix_id = \"\"\n  # `node_taints` is Optional in `node_pools`\nnode_taints = []\n  # `orchestrator_version` is Optional in `node_pools`\norchestrator_version = \"\"\n  # `os_disk_size_gb` is Optional in `node_pools`\nos_disk_size_gb = 128\n  # `os_disk_type` is Optional in `node_pools`\nos_disk_type = \"\"\n  # `os_sku` is Optional in `node_pools`\nos_sku = \"\"\n  # `os_type` is Optional in `node_pools`\nos_type = \"\"\n  # `pod_subnet_id` is Optional in `node_pools`\npod_subnet_id = \"\"\n  # `priority` is Optional in `node_pools`\npriority = \"\"\n  # `proximity_placement_group_id` is Optional in `node_pools`\nproximity_placement_group_id = \"\"\n  # `spot_max_price` is Optional in `node_pools`\nspot_max_price = \"\"\n  # `snapshot_id` is Optional in `node_pools`\nsnapshot_id = \"\"\n  # `tags` is Optional in `node_pools`\ntags = {\n  example_key = \"\"\n}\n\n  # `scale_down_mode` is Optional in `node_pools`\nscale_down_mode = \"\"\n  # `ultra_ssd_enabled` is Optional in `node_pools`\nultra_ssd_enabled = false\n  # `vnet_subnet_id` is Optional in `node_pools`\nvnet_subnet_id = \"\"\n  # `zones` is Optional in `node_pools`\nzones = []\n  # `workload_runtime` is Optional in `node_pools`\nworkload_runtime = \"\"\n  # `windows_profile` is Optional in `node_pools`\nwindows_profile = {\n  # `outbound_nat_enabled` is Optional in `windows_profile`\noutbound_nat_enabled = false\n}\n\n  # `upgrade_settings` is Optional in `node_pools`\nupgrade_settings = {\n  # `max_surge` is Required in `upgrade_settings`\nmax_surge = \"10%\"\n  # `drain_timeout_in_minutes` is Optional in `upgrade_settings`\ndrain_timeout_in_minutes = 0\n  # `node_soak_duration_in_minutes` is Optional in `upgrade_settings`\nnode_soak_duration_in_minutes = 0\n}\n\n  # `kubelet_config` is Optional in `node_pools`\nkubelet_config = {\n  # `cpu_manager_policy` is Optional in `kubelet_config`\ncpu_manager_policy = \"\"\n  # `cpu_cfs_quota_enabled` is Optional in `kubelet_config`\ncpu_cfs_quota_enabled = true\n  # `cpu_cfs_quota_period` is Optional in `kubelet_config`\ncpu_cfs_quota_period = \"\"\n  # `image_gc_high_threshold` is Optional in `kubelet_config`\nimage_gc_high_threshold = 0\n  # `image_gc_low_threshold` is Optional in `kubelet_config`\nimage_gc_low_threshold = 0\n  # `topology_manager_policy` is Optional in `kubelet_config`\ntopology_manager_policy = \"\"\n  # `allowed_unsafe_sysctls` is Optional in `kubelet_config`\nallowed_unsafe_sysctls = []\n  # `container_log_max_size_mb` is Optional in `kubelet_config`\ncontainer_log_max_size_mb = 0\n  # `container_log_max_line` is Optional in `kubelet_config`\ncontainer_log_max_line = 0\n  # `pod_max_pid` is Optional in `kubelet_config`\npod_max_pid = 0\n}\n\n  # `linux_os_config` is Optional in `node_pools`\nlinux_os_config = {\n  # `sysctl_config` is Optional in `linux_os_config`\nsysctl_config = {\n  # `fs_aio_max_nr` is Optional in `sysctl_config`\nfs_aio_max_nr = 0\n  # `fs_file_max` is Optional in `sysctl_config`\nfs_file_max = 0\n  # `fs_inotify_max_user_watches` is Optional in `sysctl_config`\nfs_inotify_max_user_watches = 0\n  # `fs_nr_open` is Optional in `sysctl_config`\nfs_nr_open = 0\n  # `kernel_threads_max` is Optional in `sysctl_config`\nkernel_threads_max = 0\n  # `net_core_netdev_max_backlog` is Optional in `sysctl_config`\nnet_core_netdev_max_backlog = 0\n  # `net_core_optmem_max` is Optional in `sysctl_config`\nnet_core_optmem_max = 0\n  # `net_core_rmem_default` is Optional in `sysctl_config`\nnet_core_rmem_default = 0\n  # `net_core_rmem_max` is Optional in `sysctl_config`\nnet_core_rmem_max = 0\n  # `net_core_somaxconn` is Optional in `sysctl_config`\nnet_core_somaxconn = 0\n  # `net_core_wmem_default` is Optional in `sysctl_config`\nnet_core_wmem_default = 0\n  # `net_core_wmem_max` is Optional in `sysctl_config`\nnet_core_wmem_max = 0\n  # `net_ipv4_ip_local_port_range_min` is Optional in `sysctl_config`\nnet_ipv4_ip_local_port_range_min = 0\n  # `net_ipv4_ip_local_port_range_max` is Optional in `sysctl_config`\nnet_ipv4_ip_local_port_range_max = 0\n  # `net_ipv4_neigh_default_gc_thresh1` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh1 = 0\n  # `net_ipv4_neigh_default_gc_thresh2` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh2 = 0\n  # `net_ipv4_neigh_default_gc_thresh3` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh3 = 0\n  # `net_ipv4_tcp_fin_timeout` is Optional in `sysctl_config`\nnet_ipv4_tcp_fin_timeout = 0\n  # `net_ipv4_tcp_keepalive_intvl` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_intvl = 0\n  # `net_ipv4_tcp_keepalive_probes` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_probes = 0\n  # `net_ipv4_tcp_keepalive_time` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_time = 0\n  # `net_ipv4_tcp_max_syn_backlog` is Optional in `sysctl_config`\nnet_ipv4_tcp_max_syn_backlog = 0\n  # `net_ipv4_tcp_max_tw_buckets` is Optional in `sysctl_config`\nnet_ipv4_tcp_max_tw_buckets = 0\n  # `net_ipv4_tcp_tw_reuse` is Optional in `sysctl_config`\nnet_ipv4_tcp_tw_reuse = false\n  # `net_netfilter_nf_conntrack_buckets` is Optional in `sysctl_config`\nnet_netfilter_nf_conntrack_buckets = 0\n  # `net_netfilter_nf_conntrack_max` is Optional in `sysctl_config`\nnet_netfilter_nf_conntrack_max = 0\n  # `vm_max_map_count` is Optional in `sysctl_config`\nvm_max_map_count = 0\n  # `vm_swappiness` is Optional in `sysctl_config`\nvm_swappiness = 0\n  # `vm_vfs_cache_pressure` is Optional in `sysctl_config`\nvm_vfs_cache_pressure = 0\n}\n\n}\n\n}\n\n}\n\n"
+                "schema": "# `node_pools` is Optional in module\nnode_pools = {\n  unp1 = {\n  # `name` is Required in `node_pools`\nname = \"userpool2\"\n  # `vm_size` is Required in `node_pools`\nvm_size = \"Standard_DS2_v2\"\n  # `capacity_reservation_group_id` is Optional in `node_pools`\ncapacity_reservation_group_id = \"\"\n  # `auto_scaling_enabled` is Optional in `node_pools`\nauto_scaling_enabled = true\n  # `max_count` is Optional in `node_pools`\nmax_count = 4\n  # `min_count` is Optional in `node_pools`\nmin_count = 2\n  # `node_count` is Optional in `node_pools`\nnode_count = 0\n  # `host_encryption_enabled` is Optional in `node_pools`\nhost_encryption_enabled = false\n  # `node_public_ip_enabled` is Optional in `node_pools`\nnode_public_ip_enabled = false\n  # `eviction_policy` is Optional in `node_pools`\neviction_policy = \"\"\n  # `host_group_id` is Optional in `node_pools`\nhost_group_id = \"\"\n  # `fips_enabled` is Optional in `node_pools`\nfips_enabled = false\n  # `gpu_instance` is Optional in `node_pools`\ngpu_instance = \"\"\n  # `kubelet_disk_type` is Optional in `node_pools`\nkubelet_disk_type = \"\"\n  # `max_pods` is Optional in `node_pools`\nmax_pods = 30\n  # `mode` is Optional in `node_pools`\nmode = \"\"\n  # `node_network_profile` is Optional in `node_pools`\nnode_network_profile = {\n  # `allowed_host_ports` is Optional in `node_network_profile`\nallowed_host_ports = [{\n  # `port_start` is Optional in `allowed_host_ports`\nport_start = 0\n  # `port_end` is Optional in `allowed_host_ports`\nport_end = 0\n  # `protocol` is Optional in `allowed_host_ports`\nprotocol = \"\"\n}\n]\n  # `application_security_group_ids` is Optional in `node_network_profile`\napplication_security_group_ids = []\n  # `node_public_ip_tags` is Optional in `node_network_profile`\nnode_public_ip_tags = {\n  example_key = \"\"\n}\n\n}\n\n  # `node_labels` is Optional in `node_pools`\nnode_labels = {\n  example_key = \"\"\n}\n\n  # `node_public_ip_prefix_id` is Optional in `node_pools`\nnode_public_ip_prefix_id = \"\"\n  # `node_taints` is Optional in `node_pools`\nnode_taints = []\n  # `orchestrator_version` is Optional in `node_pools`\norchestrator_version = \"\"\n  # `os_disk_size_gb` is Optional in `node_pools`\nos_disk_size_gb = 128\n  # `os_disk_type` is Optional in `node_pools`\nos_disk_type = \"\"\n  # `os_sku` is Optional in `node_pools`\nos_sku = \"\"\n  # `os_type` is Optional in `node_pools`\nos_type = \"\"\n  # `pod_subnet_id` is Optional in `node_pools`\npod_subnet_id = \"\"\n  # `priority` is Optional in `node_pools`\npriority = \"\"\n  # `proximity_placement_group_id` is Optional in `node_pools`\nproximity_placement_group_id = \"\"\n  # `spot_max_price` is Optional in `node_pools`\nspot_max_price = \"\"\n  # `snapshot_id` is Optional in `node_pools`\nsnapshot_id = \"\"\n  # `tags` is Optional in `node_pools`\ntags = {\n  example_key = \"\"\n}\n\n  # `scale_down_mode` is Optional in `node_pools`\nscale_down_mode = \"\"\n  # `ultra_ssd_enabled` is Optional in `node_pools`\nultra_ssd_enabled = false\n  # `vnet_subnet_id` is Optional in `node_pools`\nvnet_subnet_id = \"\"\n  # `zones` is Optional in `node_pools`\nzones = []\n  # `temporary_name_for_rotation` is Optional in `node_pools`\ntemporary_name_for_rotation = \"\"\n  # `workload_runtime` is Optional in `node_pools`\nworkload_runtime = \"\"\n  # `windows_profile` is Optional in `node_pools`\nwindows_profile = {\n  # `outbound_nat_enabled` is Optional in `windows_profile`\noutbound_nat_enabled = false\n}\n\n  # `upgrade_settings` is Optional in `node_pools`\nupgrade_settings = {\n  # `max_surge` is Required in `upgrade_settings`\nmax_surge = \"10%\"\n  # `drain_timeout_in_minutes` is Optional in `upgrade_settings`\ndrain_timeout_in_minutes = 0\n  # `node_soak_duration_in_minutes` is Optional in `upgrade_settings`\nnode_soak_duration_in_minutes = 0\n}\n\n  # `kubelet_config` is Optional in `node_pools`\nkubelet_config = {\n  # `cpu_manager_policy` is Optional in `kubelet_config`\ncpu_manager_policy = \"\"\n  # `cpu_cfs_quota_enabled` is Optional in `kubelet_config`\ncpu_cfs_quota_enabled = true\n  # `cpu_cfs_quota_period` is Optional in `kubelet_config`\ncpu_cfs_quota_period = \"\"\n  # `image_gc_high_threshold` is Optional in `kubelet_config`\nimage_gc_high_threshold = 0\n  # `image_gc_low_threshold` is Optional in `kubelet_config`\nimage_gc_low_threshold = 0\n  # `topology_manager_policy` is Optional in `kubelet_config`\ntopology_manager_policy = \"\"\n  # `allowed_unsafe_sysctls` is Optional in `kubelet_config`\nallowed_unsafe_sysctls = []\n  # `container_log_max_size_mb` is Optional in `kubelet_config`\ncontainer_log_max_size_mb = 0\n  # `container_log_max_line` is Optional in `kubelet_config`\ncontainer_log_max_line = 0\n  # `pod_max_pid` is Optional in `kubelet_config`\npod_max_pid = 0\n}\n\n  # `linux_os_config` is Optional in `node_pools`\nlinux_os_config = {\n  # `sysctl_config` is Optional in `linux_os_config`\nsysctl_config = {\n  # `fs_aio_max_nr` is Optional in `sysctl_config`\nfs_aio_max_nr = 0\n  # `fs_file_max` is Optional in `sysctl_config`\nfs_file_max = 0\n  # `fs_inotify_max_user_watches` is Optional in `sysctl_config`\nfs_inotify_max_user_watches = 0\n  # `fs_nr_open` is Optional in `sysctl_config`\nfs_nr_open = 0\n  # `kernel_threads_max` is Optional in `sysctl_config`\nkernel_threads_max = 0\n  # `net_core_netdev_max_backlog` is Optional in `sysctl_config`\nnet_core_netdev_max_backlog = 0\n  # `net_core_optmem_max` is Optional in `sysctl_config`\nnet_core_optmem_max = 0\n  # `net_core_rmem_default` is Optional in `sysctl_config`\nnet_core_rmem_default = 0\n  # `net_core_rmem_max` is Optional in `sysctl_config`\nnet_core_rmem_max = 0\n  # `net_core_somaxconn` is Optional in `sysctl_config`\nnet_core_somaxconn = 0\n  # `net_core_wmem_default` is Optional in `sysctl_config`\nnet_core_wmem_default = 0\n  # `net_core_wmem_max` is Optional in `sysctl_config`\nnet_core_wmem_max = 0\n  # `net_ipv4_ip_local_port_range_min` is Optional in `sysctl_config`\nnet_ipv4_ip_local_port_range_min = 0\n  # `net_ipv4_ip_local_port_range_max` is Optional in `sysctl_config`\nnet_ipv4_ip_local_port_range_max = 0\n  # `net_ipv4_neigh_default_gc_thresh1` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh1 = 0\n  # `net_ipv4_neigh_default_gc_thresh2` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh2 = 0\n  # `net_ipv4_neigh_default_gc_thresh3` is Optional in `sysctl_config`\nnet_ipv4_neigh_default_gc_thresh3 = 0\n  # `net_ipv4_tcp_fin_timeout` is Optional in `sysctl_config`\nnet_ipv4_tcp_fin_timeout = 0\n  # `net_ipv4_tcp_keepalive_intvl` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_intvl = 0\n  # `net_ipv4_tcp_keepalive_probes` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_probes = 0\n  # `net_ipv4_tcp_keepalive_time` is Optional in `sysctl_config`\nnet_ipv4_tcp_keepalive_time = 0\n  # `net_ipv4_tcp_max_syn_backlog` is Optional in `sysctl_config`\nnet_ipv4_tcp_max_syn_backlog = 0\n  # `net_ipv4_tcp_max_tw_buckets` is Optional in `sysctl_config`\nnet_ipv4_tcp_max_tw_buckets = 0\n  # `net_ipv4_tcp_tw_reuse` is Optional in `sysctl_config`\nnet_ipv4_tcp_tw_reuse = false\n  # `net_netfilter_nf_conntrack_buckets` is Optional in `sysctl_config`\nnet_netfilter_nf_conntrack_buckets = 0\n  # `net_netfilter_nf_conntrack_max` is Optional in `sysctl_config`\nnet_netfilter_nf_conntrack_max = 0\n  # `vm_max_map_count` is Optional in `sysctl_config`\nvm_max_map_count = 0\n  # `vm_swappiness` is Optional in `sysctl_config`\nvm_swappiness = 0\n  # `vm_vfs_cache_pressure` is Optional in `sysctl_config`\nvm_vfs_cache_pressure = 0\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -7310,8 +7313,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9925,12 +9928,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -10094,12 +10097,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -14617,12 +14620,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -15797,14 +15800,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "backup_subnet_cidr": [],
