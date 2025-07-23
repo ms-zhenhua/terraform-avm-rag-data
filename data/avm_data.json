@@ -4363,12 +4363,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5195,8 +5195,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -7313,8 +7313,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9928,12 +9928,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -11028,8 +11028,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12243,8 +12243,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12654,12 +12654,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -14126,8 +14126,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14620,12 +14620,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15800,13 +15800,13 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
@@ -16580,11 +16580,11 @@
                 "priority": 9,
                 "schema": "# `resource_group_name` is Required in module\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n"
             },
-            "enable_advanced_threat_protection": {
+            "advanced_threat_protection_enabled": {
                 "required": false,
                 "description": "(Optional) Whether to enabled Defender for SQL Advanced Threat Protection.",
                 "priority": 10000,
-                "schema": "# `enable_advanced_threat_protection` is Optional in module\nenable_advanced_threat_protection = false\n"
+                "schema": "# `advanced_threat_protection_enabled` is Optional in module\nadvanced_threat_protection_enabled = false\n"
             },
             "collation": {
                 "required": false,
@@ -16622,23 +16622,23 @@
                 "priority": 10006,
                 "schema": "# `public_data_endpoint_enabled` is Optional in module\npublic_data_endpoint_enabled = false\n"
             },
+            "storage_account_resource_id": {
+                "required": false,
+                "description": "(Optional) Storage Account to store vulnerability assessments.\n\nThe System Assigned Managed Identity will be granted Storage Blob Data Contributor over this storage account.\n\nNote these limitations documented in Microsoft Learn - <https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-storage?view=azuresql#store-va-scan-results-for-azure-sql-managed-instance-in-a-storage-account-that-can-be-accessed-behind-a-firewall-or-vnet>\n\n* User Assigned MIs are not supported\n* The storage account firewall public network access must be allowed.  If \"Enabled from selected virtual networks and IP addresses\" is set (recommended), the SQL MI subnet ID must be added to the storage account firewall.",
+                "priority": 10007,
+                "schema": "# `storage_account_resource_id` is Optional in module\nstorage_account_resource_id = \"\"\n"
+            },
             "storage_account_type": {
                 "required": false,
                 "description": "(Optional) Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.",
-                "priority": 10007,
+                "priority": 10008,
                 "schema": "# `storage_account_type` is Optional in module\nstorage_account_type = \"\"\n"
             },
             "timezone_id": {
                 "required": false,
                 "description": "(Optional) The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.",
-                "priority": 10008,
-                "schema": "# `timezone_id` is Optional in module\ntimezone_id = \"\"\n"
-            },
-            "storage_account_resource_id": {
-                "required": false,
-                "description": "(Optional) Storage Account to store vulnerability assessments.\n\nThe System Assigned Managed Identity will be granted Storage Blob Data Contributor over this storage account.\n\nNote these limitations documented in Microsoft Learn - <https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-storage?view=azuresql#store-va-scan-results-for-azure-sql-managed-instance-in-a-storage-account-that-can-be-accessed-behind-a-firewall-or-vnet>\n\n* User Assigned MIs are not supported\n* The storage account firewall public network access must be allowed.  If \"Enabled from selected virtual networks and IP addresses\" is set (recommended), the SQL MI subnet ID must be added to the storage account firewall.",
                 "priority": 10009,
-                "schema": "# `storage_account_resource_id` is Optional in module\nstorage_account_resource_id = \"\"\n"
+                "schema": "# `timezone_id` is Optional in module\ntimezone_id = \"\"\n"
             },
             "zone_redundant_enabled": {
                 "required": false,
@@ -16726,9 +16726,9 @@
             },
             "databases": {
                 "required": false,
-                "description": " - `name` - (Required) The name of the Managed Database to create. Changing this forces a new resource to be created.\n - `short_term_retention_days` - (Optional) The backup retention period in days. This is how many days Point-in-Time Restore will be supported.\n\n ---\n `long_term_retention_policy` block supports the following:\n - `monthly_retention` - (Optional) The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.\n - `week_of_year` - (Optional) The week of year to take the yearly backup. Value has to be between `1` and `52`.\n - `weekly_retention` - (Optional) The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.\n - `yearly_retention` - (Optional) The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.\n\n ---\n `point_in_time_restore` block supports the following:\n - `restore_point_in_time` - (Required) The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.\n - `source_database_id` - (Required) The source database id that will be used to restore from. Changing this forces a new resource to be created.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Mssql Managed Database.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Mssql Managed Database.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Mssql Managed Database.\n - `update` - (Defaults to 30 minutes) Used when updating the Mssql Managed Database.",
+                "description": " - `name` - (Required) The name of the Managed Database to create. Changing this forces a new resource to be created.\n - `short_term_retention_days` - (Optional) The backup retention period in days. This is how many days Point-in-Time Restore will be supported.\n - `tags` - (Optional) A mapping of tags to assign to the managed database.\n\n ---\n `long_term_retention_policy` block supports the following:\n - `monthly_retention` - (Optional) The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.\n - `week_of_year` - (Optional) The week of year to take the yearly backup. Value has to be between `1` and `52`.\n - `weekly_retention` - (Optional) The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.\n - `yearly_retention` - (Optional) The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.\n\n ---\n `point_in_time_restore` block supports the following:\n - `restore_point_in_time` - (Required) The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.\n - `source_database_id` - (Required) The source database id that will be used to restore from. Changing this forces a new resource to be created.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Mssql Managed Database.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Mssql Managed Database.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Mssql Managed Database.\n - `update` - (Defaults to 30 minutes) Used when updating the Mssql Managed Database.",
                 "priority": 10024,
-                "schema": "# `databases` is Optional in module\ndatabases = {\n  example_key = {\n  # `name` is Required in `databases`\nname = \"example1\"\n  # `short_term_retention_days` is Optional in `databases`\nshort_term_retention_days = 0\n  # `long_term_retention_policy` is Optional in `databases`\nlong_term_retention_policy = {\n  # `monthly_retention` is Optional in `long_term_retention_policy`\nmonthly_retention = \"\"\n  # `week_of_year` is Optional in `long_term_retention_policy`\nweek_of_year = 0\n  # `weekly_retention` is Optional in `long_term_retention_policy`\nweekly_retention = \"\"\n  # `yearly_retention` is Optional in `long_term_retention_policy`\nyearly_retention = \"\"\n}\n\n  # `point_in_time_restore` is Optional in `databases`\npoint_in_time_restore = {\n  # `restore_point_in_time` is Required in `point_in_time_restore`\nrestore_point_in_time = var.string_point_in_time_restore_restore_point_in_time\n  # `source_database_id` is Required in `point_in_time_restore`\nsource_database_id = var.string_point_in_time_restore_source_database_id\n}\n\n  # `timeouts` is Optional in `databases`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
+                "schema": "# `databases` is Optional in module\ndatabases = {\n  example_key = {\n  # `name` is Required in `databases`\nname = \"example1\"\n  # `short_term_retention_days` is Optional in `databases`\nshort_term_retention_days = 0\n  # `tags` is Optional in `databases`\ntags = {\n  example_key = \"\"\n}\n\n  # `long_term_retention_policy` is Optional in `databases`\nlong_term_retention_policy = {\n  # `monthly_retention` is Optional in `long_term_retention_policy`\nmonthly_retention = \"\"\n  # `week_of_year` is Optional in `long_term_retention_policy`\nweek_of_year = 0\n  # `weekly_retention` is Optional in `long_term_retention_policy`\nweekly_retention = \"\"\n  # `yearly_retention` is Optional in `long_term_retention_policy`\nyearly_retention = \"\"\n}\n\n  # `point_in_time_restore` is Optional in `databases`\npoint_in_time_restore = {\n  # `restore_point_in_time` is Required in `point_in_time_restore`\nrestore_point_in_time = var.string_point_in_time_restore_restore_point_in_time\n  # `source_database_id` is Required in `point_in_time_restore`\nsource_database_id = var.string_point_in_time_restore_source_database_id\n}\n\n  # `timeouts` is Optional in `databases`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "private_endpoints": {
                 "required": false,
@@ -16761,16 +16761,16 @@
                 ]
             },
             "optional": {
-                "enable_advanced_threat_protection": [],
+                "advanced_threat_protection_enabled": [],
                 "collation": [],
                 "dns_zone_partner_id": [],
                 "maintenance_configuration_name": [],
                 "minimum_tls_version": [],
                 "proxy_override": [],
                 "public_data_endpoint_enabled": [],
+                "storage_account_resource_id": [],
                 "storage_account_type": [],
                 "timezone_id": [],
-                "storage_account_resource_id": [],
                 "zone_redundant_enabled": [],
                 "enable_telemetry": [],
                 "private_endpoints_manage_dns_zone_group": [],
