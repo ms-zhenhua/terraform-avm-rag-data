@@ -107,22 +107,20 @@ class NumberValueNode(PrimitiveValueNode):
         if not valid_value(value):
             return
         
-        if isinstance(value, str):  
-            value = value.strip().strip('"').strip("'")
-            if len(value) == 0:
-                return
-            if value.isdigit():
-                self.default_value = value
-                return
-            if value.startswith('module.'):
-                self.default_value = value
-                return
-    
-        if isinstance(value, (int, float)):
-            self.default_value = str(value)
-            return 
+        value = str(value).strip().strip('"').strip("'")
+        if len(value) == 0:
+            return
         
-        raise_error(f"Expected a number for number value, got {type(value)}: {value}")
+        if value.startswith('module.'):
+            self.default_value = value
+            return
+        
+        try:
+            float_value = float(value)
+            self.default_value = str(float_value)
+            return
+        except ValueError:
+            raise_error(f"Expected a number for number value, got {type(value)}: {value}")
 
     def to_module(self) -> str:
         default_value = self.default_value.strip('"').strip("'")
