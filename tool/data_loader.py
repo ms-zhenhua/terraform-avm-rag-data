@@ -1,139 +1,89 @@
 
 import asyncio
+import csv
+import io
 import json
 import logging
 import os
-import tarfile
-import time
 import requests
 import shutil
+import tarfile
+import time
 
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from .utils import AVAILABLE_MODULES_URL, DATA_DIRECTORY_PATH, DOWNLOADED_TAR_PATH, run_tasks, raise_error
 
-from .utils import AVM_OFFICIAL_URL, ORIGIN_DATA_FILE_PATH, DATA_DIRECTORY_PATH, DOWNLOADED_TAR_PATH, run_tasks, raise_error
+def _source_from_repo_url(repo_url: str) -> str:
+        _, first_part, other_parts = repo_url.rsplit('/', 2)
+        _, third_part,second_part = other_parts.split('-', 2)
+        return f"{first_part}/{second_part}/{third_part}"
 
-def load_modules_info() -> dict[str, dict]:
+def load_modules_info() -> dict[str, dict]:  
     logging.info("Loading modules info from AVM official website...")
+    response = requests.get(AVAILABLE_MODULES_URL)
+    response.raise_for_status()
+    csv_content = response.text
 
-    with open(ORIGIN_DATA_FILE_PATH, "r", encoding='utf-8') as file:
-        origin_data = json.load(file)
+    dict_reader = csv.DictReader(io.StringIO(csv_content))
+    modules_info = {}
 
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Run in headless mode
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=chrome_options
-    )
+    for row in dict_reader:
+        if row['ModuleStatus'] == 'Proposed':
+            continue
+
+        module_name = row['ModuleName']
+        display_name = row['ModuleDisplayName']
+        repo_url = row['RepoURL']
+        modules_info[module_name] = {
+            "module_name": module_name,
+            "display_name": display_name,
+            "source": _source_from_repo_url(repo_url),
+            "git_hub_url": repo_url,
+            "description": f"Manages {display_name}.",
+        }
+        
+        logging.info(f"load module info: Module Name: {module_name}")                                            
+                    
+    return modules_info 
+
+def get_tarball_url(module: dict, headers: dict) -> str:
+    response = requests.get('/'.join([module["git_hub_url"].replace("github.com", "api.github.com/repos"),'releases', 'latest']), headers=headers)
+    if response.status_code == 200:
+        release_info = response.json()
+        if 'tarball_url' in release_info:
+            return release_info['tarball_url']
     
-    try:
-        url = AVM_OFFICIAL_URL
-        driver.get(url)
-        
-        # Wait for the page to load - adjust timeout as needed
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//h3[contains(text(), 'Published modules')]"))
-        )
-        
-        # Give a little extra time for everything to render
-        time.sleep(2)
-        logging.info("Page loaded successfully, parsing content...")
-        
-        # Get the page source after JavaScript has executed
-        html_content = driver.page_source
-        
-        # Parse with BeautifulSoup
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Find the section header
-        published_modules_section = soup.find(lambda tag: tag.name in ['h3'] and 'Published modules' in tag.text)
-        
-        modules_info = {}
-        
-        if published_modules_section:
-            # Look for the details element that contains the table
-            details_element = published_modules_section.find_next('details')
-            
-            if details_element:
-                # Find the table within the details element
-                modules_table = details_element.find('table')
-                
-                if modules_table:
-                    # Process table rows (skip header row)
-                    rows = modules_table.find_all('tr')[1:]  # Skip header
-                    for row in rows:
-                        cells = row.find_all('td')
-                        if cells and len(cells) >= 2:  # We need at least the module name cell (2nd column)
-                            # Module name is in the second column
-                            module_cell = cells[1]
-                            link_tag = module_cell.find('a')
-                            module_name = link_tag.get_text(strip=True)
-                            # Display name is in the fourth column
-                            display_name_cell = cells[3]
-                            bold_tag = display_name_cell.find('b')
-                            display_name = bold_tag.get_text(strip=True)
-                            source_url_cell = cells[2]
-                            source_link_tag = source_url_cell.find('a')
-                            source_url = source_link_tag.get('href') if source_link_tag else ""
-                            if module_name in origin_data:
-                                modules_info[module_name] = {
-                                    "module_name": module_name,
-                                    "display_name": display_name,
-                                    "source": origin_data[module_name].get("source", ""),
-                                    "git_hub_url": source_url,
-                                    "description": origin_data[module_name].get("description", ""),
-                                }
+    response = requests.get('/'.join([module["git_hub_url"].replace("github.com", "api.github.com/repos"),'releases']), headers=headers)
+    release_info_list = response.json()
+    if len(release_info_list) > 0:
+        release_info = release_info_list[0]
+        if 'tarball_url' in release_info:
+            return release_info['tarball_url']
+    
+    response = requests.get('/'.join([module["git_hub_url"].replace("github.com", "api.github.com/repos"),'tags']), headers=headers)
+    release_info_list = response.json()
+    if len(release_info_list) > 0:
+        release_info = release_info_list[0]
+        if 'tarball_url' in release_info:
+            return release_info['tarball_url']
 
-                                continue
-
-                            url = link_tag.get('href')
-                            driver.get(url)
-                            WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.TAG_NAME, "title")))
-                            time.sleep(2)
-                            source = driver.title.split('|')[0].strip()
-                            modules_info[module_name] = {
-                                "module_name": module_name,
-                                "display_name": display_name,
-                                "source": source,
-                                "git_hub_url": source_url,
-                                "description": f"Manages {display_name}",
-
-                            }
-                            
-                            logging.info(f"load module info: Module Name: {module_name}, Display Name: {display_name}, Source: {source}, GitHub URL: {source_url}")                                            
-                                      
-        return modules_info 
-    finally:
-        # Always close the driver
-        driver.quit()
-
-def download_the_latest_version_module(module: dict, headers: dict):
+    raise_error(f"Failed to get tarball URL for module {module['module_name']}. Please check the module's GitHub repository.")
+ 
+def retrieve_the_latest_version_module(module: dict, headers: dict):
     logging.info("Downloading the latest version of module: %s", module['module_name'])
     extract_to = os.path.join(DATA_DIRECTORY_PATH, module['module_name'])
     dest_path = os.path.join(DOWNLOADED_TAR_PATH, f"{module['module_name']}.tar.gz")
 
     # Download the package
-    if not os.path.exists(dest_path):    
-        response = requests.get('/'.join([module["git_hub_url"].replace("github.com", "api.github.com/repos"),'releases', 'latest']), headers=headers)
-        if response.status_code != 200:
-            response = requests.get('/'.join([module["git_hub_url"].replace("github.com", "api.github.com/repos"),'releases']), headers=headers)
-            release_info_list = response.json()
-            release_info = release_info_list[0]
-        else:
-            release_info = response.json()
-        response = requests.get(release_info["tarball_url"], stream=True, headers=headers)
-        response.raise_for_status()
-        with open(dest_path, "wb") as file:
-            for chunk in response.iter_content(chunk_size=8192):
-                file.write(chunk)
+    try:
+        if not os.path.exists(dest_path):
+            tarball_url = get_tarball_url(module, headers)
+            response = requests.get(tarball_url, stream=True, headers=headers)
+            response.raise_for_status()
+            with open(dest_path, "wb") as file:
+                for chunk in response.iter_content(chunk_size=8192):
+                    file.write(chunk)
+    except Exception as e:
+        raise_error(f"Failed to download module {module['module_name']}: {e}")
     
     # Extract the downloaded file
     if os.path.exists(extract_to):
@@ -151,7 +101,7 @@ def download_the_latest_version_module(module: dict, headers: dict):
                 shutil.move(os.path.join(src, entry), extract_to)
             shutil.rmtree(src)
 
-async def download_the_latest_version_modules(modules_info: dict[str, dict]):
+async def retrieve_the_latest_version_modules(modules_info: dict[str, dict]):
     os.environ['PYTHONUTF8'] = '1'  # Enable UTF-8 mode
     os.makedirs(DOWNLOADED_TAR_PATH, exist_ok=True)
     
@@ -167,7 +117,7 @@ async def download_the_latest_version_modules(modules_info: dict[str, dict]):
     
     tasks = []
     for module in modules_info:
-        tasks.append(lambda x=modules_info[module]: download_the_latest_version_module(x, headers))
+        tasks.append(lambda x=modules_info[module]: retrieve_the_latest_version_module(x, headers))
     await run_tasks(tasks, 10)
 
 
@@ -179,9 +129,9 @@ async def load_data() -> dict[str, dict]:
         raise_error(f"Failed to load modules info: {e}")
     
     try:
-        await download_the_latest_version_modules(data)
+        await retrieve_the_latest_version_modules(data)
     except Exception as e:
-        raise_error(f"Failed to download the latest version: {e}")
+        raise_error(f"Failed to retrieve the latest version: {e}")
     
     return data
 

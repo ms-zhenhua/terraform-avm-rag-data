@@ -11,7 +11,7 @@ ORIGIN_DATA_FILE_PATH = os.path.join(os.path.dirname(TOOL_DIRECTORY_PATH), 'data
 DEBUG_DATA_FILE_PATH = os.path.join(DATA_DIRECTORY_PATH, DATA_FILE_NAME)
 RULES_FILE_PATH = os.path.join(TOOL_DIRECTORY_PATH, 'rules.json')
 
-AVM_OFFICIAL_URL = 'https://azure.github.io/Azure-Verified-Modules/indexes/terraform/tf-resource-modules/'
+AVAILABLE_MODULES_URL = "https://raw.githubusercontent.com/Azure/Azure-Verified-Modules/main/docs/static/module-indexes/TerraformResourceModules.csv"
 
 def raise_error(message: str):
     raise Exception(message)
