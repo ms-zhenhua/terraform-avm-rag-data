@@ -122,7 +122,7 @@ class NumberValueNode(PrimitiveValueNode):
             self.default_value = str(value)
             return 
         
-        raise_error(f"Expected a number for number value, got {type(value)}")
+        raise_error(f"Expected a number for number value, got {type(value)}: {value}")
 
     def to_module(self) -> str:
         default_value = self.default_value.strip('"').strip("'")
