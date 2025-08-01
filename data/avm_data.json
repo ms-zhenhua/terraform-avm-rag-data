@@ -3216,12 +3216,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -4640,12 +4640,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5472,8 +5472,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6301,10 +6301,10 @@
     },
     "avm-res-containerservice-managedcluster": {
         "module_name": "avm-res-containerservice-managedcluster",
-        "display_name": "AKS managed clusters",
+        "display_name": "AKS Managed Cluster",
         "source": "Azure/avm-res-containerservice-managedcluster/azurerm",
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-containerservice-managedcluster",
-        "description": "Manages AKS managed clusters.",
+        "description": "Manages AKS Managed Cluster.",
         "outputs": [
             "aci_connector_object_id",
             "cluster_ca_certificate",
@@ -7193,8 +7193,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -7590,8 +7590,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8774,8 +8774,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10289,12 +10289,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -14988,12 +14988,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -16168,14 +16168,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
