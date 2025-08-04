@@ -4651,12 +4651,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -9307,19 +9307,53 @@
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-documentdb-databaseaccount",
         "description": "Manages CosmosDB Database Account.",
         "outputs": [
+            "access_key_metadata_writes_enabled",
+            "analytical_storage",
+            "analytical_storage_enabled",
+            "automatic_failover_enabled",
+            "backup",
+            "capabilities",
+            "capacity",
+            "consistency_policy",
+            "cors_rule",
             "cosmosdb_keys",
             "cosmosdb_mongodb_connection_strings",
             "cosmosdb_sql_connection_strings",
+            "default_identity_type",
+            "endpoint",
+            "free_tier_enabled",
+            "geo_location",
+            "identity",
+            "ip_range_filter",
+            "is_virtual_network_filter_enabled",
+            "key_vault_key_id",
+            "kind",
+            "local_authentication_disabled",
+            "location",
+            "minimal_tls_version",
             "mongo_databases",
+            "mongo_server_version",
+            "multiple_write_locations_enabled",
             "name",
+            "network_acl_bypass_for_azure_services",
+            "network_acl_bypass_ids",
+            "offer_type",
+            "partition_merge_enabled",
+            "public_network_access_enabled",
+            "read_endpoints",
+            "resource",
             "resource_diagnostic_settings",
+            "resource_group_name",
             "resource_id",
             "resource_locks",
             "resource_private_endpoints",
             "resource_private_endpoints_application_security_group_association",
             "resource_role_assignments",
             "sql_databases",
-            "sql_dedicated_gateway"
+            "sql_dedicated_gateway",
+            "tags",
+            "virtual_network_rule",
+            "write_endpoints"
         ],
         "variables": {
             "location": {
@@ -9532,10 +9566,16 @@
                 "priority": 10031,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `subresource_name` is Required in `private_endpoints`\nsubresource_name = var.string_private_endpoints_subresource_name\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n}\n\n}\n\n}\n\n}\n\n"
             },
+            "gremlin_databases": {
+                "required": false,
+                "description": "  Defaults to `{}`. Manages Gremlin Databases within a Cosmos DB Account.\n\n  - `name`       - (Required) - Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.\n  - `throughput` - (Optional) - Defaults to `null`. The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.\n\n  - `autoscale_settings` - (Optional) - Defaults to `null`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.\n    - `max_throughput` - (Required) - The maximum throughput of the Gremlin database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.\n\n  - `graphs` - (Optional) - Defaults to `{}`. Manages a Gremlin Graph within a Cosmos DB Account.\n    - `name`      - (Required) Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.\n    - `partition_key_path` - (Required) - The path to use for partitioning data within the Gremlin graph (e.g., `/myPartitionKey`).\n    - `partition_key_version` - (Optional) - Defaults to `null`. The version of the partition key definition. Possible values are `1` or `2`.\n    - `throughput` - (Optional) - Defaults to `null`. The throughput of the Gremlin graph (RU/s). Must be set in increments of 100. The minimum value is 400. This must be set upon graph creation otherwise it cannot be updated without a manual terraform destroy-apply.\n    - `default_ttl` - (Optional) - Defaults to `null`. The default Time To Live in seconds. If the value is -1, items are not automatically expired.\n    - `analytical_storage_ttl` - (Optional) - Defaults to `null`. The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between -1 to 2147483647 not including 0. If present and the value is set to -1, it means never expire.\n    - `autoscale_settings` - (Optional) - Defaults to `null`. This must be set upon graph creation otherwise it cannot be updated without a manual terraform destroy-apply.\n      - `max_throughput` - (Required) - The maximum throughput of the Gremlin graph (RU/s). Must be between 1,000 and 1,000,000. Must be set in increments of 1,000. Conflicts with `throughput`.\n    - `index_policy` - (Optional) - Defaults to `null`. The indexing policy configuration for the Gremlin graph.\n      - `automatic` - (Optional) - Defaults to `true`. Whether automatic indexing is enabled.\n      - `indexing_mode` - (Required) - The indexing mode. Possible values are `consistent`, `lazy`, or `none`.\n      - `included_paths` - (Required) - List of paths to include in the index. Note: The root path \"/\" must be included in either included_paths or excluded_paths.\n      - `excluded_paths` - (Required) - List of paths to exclude from the index.\n      - `composite_index` - (Optional) - Defaults to `null`. List of composite index definitions.\n        - `index` - (Required) - Set of objects specifying `path` and `order` for each composite index (`Ascending` or `Descending`).\n      - `spatial_index` - (Optional) - Defaults to `null`. List of spatial index definitions.\n        - `path` - (Required) - The path for the spatial index.\n    - `conflict_resolution_policy` - (Optional) - Defaults to `null`. The conflict resolution policy for the Gremlin graph.\n      - `mode` - (Required) - The conflict resolution mode. Possible values are `LastWriterWins` or `Custom`.\n      - `conflict_resolution_path` - (Optional) - Defaults to `null`. The path to be used for conflict resolution (required for `LastWriterWins`).\n      - `conflict_resolution_procedure` - (Optional) - Defaults to `null`. The stored procedure to be used for conflict resolution (required for `Custom`).\n    - `unique_key` - (Optional) - Defaults to `null`. The unique key policy for the Gremlin graph.\n      - `paths` - (Required) - List of paths to enforce uniqueness on.\n\n  Example inputs:\n  ```hcl\n  gremlin_databases = {\n    \"database_name\" = {\n      name = \"database_gremlin\"\n      throughput = 400\n\n      graphs = {\n        \"graph\" = {\n          name = \"graph\"\n          partition_key_path = \"/myPartitionKey\"\n          partition_key_version = \"1\"\n          throughput = 400\n          default_ttl = 3600\n          analytical_storage_ttl = -1\n          autoscale_settings = {\n            max_throughput = 1000\n        }\n      }\n    }\n  }\n  ```",
+                "priority": 10032,
+                "schema": "# `gremlin_databases` is Optional in module\ngremlin_databases = {\n  example_key = {\n  # `name` is Required in `gremlin_databases`\nname = \"example1\"\n  # `throughput` is Optional in `gremlin_databases`\nthroughput = 0\n  # `autoscale_settings` is Optional in `gremlin_databases`\nautoscale_settings = {\n  # `max_throughput` is Required in `autoscale_settings`\nmax_throughput = 0\n}\n\n  # `graphs` is Optional in `gremlin_databases`\ngraphs = {\n  example_key = {\n  # `name` is Required in `graphs`\nname = \"example1\"\n  # `partition_key_path` is Required in `graphs`\npartition_key_path = var.string_graphs_partition_key_path\n  # `partition_key_version` is Optional in `graphs`\npartition_key_version = \"\"\n  # `throughput` is Optional in `graphs`\nthroughput = 0\n  # `default_ttl` is Optional in `graphs`\ndefault_ttl = 0\n  # `analytical_storage_ttl` is Optional in `graphs`\nanalytical_storage_ttl = 0\n  # `autoscale_settings` is Optional in `graphs`\nautoscale_settings = {\n  # `max_throughput` is Required in `autoscale_settings`\nmax_throughput = 0\n}\n\n  # `index_policy` is Optional in `graphs`\nindex_policy = {\n  # `indexing_mode` is Required in `index_policy`\nindexing_mode = var.string_index_policy_indexing_mode\n  # `included_paths` is Required in `index_policy`\nincluded_paths = []\n  # `excluded_paths` is Required in `index_policy`\nexcluded_paths = []\n  # `automatic` is Optional in `index_policy`\nautomatic = true\n  # `composite_index` is Optional in `index_policy`\ncomposite_index = [{\n  # `index` is Required in `composite_index`\nindex = [{\n  # `path` is Required in `index`\npath = var.string_index_path\n  # `order` is Required in `index`\norder = var.string_index_order\n}\n]\n}\n]\n  # `spatial_index` is Optional in `index_policy`\nspatial_index = [{\n  # `path` is Required in `spatial_index`\npath = var.string_spatial_index_path\n}\n]\n}\n\n  # `conflict_resolution_policy` is Optional in `graphs`\nconflict_resolution_policy = {\n  # `mode` is Required in `conflict_resolution_policy`\nmode = var.string_conflict_resolution_policy_mode\n  # `conflict_resolution_path` is Optional in `conflict_resolution_policy`\nconflict_resolution_path = \"\"\n  # `conflict_resolution_procedure` is Optional in `conflict_resolution_policy`\nconflict_resolution_procedure = \"\"\n}\n\n  # `unique_key` is Optional in `graphs`\nunique_key = {\n  # `paths` is Required in `unique_key`\npaths = []\n}\n\n}\n\n}\n\n}\n\n}\n\n"
+            },
             "sql_databases": {
                 "required": false,
                 "description": "  Defaults to `{}`. Manages SQL Databases within a Cosmos DB Account.\n\n  - `name`       - (Required) - Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.\n  - `throughput` - (Optional) - Defaults to `null`. The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.\n\n  - `autoscale_settings` - (Optional) - Defaults to `null`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.\n    - `max_throughput` - (Required) - The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.\n\n  - `containers` - (Optional)  - Defaults to `{}`. Manages SQL Containers within a Cosmos DB Account.\n    - `partition_key_paths`    - (Required) - Defines the partition key for the container. Changing this forces a new resource to be created.\n    - `name`                   - (Required) - Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.\n    - `partition_key_version`  - (Optional) - Defines the partition key version for the container. Changing this forces a new resource to be created.\n    - `throughput`             - (Optional) - Defaults to `null`. The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual terraform destroy-apply.\n    - `default_ttl`            - (Optional) - Defaults to `null`. The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don't expire by default. If present and the value is set to some number n - items will expire n seconds after their last modified time.\n    - `analytical_storage_ttl` - (Optional) - Defaults to `null`. The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don't expire by default. If present and the value is set to some number n - items will expire n seconds after their last modified time.\n\n    - `unique_keys` - (Optional) - Defaults to `[]`. The unique keys of the container.\n      - `paths` - (Required) - A list of paths to use for this unique key. Changing this forces a new resource to be created.\n\n    - `autoscale_settings` - (Optional) - Defaults to `null`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply.\n      - `max_throughput` - (Required) - The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.\n\n    - `functions` - (Optional) - Defaults to `{}`. Manages SQL User Defined Functions.\n      - `body` - (Required) - Body of the User Defined Function.\n      - `name` - (Required) - The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.\n\n    - `stored_procedures` - (Optional) - Defaults to `{}`. Manages SQL Stored Procedures within a Cosmos DB Account SQL Database.\n      - `body` - (Required) - The body of the stored procedure.\n      - `name` - (Required) - Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.\n\n    - `triggers` - (Optional) -  Defaults to `{}`. Manages SQL Triggers.\n      - `body`      - (Required) - Body of the Trigger.\n      - `type`      - (Required) - Type of the Trigger. Possible values are `Pre` and `Post`.\n      - `operation` - (Required) - The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.\n      - `name`      - (Required) - The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.\n\n    - `conflict_resolution_policy` - (Optional) - Defaults to `null`. The conflict resolution policy of the container. Changing this forces a new resource to be created.\n      - `mode`                          - (Required) - Indicates the conflict resolution mode. Possible values include: `LastWriterWins` and `Custom`.\n      - `conflict_resolution_path`      - Required if `LastWriterWins` is set as `mode` - The conflict resolution path.\n      - `conflict_resolution_procedure` - Required if `Custom` is set as `mode` - The procedure to resolve conflicts .\n\n    - `indexing_policy` - (Optional) - Defaults to `{}`. The indexing policy of the container.\n      - `indexing_mode` - (Required) - Indicates the indexing mode. Possible values include: `consistent` and `none`\n\n      - `included_paths` - (Optional) - Defaults to `[]`. Either included_path or excluded_path must contain the path `/*`\n        - `path` - (Required) - Path for which the indexing behaviour applies to.\n\n      - `excluded_paths` - (Optional) - Defaults to `[]`. Either included_path or excluded_path must contain the path `/*`\n        - `path` - (Required) - Path that is excluded from indexing.\n\n      - `composite_indexes` - (Optional) - Defaults to `[]`. The composite indexes of the indexing policy.\n        - `indexes` - (Required) - The indexes of the composite indexes.\n          - `path`  - (Required) - Path for which the indexing behaviour applies to.\n          - `order` - (Required) - Order of the index. Possible values are `Ascending` or `Descending`.\n\n      - `spatial_indexes` - (Optional) - Defaults to `[]`. The spatial indexes of the indexing policy.\n        - `path` - (Required) -  Path for which the indexing behaviour applies to. According to the service design, all spatial types including LineString, MultiPolygon, Point, and Polygon will be applied to the path.\n\n  > Note: Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed.\n  > Note: For indexing policy See more in: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-indexing-policy?tabs=dotnetv3%2Cpythonv3\n\n  Example inputs:\n  ```hcl\n  sql_databases = {\n    database1 = {\n      name       = \"database1\"\n      throughput = 400\n\n      # autoscale_settings = {\n      #   max_throughput = 4000\n      # }\n\n      containers = {\n        container1 = {\n          partition_key_paths = [\"/id\"]\n          name               = \"container1\"\n          throughput         = 400\n          default_ttl        = 1000\n          analytical_storage_ttl = 1000\n\n          unique_keys = [\n            {\n              paths = [\"/field1\", \"/field2\"]\n            }\n          ]\n\n          # autoscale_settings = {\n          #   max_throughput = 4000\n          # }\n\n          functions = {\n            function1 = {\n              name = \"functionName\"\n              body = \"function function1() { }\"\n            }\n          }\n\n          stored_procedures = {\n            stored1 = {\n              name = \"storedName\"\n              body = \"function stored1() { }\"\n            }\n          }\n\n          triggers = {\n            trigger1 = {\n              name      = \"triggerName\"\n              body      = \"function trigger1() { }\"\n              type      = \"Pre\"\n              operation = \"All\"\n            }\n          }\n\n          conflict_resolution_policy = {\n            mode                     = \"LastWriterWins\"\n            conflict_resolution_path = \"/customProperty\"\n          }\n\n          indexing_policy = {\n            indexing_mode = \"consistent\"\n\n            included_paths = [\n              {\n                path = \"/*\"\n              }\n            ]\n\n            excluded_paths = [\n              {\n                path = \"/excluded/*\"\n              }\n            ]\n\n            composite_indexes = [\n              {\n                indexes = [\n                  {\n                    path  = \"/field1\"\n                    order = \"ascending\"\n                  }\n                ]\n              }\n            ]\n\n            spatial_indexes = [\n              {\n                path = \"/location/*\"\n              }\n            ]\n          }\n        }\n      }\n    }\n  }\n  ```",
-                "priority": 10032,
+                "priority": 10033,
                 "schema": "# `sql_databases` is Optional in module\nsql_databases = {\n  example_key = {\n  # `name` is Required in `sql_databases`\nname = \"example1\"\n  # `throughput` is Optional in `sql_databases`\nthroughput = 0\n  # `autoscale_settings` is Optional in `sql_databases`\nautoscale_settings = {\n  # `max_throughput` is Required in `autoscale_settings`\nmax_throughput = 0\n}\n\n  # `containers` is Optional in `sql_databases`\ncontainers = {\n  example_key = {\n  # `partition_key_paths` is Required in `containers`\npartition_key_paths = []\n  # `name` is Required in `containers`\nname = \"example1\"\n  # `partition_key_version` is Optional in `containers`\npartition_key_version = 2\n  # `throughput` is Optional in `containers`\nthroughput = 0\n  # `default_ttl` is Optional in `containers`\ndefault_ttl = 0\n  # `analytical_storage_ttl` is Optional in `containers`\nanalytical_storage_ttl = 0\n  # `unique_keys` is Optional in `containers`\nunique_keys = [{\n  # `paths` is Required in `unique_keys`\npaths = []\n}\n]\n  # `autoscale_settings` is Optional in `containers`\nautoscale_settings = {\n  # `max_throughput` is Required in `autoscale_settings`\nmax_throughput = 0\n}\n\n  # `functions` is Optional in `containers`\nfunctions = {\n  example_key = {\n  # `body` is Required in `functions`\nbody = var.string_functions_body\n  # `name` is Required in `functions`\nname = \"example1\"\n}\n\n}\n\n  # `stored_procedures` is Optional in `containers`\nstored_procedures = {\n  example_key = {\n  # `body` is Required in `stored_procedures`\nbody = var.string_stored_procedures_body\n  # `name` is Required in `stored_procedures`\nname = \"example1\"\n}\n\n}\n\n  # `triggers` is Optional in `containers`\ntriggers = {\n  example_key = {\n  # `body` is Required in `triggers`\nbody = var.string_triggers_body\n  # `type` is Required in `triggers`\ntype = var.string_triggers_type\n  # `operation` is Required in `triggers`\noperation = var.string_triggers_operation\n  # `name` is Required in `triggers`\nname = \"example1\"\n}\n\n}\n\n  # `conflict_resolution_policy` is Optional in `containers`\nconflict_resolution_policy = {\n  # `mode` is Required in `conflict_resolution_policy`\nmode = var.string_conflict_resolution_policy_mode\n  # `conflict_resolution_path` is Optional in `conflict_resolution_policy`\nconflict_resolution_path = \"\"\n  # `conflict_resolution_procedure` is Optional in `conflict_resolution_policy`\nconflict_resolution_procedure = \"\"\n}\n\n  # `indexing_policy` is Optional in `containers`\nindexing_policy = {\n  # `indexing_mode` is Required in `indexing_policy`\nindexing_mode = var.string_indexing_policy_indexing_mode\n  # `included_paths` is Optional in `indexing_policy`\nincluded_paths = [{\n  # `path` is Required in `included_paths`\npath = var.string_included_paths_path\n}\n]\n  # `excluded_paths` is Optional in `indexing_policy`\nexcluded_paths = [{\n  # `path` is Required in `excluded_paths`\npath = var.string_excluded_paths_path\n}\n]\n  # `composite_indexes` is Optional in `indexing_policy`\ncomposite_indexes = [{\n  # `indexes` is Required in `composite_indexes`\nindexes = [{\n  # `path` is Required in `indexes`\npath = var.string_indexes_path\n  # `order` is Required in `indexes`\norder = var.string_indexes_order\n}\n]\n}\n]\n  # `spatial_indexes` is Optional in `indexing_policy`\nspatial_indexes = [{\n  # `path` is Required in `spatial_indexes`\npath = var.string_spatial_indexes_path\n}\n]\n}\n\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
@@ -9588,6 +9628,7 @@
                 "diagnostic_settings": [],
                 "mongo_databases": [],
                 "private_endpoints": [],
+                "gremlin_databases": [],
                 "sql_databases": []
             }
         },
@@ -10307,12 +10348,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -16186,14 +16227,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
