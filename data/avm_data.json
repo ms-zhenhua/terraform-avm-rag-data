@@ -753,7 +753,7 @@
                 "required": false,
                 "description": "Configuration for the trigger. Only one of manual_trigger_config, event_trigger_config, or schedule_trigger_config can be specified.",
                 "priority": 10008,
-                "schema": "# `trigger_config` is Optional in module\ntrigger_config = {\n  # `manual_trigger_config` is Optional in `trigger_config`\nmanual_trigger_config = {\n  # `parallelism` is Optional in `manual_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `manual_trigger_config`\nreplica_completion_count = 1.0\n}\n\n  # `event_trigger_config` is Optional in `trigger_config`\nevent_trigger_config = {\n  # `parallelism` is Optional in `event_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `event_trigger_config`\nreplica_completion_count = 1.0\n  # `scale` is Optional in `event_trigger_config`\nscale = {\n  # `max_executions` is Optional in `scale`\nmax_executions = 10.0\n  # `min_executions` is Optional in `scale`\nmin_executions = 0.0\n  # `polling_interval_in_seconds` is Optional in `scale`\npolling_interval_in_seconds = 30.0\n  # `rules` is Optional in `scale`\nrules = [{\n  # `name` is Optional in `rules`\nname = \"my-custom-rule\"\n  # `custom_rule_type` is Optional in `rules`\ncustom_rule_type = \"azure-servicebus\"\n  # `metadata` is Optional in `rules`\nmetadata = {\n  queueName = \"\"\n}\n\n  # `authentication` is Optional in `rules`\nauthentication = {\n  # `secret_name` is Optional in `authentication`\nsecret_name = \"servicebus-connection\"\n  # `trigger_parameter` is Optional in `authentication`\ntrigger_parameter = \"connection\"\n}\n\n}\n]\n}\n\n}\n\n  # `schedule_trigger_config` is Optional in `trigger_config`\nschedule_trigger_config = {\n  # `cron_expression` is Optional in `schedule_trigger_config`\ncron_expression = \"0 * * * *\"\n  # `parallelism` is Optional in `schedule_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `schedule_trigger_config`\nreplica_completion_count = 1.0\n}\n\n}\n\n"
+                "schema": "# `trigger_config` is Optional in module\ntrigger_config = {\n  # `manual_trigger_config` is Optional in `trigger_config`\nmanual_trigger_config = {\n  # `parallelism` is Optional in `manual_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `manual_trigger_config`\nreplica_completion_count = 1.0\n}\n\n  # `event_trigger_config` is Optional in `trigger_config`\nevent_trigger_config = {\n  # `parallelism` is Optional in `event_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `event_trigger_config`\nreplica_completion_count = 1.0\n  # `scale` is Optional in `event_trigger_config`\nscale = {\n  # `max_executions` is Optional in `scale`\nmax_executions = 10.0\n  # `min_executions` is Optional in `scale`\nmin_executions = 0.0\n  # `polling_interval_in_seconds` is Optional in `scale`\npolling_interval_in_seconds = 30.0\n  # `rules` is Optional in `scale`\nrules = [{\n  # `name` is Optional in `rules`\nname = \"my-custom-rule\"\n  # `custom_rule_type` is Optional in `rules`\ncustom_rule_type = \"azure-servicebus\"\n  # `metadata` is Optional in `rules`\nmetadata = {\n  queueName = \"\"\n}\n\n  # `authentication` is Optional in `rules`\nauthentication = [{\n  # `secret_name` is Optional in `authentication`\nsecret_name = \"\"\n  # `trigger_parameter` is Optional in `authentication`\ntrigger_parameter = \"\"\n}\n]\n}\n]\n}\n\n}\n\n  # `schedule_trigger_config` is Optional in `trigger_config`\nschedule_trigger_config = {\n  # `cron_expression` is Optional in `schedule_trigger_config`\ncron_expression = \"0 * * * *\"\n  # `parallelism` is Optional in `schedule_trigger_config`\nparallelism = 1.0\n  # `replica_completion_count` is Optional in `schedule_trigger_config`\nreplica_completion_count = 1.0\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -3227,12 +3227,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -4651,12 +4651,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -7211,8 +7211,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11455,8 +11455,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12670,8 +12670,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13081,12 +13081,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14553,8 +14553,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16227,14 +16227,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
