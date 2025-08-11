@@ -527,94 +527,88 @@
                 "priority": 10004,
                 "schema": "# `revision_mode` is Optional in module\nrevision_mode = \"Single\"\n"
             },
-            "secrets_version": {
-                "required": false,
-                "description": "Version number for the secrets. Must set this version number to a different value to trigger an update on secrets. Defaults to `0`.",
-                "priority": 10005,
-                "schema": "# `secrets_version` is Optional in module\nsecrets_version = 0\n"
-            },
             "workload_profile_name": {
                 "required": false,
                 "description": "Workload profile name to pin for container app execution.  If not set, workload profiles are not used.",
-                "priority": 10006,
+                "priority": 10005,
                 "schema": "# `workload_profile_name` is Optional in module\nworkload_profile_name = \"\"\n"
             },
             "tags": {
                 "required": false,
                 "description": "Custom tags to apply to the resource.",
-                "priority": 10007,
+                "priority": 10006,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "service": {
                 "required": false,
                 "description": "    Service configuration for the Container App.\n\n    ---\n    `service` block supports the following:\n    - `type` - (Required) The type of service. Possible values include service types supported by Azure Container Apps.",
-                "priority": 10008,
+                "priority": 10007,
                 "schema": "# `service` is Optional in module\nservice = {\n  # `type` is Required in `service`\ntype = var.string_service_type\n}\n\n"
             },
             "identity_settings": {
                 "required": false,
                 "description": "    A list of identity settings for the Container App.\n\n    ---\n    `identity_settings` block supports the following:\n    - `identity` - (Required) The resource ID of the user-assigned managed identity.\n    - `lifecycle` - (Required) The lifecycle state of the identity. Possible values are `Init`, `None`, `Retain` and `All`. Defaults to `All`.",
-                "priority": 10009,
+                "priority": 10008,
                 "schema": "# `identity_settings` is Optional in module\nidentity_settings = [{\n  # `identity` is Required in `identity_settings`\nidentity = var.string_identity_settings_identity\n  # `lifecycle` is Optional in `identity_settings`\nlifecycle = \"All\"\n}\n]\n"
             },
             "lock": {
                 "required": false,
                 "description": "  Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n  - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n  - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10010,
+                "priority": 10009,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Configurations for managed identities in Azure. This variable allows you to specify both system-assigned and user-assigned managed identities for resources that support identity-based authentication.\n\n- `system_assigned` - (Optional) A boolean flag indicating whether to enable the system-assigned managed identity. Defaults to `false`.\n- `user_assigned_resource_ids` - (Optional) A set of user-assigned managed identity resource IDs to be associated with the resource.",
-                "priority": 10011,
+                "priority": 10010,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "runtime": {
                 "required": false,
                 "description": "    Runtime configuration for the Container App.\n\n    ---\n    `runtime` block supports the following:\n    - `java` - (Optional) Java runtime configuration.\n\n    ---\n    `java` block supports the following:\n    - `enable_metrics` - (Optional) Whether to enable Java metrics collection. Defaults to `false`.",
-                "priority": 10012,
+                "priority": 10011,
                 "schema": "# `runtime` is Optional in module\nruntime = {\n  # `java` is Optional in `runtime`\njava = {\n  # `enable_metrics` is Optional in `java`\nenable_metrics = false\n}\n\n}\n\n"
             },
             "registries": {
                 "required": false,
                 "description": "\n    - `identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.\n    - `password_secret_name ` - (Optional) The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.\n    - `server` - (Optional) The hostname for the Container Registry.\n    - `username` - (Optional) The username to use for this Container Registry, `password_secret_name` must also be supplied.",
-                "priority": 10013,
+                "priority": 10012,
                 "schema": "# `registries` is Optional in module\nregistries = [{\n  # `identity` is Optional in `registries`\nidentity = \"\"\n  # `password_secret_name` is Optional in `registries`\npassword_secret_name = \"\"\n  # `server` is Optional in `registries`\nserver = \"\"\n  # `username` is Optional in `registries`\nusername = \"\"\n}\n]\n"
             },
             "timeouts": {
                 "required": false,
                 "description": "- `create` - (Defaults to 30 minutes) Used when creating the Container App. Defaults to `30m`.\n- `delete` - (Defaults to 30 minutes) Used when deleting the Container App. Defaults to `30m`.\n- `read` - (Defaults to 5 minutes) Used when retrieving the Container App. Defaults to `5m`.\n- `update` - (Defaults to 30 minutes) Used when updating the Container App. Defaults to `30m`.",
-                "priority": 10014,
+                "priority": 10013,
                 "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n}\n\n"
             },
             "secrets": {
                 "required": false,
                 "description": "\n - `key_vault_secret_id` - (Optional) The URL of the Azure Key Vault containing the secret. Required when `identity` is specified.\n - `identity` - (Optional) The identity associated with the secret.\n - `name` - (Required) The secret name.\n - `value` - (Required) The value for this secret.",
-                "priority": 10015,
+                "priority": 10014,
                 "schema": "# `secrets` is Optional in module\nsecrets = {\n  example_key = {\n  # `name` is Required in `secrets`\nname = \"example1\"\n  # `value` is Required in `secrets`\nvalue = var.string_secrets_value\n  # `identity` is Optional in `secrets`\nidentity = \"\"\n  # `key_vault_secret_id` is Optional in `secrets`\nkey_vault_secret_id = \"\"\n}\n\n}\n\n"
             },
             "dapr": {
                 "required": false,
                 "description": "- `app_id` - (Optional) The Dapr Application Identifier.\n- `app_port` - (Optional) The port which the application is listening on. This is the same as the `ingress` port.\n- `app_protocol` - (Optional) The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.\n- `enable_api_logging` - (Optional) Enable API logging. Defaults to `false`.\n- `enabled` - (Optional) Enable Dapr for the application. Defaults to `false`.\n- `http_max_request_size` - (Optional) The maximum allowed HTTP request size in bytes.\n- `http_read_buffer_size` - (Optional) The size of the buffer used for reading the HTTP request body in bytes.\n- `log_level` - (Optional) The log level for Dapr. Possible values include \"debug\", \"info\", \"warn\", \"error\", and \"fatal\".",
-                "priority": 10016,
+                "priority": 10015,
                 "schema": "# `dapr` is Optional in module\ndapr = {\n  # `app_id` is Optional in `dapr`\napp_id = \"\"\n  # `app_port` is Optional in `dapr`\napp_port = 0\n  # `app_protocol` is Optional in `dapr`\napp_protocol = \"http\"\n  # `enable_api_logging` is Optional in `dapr`\nenable_api_logging = false\n  # `enabled` is Optional in `dapr`\nenabled = false\n  # `http_max_request_size` is Optional in `dapr`\nhttp_max_request_size = 0\n  # `http_read_buffer_size` is Optional in `dapr`\nhttp_read_buffer_size = 0\n  # `log_level` is Optional in `dapr`\nlog_level = \"info\"\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "  A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10017,
+                "priority": 10016,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "ingress": {
                 "required": false,
                 "description": "\nThis object defines the ingress properties for the container app:\n\n- `allow_insecure_connections` - (Optional) Should this ingress allow insecure connections? Defaults to `false`.\n- `client_certificate_mode` - (Optional) The mode for client certificate authentication. Possible values include `optional` and `required`.\n- `exposed_port` - (Optional) The exposed port on the container for the Ingress traffic. Defaults to `0`.\n- `external_enabled` - (Optional) Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.\n- `target_port` - (Required) The target port on the container for the Ingress traffic. Defaults to `Auto`.\n- `transport` - (Optional) The transport method for the Ingress. Possible values include `auto`, `http`, `http2`, and `tcp`. Defaults to `auto`.\n\n---\n`traffic_weight` block supports the following:\n- `label` - (Optional) The label to apply to the revision as a name prefix for routing traffic.\n- `latest_revision` - (Optional) This traffic Weight relates to the latest stable Container Revision. Defaults to `false`.\n- `revision_suffix` - (Optional) The suffix string to which this `traffic_weight` applies.\n- `percentage` - (Required) The percentage of traffic which should be sent according to this configuration.\n\n---\n`cors_policy` block supports the following:\n- `allow_credentials` - (Optional) Indicates whether the browser should include credentials when making a request. Defaults to `false`.\n- `allowed_headers` - (Optional) List of headers that can be used when making the actual request.\n- `allowed_methods` - (Optional) List of HTTP methods that can be used when making the actual request.\n- `allowed_origins` - (Optional) List of origins that are allowed to access the resource.\n- `expose_headers` - (Optional) List of response headers that can be exposed when making the actual request.\n- `max_age` - (Optional) The maximum number of seconds the results of a preflight request can be cached.\n\n---\n`custom_domain` block supports the following:\n- `certificate_binding_type` - (Optional) The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.\n- `certificate_id` - (Optional) The ID of the Container App Environment Certificate.\n- `name` - (Optional) The hostname of the Certificate. Must be the CN or a named SAN in the certificate.\n\n---\n`ip_restrictions` block supports the following:\n- `action` - (Optional) The action to take when the IP security restriction is triggered. Possible values include `allow` and `deny`.\n- `description` - (Optional) A description for the IP security restriction.\n- `ip_range` - (Optional) The IP address range for the security restriction.\n- `name` - (Optional) The name for the IP security restriction.\n\n---\n`sticky_sessions` block supports the following:\n- `affinity` - (Optional) The affinity type for sticky sessions. Possible values include `None`, `ClientIP`, and `Server`.",
-                "priority": 10018,
+                "priority": 10017,
                 "schema": "# `ingress` is Optional in module\ningress = {\n  # `traffic_weight` is Required in `ingress`\ntraffic_weight = [{\n  # `percentage` is Required in `traffic_weight`\npercentage = 100.0\n  # `label` is Optional in `traffic_weight`\nlabel = \"\"\n  # `latest_revision` is Optional in `traffic_weight`\nlatest_revision = true\n  # `revision_suffix` is Optional in `traffic_weight`\nrevision_suffix = \"\"\n}\n]\n  # `allow_insecure_connections` is Optional in `ingress`\nallow_insecure_connections = false\n  # `client_certificate_mode` is Optional in `ingress`\nclient_certificate_mode = \"\"\n  # `exposed_port` is Optional in `ingress`\nexposed_port = 0\n  # `external_enabled` is Optional in `ingress`\nexternal_enabled = true\n  # `target_port` is Optional in `ingress`\ntarget_port = 8080.0\n  # `transport` is Optional in `ingress`\ntransport = \"auto\"\n  # `additional_port_mappings` is Optional in `ingress`\nadditional_port_mappings = [{\n  # `exposed_port` is Required in `additional_port_mappings`\nexposed_port = 0\n  # `external` is Required in `additional_port_mappings`\nexternal = false\n  # `target_port` is Required in `additional_port_mappings`\ntarget_port = 0\n}\n]\n  # `cors_policy` is Optional in `ingress`\ncors_policy = {\n  # `allow_credentials` is Optional in `cors_policy`\nallow_credentials = false\n  # `allowed_headers` is Optional in `cors_policy`\nallowed_headers = []\n  # `allowed_methods` is Optional in `cors_policy`\nallowed_methods = []\n  # `allowed_origins` is Optional in `cors_policy`\nallowed_origins = []\n  # `expose_headers` is Optional in `cors_policy`\nexpose_headers = []\n  # `max_age` is Optional in `cors_policy`\nmax_age = 0\n}\n\n  # `custom_domain` is Optional in `ingress`\ncustom_domain = {\n  # `certificate_binding_type` is Optional in `custom_domain`\ncertificate_binding_type = \"\"\n  # `certificate_id` is Optional in `custom_domain`\ncertificate_id = \"\"\n  # `name` is Optional in `custom_domain`\nname = \"\"\n}\n\n  # `ip_restrictions` is Optional in `ingress`\nip_restrictions = [{\n  # `action` is Optional in `ip_restrictions`\naction = \"\"\n  # `description` is Optional in `ip_restrictions`\ndescription = \"\"\n  # `ip_range` is Optional in `ip_restrictions`\nip_range = \"\"\n  # `name` is Optional in `ip_restrictions`\nname = \"\"\n}\n]\n  # `sticky_sessions` is Optional in `ingress`\nsticky_sessions = {\n  # `affinity` is Optional in `sticky_sessions`\naffinity = \"none\"\n}\n\n}\n\n"
             },
             "auth_configs": {
                 "required": false,
                 "description": "- `name` - (Required) Name of the Container App AuthConfig.\n\n---\n`platform` The configuration settings of the platform of ContainerApp Service Authentication/Authorization. The `platform` block supports the following:\n  - `enabled` - (Optional) `true` if the Authentication / Authorization feature is enabled for the current app; otherwise, `false`.\n  - `runtime_version` - (Optional) The RuntimeVersion of the Authentication / Authorization feature in use for the current app. The setting in this value can control the behavior of certain features in the Authentication / Authorization module.\n\n---\n`global_validation` The configuration settings that determines the validation flow of users using Service Authentication/Authorization. The `global_validation` block supports the following:\n  - `unauthenticated_client_action` - (Optional) The action to take when an unauthenticated client attempts to access the app. Possible values include `AllowAnonymous`, `RedirectToLoginPage`, `Return401`  and `Return403`.\n  - `redirect_to_provider` - (Optional) The default authentication provider to use when multiple providers are configured. This setting is only needed if multiple providers are configured and the unauthenticated client action is set to \"RedirectToLoginPage\".\n  - `exclude_paths` - (Optional) The paths for which unauthenticated flow would not be redirected to the login page.\n\n---\n`identity_providers` The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization. The `identity_providers` block supports the following:\n  - `azure_active_directory` - (Optional) The configuration settings of the Azure Active directory provider. The `azure_active_directory` block supports the following:\n    - `enabled` - (Optional) `false` if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, `true`.\n    - `is_auto_provisioned` - (Optional) Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling. This is an internal flag primarily intended to support the Azure Management Portal. Users should not read or write to this property.\n    - `registration` - (Optional) The registration settings for the Azure Active Directory provider. The `registration` block supports the following:\n      - `open_id_issuer` - (Optional) The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/. This URI is a case-sensitive identifier for the token issuer. More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html\n      - `client_id` - (Optional) The Client ID of this relying party application, known as the client_id. This setting is required for enabling OpenID Connection authentication with Azure Active Directory or other 3rd party OpenID Connect providers. More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html\n      - `client_secret_setting_name` - (Optional) The app setting name that contains the client secret of the relying party application.\n      - `client_secret_certificate_issuer` - (Optional) An alternative to the client secret thumbprint, that is the issuer of a certificate used for signing purposes. This property acts as a replacement for the Client Secret Certificate Thumbprint. It is also optional.\n      - `client_secret_certificate_subject_alternative_name` - (Optional) An alternative to the client secret thumbprint, that is the subject alternative name of a certificate used for signing purposes. This property acts as a replacement for the Client Secret Certificate Thumbprint. It is also optional.\n    - `login` - (Optional) The login settings for the Azure Active Directory provider. The `login` block supports the following:\n      - `login_parameters` - (Optional) Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form \"key=value\".\n      - `disable_www_authenticate` - (Optional) `true` if the www-authenticate provider should be omitted from the request; otherwise, `false`.\n    - `validation` - (Optional) The configuration settings of the Azure Active Directory token validation flow. The `validation` block supports the following:\n      - `jwt_claim_checks` - (Optional) The configuration settings of the checks that should be made while validating the JWT Claims. The `jwt_claim_checks` block supports the following:\n        - `allowed_groups` - (Optional) The list of the allowed groups.\n        - `allowed_client_applications` - (Optional) The list of the allowed client applications.\n      - `allowed_audiences` - (Optional) The list of audiences that can make successful authentication/authorization requests.\n      - `default_authorization_policy` - (Optional) The configuration settings of the default authorization policy. The `default_authorization_policy` block supports the following:\n        - `allowed_applications` - (Optional) The configuration settings of the Azure Active Directory allowed applications.\n        - `allowed_principals` - (Optional) The configuration settings of the Azure Active Directory allowed principals. The `allowed_principals` block supports the following:\n          - `groups` - (Optional) The list of the allowed groups.\n          - `identities` - (Optional) The list of the allowed identities.\n  - `facebook` - (Optional) The configuration settings of the Facebook provider. The `facebook` block supports the following:\n    - `enabled` - (Optional) `false` if the Facebook provider should not be enabled despite the set registration; otherwise, `true`.\n    - `graph_api_version` - (Optional) The version of the Facebook api to be used while logging in.\n    - `registration` - (Optional) The configuration settings of the app registration for the Facebook provider. The `registration` block supports the following:\n      - `app_id` - (Optional) The App ID of the app used for login.\n      - `app_secret_setting_name` - (Optional) The app setting name that contains the app secret.\n    - `login` - (Optional) The configuration settings of the login flow. The `login` block supports the following:\n      - `scopes` - (Optional) A list of the scopes that should be requested while authenticating.\n  - `github` - (Optional) The configuration settings of the GitHub provider. The `github` block supports the following:\n    - `enabled` - (Optional) `false` if the GitHub provider should not be enabled despite the set registration; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the app registration for the GitHub provider. The `registration` block supports the following:\n      - `client_id` - (Optional) The Client ID of the app used for login.\n      - `client_secret_setting_name` - (Optional) The app setting name that contains the client secret.\n    - `login` - (Optional) The configuration settings of the login flow. The `login` block supports the following:\n      - `scopes` - (Optional) A list of the scopes that should be requested while authenticating.\n  - `google` - (Optional) The configuration settings of the Google provider.\n    - `enabled` - (Optional) `false` if the Google provider should not be enabled despite the set registration; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the app registration for the Google provider. The `registration` block supports the following:\n      - `client_id` - (Optional) The Client ID of the app used for login.\n      - `client_secret_setting_name` - (Optional) The app setting name that contains the client secret.\n    - `login` - (Optional) The configuration settings of the login flow. The `login` block supports the following:\n      - `scopes` - (Optional) A list of the scopes that should be requested while authenticating.\n    - `validation` - (Optional) The configuration settings of the Azure Active Directory token validation flow. The `validation` block supports the following:\n      - `allowed_audiences` - (Optional) The configuration settings of the allowed list of audiences from which to validate the JWT token.\n  - `twitter` - (Optional) The configuration settings of the Twitter provider. The `twitter` block supports the following:\n    - `enabled` - (Optional) `false` if the Twitter provider should not be enabled despite the set registration; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the app registration for the Twitter provider. The `registration` block supports the following:\n      - `consumer_key` - (Required) The OAuth 1.0a consumer key of the Twitter application used for sign-in. This setting is required for enabling Twitter Sign-In. Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in\n      - `consumer_secret_setting_name` - (Optional) The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.\n  - `apple` - (Optional) The configuration settings of the Apple provider. The `apple` block supports the following:\n    - `enabled` - (Optional) `false` if the Apple provider should not be enabled despite the set registration; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the Apple registration. The `registration` block supports the following:\n      - `client_id` - (Optional) The Client ID of the app used for login.\n      - `client_secret_setting_name` - (Optional) The app setting name that contains the client secret.\n    - `login` - (Optional) The configuration settings of the login flow. The `login` block supports the following:\n      - `scopes` - (Optional) A list of the scopes that should be requested while authenticating.\n  - `azure_static_web_apps` - (Optional) The configuration settings of the Azure Static Web Apps provider. The `azure_static_web_apps` block supports the following:\n    - `enabled` - (Optional) `false` if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the Azure Static Web Apps registration. The `registration` block supports the following:\n      - `client_id` - (Optional) The Client ID of the app used for login.\n  - `custom_open_id_connect_providers` - (Optional) The map of the name of the alias of each custom Open ID Connect provider to the configuration settings of the custom Open ID Connect provider. The `custom_open_id_connect_providers`'s value supports the following:\n    - `enabled` - (Optional) `false` if the custom Open ID provider provider should not be enabled; otherwise, `true`.\n    - `registration` - (Optional) The configuration settings of the app registration for the custom Open ID Connect provider. The `registration` block supports the following:\n      - `client_id` - (Optional) The client id of the custom Open ID Connect provider.\n      - `client_credential` - (Optional) The authentication credentials of the custom Open ID Connect provider. The `client_credential` block supports the following:\n        - `method` - (Optional) The method that should be used to authenticate the user. Possible values `ClientSecretPost`.\n        - `client_secret_setting_name` - (Optional) The app setting that contains the client secret for the custom Open ID Connect provider.\n      - `open_id_connect_configuration` - (Optional) The configuration settings of the endpoints used for the custom Open ID Connect provider. The `open_id_connect_configuration` block supports the following:\n        - `authorization_endpoint` - (Optional) The endpoint to be used to make an authorization request.\n        - `certification_uri` - (Optional) The endpoint that provides the keys necessary to validate the token.\n        - `issuer` - (Optional) The endpoint that issues the token.\n        - `token_endpoint` - (Optional) The endpoint to be used to request a token.\n        - `well_known_open_id_configuration` - (Optional) The endpoint that contains all the configuration endpoints for the provider.\n    - `login` - (Optional) The configuration settings of the login flow of the custom Open ID Connect provider. The `login` block supports the following:\n      - `name_claim_type` - (Optional) The name of the claim that contains the users name.\n      - `scopes` - (Optional) A list of the scopes that should be requested while authenticating.\n\n---\n`login` - The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization. The `login` block supports the following:\n  - `routes` - (Optional) The routes that specify the endpoints used for login and logout requests. The `routes` block supports the following:\n    - `logout_endpoint` - (Optional) The endpoint at which a logout request should be made.\n  - `token_store` - (Optional) The configuration settings of the token store. The `token_store` block supports the following:\n    - `enabled` - (Optional) `true` to durably store platform-specific security tokens that are obtained during login flows; otherwise, `false`.\n    - `token_refresh_extension_hours` - (Optional) The number of hours after session token expiration that a session token can be used to call the token refresh API\n    - `azure_blob_storage` - (Optional) The configuration settings of the storage of the tokens if blob storage is used. The `azure_blob_storage` block supports the following:\n      - `sas_url_setting_name` - (Required) The name of the app secrets containing the SAS URL of the blob storage containing the tokens.\n  - `preserve_url_fragments_for_logins` - (Optional) `true` if the fragments from the request are preserved after the login request is made; otherwise, `false`.\n  - `allowed_external_redirect_urls` - (Optional) External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored. This is an advanced setting typically only needed by Windows Store application backends. Note that URLs within the current domain are always implicitly allowed.\n  - `cookie_expiration` - (Optional) The configuration settings of the session cookie's expiration. The `cookie_expiration` block supports the following:\n    - `convention` - (Optional) The convention used when determining the session cookie's expiration.\n    - `time_to_expiration` - (Optional) The time after the request is made when the session cookie should expire.\n  - `nonce` - (Optional) The configuration settings of the nonce used in the login flow. The `nonce` block supports the following:\n    - `validate_nonce` - (Optional) `true` if the nonce should not be validated while completing the login flow; otherwise, `false`.\n    - `nonce_expiration_interval` - (Optional) The time after the request is made when the nonce should expire.",
-                "priority": 10019,
+                "priority": 10018,
                 "schema": "# `auth_configs` is Optional in module\nauth_configs = {\n  example_key = {\n  # `name` is Required in `auth_configs`\nname = \"example1\"\n  # `platform` is Optional in `auth_configs`\nplatform = {\n  # `enabled` is Optional in `platform`\nenabled = false\n  # `runtime_version` is Optional in `platform`\nruntime_version = \"\"\n}\n\n  # `global_validation` is Optional in `auth_configs`\nglobal_validation = {\n  # `unauthenticated_client_action` is Optional in `global_validation`\nunauthenticated_client_action = \"\"\n  # `redirect_to_provider` is Optional in `global_validation`\nredirect_to_provider = \"\"\n  # `exclude_paths` is Optional in `global_validation`\nexclude_paths = []\n}\n\n  # `identity_providers` is Optional in `auth_configs`\nidentity_providers = {\n  # `azure_active_directory` is Optional in `identity_providers`\nazure_active_directory = {\n  # `enabled` is Optional in `azure_active_directory`\nenabled = false\n  # `registration` is Optional in `azure_active_directory`\nregistration = {\n  # `open_id_issuer` is Optional in `registration`\nopen_id_issuer = \"\"\n  # `client_id` is Optional in `registration`\nclient_id = \"\"\n  # `client_secret_setting_name` is Optional in `registration`\nclient_secret_setting_name = \"\"\n  # `client_secret_certificate_issuer` is Optional in `registration`\nclient_secret_certificate_issuer = \"\"\n  # `client_secret_certificate_subject_alternative_name` is Optional in `registration`\nclient_secret_certificate_subject_alternative_name = \"\"\n  # `client_secret_certificate_thumbprint` is Optional in `registration`\nclient_secret_certificate_thumbprint = \"\"\n}\n\n  # `login` is Optional in `azure_active_directory`\nlogin = {\n  # `login_parameters` is Required in `login`\nlogin_parameters = []\n  # `disable_www_authenticate` is Required in `login`\ndisable_www_authenticate = false\n}\n\n  # `validation` is Optional in `azure_active_directory`\nvalidation = {\n  # `jwt_claim_checks` is Optional in `validation`\njwt_claim_checks = {\n  # `allowed_groups` is Optional in `jwt_claim_checks`\nallowed_groups = []\n  # `allowed_client_applications` is Optional in `jwt_claim_checks`\nallowed_client_applications = []\n}\n\n  # `allowed_audiences` is Optional in `validation`\nallowed_audiences = []\n  # `default_authorization_policy` is Optional in `validation`\ndefault_authorization_policy = {\n  # `allowed_principals` is Optional in `default_authorization_policy`\nallowed_principals = {\n  # `groups` is Optional in `allowed_principals`\ngroups = []\n  # `identities` is Optional in `allowed_principals`\nidentities = []\n}\n\n  # `allowed_applications` is Optional in `default_authorization_policy`\nallowed_applications = []\n}\n\n}\n\n  # `is_auto_provisioned` is Optional in `azure_active_directory`\nis_auto_provisioned = false\n}\n\n  # `facebook` is Optional in `identity_providers`\nfacebook = {\n  # `enabled` is Optional in `facebook`\nenabled = false\n  # `registration` is Optional in `facebook`\nregistration = {\n  # `app_id` is Optional in `registration`\napp_id = \"\"\n  # `app_secret_setting_name` is Optional in `registration`\napp_secret_setting_name = \"\"\n}\n\n  # `graph_api_version` is Optional in `facebook`\ngraph_api_version = \"\"\n  # `login` is Optional in `facebook`\nlogin = {\n  # `scopes` is Required in `login`\nscopes = []\n}\n\n}\n\n  # `github` is Optional in `identity_providers`\ngithub = {\n  # `enabled` is Optional in `github`\nenabled = false\n  # `registration` is Optional in `github`\nregistration = {\n  # `client_id` is Optional in `registration`\nclient_id = \"\"\n  # `client_secret_setting_name` is Optional in `registration`\nclient_secret_setting_name = \"\"\n}\n\n  # `login` is Optional in `github`\nlogin = {\n  # `scopes` is Required in `login`\nscopes = []\n}\n\n}\n\n  # `google` is Optional in `identity_providers`\ngoogle = {\n  # `enabled` is Optional in `google`\nenabled = false\n  # `registration` is Optional in `google`\nregistration = {\n  # `client_id` is Optional in `registration`\nclient_id = \"\"\n  # `client_secret_setting_name` is Optional in `registration`\nclient_secret_setting_name = \"\"\n}\n\n  # `login` is Optional in `google`\nlogin = {\n  # `scopes` is Required in `login`\nscopes = []\n}\n\n  # `validation` is Optional in `google`\nvalidation = {\n  # `allowed_audiences` is Required in `validation`\nallowed_audiences = []\n}\n\n}\n\n  # `twitter` is Optional in `identity_providers`\ntwitter = {\n  # `enabled` is Optional in `twitter`\nenabled = false\n  # `registration` is Optional in `twitter`\nregistration = {\n  # `consumer_key` is Required in `registration`\nconsumer_key = var.string_registration_consumer_key\n  # `consumer_secret_setting_name` is Optional in `registration`\nconsumer_secret_setting_name = \"\"\n}\n\n}\n\n  # `apple` is Optional in `identity_providers`\napple = {\n  # `enabled` is Optional in `apple`\nenabled = false\n  # `registration` is Optional in `apple`\nregistration = {\n  # `client_id` is Required in `registration`\nclient_id = \"00000000-0000-0000-0000-000000000000\"\n  # `client_secret_setting_name` is Optional in `registration`\nclient_secret_setting_name = \"\"\n}\n\n  # `login` is Optional in `apple`\nlogin = {\n  # `scopes` is Required in `login`\nscopes = []\n}\n\n}\n\n  # `azure_static_web_apps` is Optional in `identity_providers`\nazure_static_web_apps = {\n  # `enabled` is Optional in `azure_static_web_apps`\nenabled = false\n  # `registration` is Optional in `azure_static_web_apps`\nregistration = {\n  # `client_id` is Required in `registration`\nclient_id = \"00000000-0000-0000-0000-000000000000\"\n}\n\n}\n\n  # `custom_open_id_connect_providers` is Optional in `identity_providers`\ncustom_open_id_connect_providers = {\n  example_key = {\n  # `enabled` is Optional in `custom_open_id_connect_providers`\nenabled = false\n  # `registration` is Optional in `custom_open_id_connect_providers`\nregistration = {\n  # `client_id` is Optional in `registration`\nclient_id = \"\"\n  # `client_credential` is Optional in `registration`\nclient_credential = {\n  # `method` is Required in `client_credential`\nmethod = var.string_client_credential_method\n  # `client_secret_setting_name` is Required in `client_credential`\nclient_secret_setting_name = var.string_client_credential_client_secret_setting_name\n}\n\n  # `open_id_connect_configuration` is Optional in `registration`\nopen_id_connect_configuration = {\n  # `authorization_endpoint` is Required in `open_id_connect_configuration`\nauthorization_endpoint = var.string_open_id_connect_configuration_authorization_endpoint\n  # `token_endpoint` is Required in `open_id_connect_configuration`\ntoken_endpoint = var.string_open_id_connect_configuration_token_endpoint\n  # `issuer` is Required in `open_id_connect_configuration`\nissuer = var.string_open_id_connect_configuration_issuer\n  # `certification_uri` is Required in `open_id_connect_configuration`\ncertification_uri = var.string_open_id_connect_configuration_certification_uri\n  # `well_known_open_id_configuration` is Optional in `open_id_connect_configuration`\nwell_known_open_id_configuration = \"\"\n}\n\n}\n\n  # `login` is Optional in `custom_open_id_connect_providers`\nlogin = {\n  # `name_claim_type` is Required in `login`\nname_claim_type = var.string_login_name_claim_type\n  # `scopes` is Required in `login`\nscopes = []\n}\n\n}\n\n}\n\n}\n\n  # `login` is Optional in `auth_configs`\nlogin = {\n  # `routes` is Optional in `login`\nroutes = {\n  # `logout_endpoint` is Required in `routes`\nlogout_endpoint = var.string_routes_logout_endpoint\n}\n\n  # `token_store` is Optional in `login`\ntoken_store = {\n  # `enabled` is Required in `token_store`\nenabled = false\n  # `token_refresh_extension_hours` is Required in `token_store`\ntoken_refresh_extension_hours = 0\n  # `azure_blob_storage` is Optional in `token_store`\nazure_blob_storage = {\n  # `sas_url_setting_name` is Required in `azure_blob_storage`\nsas_url_setting_name = var.string_azure_blob_storage_sas_url_setting_name\n}\n\n}\n\n  # `preserve_url_fragments_for_logins` is Optional in `login`\npreserve_url_fragments_for_logins = false\n  # `allowed_external_redirect_urls` is Optional in `login`\nallowed_external_redirect_urls = []\n  # `cookie_expiration` is Optional in `login`\ncookie_expiration = {\n  # `convention` is Optional in `cookie_expiration`\nconvention = \"\"\n  # `time_to_expiration` is Optional in `cookie_expiration`\ntime_to_expiration = \"\"\n}\n\n  # `nonce` is Optional in `login`\nnonce = {\n  # `validate_nonce` is Required in `nonce`\nvalidate_nonce = false\n  # `nonce_expiration_interval` is Required in `nonce`\nnonce_expiration_interval = var.string_nonce_nonce_expiration_interval\n}\n\n}\n\n  # `http_settings` is Optional in `auth_configs`\nhttp_settings = {\n  # `require_https` is Optional in `http_settings`\nrequire_https = false\n  # `forward_proxy` is Optional in `http_settings`\nforward_proxy = {\n  # `convention` is Optional in `forward_proxy`\nconvention = \"\"\n  # `custom_host_header_name` is Optional in `forward_proxy`\ncustom_host_header_name = \"\"\n  # `custom_proto_header_name` is Optional in `forward_proxy`\ncustom_proto_header_name = \"\"\n}\n\n  # `routes` is Optional in `http_settings`\nroutes = {\n  # `api_prefix` is Required in `routes`\napi_prefix = var.string_routes_api_prefix\n}\n\n}\n\n  # `encryption_settings` is Optional in `auth_configs`\nencryption_settings = {\n  # `container_app_auth_encryption_secret_name` is Optional in `encryption_settings`\ncontainer_app_auth_encryption_secret_name = \"\"\n  # `container_app_auth_signing_secret_name` is Optional in `encryption_settings`\ncontainer_app_auth_signing_secret_name = \"\"\n}\n\n}\n\n}\n\n"
             }
         },
@@ -639,7 +633,6 @@
                 "max_inactive_revisions": [],
                 "resource_group_id": [],
                 "revision_mode": [],
-                "secrets_version": [],
                 "workload_profile_name": [],
                 "tags": [],
                 "service": [],
@@ -964,8 +957,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3227,12 +3220,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -4672,12 +4665,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5504,8 +5497,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6078,8 +6071,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10365,12 +10358,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -10534,12 +10527,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -11257,8 +11250,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11611,8 +11604,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12699,8 +12692,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13110,12 +13103,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -14584,8 +14577,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14795,10 +14788,10 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
+                "avm-res-operationalinsights-workspace",
                 "avm-res-storage-storageaccount",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14819,8 +14812,8 @@
                 "lock": [],
                 "role_assignments": [],
                 "flow_logs": [
-                    "avm-res-network-virtualnetwork",
                     "avm-res-storage-storageaccount",
+                    "avm-res-network-virtualnetwork",
                     "avm-res-operationalinsights-workspace"
                 ],
                 "condition_monitor": []
@@ -15085,12 +15078,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -16265,14 +16258,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "backup_subnet_cidr": [],
@@ -18849,8 +18842,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-privatednszone"
+                "avm-res-network-privatednszone",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
