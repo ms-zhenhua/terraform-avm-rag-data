@@ -4665,12 +4665,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5497,8 +5497,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11250,8 +11250,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11604,8 +11604,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14788,9 +14788,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-storage-storageaccount",
                 "avm-res-network-virtualnetwork",
+                "avm-res-storage-storageaccount",
+                "avm-res-operationalinsights-workspace",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -14812,8 +14812,8 @@
                 "lock": [],
                 "role_assignments": [],
                 "flow_logs": [
-                    "avm-res-storage-storageaccount",
                     "avm-res-network-virtualnetwork",
+                    "avm-res-storage-storageaccount",
                     "avm-res-operationalinsights-workspace"
                 ],
                 "condition_monitor": []
@@ -15078,12 +15078,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -16258,14 +16258,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "backup_subnet_cidr": [],
