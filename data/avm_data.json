@@ -601,9 +601,9 @@
             },
             "ingress": {
                 "required": false,
-                "description": "\nThis object defines the ingress properties for the container app:\n\n- `allow_insecure_connections` - (Optional) Should this ingress allow insecure connections? Defaults to `false`.\n- `client_certificate_mode` - (Optional) The mode for client certificate authentication. Possible values include `optional` and `required`.\n- `exposed_port` - (Optional) The exposed port on the container for the Ingress traffic. Defaults to `0`.\n- `external_enabled` - (Optional) Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.\n- `target_port` - (Required) The target port on the container for the Ingress traffic. Defaults to `Auto`.\n- `transport` - (Optional) The transport method for the Ingress. Possible values include `auto`, `http`, `http2`, and `tcp`. Defaults to `auto`.\n\n---\n`traffic_weight` block supports the following:\n- `label` - (Optional) The label to apply to the revision as a name prefix for routing traffic.\n- `latest_revision` - (Optional) This traffic Weight relates to the latest stable Container Revision. Defaults to `false`.\n- `revision_suffix` - (Optional) The suffix string to which this `traffic_weight` applies.\n- `percentage` - (Required) The percentage of traffic which should be sent according to this configuration.\n\n---\n`cors_policy` block supports the following:\n- `allow_credentials` - (Optional) Indicates whether the browser should include credentials when making a request. Defaults to `false`.\n- `allowed_headers` - (Optional) List of headers that can be used when making the actual request.\n- `allowed_methods` - (Optional) List of HTTP methods that can be used when making the actual request.\n- `allowed_origins` - (Optional) List of origins that are allowed to access the resource.\n- `expose_headers` - (Optional) List of response headers that can be exposed when making the actual request.\n- `max_age` - (Optional) The maximum number of seconds the results of a preflight request can be cached.\n\n---\n`custom_domain` block supports the following:\n- `certificate_binding_type` - (Optional) The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.\n- `certificate_id` - (Optional) The ID of the Container App Environment Certificate.\n- `name` - (Optional) The hostname of the Certificate. Must be the CN or a named SAN in the certificate.\n\n---\n`ip_restrictions` block supports the following:\n- `action` - (Optional) The action to take when the IP security restriction is triggered. Possible values include `allow` and `deny`.\n- `description` - (Optional) A description for the IP security restriction.\n- `ip_range` - (Optional) The IP address range for the security restriction.\n- `name` - (Optional) The name for the IP security restriction.\n\n---\n`sticky_sessions` block supports the following:\n- `affinity` - (Optional) The affinity type for sticky sessions. Possible values include `None`, `ClientIP`, and `Server`.",
+                "description": "\nThis object defines the ingress properties for the container app:\n\n- `allow_insecure_connections` - (Optional) Should this ingress allow insecure connections? Defaults to `false`.\n- `client_certificate_mode` - (Optional) The mode for client certificate authentication. Possible values include `optional` and `required`.\n- `exposed_port` - (Optional) The exposed port on the container for the Ingress traffic. Defaults to `0`.\n- `external_enabled` - (Optional) Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.\n- `target_port` - (Required) The target port on the container for the Ingress traffic. Defaults to `Auto`.\n- `transport` - (Optional) The transport method for the Ingress. Possible values include `auto`, `http`, `http2`, and `tcp`. Defaults to `auto`.\n\n---\n`traffic_weight` block supports the following:\n- `label` - (Optional) The label to apply to the revision as a name prefix for routing traffic.\n- `latest_revision` - (Optional) This traffic Weight relates to the latest stable Container Revision. Defaults to `false`.\n- `revision_suffix` - (Optional) The suffix string to which this `traffic_weight` applies.\n- `percentage` - (Required) The percentage of traffic which should be sent according to this configuration.\n\n---\n`cors_policy` block supports the following:\n- `allow_credentials` - (Optional) Indicates whether the browser should include credentials when making a request. Defaults to `false`.\n- `allowed_headers` - (Optional) List of headers that can be used when making the actual request.\n- `allowed_methods` - (Optional) List of HTTP methods that can be used when making the actual request.\n- `allowed_origins` - (Optional) List of origins that are allowed to access the resource.\n- `expose_headers` - (Optional) List of response headers that can be exposed when making the actual request.\n- `max_age` - (Optional) The maximum number of seconds the results of a preflight request can be cached.\n\n---\n`custom_domain` block supports the following (DEPRECATED - use custom_domains instead):\n- `certificate_binding_type` - (Optional) The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.\n- `certificate_id` - (Optional) The ID of the Container App Environment Certificate.\n- `name` - (Optional) The hostname of the Certificate. Must be the CN or a named SAN in the certificate.\n\n---\n`custom_domains` block supports the following:\n- `certificate_binding_type` - (Optional) The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.\n- `certificate_id` - (Optional) The ID of the Container App Environment Certificate.\n- `name` - (Required) The hostname of the Certificate. Must be the CN or a named SAN in the certificate.\n\n---\n`ip_restrictions` block supports the following:\n- `action` - (Optional) The action to take when the IP security restriction is triggered. Possible values include `allow` and `deny`.\n- `description` - (Optional) A description for the IP security restriction.\n- `ip_range` - (Optional) The IP address range for the security restriction.\n- `name` - (Optional) The name for the IP security restriction.\n\n---\n`sticky_sessions` block supports the following:\n- `affinity` - (Optional) The affinity type for sticky sessions. Possible values include `None`, `ClientIP`, and `Server`.",
                 "priority": 10017,
-                "schema": "# `ingress` is Optional in module\ningress = {\n  # `traffic_weight` is Required in `ingress`\ntraffic_weight = [{\n  # `percentage` is Required in `traffic_weight`\npercentage = 100.0\n  # `label` is Optional in `traffic_weight`\nlabel = \"\"\n  # `latest_revision` is Optional in `traffic_weight`\nlatest_revision = true\n  # `revision_suffix` is Optional in `traffic_weight`\nrevision_suffix = \"\"\n}\n]\n  # `allow_insecure_connections` is Optional in `ingress`\nallow_insecure_connections = false\n  # `client_certificate_mode` is Optional in `ingress`\nclient_certificate_mode = \"\"\n  # `exposed_port` is Optional in `ingress`\nexposed_port = 0\n  # `external_enabled` is Optional in `ingress`\nexternal_enabled = true\n  # `target_port` is Optional in `ingress`\ntarget_port = 8080.0\n  # `transport` is Optional in `ingress`\ntransport = \"auto\"\n  # `additional_port_mappings` is Optional in `ingress`\nadditional_port_mappings = [{\n  # `exposed_port` is Required in `additional_port_mappings`\nexposed_port = 0\n  # `external` is Required in `additional_port_mappings`\nexternal = false\n  # `target_port` is Required in `additional_port_mappings`\ntarget_port = 0\n}\n]\n  # `cors_policy` is Optional in `ingress`\ncors_policy = {\n  # `allow_credentials` is Optional in `cors_policy`\nallow_credentials = false\n  # `allowed_headers` is Optional in `cors_policy`\nallowed_headers = []\n  # `allowed_methods` is Optional in `cors_policy`\nallowed_methods = []\n  # `allowed_origins` is Optional in `cors_policy`\nallowed_origins = []\n  # `expose_headers` is Optional in `cors_policy`\nexpose_headers = []\n  # `max_age` is Optional in `cors_policy`\nmax_age = 0\n}\n\n  # `custom_domain` is Optional in `ingress`\ncustom_domain = {\n  # `certificate_binding_type` is Optional in `custom_domain`\ncertificate_binding_type = \"\"\n  # `certificate_id` is Optional in `custom_domain`\ncertificate_id = \"\"\n  # `name` is Optional in `custom_domain`\nname = \"\"\n}\n\n  # `ip_restrictions` is Optional in `ingress`\nip_restrictions = [{\n  # `action` is Optional in `ip_restrictions`\naction = \"\"\n  # `description` is Optional in `ip_restrictions`\ndescription = \"\"\n  # `ip_range` is Optional in `ip_restrictions`\nip_range = \"\"\n  # `name` is Optional in `ip_restrictions`\nname = \"\"\n}\n]\n  # `sticky_sessions` is Optional in `ingress`\nsticky_sessions = {\n  # `affinity` is Optional in `sticky_sessions`\naffinity = \"none\"\n}\n\n}\n\n"
+                "schema": "# `ingress` is Optional in module\ningress = {\n  # `traffic_weight` is Required in `ingress`\ntraffic_weight = [{\n  # `percentage` is Required in `traffic_weight`\npercentage = 100.0\n  # `label` is Optional in `traffic_weight`\nlabel = \"\"\n  # `latest_revision` is Optional in `traffic_weight`\nlatest_revision = true\n  # `revision_suffix` is Optional in `traffic_weight`\nrevision_suffix = \"\"\n}\n]\n  # `allow_insecure_connections` is Optional in `ingress`\nallow_insecure_connections = false\n  # `client_certificate_mode` is Optional in `ingress`\nclient_certificate_mode = \"\"\n  # `exposed_port` is Optional in `ingress`\nexposed_port = 0\n  # `external_enabled` is Optional in `ingress`\nexternal_enabled = true\n  # `target_port` is Optional in `ingress`\ntarget_port = 8080.0\n  # `transport` is Optional in `ingress`\ntransport = \"auto\"\n  # `additional_port_mappings` is Optional in `ingress`\nadditional_port_mappings = [{\n  # `exposed_port` is Required in `additional_port_mappings`\nexposed_port = 0\n  # `external` is Required in `additional_port_mappings`\nexternal = false\n  # `target_port` is Required in `additional_port_mappings`\ntarget_port = 0\n}\n]\n  # `cors_policy` is Optional in `ingress`\ncors_policy = {\n  # `allow_credentials` is Optional in `cors_policy`\nallow_credentials = false\n  # `allowed_headers` is Optional in `cors_policy`\nallowed_headers = []\n  # `allowed_methods` is Optional in `cors_policy`\nallowed_methods = []\n  # `allowed_origins` is Optional in `cors_policy`\nallowed_origins = []\n  # `expose_headers` is Optional in `cors_policy`\nexpose_headers = []\n  # `max_age` is Optional in `cors_policy`\nmax_age = 0\n}\n\n  # `custom_domain` is Optional in `ingress`\ncustom_domain = {\n  # `certificate_binding_type` is Optional in `custom_domain`\ncertificate_binding_type = \"\"\n  # `certificate_id` is Optional in `custom_domain`\ncertificate_id = \"\"\n  # `name` is Optional in `custom_domain`\nname = \"\"\n}\n\n  # `custom_domains` is Optional in `ingress`\ncustom_domains = [{\n  # `name` is Required in `custom_domains`\nname = \"example1\"\n  # `certificate_binding_type` is Optional in `custom_domains`\ncertificate_binding_type = \"\"\n  # `certificate_id` is Optional in `custom_domains`\ncertificate_id = \"\"\n}\n]\n  # `ip_restrictions` is Optional in `ingress`\nip_restrictions = [{\n  # `action` is Optional in `ip_restrictions`\naction = \"\"\n  # `description` is Optional in `ip_restrictions`\ndescription = \"\"\n  # `ip_range` is Optional in `ip_restrictions`\nip_range = \"\"\n  # `name` is Optional in `ip_restrictions`\nname = \"\"\n}\n]\n  # `sticky_sessions` is Optional in `ingress`\nsticky_sessions = {\n  # `affinity` is Optional in `sticky_sessions`\naffinity = \"none\"\n}\n\n}\n\n"
             },
             "auth_configs": {
                 "required": false,
@@ -957,8 +957,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6092,8 +6092,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10548,12 +10548,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -14809,10 +14809,10 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
                 "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork",
                 "avm-res-storage-storageaccount",
-                "avm-res-network-virtualnetwork"
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14833,9 +14833,9 @@
                 "lock": [],
                 "role_assignments": [],
                 "flow_logs": [
-                    "avm-res-operationalinsights-workspace",
                     "avm-res-storage-storageaccount",
-                    "avm-res-network-virtualnetwork"
+                    "avm-res-network-virtualnetwork",
+                    "avm-res-operationalinsights-workspace"
                 ],
                 "condition_monitor": []
             }
@@ -14956,7 +14956,7 @@
             },
             "virtual_network_links": {
                 "required": false,
-                "description": "A map of objects where each object contains information to create a virtual network link. Either vnetlinkname or name must be provided, and either vnetid or virtual_network_id must be provided.",
+                "description": "A map of objects where each object contains information to create a virtual network link.\nEither `name` or `vnetlinkname` must be provided, and either `virtual_network_id` or `vnetid` must be provided.",
                 "priority": 10013,
                 "schema": "# `virtual_network_links` is Optional in module\nvirtual_network_links = {\n  example_key = {\n  # `vnetlinkname` is Optional in `virtual_network_links`\nvnetlinkname = \"\"\n  # `name` is Optional in `virtual_network_links`\nname = \"\"\n  # `vnetid` is Optional in `virtual_network_links`\nvnetid = \"\"\n  # `virtual_network_id` is Optional in `virtual_network_links`\nvirtual_network_id = \"\"\n  # `autoregistration` is Optional in `virtual_network_links`\nautoregistration = false\n  # `registration_enabled` is Optional in `virtual_network_links`\nregistration_enabled = false\n  # `private_dns_zone_supports_private_link` is Optional in `virtual_network_links`\nprivate_dns_zone_supports_private_link = false\n  # `resolution_policy` is Optional in `virtual_network_links`\nresolution_policy = \"Default\"\n  # `tags` is Optional in `virtual_network_links`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
             }
