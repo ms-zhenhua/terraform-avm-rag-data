@@ -10379,12 +10379,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -14834,8 +14834,8 @@
                 "role_assignments": [],
                 "flow_logs": [
                     "avm-res-storage-storageaccount",
-                    "avm-res-operationalinsights-workspace",
-                    "avm-res-network-virtualnetwork"
+                    "avm-res-network-virtualnetwork",
+                    "avm-res-operationalinsights-workspace"
                 ],
                 "condition_monitor": []
             }
@@ -16279,13 +16279,13 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork"
             ],
             "required": {
@@ -18863,8 +18863,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-privatednszone"
+                "avm-res-network-privatednszone",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
