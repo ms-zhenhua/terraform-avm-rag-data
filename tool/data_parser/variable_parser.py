@@ -635,9 +635,33 @@ def create_variable_node(name: str, data: dict, parent: RootNode) -> ValueNode:
         value_error(f"Error creating variable node for {name}: {e}")
 
 async def run_terraform_command(cmd) -> tuple[int, bytes, bytes]:
-    proc: Process = await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-    stdout, stderr = await proc.communicate()
-    return proc.returncode, stdout, stderr
+    proc: Process = None
+    try:
+        proc = await asyncio.create_subprocess_shell(
+            cmd, 
+            stdout=asyncio.subprocess.PIPE, 
+            stderr=asyncio.subprocess.PIPE
+        )
+        stdout, stderr = await proc.communicate()
+        return proc.returncode, stdout, stderr
+    except Exception as e:
+        logging.error(f"Error running terraform command '{cmd}': {e}")
+        if proc and proc.returncode is None:
+            # Process is still running, terminate it
+            try:
+                proc.terminate()
+                await proc.wait()
+            except Exception as cleanup_error:
+                logging.error(f"Error cleaning up process: {cleanup_error}")
+        return -1, b"", str(e).encode()
+    finally:
+        # Ensure the process is properly cleaned up
+        if proc and proc.returncode is None:
+            try:
+                proc.terminate()
+                await proc.wait()
+            except Exception as cleanup_error:
+                logging.error(f"Error in final cleanup: {cleanup_error}")
 
 
 class VariableParser:

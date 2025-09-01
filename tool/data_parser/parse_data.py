@@ -10,7 +10,7 @@ async def parse_variables(modules: dict[str, dict]):
     variable_parser = VariableParser(modules)
     for module_name in modules:
         tasks.append(variable_parser.parse(module_name))
-    results = await run_tasks(tasks, 10)
+    results = await run_tasks(tasks, 3)
 
     for result in results:
         for k, v in result.items():
