@@ -3227,12 +3227,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -8479,12 +8479,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8844,8 +8844,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10609,12 +10609,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -12975,8 +12975,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13386,12 +13386,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14608,7 +14608,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 51,
+        "priority": 49,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15772,7 +15772,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 49,
+        "priority": 51,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -15918,11 +15918,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-routetable",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-natgateway",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-natgateway"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-network-routetable",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15958,8 +15958,8 @@
                 "peerings": [],
                 "subnets": [
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-natgateway",
                     "avm-res-network-routetable",
+                    "avm-res-network-natgateway",
                     "avm-res-managedidentity-userassignedidentity"
                 ]
             }
@@ -16538,14 +16538,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
