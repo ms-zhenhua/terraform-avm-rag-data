@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -617,12 +617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -3227,12 +3227,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -4834,12 +4834,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5666,8 +5666,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6449,8 +6449,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -6516,6 +6516,7 @@
             "nodepool_resource_ids",
             "oidc_issuer_url",
             "private_endpoints",
+            "public_fqdn",
             "resource_id",
             "web_app_routing_object_id"
         ],
@@ -9633,8 +9634,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -14608,7 +14609,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 50,
+        "priority": 51,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14985,7 +14986,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 49,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15347,12 +15348,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15772,7 +15773,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 49,
+        "priority": 50,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -15918,11 +15919,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-routetable",
-                "avm-res-network-natgateway",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-network-routetable",
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-natgateway",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15957,8 +15958,8 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
                     "avm-res-network-networksecuritygroup",
+                    "avm-res-network-natgateway",
                     "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity"
                 ]
@@ -16538,14 +16539,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "backup_subnet_cidr": [],
@@ -17421,8 +17422,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -17678,22 +17679,34 @@
                 "priority": 10022,
                 "schema": "# `vulnerability_assessment` is Optional in module\nvulnerability_assessment = {\n  # `storage_account_access_key` is Optional in `vulnerability_assessment`\nstorage_account_access_key = \"\"\n  # `storage_container_path` is Optional in `vulnerability_assessment`\nstorage_container_path = \"\"\n  # `storage_container_sas_key` is Optional in `vulnerability_assessment`\nstorage_container_sas_key = \"\"\n  # `recurring_scans` is Optional in `vulnerability_assessment`\nrecurring_scans = {\n  # `email_subscription_admins` is Optional in `recurring_scans`\nemail_subscription_admins = false\n  # `emails` is Optional in `recurring_scans`\nemails = []\n  # `enabled` is Optional in `recurring_scans`\nenabled = false\n}\n\n  # `timeouts` is Optional in `vulnerability_assessment`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n"
             },
+            "retry": {
+                "required": false,
+                "description": "The AzAPI resource retry configuration, per resource type.\nWill retry up to the resource timeout, see `var.timeout`.\n\nEach resource has the following attributes:\n\n- `error_message_regex` - A list of regular expressions to match error messages for retrying the request.\n- `interval_seconds` - The interval in seconds between retry attempts.\n- `max_interval_seconds` - The maximum interval in seconds between retry attempts.",
+                "priority": 10023,
+                "schema": "# `retry` is Optional in module\nretry = {\n  # `mssql_managed_instance_security_alert_policy` is Optional in `retry`\nmssql_managed_instance_security_alert_policy = {\n  # `error_message_regex` is Optional in `mssql_managed_instance_security_alert_policy`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `mssql_managed_instance_security_alert_policy`\ninterval_seconds = 0\n  # `max_interval_seconds` is Optional in `mssql_managed_instance_security_alert_policy`\nmax_interval_seconds = 0\n}\n\n  # `sql_managed_instance_patch_identities` is Optional in `retry`\nsql_managed_instance_patch_identities = {\n  # `error_message_regex` is Optional in `sql_managed_instance_patch_identities`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `sql_managed_instance_patch_identities`\ninterval_seconds = 0\n  # `max_interval_seconds` is Optional in `sql_managed_instance_patch_identities`\nmax_interval_seconds = 0\n}\n\n  # `sql_advanced_threat_protection` is Optional in `retry`\nsql_advanced_threat_protection = {\n  # `error_message_regex` is Optional in `sql_advanced_threat_protection`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `sql_advanced_threat_protection`\ninterval_seconds = 0\n  # `max_interval_seconds` is Optional in `sql_advanced_threat_protection`\nmax_interval_seconds = 0\n}\n\n}\n\n"
+            },
             "failover_group": {
                 "required": false,
                 "description": "\nMap of failover groups.  There can only be one failover group in the map.\n\n - `location` - (Required) The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.\n - `name` - (Required) The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.\n - `partner_managed_instance_id` - (Required) The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.\n - `readonly_endpoint_failover_policy_enabled` - (Optional) Failover policy for the read-only endpoint. Defaults to `true`.\n\n ---\n `read_write_endpoint_failover_policy` block supports the following:\n - `grace_minutes` - (Optional) Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.\n - `mode` - (Required) The failover mode. Possible values are `Automatic` or `Manual`.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Managed Instance Failover Group.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Managed Instance Failover Group.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Managed Instance Failover Group.\n - `update` - (Defaults to 30 minutes) Used when updating the Managed Instance Failover Group.",
-                "priority": 10023,
+                "priority": 10024,
                 "schema": "# `failover_group` is Optional in module\nfailover_group = {\n  example_key = {\n  # `location` is Optional in `failover_group`\nlocation = \"\"\n  # `name` is Optional in `failover_group`\nname = \"\"\n  # `partner_managed_instance_id` is Optional in `failover_group`\npartner_managed_instance_id = \"\"\n  # `readonly_endpoint_failover_policy_enabled` is Optional in `failover_group`\nreadonly_endpoint_failover_policy_enabled = false\n  # `read_write_endpoint_failover_policy` is Optional in `failover_group`\nread_write_endpoint_failover_policy = {\n  # `grace_minutes` is Optional in `read_write_endpoint_failover_policy`\ngrace_minutes = 0\n  # `mode` is Optional in `read_write_endpoint_failover_policy`\nmode = \"\"\n}\n\n  # `timeouts` is Optional in `failover_group`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
+            },
+            "timeout": {
+                "required": false,
+                "description": "The resource-specific timeout configuration.\nValues are a valid timespan, e.g. `1m`, `30s`, `5m30s`.",
+                "priority": 10025,
+                "schema": "# `timeout` is Optional in module\ntimeout = {\n  # `mssql_managed_instance_security_alert_policy` is Optional in `timeout`\nmssql_managed_instance_security_alert_policy = {\n  # `create` is Optional in `mssql_managed_instance_security_alert_policy`\ncreate = \"\"\n  # `delete` is Optional in `mssql_managed_instance_security_alert_policy`\ndelete = \"\"\n  # `read` is Optional in `mssql_managed_instance_security_alert_policy`\nread = \"\"\n  # `update` is Optional in `mssql_managed_instance_security_alert_policy`\nupdate = \"\"\n}\n\n  # `sql_managed_instance_patch_identities` is Optional in `timeout`\nsql_managed_instance_patch_identities = {\n  # `create` is Optional in `sql_managed_instance_patch_identities`\ncreate = \"\"\n  # `delete` is Optional in `sql_managed_instance_patch_identities`\ndelete = \"\"\n  # `read` is Optional in `sql_managed_instance_patch_identities`\nread = \"\"\n  # `update` is Optional in `sql_managed_instance_patch_identities`\nupdate = \"\"\n}\n\n  # `sql_advanced_threat_protection` is Optional in `timeout`\nsql_advanced_threat_protection = {\n  # `create` is Optional in `sql_advanced_threat_protection`\ncreate = \"\"\n  # `delete` is Optional in `sql_advanced_threat_protection`\ndelete = \"\"\n  # `read` is Optional in `sql_advanced_threat_protection`\nread = \"\"\n  # `update` is Optional in `sql_advanced_threat_protection`\nupdate = \"\"\n}\n\n}\n\n"
             },
             "databases": {
                 "required": false,
                 "description": " - `name` - (Required) The name of the Managed Database to create. Changing this forces a new resource to be created.\n - `short_term_retention_days` - (Optional) The backup retention period in days. This is how many days Point-in-Time Restore will be supported.\n - `tags` - (Optional) A mapping of tags to assign to the managed database.\n\n ---\n `long_term_retention_policy` block supports the following:\n - `monthly_retention` - (Optional) The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.\n - `week_of_year` - (Optional) The week of year to take the yearly backup. Value has to be between `1` and `52`.\n - `weekly_retention` - (Optional) The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.\n - `yearly_retention` - (Optional) The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.\n\n ---\n `point_in_time_restore` block supports the following:\n - `restore_point_in_time` - (Required) The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.\n - `source_database_id` - (Required) The source database id that will be used to restore from. Changing this forces a new resource to be created.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Mssql Managed Database.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Mssql Managed Database.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Mssql Managed Database.\n - `update` - (Defaults to 30 minutes) Used when updating the Mssql Managed Database.",
-                "priority": 10024,
+                "priority": 10026,
                 "schema": "# `databases` is Optional in module\ndatabases = {\n  example_key = {\n  # `name` is Required in `databases`\nname = \"example1\"\n  # `short_term_retention_days` is Optional in `databases`\nshort_term_retention_days = 0\n  # `tags` is Optional in `databases`\ntags = {\n  example_key = \"\"\n}\n\n  # `long_term_retention_policy` is Optional in `databases`\nlong_term_retention_policy = {\n  # `monthly_retention` is Optional in `long_term_retention_policy`\nmonthly_retention = \"\"\n  # `week_of_year` is Optional in `long_term_retention_policy`\nweek_of_year = 0\n  # `weekly_retention` is Optional in `long_term_retention_policy`\nweekly_retention = \"\"\n  # `yearly_retention` is Optional in `long_term_retention_policy`\nyearly_retention = \"\"\n}\n\n  # `point_in_time_restore` is Optional in `databases`\npoint_in_time_restore = {\n  # `restore_point_in_time` is Required in `point_in_time_restore`\nrestore_point_in_time = var.string_point_in_time_restore_restore_point_in_time\n  # `source_database_id` is Required in `point_in_time_restore`\nsource_database_id = var.string_point_in_time_restore_source_database_id\n}\n\n  # `timeouts` is Optional in `databases`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "private_endpoints": {
                 "required": false,
                 "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the IP configuration.\n  - `private_ip_address` - The private IP address of the IP configuration.",
-                "priority": 10025,
+                "priority": 10027,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
@@ -17744,7 +17757,9 @@
                 "diagnostic_settings": [],
                 "security_alert_policy": [],
                 "vulnerability_assessment": [],
+                "retry": [],
                 "failover_group": [],
+                "timeout": [],
                 "databases": [],
                 "private_endpoints": []
             }
@@ -18306,8 +18321,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
