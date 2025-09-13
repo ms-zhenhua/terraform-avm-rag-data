@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -1591,7 +1591,7 @@
                 "required": true,
                 "description": "The full /22 or larger network CIDR summary for the private cloud managed components. This range should not intersect with any IP allocations that will be connected or visible to the private cloud.",
                 "priority": 2,
-                "schema": "# `avs_network_cidr` is Required in module\navs_network_cidr = \"10.0.0.0/22\"\n"
+                "schema": "# `avs_network_cidr` is Required in module\navs_network_cidr = \"10.240.0.0/22\"\n"
             },
             "location": {
                 "required": true,
@@ -1619,182 +1619,194 @@
             },
             "sku_name": {
                 "required": true,
-                "description": "The sku value for the AVS SDDC management cluster nodes. Valid values are av20, av36, av36t, av36pt, av52, av64.",
+                "description": "The sku value for the AVS SDDC management cluster nodes. Valid values are av20, av36, av36t, av36pt, av48, av52, and av64.",
                 "priority": 5,
                 "schema": "# `sku_name` is Required in module\nsku_name = var.string_sku_name\n"
+            },
+            "dns_zone_type": {
+                "required": false,
+                "description": "The type of DNS zone to create. Valid values are Private and Public. This value is only valid for generation 2 private clouds. Defaults to Public. When set to `Private` an Azure DNS resolver or Virtual Machine based DNS server in the Vnet is required to resolve names of the ESX and NSX-T components. See this document for details.https://learn.microsoft.com/en-us/azure/azure-vmware/native-dns-forward-lookup-zone",
+                "priority": 10000,
+                "schema": "# `dns_zone_type` is Optional in module\ndns_zone_type = \"\"\n"
             },
             "enable_stretch_cluster": {
                 "required": false,
                 "description": "Set this value to true if deploying an AVS stretch cluster.",
-                "priority": 10000,
+                "priority": 10001,
                 "schema": "# `enable_stretch_cluster` is Optional in module\nenable_stretch_cluster = false\n"
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see https://aka.ms/avm/telemetryinfo.\nIf it is set to false, then no telemetry will be collected.",
-                "priority": 10001,
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10002,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
             "extended_network_blocks": {
                 "required": false,
-                "description": "If using AV64 sku's in non-management clusters it is required to provide one /23 CIDR block or three /23 CIDR blocks. Provide a list of CIDR strings if planning to use AV64 nodes.",
-                "priority": 10002,
-                "schema": "# `extended_network_blocks` is Optional in module\nextended_network_blocks = [\"10.10.0.0/23\"]\n"
+                "description": "If using AV64 sku's in non-management Gen 1 clusters it is required to provide one /23 CIDR block or three /23 CIDR blocks. Provide a list of CIDR strings if planning to use AV64 nodes.",
+                "priority": 10003,
+                "schema": "# `extended_network_blocks` is Optional in module\nextended_network_blocks = [\"10.250.0.0/23\"]\n"
             },
             "external_storage_address_block": {
                 "required": false,
                 "description": "If using Elastic SAN or other ISCSI storage, provide an /24 CIDR range as a string for use in connecting the external storage.  Example: 10.10.0.0/24",
-                "priority": 10003,
-                "schema": "# `external_storage_address_block` is Optional in module\nexternal_storage_address_block = \"10.20.0.0/24\"\n"
+                "priority": 10004,
+                "schema": "# `external_storage_address_block` is Optional in module\nexternal_storage_address_block = \"\"\n"
             },
             "internet_enabled": {
                 "required": false,
                 "description": "Configure the internet SNAT option to be on or off. Defaults to off.",
-                "priority": 10004,
+                "priority": 10005,
                 "schema": "# `internet_enabled` is Optional in module\ninternet_enabled = false\n"
             },
             "management_cluster_size": {
                 "required": false,
                 "description": "The number of nodes to include in the management cluster. The minimum value is 3 and the current maximum is 16.",
-                "priority": 10005,
+                "priority": 10006,
                 "schema": "# `management_cluster_size` is Optional in module\nmanagement_cluster_size = 3.0\n"
             },
             "nsxt_password": {
                 "required": false,
                 "description": "The password value to use for the cloudadmin account password in the local domain in nsxt. If this is left as null a random password will be generated for the deployment",
-                "priority": 10006,
+                "priority": 10007,
                 "schema": "# `nsxt_password` is Optional in module\nnsxt_password = \"\"\n"
             },
             "primary_zone": {
                 "required": false,
                 "description": "This value represents the zone for deployment in a standard deployment or the primary zone in a stretch cluster deployment. Defaults to null to let Azure select the zone",
-                "priority": 10007,
+                "priority": 10008,
                 "schema": "# `primary_zone` is Optional in module\nprimary_zone = 0\n"
             },
             "secondary_zone": {
                 "required": false,
                 "description": "This value represents the secondary zone in a stretch cluster deployment.",
-                "priority": 10008,
+                "priority": 10009,
                 "schema": "# `secondary_zone` is Optional in module\nsecondary_zone = 0\n"
             },
             "vcenter_password": {
                 "required": false,
                 "description": "The password value to use for the cloudadmin account password in the local domain in vcenter. If this is left as null a random password will be generated for the deployment",
-                "priority": 10009,
+                "priority": 10010,
                 "schema": "# `vcenter_password` is Optional in module\nvcenter_password = \"\"\n"
+            },
+            "virtual_network_resource_id": {
+                "required": false,
+                "description": "The Azure Resource ID for the virtual network where the private cloud will be deployed. This is required when deploying a generation 2 AVS private cloud.",
+                "priority": 10011,
+                "schema": "# `virtual_network_resource_id` is Optional in module\nvirtual_network_resource_id = \"\"\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) Map of tags to be assigned to the AVS resources",
-                "priority": 10010,
+                "priority": 10012,
                 "schema": "# `tags` is Optional in module\ntags = {\n  scenario = \"avs_default_vnet\"\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10011,
+                "priority": 10013,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "  Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n  - `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled. This is used to configure encryption using customer managed keys.\n  - `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource. Currently unused by this resource.",
-                "priority": 10012,
+                "priority": 10014,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "avs_interconnect_connections": {
                 "required": false,
                 "description": "Map of string objects describing one or more private cloud interconnect connections for private clouds in the same region.  The map key will be used for the connection name.\n\n- `<map key>` - use a custom map key to use as the name for the interconnect connection\n  - `linked_private_cloud_resource_id` = (Required) - The resource ID of the private cloud on the other side of the interconnect. Must be in the same region.\n\nExample Input:\n```hcl\n{\n  interconnect_sddc_1 = {\n    linked_private_cloud_resource_id = \"<SDDC resource ID>\"\n  }\n}\n```",
-                "priority": 10013,
+                "priority": 10015,
                 "schema": "# `avs_interconnect_connections` is Optional in module\navs_interconnect_connections = {\n  example_key = {\n  # `linked_private_cloud_resource_id` is Required in `avs_interconnect_connections`\nlinked_private_cloud_resource_id = var.string_avs_interconnect_connections_linked_private_cloud_resource_id\n}\n\n}\n\n"
             },
             "internet_inbound_public_ips": {
                 "required": false,
-                "description": "This map object that describes the public IP configuration. Configure this value in the event you need direct inbound access to the private cloud from the internet. The code uses the map key as the display name for each configuration.\n\n- `<map key>` - Provide a key value that will be used as the public ip configuration name\n  - `number_of_ip_addresses` = (required) - The number of IP addresses to assign to this private cloud.\n\nExample Input:\n```hcl\npublic_ip_config = {\n  display_name = \"public_ip_configuration\"\n  number_of_ip_addresses = 1\n}\n```",
-                "priority": 10014,
+                "description": "This map object that describes the public IP configuration. Configure this value in the event you need direct inbound access to the private cloud from the internet. The code uses the map key as the display name for each configuration.\n\n- `<map key>` - Provide a key value that will be used as the public ip configuration name\n  - `number_of_ip_addresses` = (required) - The number of IP addresses to assign to this private cloud.\n\nExample Input:\n```hcl\ninternet_inbound_public_ips = {\n  public_ip_config = { #this key will be used as the display name\n    number_of_ip_addresses = 1\n  }\n}\n```",
+                "priority": 10016,
                 "schema": "# `internet_inbound_public_ips` is Optional in module\ninternet_inbound_public_ips = {\n  example_key = {\n  # `number_of_ip_addresses` is Required in `internet_inbound_public_ips`\nnumber_of_ip_addresses = 0\n}\n\n}\n\n"
             },
             "clusters": {
                 "required": false,
                 "description": "This object describes additional clusters in the private cloud in addition to the management cluster. The map key will be used as the cluster name\n\n- `<map key>` - Provide a custom key name that will be used as the cluster name\n  - `cluster_node_count` = (required) - Integer number of nodes to include in this cluster between 3 and 16\n  - `sku_name`           = (required) - String for the sku type to use for the cluster nodes. Changing this forces a new cluster to be created\n\nExample Input:\n```hcl\ncluster1 = {\n  cluster_node_count = 3\n  sku_name           = \"av36p\"\n}\n```",
-                "priority": 10015,
+                "priority": 10017,
                 "schema": "# `clusters` is Optional in module\nclusters = {\n  example_key = {\n  # `cluster_node_count` is Required in `clusters`\ncluster_node_count = 0\n  # `sku_name` is Required in `clusters`\nsku_name = var.string_clusters_sku_name\n}\n\n}\n\n"
             },
             "elastic_san_datastores": {
                 "required": false,
                 "description": "Map of objects describing one or more elastic sAN based datastore to configure on this private cloud.\n\n- `<map key>` - Unique map key that will be used as the prefix for the datastore attachment name.\n  - `cluster_names` = (Required) - Set of cluster names that should use the volume as a datastore\n  - `esan_volume_resource_id`- The Azure Resource id for the elastic san volume used to host the datastore.\n\n\nExample Input:\n```hcl\nelastic_san_datastores = {\n  esan_datastore_cluster1 = {\n    esan_volume_resource_id = module.elastic_san.volumes[\"vg_1-volume_1\"].id\n    cluster_names           = [\"Cluster-1\"]\n  }\n}\n```",
-                "priority": 10016,
+                "priority": 10018,
                 "schema": "# `elastic_san_datastores` is Optional in module\nelastic_san_datastores = {\n  esan_datastore_cluster1 = {\n  # `cluster_names` is Required in `elastic_san_datastores`\ncluster_names = [\"Cluster-1\"]\n  # `esan_volume_resource_id` is Required in `elastic_san_datastores`\nesan_volume_resource_id = var.string_elastic_san_datastores_esan_volume_resource_id\n}\n\n}\n\n"
             },
             "global_reach_connections": {
                 "required": false,
                 "description": "Map of string objects describing one or more global reach connections to be configured by the private cloud. The map key will be used for the connection name.\n\n- `<map key>` - Provide a key value that will be used as the global reach connection name\n  - `authorization_key`                     = (Required) - The authorization key from the peer expressroute\n  - `peer_expressroute_circuit_resource_id` = (Optional) - Identifier of the ExpressRoute Circuit to peer within the global reach connection\n\nExample Input:\n```hcl\n  {\n    gr_region_1 = {\n      authorization_key                     = \"<auth key value>\"\n      peer_expressroute_circuit_resource_id = \"Azure Resource ID for the peer expressRoute circuit\"'\n    }\n  }\n```",
-                "priority": 10017,
+                "priority": 10019,
                 "schema": "# `global_reach_connections` is Optional in module\nglobal_reach_connections = {\n  example_key = {\n  # `authorization_key` is Required in `global_reach_connections`\nauthorization_key = var.string_global_reach_connections_authorization_key\n  # `peer_expressroute_circuit_resource_id` is Required in `global_reach_connections`\npeer_expressroute_circuit_resource_id = var.string_global_reach_connections_peer_expressroute_circuit_resource_id\n}\n\n}\n\n"
             },
             "netapp_files_datastores": {
                 "required": false,
                 "description": "This map of objects describes one or more netapp volume attachments.  The map key will be used for the datastore name and should be unique.\n\n- `<map key>` - Provide a key value that will be used as the netapp files datastore name\n  - `netapp_volume_resource_id` = (required) - The azure resource ID for the Azure Netapp Files volume being attached to the cluster nodes.\n  - `cluster_names`             = (required) - A set of cluster name(s) where this volume should be attached\n\nExample Input:\n```hcl\nnetapp_files_datastores = {\n  anf_datastore_cluster1 = {\n    netapp_volume_resource_id = module.create_anf_volume.volume_id\n    cluster_names             = [\"Cluster-1\"]\n  }\n}\n```",
-                "priority": 10018,
+                "priority": 10020,
                 "schema": "# `netapp_files_datastores` is Optional in module\nnetapp_files_datastores = {\n  example_key = {\n  # `netapp_volume_resource_id` is Required in `netapp_files_datastores`\nnetapp_volume_resource_id = var.string_netapp_files_datastores_netapp_volume_resource_id\n  # `cluster_names` is Required in `netapp_files_datastores`\ncluster_names = []\n}\n\n}\n\n"
             },
             "vcenter_identity_sources_credentials": {
                 "required": false,
                 "description": "A map of objects representing the credentials used for the identity source connection. The map key should match the vcenter identity source that uses these values. Separating this to avoid terraform issues with apply on secrets.\n\n- `<map key>` - Provide a key value that will be used as the identity source credentials name. This value should match the identity source key where the credential will be used.\n  - `ldap_user`          = (Required) - \"The username for the domain user the vcenter will use to query LDAP(s)\"\n  - `ldap_user_password` = (Required) - \"Password to use for the domain user the vcenter will use to query LDAP(s)\"\n\nExample Input:\n```hcl\n{\n  test.local = {\n    ldap_user               = \"user@test.local\"\n    ldap_user_password      = module.create_dc.ldap_user_password\n  }\n}\n```",
-                "priority": 10019,
+                "priority": 10021,
                 "schema": "# `vcenter_identity_sources_credentials` is Optional in module\nvcenter_identity_sources_credentials = {\n  example_key = {\n  # `ldap_user` is Required in `vcenter_identity_sources_credentials`\nldap_user = var.string_vcenter_identity_sources_credentials_ldap_user\n  # `ldap_user_password` is Required in `vcenter_identity_sources_credentials`\nldap_user_password = var.string_vcenter_identity_sources_credentials_ldap_user_password\n}\n\n}\n\n"
             },
             "segments": {
                 "required": false,
                 "description": "This map object describes the additional segments to configure on the private cloud. It can remain unconfigured or define one or more new network segments. Defaults to unconfigured. If the connected_gateway value is left undefined, the configuration will default to using the default T1 gateway provisioned as part of the managed service.\n\n- `<map key>` - Provide a key value that will be used as the segment name\n  - `display_name`       = (Required) - The display name for the dhcp configuration being created\n  - `gateway_address`    = (Required) - The CIDR range to use for the segment\n  - `dhcp_ranges`        = (Optional) - One or more ranges of IP addresses or CIDR blocks entered as a list of string\n  - `connected_gateway`  = (Optional) - The name of the T1 gateway to connect this segment to.  Defaults to the managed t1 gateway if left unconfigured.\n\nExample Input:\n```hcl\nsegment_1 = {\n  display_name    = \"segment_1\"\n  gateway_address = \"10.20.0.1/24\"\n  dhcp_ranges     = [\"10.20.0.5-10.20.0.100\"]\n}\nsegment_2 = {\n  display_name    = \"segment_2\"\n  gateway_address = \"10.30.0.1/24\"\n  dhcp_ranges     = [\"10.30.0.0/24\"]\n}\n```",
-                "priority": 10020,
+                "priority": 10022,
                 "schema": "# `segments` is Optional in module\nsegments = {\n  example_key = {\n  # `display_name` is Required in `segments`\ndisplay_name = var.string_segments_display_name\n  # `gateway_address` is Required in `segments`\ngateway_address = var.string_segments_gateway_address\n  # `dhcp_ranges` is Optional in `segments`\ndhcp_ranges = []\n  # `connected_gateway` is Optional in `segments`\nconnected_gateway = \"\"\n}\n\n}\n\n"
             },
             "customer_managed_key": {
                 "required": false,
                 "description": "This object defines the customer managed key details to use when encrypting the VSAN datastore.\n\n- `<map key>` - Provide a custom key value that will be used as the dhcp configuration name\n  - `key_vault_resource_id` = (Required) - The full Azure resource ID of the key vault where the encryption key will be sourced from\n  - `key_name`              = (Required) - The name for the encryption key\n  - `key_version`           = (Optional) - The key version value for the encryption key.\n  - `user_assigned_identity` = (Non-Functional) - AVS doesn't currently\n\nExample Inputs:\n```hcl\n{\n  key_vault_resource_id = azurerm_key_vault.example.id\n  key_name              = azurerm_key_vault_key.example.name\n  key_version           = azurerm_key_vault_key.example.version\n}\n```",
-                "priority": 10021,
+                "priority": 10023,
                 "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = var.string_customer_managed_key_key_vault_resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = var.string_user_assigned_identity_resource_id\n}\n\n}\n\n"
-            },
-            "addons": {
-                "required": false,
-                "description": "Map object containing configurations for the different addon types.  Each addon type has associated fields and specific naming requirements.  A full input example is provided below.\n\n- `Arc`- Use this exact key value for deploying the ARC extension\n  - `arc_vcenter` (Optional) - The VMware vcenter resource id as a string\n- `HCX` - Use this exact key value for deploying the HCX extension\n  - `hcx_key_names` (Optional) - A list of key names to create HCX key names.\n  - `hcx_license_type` (Optional) - The type of license to configure for HCX.  Valid values are \"Advanced\" and \"Enterprise\".\n- `SRM` - Use this exact key value for deploying the SRM extension\n  - `srm_license_key` (Optional) - the license key to use when enabling the SRM addon\n- `VR` - Use this exact key value for deploying the VR extension\n  - `vr_vrs_count` (Optional) - The Vsphere replication server count\n\nExample Input:\n```hcl\n{\n  Arc = {\n    arc_vcenter = \"<vcenter resource id>\"\n  }\n  HCX = {\n    hcx_key_names = [\"key1\", \"key2\"]\n    hcx_license_type = \"Enterprise\"\n  }\n  SRM = {\n    srm_license_key = \"<srm license key value>\"\n  }\n  VR = {\n    vr_vrs_count = 2\n  }\n}\n```",
-                "priority": 10022,
-                "schema": "# `addons` is Optional in module\naddons = {\n  HCX = {\n  # `arc_vcenter` is Optional in `addons`\narc_vcenter = \"\"\n  # `hcx_key_names` is Optional in `addons`\nhcx_key_names = [\"example_key_2\"]\n  # `hcx_license_type` is Optional in `addons`\nhcx_license_type = \"Enterprise\"\n  # `srm_license_key` is Optional in `addons`\nsrm_license_key = \"\"\n  # `vr_vrs_count` is Optional in `addons`\nvr_vrs_count = 0\n}\n\n}\n\n"
             },
             "dhcp_configuration": {
                 "required": false,
                 "description": "This map object describes the DHCP configuration to use for the private cloud. It can remain unconfigured or define a RELAY or SERVER based configuration. Defaults to unconfigured. This allows for new segments to define DHCP ranges as part of their definition. Only one DHCP configuration is allowed.\n\n- `<map key>` - Provide a custom key value that will be used as the dhcp configuration name\n  - `display_name`           = (Required) - The display name for the dhcp configuration being created\n  - `dhcp_type`              = (Required) - The type for the DHCP server configuration.  Valid types are RELAY or SERVER. RELAY defines a relay configuration pointing to your existing DHCP servers. SERVER configures NSX-T to act as the DHCP server.\n  - `relay_server_addresses` = (Optional) - A list of existing DHCP server ip addresses from 1 to 3 servers.  Required when type is set to RELAY.\n  - `server_lease_time`      = (Optional) - The lease time in seconds for the DHCP server. Defaults to 84600 seconds.(24 hours) Only valid for SERVER configurations\n  - `server_address`         = (Optional) - The CIDR range that NSX-T will use for the DHCP Server.\n\nExample Input:\n```hcl\n#RELAY example\nrelay_config = {\n  display_name           = \"relay_example\"\n  dhcp_type              = \"RELAY\"\n  relay_server_addresses = [\"10.0.1.50\", \"10.0.2.50\"]\n}\n\n#SERVER example\nserver_config = {\n  display_name      = \"server_example\"\n  dhcp_type         = \"SERVER\"\n  server_lease_time = 14400\n  server_address    = \"10.1.0.1/24\"\n}\n```",
-                "priority": 10023,
+                "priority": 10024,
                 "schema": "# `dhcp_configuration` is Optional in module\ndhcp_configuration = {\n  example_key = {\n  # `display_name` is Required in `dhcp_configuration`\ndisplay_name = var.string_dhcp_configuration_display_name\n  # `dhcp_type` is Required in `dhcp_configuration`\ndhcp_type = var.string_dhcp_configuration_dhcp_type\n  # `relay_server_addresses` is Optional in `dhcp_configuration`\nrelay_server_addresses = []\n  # `server_lease_time` is Optional in `dhcp_configuration`\nserver_lease_time = 86400\n  # `server_address` is Optional in `dhcp_configuration`\nserver_address = \"\"\n}\n\n}\n\n"
             },
             "dns_forwarder_zones": {
                 "required": false,
                 "description": "Map of string objects describing one or more dns forwarder zones for NSX within the private cloud. Up to 5 additional forwarder zone can be configured. This is primarily useful for identity source configurations or in cases where NSX DHCP is providing DNS configurations.\n\n- `<map key>` - Provide a key value that will be used as the name for the dns forwarder zone\n  - `display_name`               = (Required) - The display name for the new forwarder zone being created.  Commonly this aligns with the domain name.\n  - `dns_server_ips`             = (Required) - A list of up to 3 IP addresses where zone traffic will be forwarded.\n  - `domain_names`               = (Required) - A list of domain names that will be forwarded as part of this zone.\n  - `source_ip`                  = (Optional) - Source IP of the DNS zone.  Defaults to an empty string.\n  - `add_to_default_dns_service` = (Optional) - Set to try to associate this zone with the default DNS service.  Up to 5 zones can be linked.\n\nExample Input:\n```hcl\n{\n  test_local = {\n    display_name               = local.test_domain_name\n    dns_server_ips             = [\"10.0.1.53\",\"10.0.2.53\"]\n    domain_names               = [\"test.local\"]\n    add_to_default_dns_service = true\n  }\n}\n```",
-                "priority": 10024,
+                "priority": 10025,
                 "schema": "# `dns_forwarder_zones` is Optional in module\ndns_forwarder_zones = {\n  example_key = {\n  # `display_name` is Required in `dns_forwarder_zones`\ndisplay_name = var.string_dns_forwarder_zones_display_name\n  # `dns_server_ips` is Required in `dns_forwarder_zones`\ndns_server_ips = []\n  # `domain_names` is Required in `dns_forwarder_zones`\ndomain_names = []\n  # `source_ip` is Optional in `dns_forwarder_zones`\nsource_ip = \"\"\n  # `add_to_default_dns_service` is Optional in `dns_forwarder_zones`\nadd_to_default_dns_service = false\n}\n\n}\n\n"
+            },
+            "addons": {
+                "required": false,
+                "description": "Map object containing configurations for the different addon types.  Each addon type has associated fields and specific naming requirements.  A full input example is provided below.\n\n- `Arc`- Use this exact key value for deploying the ARC extension\n  - `arc_vcenter` (Optional) - The VMware vcenter resource id as a string\n- `HCX` - Use this exact key value for deploying the HCX extension\n  - `hcx_key_names` (Optional) - A list of key names to create HCX key names.\n  - `hcx_license_type` (Optional) - The type of license to configure for HCX.  Valid values are \"Advanced\" and \"Enterprise\".\n  - `hcx_management_network` (Optional) - The management network to use for HCX.  This should be non-overlapping, routable /24 or larger CIDR block.\n  - `hcx_uplink_network` (Optional) - The uplink network to use for HCX.  This should be non-overlapping, routable /24 or larger CIDR block.\n- `SRM` - Use this exact key value for deploying the SRM extension\n  - `srm_license_key` (Optional) - the license key to use when enabling the SRM addon\n- `VR` - Use this exact key value for deploying the VR extension\n  - `vr_vrs_count` (Optional) - The Vsphere replication server count\n\nExample Input:\n```hcl\n{\n  Arc = {\n    arc_vcenter = \"<vcenter resource id>\"\n  }\n  HCX = {\n    hcx_key_names = [\"key1\", \"key2\"]\n    hcx_license_type = \"Enterprise\"\n  }\n  SRM = {\n    srm_license_key = \"<srm license key value>\"\n  }\n  VR = {\n    vr_vrs_count = 2\n  }\n}\n```",
+                "priority": 10026,
+                "schema": "# `addons` is Optional in module\naddons = {\n  HCX = {\n  # `arc_vcenter` is Optional in `addons`\narc_vcenter = \"\"\n  # `hcx_key_names` is Optional in `addons`\nhcx_key_names = [\"example_key_2\"]\n  # `hcx_license_type` is Optional in `addons`\nhcx_license_type = \"Enterprise\"\n  # `hcx_management_network` is Optional in `addons`\nhcx_management_network = \"\"\n  # `hcx_uplink_network` is Optional in `addons`\nhcx_uplink_network = \"\"\n  # `srm_license_key` is Optional in `addons`\nsrm_license_key = \"\"\n  # `vr_vrs_count` is Optional in `addons`\nvr_vrs_count = 0\n}\n\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - (Optional) The description of the role assignment.\n- `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - (Optional) The condition which will be used to scope the role assignment.\n- `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n- `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10025,
+                "priority": 10027,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "This map object is used to define the diagnostic settings on the virtual machine.  This functionality does not implement the diagnostic settings extension, but instead can be used to configure sending the vm metrics to one of the standard targets.\n\n- `<map key>` - Provide a map key that will be used for the name of the diagnostic settings configuration\n  - `name`                                     = (required) - Name to use for the Diagnostic setting configuration.  Changing this creates a new resource\n  - `log_categories_and_groups`                = (Optional) - List of strings used to define log categories and groups. Currently not valid for the VM resource\n  - `log_groups`                               = (Optional) - A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`\n  - `metric_categories`                        = (Optional) - List of strings used to define metric categories. Currently only AllMetrics is valid\n  - `log_analytics_destination_type`           = (Optional) - Valid values are null, AzureDiagnostics, and Dedicated.  Defaults to Dedicated\n  - `workspace_resource_id`                    = (Optional) - The Log Analytics Workspace Azure Resource ID when sending logs or metrics to a Log Analytics Workspace\n  - `storage_account_resource_id`              = (Optional) - The Storage Account Azure Resource ID when sending logs or metrics to a Storage Account\n  - `event_hub_authorization_rule_resource_id` = (Optional) - The Event Hub Namespace Authorization Rule Resource ID when sending logs or metrics to an Event Hub Namespace\n  - `event_hub_name`                           = (Optional) - The Event Hub name when sending logs or metrics to an Event Hub\n  - `marketplace_partner_resource_id`          = (Optional) - The marketplace partner solution Azure Resource ID when sending logs or metrics to a partner integration\n\nExample Input:\n```hcl\ndiagnostic_settings = {\n  nic_diags = {\n    name                  = module.naming.monitor_diagnostic_setting.name_unique\n    workspace_resource_id = azurerm_log_analytics_workspace.this_workspace.id\n    metric_categories     = [\"AllMetrics\"]\n  }\n}\n```",
-                "priority": 10026,
+                "priority": 10028,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  avs_diags = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = [\"allLogs\"]\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = [\"AllMetrics\"]\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "vcenter_identity_sources": {
                 "required": false,
                 "description": "A map of objects representing a list of 0-2 identity sources for configuring LDAP or LDAPs on the private cloud. The map key will be used as the name value for the identity source.\n\n- `<map key>` - Provide a key value that will be used as the vcenter identity source name\n  - `alias`             = (Required) - The domains NETBIOS name\n  - `base_group_dn`     = (Required) - The base distinguished name for groups\n  - `base_user_dn`      = (Required) - The base distinguished name for users\n  - `domain`            = (Required) - The fully qualified domain name for the identity source\n  - `group_name`        = (Optional) - The name of the LDAP group that will be added to the cloudadmins role\n  - `name`              = (Required) - The name to give the identity source\n  - `primary_server`    = (Required) - The URI of the primary server. (Ex: ldaps://server.domain.local:636)\n  - `secondary_server`  = (Optional) - The URI of the secondary server. (Ex: ldaps://server.domain.local:636)\n  - `ssl`               = (Optional) - Determines if ldap is configured to use ssl. Default to Enabled, valid values are \"Enabled\" and \"Disabled\"\n  - 'timeout'           = (Optional) - The implementation timeout value.  Defaults to 10 minutes.\n\nExample Input:\n```hcl\n{\n  test.local = {\n    alias                   = \"test.local\"\n    base_group_dn           = \"dc=test,dc=local\"\n    base_user_dn            = \"dc=test,dc=local\"\n    domain                  = \"test.local\"\n    name                    = \"test.local\"\n    primary_server          = \"ldaps://dc01.testdomain.local:636\"\n    secondary_server        = \"ldaps://dc02.testdomain.local:636\"\n    ssl                     = \"Enabled\"\n  }\n}\n```",
-                "priority": 10027,
+                "priority": 10029,
                 "schema": "# `vcenter_identity_sources` is Optional in module\nvcenter_identity_sources = {\n  example_key = {\n  # `alias` is Required in `vcenter_identity_sources`\nalias = var.string_vcenter_identity_sources_alias\n  # `base_group_dn` is Required in `vcenter_identity_sources`\nbase_group_dn = var.string_vcenter_identity_sources_base_group_dn\n  # `base_user_dn` is Required in `vcenter_identity_sources`\nbase_user_dn = var.string_vcenter_identity_sources_base_user_dn\n  # `domain` is Required in `vcenter_identity_sources`\ndomain = var.string_vcenter_identity_sources_domain\n  # `name` is Required in `vcenter_identity_sources`\nname = \"example1\"\n  # `primary_server` is Required in `vcenter_identity_sources`\nprimary_server = var.string_vcenter_identity_sources_primary_server\n  # `group_name` is Optional in `vcenter_identity_sources`\ngroup_name = \"\"\n  # `secondary_server` is Optional in `vcenter_identity_sources`\nsecondary_server = \"\"\n  # `ssl` is Optional in `vcenter_identity_sources`\nssl = \"Enabled\"\n  # `timeout` is Optional in `vcenter_identity_sources`\ntimeout = \"10m\"\n}\n\n}\n\n"
             },
             "expressroute_connections": {
                 "required": false,
                 "description": "Map of string objects describing one or more ExpressRoute connections to be configured by the private cloud. The map key will be used for the connection name.\n\n- `<map key>` - Provide an arbitrary key value that will be used to identify this expressRoute connection\n  - `name`                                 = (Required) - The name to use for the expressRoute connection.\n  - `expressroute_gateway_resource_id`     = (Required) - The Azure Resource ID for the ExpressRoute gateway where the connection will be made.\n  - `vwan_hub_connection`                  = (Optional) - Set this to true if making a connection to a VWAN hub.  Leave as false if connecting to an ExpressRoute gateway in a virtual network hub.\n  - `authorization_key_name`               = (Optional) - The authorization key name that should be used from the auth key map. If no key is provided a name will be generated from the map key.\n  - `fast_path_enabled`                    = (Optional) - Should fast path gateway bypass be enabled. There are sku and cost considerations to be aware of when enabling fast path. Defaults to false\n  - `routing_weight`                       = (Optional) - The routing weight value to use for this connection.  Defaults to 0.\n  - `enable_internet_security`             = (Optional) - Set this to true if connecting to a secure VWAN hub and you want the hub NVA to publish a default route to AVS.\n  - `tags`                                 = (Optional) - Map of strings describing any custom tags to apply to this connection resource\n  - `network_resource_group_resource_id`   = (Optional) - The resource ID of an external resource group. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `network_resource_group_location`      = (Optional) - The location of an external resource group. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `routing`                              = (Optional) - Map of objects used to describe any VWAN and Virtual Hub custom routing for this connection\n    - `associated_route_table_resource_id` = (Optional) - The Azure Resource ID of the Virtual Hub Route Table associated with this Express Route Connection.\n    - `inbound_route_map_resource_id`      = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for inbound learned routes\n    - `outbound_route_map_resource_id`     = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for outbound advertised routes\n    - `propagated_route_table` = object({\n      - `labels` = (Optional) - The list of labels for route tables where the routes will be propagated to\n      - `ids`    = (Optional) - The list of Azure Resource IDs for route tables where the routes will be propagated to\n\nExample Input:\n```hcl\n{\n  exr_region_1 = {\n    expressroute_gateway_resource_id      = \"<expressRoute Gateway Resource ID>\"\n    peer_expressroute_circuit_resource_id = \"Azure Resource ID for the peer expressRoute circuit\"'\n  }\n}\n```",
-                "priority": 10028,
+                "priority": 10030,
                 "schema": "# `expressroute_connections` is Optional in module\nexpressroute_connections = {\n  default = {\n  # `name` is Required in `expressroute_connections`\nname = \"default_vnet_gateway_connection\"\n  # `expressroute_gateway_resource_id` is Required in `expressroute_connections`\nexpressroute_gateway_resource_id = var.string_expressroute_connections_expressroute_gateway_resource_id\n  # `deployment_order` is Optional in `expressroute_connections`\ndeployment_order = 1\n  # `vwan_hub_connection` is Optional in `expressroute_connections`\nvwan_hub_connection = false\n  # `authorization_key_name` is Optional in `expressroute_connections`\nauthorization_key_name = \"test_auth_key\"\n  # `fast_path_enabled` is Optional in `expressroute_connections`\nfast_path_enabled = false\n  # `private_link_fast_path_enabled` is Optional in `expressroute_connections`\nprivate_link_fast_path_enabled = false\n  # `routing_weight` is Optional in `expressroute_connections`\nrouting_weight = 0\n  # `enable_internet_security` is Optional in `expressroute_connections`\nenable_internet_security = false\n  # `tags` is Optional in `expressroute_connections`\ntags = {\n  example_key = \"\"\n}\n\n  # `network_resource_group_resource_id` is Optional in `expressroute_connections`\nnetwork_resource_group_resource_id = \"\"\n  # `network_resource_group_location` is Optional in `expressroute_connections`\nnetwork_resource_group_location = \"\"\n  # `routing` is Optional in `expressroute_connections`\nrouting = {\n  example_key = {\n  # `associated_route_table_resource_id` is Optional in `routing`\nassociated_route_table_resource_id = \"\"\n  # `inbound_route_map_resource_id` is Optional in `routing`\ninbound_route_map_resource_id = \"\"\n  # `outbound_route_map_resource_id` is Optional in `routing`\noutbound_route_map_resource_id = \"\"\n  # `propagated_route_table` is Optional in `routing`\npropagated_route_table = {\n  # `labels` is Optional in `propagated_route_table`\nlabels = []\n  # `ids` is Optional in `propagated_route_table`\nids = []\n}\n\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
@@ -1820,6 +1832,7 @@
                 "sku_name": []
             },
             "optional": {
+                "dns_zone_type": [],
                 "enable_stretch_cluster": [],
                 "enable_telemetry": [],
                 "extended_network_blocks": [],
@@ -1830,6 +1843,7 @@
                 "primary_zone": [],
                 "secondary_zone": [],
                 "vcenter_password": [],
+                "virtual_network_resource_id": [],
                 "tags": [],
                 "lock": [],
                 "managed_identities": [],
@@ -1842,9 +1856,9 @@
                 "vcenter_identity_sources_credentials": [],
                 "segments": [],
                 "customer_managed_key": [],
-                "addons": [],
                 "dhcp_configuration": [],
                 "dns_forwarder_zones": [],
+                "addons": [],
                 "role_assignments": [],
                 "diagnostic_settings": [],
                 "vcenter_identity_sources": [],
@@ -6252,8 +6266,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6506,8 +6520,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -8875,8 +8889,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9709,8 +9723,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10582,12 +10596,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -10751,12 +10765,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -14581,7 +14595,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 49,
+        "priority": 51,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14958,7 +14972,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 49,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15891,10 +15905,10 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
-                "avm-res-network-routetable",
                 "avm-res-network-networksecuritygroup",
                 "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-routetable",
+                "avm-res-network-natgateway",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -15930,10 +15944,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable",
+                    "avm-res-network-natgateway",
                     "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-natgateway"
+                    "avm-res-network-routetable",
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
@@ -17426,8 +17440,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18343,8 +18357,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
