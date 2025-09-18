@@ -15905,9 +15905,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-routetable",
                 "avm-res-network-natgateway"
             ],
@@ -15945,9 +15945,9 @@
                 "peerings": [],
                 "subnets": [
                     "avm-res-network-networksecuritygroup",
+                    "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-routetable",
-                    "avm-res-network-natgateway",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-network-natgateway"
                 ]
             }
         },
@@ -16526,13 +16526,13 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "backup_subnet_cidr": [],
