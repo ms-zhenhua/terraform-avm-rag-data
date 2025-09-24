@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -617,12 +617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -5694,8 +5694,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6484,9 +6484,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6520,8 +6520,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -8524,12 +8524,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8889,8 +8889,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9678,9 +9678,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9723,8 +9723,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10596,12 +10596,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -14972,7 +14972,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 50,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15334,12 +15334,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -15759,7 +15759,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 50,
+        "priority": 51,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -15905,11 +15905,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
                 "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-routetable",
-                "avm-res-network-networksecuritygroup"
+                "avm-res-network-natgateway",
+                "avm-res-network-networksecuritygroup",
+                "avm-res-network-routetable"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15945,9 +15945,9 @@
                 "peerings": [],
                 "subnets": [
                     "avm-res-network-natgateway",
-                    "avm-res-network-routetable",
+                    "avm-res-network-networksecuritygroup",
                     "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-networksecuritygroup"
+                    "avm-res-network-routetable"
                 ]
             }
         },
@@ -16234,26 +16234,80 @@
             },
             "maintenance_window_preference": {
                 "required": false,
-                "description": "The maintenance window preference.",
+                "description": "The maintenance window preference. Valid values: CustomPreference, NoPreference",
                 "priority": 10003,
                 "schema": "# `maintenance_window_preference` is Optional in module\nmaintenance_window_preference = \"NoPreference\"\n"
             },
             "shape": {
                 "required": false,
-                "description": "The shape of the infrastructure.",
+                "description": "The shape of the infrastructure. Valid value Exadata.X9M and Exadata.X11M",
                 "priority": 10004,
                 "schema": "# `shape` is Optional in module\nshape = \"Exadata.X9M\"\n"
+            },
+            "database_server_type": {
+                "required": false,
+                "description": "The database server model type of the cloud Exadata infrastructure resource. Null for X9M. Default to X11M for X11M",
+                "priority": 10005,
+                "schema": "# `database_server_type` is Optional in module\ndatabase_server_type = \"\"\n"
+            },
+            "storage_server_type": {
+                "required": false,
+                "description": "The storage server model type of the cloud Exadata infrastructure resource. Null for X9M. Default to X11M-HC for X11M",
+                "priority": 10006,
+                "schema": "# `storage_server_type` is Optional in module\nstorage_server_type = \"\"\n"
+            },
+            "custom_action_timeout_in_mins": {
+                "required": false,
+                "description": "Determines the amount of time the system will wait before the start of each database server patching operation. Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive).",
+                "priority": 10007,
+                "schema": "# `custom_action_timeout_in_mins` is Optional in module\ncustom_action_timeout_in_mins = 0\n"
+            },
+            "is_custom_action_timeout_enabled": {
+                "required": false,
+                "description": "If true, enables the configuration of a custom action timeout (waiting period) between database server patching operations.",
+                "priority": 10008,
+                "schema": "# `is_custom_action_timeout_enabled` is Optional in module\nis_custom_action_timeout_enabled = false\n"
+            },
+            "maintenance_window_hours_of_day": {
+                "required": false,
+                "description": "The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Valid values are - 0 - represents time slot 0:00 - 3:59 UTC - 4 - represents time slot 4:00 - 7:59 UTC - 8 - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot 20:00 - 23:59 UTC",
+                "priority": 10009,
+                "schema": "# `maintenance_window_hours_of_day` is Optional in module\nmaintenance_window_hours_of_day = []\n"
+            },
+            "maintenance_window_weeks_of_month": {
+                "required": false,
+                "description": "Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.",
+                "priority": 10010,
+                "schema": "# `maintenance_window_weeks_of_month` is Optional in module\nmaintenance_window_weeks_of_month = []\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10005,
+                "priority": 10011,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
+            },
+            "maintenance_window_days_of_week": {
+                "required": false,
+                "description": "Days during the week when maintenance should be performed.",
+                "priority": 10012,
+                "schema": "# `maintenance_window_days_of_week` is Optional in module\nmaintenance_window_days_of_week = [{\n  # `name` is Required in `maintenance_window_days_of_week`\nname = \"example1\"\n}\n]\n"
+            },
+            "maintenance_window_months": {
+                "required": false,
+                "description": "Months during the year when maintenance should be performed.",
+                "priority": 10013,
+                "schema": "# `maintenance_window_months` is Optional in module\nmaintenance_window_months = [{\n  # `name` is Required in `maintenance_window_months`\nname = \"example1\"\n}\n]\n"
+            },
+            "customer_contacts": {
+                "required": false,
+                "description": "The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource. Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators. Up to 10 email addresses can be added to the customer contacts for a cloud Exadata infrastructure instance.",
+                "priority": 10014,
+                "schema": "# `customer_contacts` is Optional in module\ncustomer_contacts = [{\n  # `email` is Required in `customer_contacts`\nemail = \"example@example.com\"\n}\n]\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n- `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10006,
+                "priority": 10015,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             }
         },
@@ -16281,7 +16335,16 @@
                 "maintenance_window_patching_mode": [],
                 "maintenance_window_preference": [],
                 "shape": [],
+                "database_server_type": [],
+                "storage_server_type": [],
+                "custom_action_timeout_in_mins": [],
+                "is_custom_action_timeout_enabled": [],
+                "maintenance_window_hours_of_day": [],
+                "maintenance_window_weeks_of_month": [],
                 "tags": [],
+                "maintenance_window_days_of_week": [],
+                "maintenance_window_months": [],
+                "customer_contacts": [],
                 "role_assignments": []
             }
         },
@@ -16300,46 +16363,40 @@
             "vm_cluster_ocid"
         ],
         "variables": {
-            "backup_subnet_cidr": {
-                "required": true,
-                "description": "The backup subnet CIDR of the cluster.",
-                "priority": 2,
-                "schema": "# `backup_subnet_cidr` is Required in module\nbackup_subnet_cidr = \"172.17.5.0/24\"\n"
-            },
             "cloud_exadata_infrastructure_id": {
                 "required": true,
                 "description": "The cloud Exadata infrastructure ID.",
-                "priority": 3,
+                "priority": 2,
                 "schema": "# `cloud_exadata_infrastructure_id` is Required in module\ncloud_exadata_infrastructure_id = module.avm_res_oracledatabase_cloudexadatainfrastructure.resource_id\n"
             },
             "cluster_name": {
                 "required": true,
-                "description": "The name of the the VM Cluster.",
-                "priority": 4,
+                "description": "The cluster name for cloud VM cluster. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive.",
+                "priority": 3,
                 "schema": "# `cluster_name` is Required in module\ncluster_name = \"odaa-vmcl\"\n"
             },
             "cpu_core_count": {
                 "required": true,
                 "description": "The CPU core count of the cluster.",
-                "priority": 5,
+                "priority": 4,
                 "schema": "# `cpu_core_count` is Required in module\ncpu_core_count = 4.0\n"
             },
             "data_storage_size_in_tbs": {
                 "required": true,
                 "description": "The data storage size in TBs.",
-                "priority": 6,
+                "priority": 5,
                 "schema": "# `data_storage_size_in_tbs` is Required in module\ndata_storage_size_in_tbs = 2.0\n"
             },
             "dbnode_storage_size_in_gbs": {
                 "required": true,
                 "description": "The DB node storage size in GBs.",
-                "priority": 7,
+                "priority": 6,
                 "schema": "# `dbnode_storage_size_in_gbs` is Required in module\ndbnode_storage_size_in_gbs = 120.0\n"
             },
             "hostname": {
                 "required": true,
                 "description": "The hostname of the cluster.",
-                "priority": 8,
+                "priority": 7,
                 "schema": "# `hostname` is Required in module\nhostname = var.string_hostname\n"
             },
             "location": {
@@ -16351,191 +16408,220 @@
             "memory_size_in_gbs": {
                 "required": true,
                 "description": "The memory size in GBs.",
-                "priority": 9,
+                "priority": 8,
                 "schema": "# `memory_size_in_gbs` is Required in module\nmemory_size_in_gbs = 60.0\n"
             },
             "resource_group_id": {
                 "required": true,
                 "description": "The resource group ID where the resources will be deployed.",
-                "priority": 10,
+                "priority": 9,
                 "schema": "# `resource_group_id` is Required in module\nresource_group_id = module.avm_res_resources_resourcegroup.resource.id\n"
             },
             "ssh_public_keys": {
                 "required": true,
                 "description": "The SSH public keys of the cluster.",
-                "priority": 11,
+                "priority": 10,
                 "schema": "# `ssh_public_keys` is Required in module\nssh_public_keys = [\"\"]\n"
             },
             "subnet_id": {
                 "required": true,
                 "description": "The subnet ID.",
-                "priority": 12,
+                "priority": 11,
                 "schema": "# `subnet_id` is Required in module\nsubnet_id = module.avm_res_network_virtualnetwork.subnets.snet-odaa.resource_id\n"
             },
             "vnet_id": {
                 "required": true,
                 "description": "The VNet ID.",
-                "priority": 13,
+                "priority": 12,
                 "schema": "# `vnet_id` is Required in module\nvnet_id = module.avm_res_network_virtualnetwork.resource_id\n"
+            },
+            "backup_subnet_cidr": {
+                "required": false,
+                "description": "The backup subnet CIDR of the cluster.",
+                "priority": 10000,
+                "schema": "# `backup_subnet_cidr` is Optional in module\nbackup_subnet_cidr = \"172.17.5.0/24\"\n"
             },
             "data_storage_percentage": {
                 "required": false,
                 "description": "The data storage percentage of the cluster.",
-                "priority": 10000,
+                "priority": 10001,
                 "schema": "# `data_storage_percentage` is Optional in module\ndata_storage_percentage = 80.0\n"
             },
             "db_servers": {
                 "required": false,
                 "description": "DB servers of the cluster, if not specified, the default DB servers from the Exadata Infrastructure will be used.",
-                "priority": 10001,
+                "priority": 10002,
                 "schema": "# `db_servers` is Optional in module\ndb_servers = []\n"
             },
             "domain": {
                 "required": false,
                 "description": "The domain of the cluster.",
-                "priority": 10002,
+                "priority": 10003,
                 "schema": "# `domain` is Optional in module\ndomain = \"\"\n"
             },
             "enable_telemetry": {
                 "required": false,
                 "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
-                "priority": 10003,
+                "priority": 10004,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
             "gi_version": {
                 "required": false,
                 "description": "The GI version of the cluster.",
-                "priority": 10004,
+                "priority": 10005,
                 "schema": "# `gi_version` is Optional in module\ngi_version = \"19.0.0.0\"\n"
             },
             "is_diagnostic_events_enabled": {
                 "required": false,
                 "description": "The diagnostic events enabled status of the cluster.",
-                "priority": 10005,
+                "priority": 10006,
                 "schema": "# `is_diagnostic_events_enabled` is Optional in module\nis_diagnostic_events_enabled = true\n"
             },
             "is_health_monitoring_enabled": {
                 "required": false,
                 "description": "The health monitoring enabled status of the cluster.",
-                "priority": 10006,
+                "priority": 10007,
                 "schema": "# `is_health_monitoring_enabled` is Optional in module\nis_health_monitoring_enabled = true\n"
             },
             "is_incident_logs_enabled": {
                 "required": false,
                 "description": "The incident logs enabled status of the cluster.",
-                "priority": 10007,
+                "priority": 10008,
                 "schema": "# `is_incident_logs_enabled` is Optional in module\nis_incident_logs_enabled = true\n"
             },
             "is_local_backup_enabled": {
                 "required": false,
                 "description": "The local backup enabled status of the cluster.",
-                "priority": 10008,
+                "priority": 10009,
                 "schema": "# `is_local_backup_enabled` is Optional in module\nis_local_backup_enabled = false\n"
             },
             "is_sparse_diskgroup_enabled": {
                 "required": false,
                 "description": "The sparse diskgroup enabled status of the cluster.",
-                "priority": 10009,
+                "priority": 10010,
                 "schema": "# `is_sparse_diskgroup_enabled` is Optional in module\nis_sparse_diskgroup_enabled = false\n"
             },
             "license_model": {
                 "required": false,
                 "description": "The license model of the cluster.",
-                "priority": 10010,
+                "priority": 10011,
                 "schema": "# `license_model` is Optional in module\nlicense_model = \"LicenseIncluded\"\n"
             },
             "private_endpoints_manage_dns_zone_group": {
                 "required": false,
                 "description": "Whether to manage private DNS zone groups with this module. If set to false, you must manage private DNS zone groups externally, e.g. using Azure Policy.",
-                "priority": 10011,
+                "priority": 10012,
                 "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = false\n"
             },
             "scan_listener_port_tcp": {
                 "required": false,
                 "description": "The TCP Single Client Access Name (SCAN) port. The default port is 1521.",
-                "priority": 10012,
+                "priority": 10013,
                 "schema": "# `scan_listener_port_tcp` is Optional in module\nscan_listener_port_tcp = 0\n"
             },
             "scan_listener_port_tcp_ssl": {
                 "required": false,
                 "description": "The TCP Single Client Access Name (SCAN) port for SSL. The default port is 2484.",
-                "priority": 10013,
+                "priority": 10014,
                 "schema": "# `scan_listener_port_tcp_ssl` is Optional in module\nscan_listener_port_tcp_ssl = 0\n"
             },
             "system_version": {
                 "required": false,
                 "description": "Operating system version of the image.",
-                "priority": 10014,
+                "priority": 10015,
                 "schema": "# `system_version` is Optional in module\nsystem_version = \"\"\n"
             },
             "time_zone": {
                 "required": false,
                 "description": "The time zone of the cluster.",
-                "priority": 10015,
+                "priority": 10016,
                 "schema": "# `time_zone` is Optional in module\ntime_zone = \"UTC\"\n"
+            },
+            "ocpu_count": {
+                "required": false,
+                "description": "The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part.",
+                "priority": 10017,
+                "schema": "# `ocpu_count` is Optional in module\nocpu_count = 0\n"
+            },
+            "storage_size_in_gbs": {
+                "required": false,
+                "description": "The local node storage to be allocated in GBs.",
+                "priority": 10018,
+                "schema": "# `storage_size_in_gbs` is Optional in module\nstorage_size_in_gbs = 0\n"
+            },
+            "zone_id": {
+                "required": false,
+                "description": "The OCID of the zone the cloud VM cluster is associated with.",
+                "priority": 10019,
+                "schema": "# `zone_id` is Optional in module\nzone_id = \"\"\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10016,
+                "priority": 10020,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10017,
+                "priority": 10021,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10018,
+                "priority": 10022,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
+            },
+            "file_system_configuration_details": {
+                "required": false,
+                "description": "Array of mount path and size.",
+                "priority": 10023,
+                "schema": "# `file_system_configuration_details` is Optional in module\nfile_system_configuration_details = [{\n  # `fileSystemSizeGb` is Required in `file_system_configuration_details`\nfileSystemSizeGb = 0\n  # `mountPoint` is Required in `file_system_configuration_details`\nmountPoint = var.string_file_system_configuration_details_mountPoint\n}\n]\n"
             },
             "nsg_cidrs": {
                 "required": false,
                 "description": "Add additional Network ingress rules for the network security group of the VM cluster:\n\n - `source` - The source IP address range.\n - `destination_port_range` - The destination port range. The following properties can be specified:\n   - `min` - The minimum port number.\n   - `max` - The maximum port number.\n example:\n nsg_cidrs = [{\n     source = 0.0.0.0/0\n     destination_port_range = {\n         min = \"1521\"\n         max = \"1522\"\n       }\n   }]",
-                "priority": 10019,
+                "priority": 10024,
                 "schema": "# `nsg_cidrs` is Optional in module\nnsg_cidrs = [{\n  # `source` is Required in `nsg_cidrs`\nsource = var.string_nsg_cidrs_source\n  # `destination_port_range` is Required in `nsg_cidrs`\ndestination_port_range = {\n  # `min` is Required in `destination_port_range`\nmin = var.string_destination_port_range_min\n  # `max` is Required in `destination_port_range`\nmax = var.string_destination_port_range_max\n}\n\n}\n]\n"
             },
             "customer_managed_key": {
                 "required": false,
                 "description": "A map describing customer-managed keys to associate with the resource. This includes the following properties:\n- `key_vault_resource_id` - The resource ID of the Key Vault where the key is stored.\n- `key_name` - The name of the key.\n- `key_version` - (Optional) The version of the key. If not specified, the latest version is used.\n- `user_assigned_identity` - (Optional) An object representing a user-assigned identity with the following properties:\n  - `resource_id` - The resource ID of the user-assigned identity.",
-                "priority": 10020,
+                "priority": 10025,
                 "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = var.string_customer_managed_key_key_vault_resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = var.string_user_assigned_identity_resource_id\n}\n\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10021,
+                "priority": 10026,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10022,
+                "priority": 10027,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "private_endpoints": {
                 "required": false,
                 "description": "  A map of private endpoints to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n  - `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n    - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n    - `principal_id` - The ID of the principal to assign the role to.\n    - `description` - (Optional) The description of the role assignment.\n    - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n    - `condition` - (Optional) The condition which will be used to scope the role assignment.\n    - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n    - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n    - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n  - `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n    - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n    - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.\n  - `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n  - `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n  - `subresource_name` - The name of the sub resource for the private endpoint.\n  - `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n  - `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n  - `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n  - `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n  - `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n  - `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of the Key Vault.\n  - `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n    - `name` - The name of the IP configuration.\n    - `private_ip_address` - The private IP address of the IP configuration.",
-                "priority": 10023,
+                "priority": 10028,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `subresource_name` is Required in `private_endpoints`\nsubresource_name = var.string_private_endpoints_subresource_name\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
-                "backup_subnet_cidr": [],
                 "cloud_exadata_infrastructure_id": [
                     "avm-res-oracledatabase-cloudexadatainfrastructure"
                 ],
@@ -16558,6 +16644,7 @@
                 ]
             },
             "optional": {
+                "backup_subnet_cidr": [],
                 "data_storage_percentage": [],
                 "db_servers": [],
                 "domain": [],
@@ -16574,9 +16661,13 @@
                 "scan_listener_port_tcp_ssl": [],
                 "system_version": [],
                 "time_zone": [],
+                "ocpu_count": [],
+                "storage_size_in_gbs": [],
+                "zone_id": [],
                 "tags": [],
                 "lock": [],
                 "managed_identities": [],
+                "file_system_configuration_details": [],
                 "nsg_cidrs": [],
                 "customer_managed_key": [],
                 "role_assignments": [],
@@ -17408,9 +17499,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -17440,8 +17531,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18307,9 +18398,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18357,8 +18448,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
