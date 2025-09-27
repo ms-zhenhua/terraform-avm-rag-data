@@ -6485,8 +6485,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6520,8 +6520,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -9679,8 +9679,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9723,8 +9723,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -14595,7 +14595,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 51,
+        "priority": 50,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14972,7 +14972,7 @@
                 "security_rules": []
             }
         },
-        "priority": 50,
+        "priority": 51,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15788,11 +15788,11 @@
                 "priority": 1,
                 "schema": "# `location` is Required in module\nlocation = module.avm_res_resources_resourcegroup.resource.location\n"
             },
-            "resource_group_name": {
+            "parent_id": {
                 "required": true,
-                "description": "(Required) The name of the resource group where the resources will be deployed.",
+                "description": "(Optional) The ID of the resource group where the virtual network will be deployed.",
                 "priority": 3,
-                "schema": "# `resource_group_name` is Required in module\nresource_group_name = module.avm_res_resources_resourcegroup.resource.name\n"
+                "schema": "# `parent_id` is Required in module\nparent_id = module.avm_res_resources_resourcegroup.resource.id\n"
             },
             "bgp_community": {
                 "required": false,
@@ -15824,92 +15824,86 @@
                 "priority": 10004,
                 "schema": "# `name` is Optional in module\nname = \"\"\n"
             },
-            "subscription_id": {
-                "required": false,
-                "description": "(Optional) Subscription ID passed in by an external process.  If this is not supplied, then the configuration either needs to include the subscription ID, or needs to be supplied properties to create the subscription.",
-                "priority": 10005,
-                "schema": "# `subscription_id` is Optional in module\nsubscription_id = \"\"\n"
-            },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10006,
+                "priority": 10005,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "dns_servers": {
                 "required": false,
                 "description": "(Optional) Specifies a list of IP addresses representing DNS servers.\n\n- `dns_servers`: Set of IP addresses of DNS servers.",
-                "priority": 10007,
+                "priority": 10006,
                 "schema": "# `dns_servers` is Optional in module\ndns_servers = {\n  # `dns_servers` is Required in `dns_servers`\ndns_servers = [\"8.8.8.8\"]\n}\n\n"
             },
             "ddos_protection_plan": {
                 "required": false,
                 "description": "Specifies an AzureNetwork DDoS Protection Plan.\n\n- `id`: The ID of the DDoS Protection Plan. (Required)\n- `enable`: Enables or disables the DDoS Protection Plan on the Virtual Network. (Required)",
-                "priority": 10008,
+                "priority": 10007,
                 "schema": "# `ddos_protection_plan` is Optional in module\nddos_protection_plan = {\n  # `id` is Required in `ddos_protection_plan`\nid = var.string_ddos_protection_plan_id\n  # `enable` is Required in `ddos_protection_plan`\nenable = false\n}\n\n"
             },
             "encryption": {
                 "required": false,
                 "description": "(Optional) Specifies the encryption settings for the virtual network.\n\n- `enabled`: Specifies whether encryption is enabled for the virtual network.\n- `enforcement`: Specifies the enforcement mode for the virtual network. Possible values are `Enabled` and `Disabled`.",
-                "priority": 10009,
+                "priority": 10008,
                 "schema": "# `encryption` is Optional in module\nencryption = {\n  # `enabled` is Required in `encryption`\nenabled = true\n  # `enforcement` is Required in `encryption`\nenforcement = \"AllowUnencrypted\"\n}\n\n"
             },
             "extended_location": {
                 "required": false,
                 "description": "(Optional) Specifies the extended location of the virtual network.\n\n- `name`: The name of the extended location.\n- `type`: The type of the extended location.",
-                "priority": 10010,
+                "priority": 10009,
                 "schema": "# `extended_location` is Optional in module\nextended_location = {\n  # `name` is Required in `extended_location`\nname = \"example1\"\n  # `type` is Required in `extended_location`\ntype = var.string_extended_location_type\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "  (Optional) Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n  - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n  - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10011,
+                "priority": 10010,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "timeouts": {
                 "required": false,
                 "description": "Timeouts for the resource operations",
-                "priority": 10012,
+                "priority": 10011,
                 "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n"
             },
             "retry": {
                 "required": false,
                 "description": "Retry configuration for the resource operations",
-                "priority": 10013,
+                "priority": 10012,
                 "schema": "# `retry` is Optional in module\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "  (Optional) A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10014,
+                "priority": 10013,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "  A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n  - `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n  - `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n  - `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n  - `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n  - `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n  - `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n  - `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n  - `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n  - `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10015,
+                "priority": 10014,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  sendToLogAnalytics = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"sendToLogAnalytics\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "peerings": {
                 "required": false,
                 "description": "(Optional) A map of virtual network peering configurations. Each entry specifies a remote virtual network by ID and includes settings for traffic forwarding, gateway transit, and remote gateways usage.\n\n- `name`: The name of the virtual network peering configuration.\n- `remote_virtual_network_resource_id`: The resource ID of the remote virtual network.\n- `allow_forwarded_traffic`: (Optional) Enables forwarded traffic between the virtual networks. Defaults to false.\n- `allow_gateway_transit`: (Optional) Enables gateway transit for the virtual networks. Defaults to false.\n- `allow_virtual_network_access`: (Optional) Enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `do_not_verify_remote_gateways`: (Optional) Disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `enable_only_ipv6_peering`: (Optional) Enables only IPv6 peering for the virtual networks. Defaults to false.\n- `peer_complete_vnets`: (Optional) Enables the peering of complete virtual networks for the virtual networks. Defaults to false.\n- `local_peered_address_spaces`: (Optional) The address spaces to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `remote_peered_address_spaces`: (Optional) The address spaces to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `local_peered_subnets`: (Optional) The subnets to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `remote_peered_subnets`: (Optional) The subnets to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `use_remote_gateways`: (Optional) Enables the use of remote gateways for the virtual networks. Defaults to false.\n- `create_reverse_peering`: (Optional) Creates the reverse peering to form a complete peering.\n- `reverse_name`: (Optional) If you have selected `create_reverse_peering`, then this name will be used for the reverse peer.\n- `reverse_allow_forwarded_traffic`: (Optional) If you have selected `create_reverse_peering`, enables forwarded traffic between the virtual networks. Defaults to false.\n- `reverse_allow_gateway_transit`: (Optional) If you have selected `create_reverse_peering`, enables gateway transit for the virtual networks. Defaults to false.\n- `reverse_allow_virtual_network_access`: (Optional) If you have selected `create_reverse_peering`, enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `reverse_do_not_verify_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `reverse_enable_only_ipv6_peering`: (Optional) If you have selected `create_reverse_peering`, enables only IPv6 peering for the virtual networks. Defaults to false.\n- `reverse_peer_complete_vnets`: (Optional) If you have selected `create_reverse_peering`, enables the peering of complete virtual networks for the virtual networks. Defaults to false.\n- `reverse_local_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_remote_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_local_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_remote_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_use_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, enables the use of remote gateways for the virtual networks. Defaults to false.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (Optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n  - `multiplier` - (Optional) The multiplier to apply to the interval between retries Defaults to 1.5.\n  - `randomization_factor` - (Optional) The randomization factor to apply to the interval between retries. Defaults to 0.5.",
-                "priority": 10016,
+                "priority": 10015,
                 "schema": "# `peerings` is Optional in module\npeerings = {\n  peertovnet1 = {\n  # `name` is Required in `peerings`\nname = \"example1\"\n  # `remote_virtual_network_resource_id` is Required in `peerings`\nremote_virtual_network_resource_id = var.string_peerings_remote_virtual_network_resource_id\n  # `allow_forwarded_traffic` is Optional in `peerings`\nallow_forwarded_traffic = true\n  # `allow_gateway_transit` is Optional in `peerings`\nallow_gateway_transit = true\n  # `allow_virtual_network_access` is Optional in `peerings`\nallow_virtual_network_access = true\n  # `do_not_verify_remote_gateways` is Optional in `peerings`\ndo_not_verify_remote_gateways = false\n  # `enable_only_ipv6_peering` is Optional in `peerings`\nenable_only_ipv6_peering = false\n  # `peer_complete_vnets` is Optional in `peerings`\npeer_complete_vnets = true\n  # `local_peered_address_spaces` is Optional in `peerings`\nlocal_peered_address_spaces = [{\n  # `address_prefix` is Required in `local_peered_address_spaces`\naddress_prefix = var.string_local_peered_address_spaces_address_prefix\n}\n]\n  # `remote_peered_address_spaces` is Optional in `peerings`\nremote_peered_address_spaces = [{\n  # `address_prefix` is Required in `remote_peered_address_spaces`\naddress_prefix = var.string_remote_peered_address_spaces_address_prefix\n}\n]\n  # `local_peered_subnets` is Optional in `peerings`\nlocal_peered_subnets = [{\n  # `subnet_name` is Required in `local_peered_subnets`\nsubnet_name = var.string_local_peered_subnets_subnet_name\n}\n]\n  # `remote_peered_subnets` is Optional in `peerings`\nremote_peered_subnets = [{\n  # `subnet_name` is Required in `remote_peered_subnets`\nsubnet_name = var.string_remote_peered_subnets_subnet_name\n}\n]\n  # `use_remote_gateways` is Optional in `peerings`\nuse_remote_gateways = false\n  # `create_reverse_peering` is Optional in `peerings`\ncreate_reverse_peering = true\n  # `reverse_name` is Optional in `peerings`\nreverse_name = \"\"\n  # `reverse_allow_forwarded_traffic` is Optional in `peerings`\nreverse_allow_forwarded_traffic = false\n  # `reverse_allow_gateway_transit` is Optional in `peerings`\nreverse_allow_gateway_transit = false\n  # `reverse_allow_virtual_network_access` is Optional in `peerings`\nreverse_allow_virtual_network_access = true\n  # `reverse_do_not_verify_remote_gateways` is Optional in `peerings`\nreverse_do_not_verify_remote_gateways = false\n  # `reverse_enable_only_ipv6_peering` is Optional in `peerings`\nreverse_enable_only_ipv6_peering = false\n  # `reverse_peer_complete_vnets` is Optional in `peerings`\nreverse_peer_complete_vnets = true\n  # `reverse_local_peered_address_spaces` is Optional in `peerings`\nreverse_local_peered_address_spaces = [{\n  # `address_prefix` is Required in `reverse_local_peered_address_spaces`\naddress_prefix = var.string_reverse_local_peered_address_spaces_address_prefix\n}\n]\n  # `reverse_remote_peered_address_spaces` is Optional in `peerings`\nreverse_remote_peered_address_spaces = [{\n  # `address_prefix` is Required in `reverse_remote_peered_address_spaces`\naddress_prefix = var.string_reverse_remote_peered_address_spaces_address_prefix\n}\n]\n  # `reverse_local_peered_subnets` is Optional in `peerings`\nreverse_local_peered_subnets = [{\n  # `subnet_name` is Required in `reverse_local_peered_subnets`\nsubnet_name = var.string_reverse_local_peered_subnets_subnet_name\n}\n]\n  # `reverse_remote_peered_subnets` is Optional in `peerings`\nreverse_remote_peered_subnets = [{\n  # `subnet_name` is Required in `reverse_remote_peered_subnets`\nsubnet_name = var.string_reverse_remote_peered_subnets_subnet_name\n}\n]\n  # `reverse_use_remote_gateways` is Optional in `peerings`\nreverse_use_remote_gateways = false\n  # `timeouts` is Optional in `peerings`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `peerings`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n}\n\n}\n\n"
             },
             "subnets": {
                 "required": false,
-                "description": "(Optional) A map of subnets to create\n\n - `address_prefix` - (Optional) The address prefix to use for the subnet. One of `address_prefix` or `address_prefixes` must be specified.\n - `address_prefixes` - (Optional) The address prefixes to use for the subnet. One of `address_prefix` or `address_prefixes` must be specified.\n - `enforce_private_link_endpoint_network_policies` -\n - `enforce_private_link_service_network_policies` -\n - `name` - (Required) The name of the subnet. Changing this forces a new resource to be created.\n - `default_outbound_access_enabled` - (Optional) Whether to allow internet access from the subnet. Defaults to `false`.\n - `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Enabled`.\n - `private_link_service_network_policies_enabled` - (Optional) Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.\n - `service_endpoint_policies` - (Optional) The map of objects with IDs of Service Endpoint Policies to associate with the subnet.\n - `service_endpoints` - DEPRECATED: (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`. Use `service_endpoints_with_location` instead for the new format with location support.\n - `service_endpoints_with_location` - (Optional) Service endpoints with location restrictions to associate with the subnet. Cannot be used together with `service_endpoints`. Each service endpoint is an object with the following properties:\n   - `service` - (Required) The service name. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.\n   - `locations` - (Optional) A set of Azure region names where the service endpoint should apply. Default is `[\"*\"]` to apply to all regions.\n\n ---\n `delegation` (This setting is deprecated, use `delegations` instead) supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n`delegations` supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n ---\n `nat_gateway` supports the following:\n - `id` - (Optional) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.\n\n ---\n `network_security_group` supports the following:\n - `id` - (Optional) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `route_table` supports the following:\n - `id` - (Optional) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n  - `multiplier` - (Optional) The multiplier to apply to the interval between retries Defaults to 1.5.\n  - `randomization_factor` - (Optional) The randomization factor to apply to the interval between retries. Defaults to 0.5.\n\n ---\n `role_assignments` supports the following:\n - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n - `principal_id` - The ID of the principal to assign the role to.\n - `description` - (Optional) The description of the role assignment.\n - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n - `condition` - (Optional) The condition which will be used to scope the role assignment.\n - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.",
-                "priority": 10017,
-                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource.id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints` is Optional in `subnets`\nservice_endpoints = [\"Microsoft.KeyVault\"]\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = var.string_service_endpoints_with_location_service\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = []\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegation` is Optional in `subnets`\ndelegation = [{\n  # `name` is Required in `delegation`\nname = \"example1\"\n  # `service_delegation` is Required in `delegation`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"example1\"\n}\n\n}\n]\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
+                "description": "(Optional) A map of subnets to create\n\n - `address_prefix` - (Optional) The address prefix to use for the subnet. One of `address_prefix` or `address_prefixes` must be specified.\n - `address_prefixes` - (Optional) The address prefixes to use for the subnet. One of `address_prefix` or `address_prefixes` must be specified.\n - `enforce_private_link_endpoint_network_policies` -\n - `enforce_private_link_service_network_policies` -\n - `name` - (Required) The name of the subnet. Changing this forces a new resource to be created.\n - `default_outbound_access_enabled` - (Optional) Whether to allow internet access from the subnet. Defaults to `false`.\n - `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Enabled`.\n - `private_link_service_network_policies_enabled` - (Optional) Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.\n - `service_endpoint_policies` - (Optional) The map of objects with IDs of Service Endpoint Policies to associate with the subnet.\n - `service_endpoints` - DEPRECATED: (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`. Use `service_endpoints_with_location` instead for the new format with location support.\n - `service_endpoints_with_location` - (Optional) Service endpoints with location restrictions to associate with the subnet. Cannot be used together with `service_endpoints`. Each service endpoint is an object with the following properties:\n   - `service` - (Required) The service name. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.\n   - `locations` - (Optional) A set of Azure region names where the service endpoint should apply. Default is `[\"*\"]` to apply to all regions.\n\n ---\n`delegations` supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n ---\n `nat_gateway` supports the following:\n - `id` - (Optional) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.\n\n ---\n `network_security_group` supports the following:\n - `id` - (Optional) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `route_table` supports the following:\n - `id` - (Optional) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n  - `multiplier` - (Optional) The multiplier to apply to the interval between retries Defaults to 1.5.\n  - `randomization_factor` - (Optional) The randomization factor to apply to the interval between retries. Defaults to 0.5.\n\n ---\n `role_assignments` supports the following:\n - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n - `principal_id` - The ID of the principal to assign the role to.\n - `description` - (Optional) The description of the role assignment.\n - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n - `condition` - (Optional) The condition which will be used to scope the role assignment.\n - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.",
+                "priority": 10016,
+                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource.id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints` is Optional in `subnets`\nservice_endpoints = [\"Microsoft.KeyVault\"]\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = var.string_service_endpoints_with_location_service\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = []\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-routetable",
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-natgateway",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-network-natgateway"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15919,7 +15913,7 @@
                 "location": [
                     "avm-res-resources-resourcegroup"
                 ],
-                "resource_group_name": [
+                "parent_id": [
                     "avm-res-resources-resourcegroup"
                 ]
             },
@@ -15929,7 +15923,6 @@
                 "enable_vm_protection": [],
                 "flow_timeout_in_minutes": [],
                 "name": [],
-                "subscription_id": [],
                 "tags": [],
                 "dns_servers": [],
                 "ddos_protection_plan": [],
@@ -17500,8 +17493,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -17531,8 +17524,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18399,8 +18392,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18448,8 +18441,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
