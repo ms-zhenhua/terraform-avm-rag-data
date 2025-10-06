@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6266,8 +6266,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6485,8 +6485,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8531,12 +8531,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8896,8 +8896,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9686,8 +9686,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10603,12 +10603,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -10772,12 +10772,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -11881,8 +11881,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12969,8 +12969,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13380,12 +13380,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -14602,7 +14602,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 49,
+        "priority": 50,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14979,7 +14979,7 @@
                 "security_rules": []
             }
         },
-        "priority": 50,
+        "priority": 49,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15906,11 +15906,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-networksecuritygroup",
                 "avm-res-network-natgateway",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-network-routetable",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-network-routetable"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15944,10 +15944,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
                     "avm-res-network-routetable",
-                    "avm-res-network-networksecuritygroup",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-network-natgateway",
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
@@ -16612,14 +16612,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17017,34 +17017,28 @@
                 "priority": 4,
                 "schema": "# `ingress_profile` is Required in module\ningress_profile = {\n  # `visibility` is Required in `ingress_profile`\nvisibility = \"Public\"\n}\n\n"
             },
-            "service_principal": {
-                "required": true,
-                "description": "Service principal credentials used by the ARO cluster.",
-                "priority": 5,
-                "schema": "# `service_principal` is Required in module\nservice_principal = {\n  # `client_id` is Required in `service_principal`\nclient_id = \"00000000-0000-0000-0000-000000000000\"\n  # `client_secret` is Required in `service_principal`\nclient_secret = var.string_service_principal_client_secret\n}\n\n"
-            },
             "main_profile": {
                 "required": true,
                 "description": "Master (control plane) profile: subnet id, vm size and optional encryption settings.",
-                "priority": 6,
+                "priority": 5,
                 "schema": "# `main_profile` is Required in module\nmain_profile = {\n  # `subnet_id` is Required in `main_profile`\nsubnet_id = var.string_main_profile_subnet_id\n  # `vm_size` is Required in `main_profile`\nvm_size = \"Standard_D8s_v3\"\n  # `disk_encryption_set_id` is Optional in `main_profile`\ndisk_encryption_set_id = \"\"\n  # `encryption_at_host_enabled` is Optional in `main_profile`\nencryption_at_host_enabled = false\n}\n\n"
             },
             "network_profile": {
                 "required": true,
                 "description": "Network profile: pod/service CIDRs, outbound type and optional preconfigured NSG flag.",
-                "priority": 7,
+                "priority": 6,
                 "schema": "# `network_profile` is Required in module\nnetwork_profile = {\n  # `pod_cidr` is Required in `network_profile`\npod_cidr = \"10.128.0.0/14\"\n  # `service_cidr` is Required in `network_profile`\nservice_cidr = \"172.30.0.0/16\"\n  # `outbound_type` is Optional in `network_profile`\noutbound_type = \"\"\n  # `preconfigured_network_security_group_enabled` is Optional in `network_profile`\npreconfigured_network_security_group_enabled = false\n}\n\n"
             },
             "cluster_profile": {
                 "required": true,
                 "description": "Cluster profile settings: domain, version, optional FIPS, managed RG and pull secret. When `managed_resource_group_name` is omitted the module derives `rg-<var.name>` and links the cluster to that managed resource group.",
-                "priority": 8,
+                "priority": 7,
                 "schema": "# `cluster_profile` is Required in module\ncluster_profile = {\n  # `domain` is Required in `cluster_profile`\ndomain = var.string_cluster_profile_domain\n  # `version` is Required in `cluster_profile`\nversion = \"4.16.39\"\n  # `fips_enabled` is Optional in `cluster_profile`\nfips_enabled = false\n  # `managed_resource_group_name` is Optional in `cluster_profile`\nmanaged_resource_group_name = \"\"\n  # `pull_secret` is Optional in `cluster_profile`\npull_secret = \"\"\n}\n\n"
             },
             "worker_profile": {
                 "required": true,
                 "description": "Worker node pool profile: sizing and encryption options.",
-                "priority": 9,
+                "priority": 8,
                 "schema": "# `worker_profile` is Required in module\nworker_profile = {\n  # `subnet_id` is Required in `worker_profile`\nsubnet_id = var.string_worker_profile_subnet_id\n  # `vm_size` is Required in `worker_profile`\nvm_size = \"Standard_D4s_v3\"\n  # `node_count` is Required in `worker_profile`\nnode_count = 3.0\n  # `disk_size_gb` is Required in `worker_profile`\ndisk_size_gb = 128.0\n  # `disk_encryption_set_id` is Optional in `worker_profile`\ndisk_encryption_set_id = \"\"\n  # `encryption_at_host_enabled` is Optional in `worker_profile`\nencryption_at_host_enabled = false\n}\n\n"
             },
             "enable_telemetry": {
@@ -17059,40 +17053,58 @@
                 "priority": 10001,
                 "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = false\n"
             },
+            "subscription_id": {
+                "required": false,
+                "description": "Optional subscription id to use for derived resource ids. When set, avoids reading subscription id during apply which can cause replacement drift.",
+                "priority": 10002,
+                "schema": "# `subscription_id` is Optional in module\nsubscription_id = \"\"\n"
+            },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10002,
+                "priority": 10003,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10003,
+                "priority": 10004,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
+            },
+            "service_principal": {
+                "required": false,
+                "description": "Service principal credentials used by the ARO cluster. This variable is now optional and defaults to null.\nIf you previously relied on this being required, update your configuration to explicitly set service_principal if needed.\nFor migration guidance, see the module documentation.",
+                "priority": 10005,
+                "schema": "# `service_principal` is Optional in module\nservice_principal = {\n  # `client_id` is Required in `service_principal`\nclient_id = \"00000000-0000-0000-0000-000000000000\"\n  # `client_secret` is Required in `service_principal`\nclient_secret = var.string_service_principal_client_secret\n}\n\n"
             },
             "timeouts": {
                 "required": false,
                 "description": "Resource operation timeouts for create, read, update, delete (e.g. 120m). Optional.",
-                "priority": 10004,
+                "priority": 10006,
                 "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"120m\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"120m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"120m\"\n}\n\n"
+            },
+            "platform_workload_identities": {
+                "required": false,
+                "description": "Defines the platform workload managed identities associated with the cluster. Keys must match the operator names expected by Azure Red Hat OpenShift (for example `cloud-controller-manager`).\n- `resource_id` - (Required) The resource ID of the user-assigned managed identity.\n- `federated_identity_client_id` - (Optional) Overrides the federated credential client ID associated with the workload identity when required.\n- `federated_service_account_name` - (Optional) Future-proof field to describe the service account name linked to the identity (not sent to the API).\n- `federated_service_account_ns` - (Optional) Future-proof field to describe the namespace of the service account linked to the identity (not sent to the API).",
+                "priority": 10007,
+                "schema": "# `platform_workload_identities` is Optional in module\nplatform_workload_identities = {\n  example_key = {\n  # `resource_id` is Required in `platform_workload_identities`\nresource_id = var.string_platform_workload_identities_resource_id\n  # `federated_identity_client_id` is Optional in `platform_workload_identities`\nfederated_identity_client_id = \"\"\n  # `federated_service_account_name` is Optional in `platform_workload_identities`\nfederated_service_account_name = \"\"\n  # `federated_service_account_ns` is Optional in `platform_workload_identities`\nfederated_service_account_ns = \"\"\n}\n\n}\n\n"
             },
             "customer_managed_key": {
                 "required": false,
                 "description": "A map describing customer-managed keys to associate with the resource. This includes the following properties:\n- `key_vault_resource_id` - The resource ID of the Key Vault where the key is stored.\n- `key_name` - The name of the key.\n- `key_version` - (Optional) The version of the key. If not specified, the latest version is used.\n- `user_assigned_identity` - (Optional) An object representing a user-assigned identity with the following properties:\n  - `resource_id` - The resource ID of the user-assigned identity.",
-                "priority": 10005,
+                "priority": 10008,
                 "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = var.string_customer_managed_key_key_vault_resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = var.string_user_assigned_identity_resource_id\n}\n\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on this resource.",
-                "priority": 10006,
+                "priority": 10009,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "private_endpoints": {
                 "required": false,
                 "description": "A map of private endpoints to create on this resource.",
-                "priority": 10007,
+                "priority": 10010,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
@@ -17113,7 +17125,6 @@
                 ],
                 "api_server_profile": [],
                 "ingress_profile": [],
-                "service_principal": [],
                 "main_profile": [],
                 "network_profile": [],
                 "cluster_profile": [],
@@ -17122,9 +17133,12 @@
             "optional": {
                 "enable_telemetry": [],
                 "private_endpoints_manage_dns_zone_group": [],
+                "subscription_id": [],
                 "tags": [],
                 "managed_identities": [],
+                "service_principal": [],
                 "timeouts": [],
+                "platform_workload_identities": [],
                 "customer_managed_key": [],
                 "role_assignments": [],
                 "private_endpoints": []
@@ -17657,8 +17671,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18556,8 +18570,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
