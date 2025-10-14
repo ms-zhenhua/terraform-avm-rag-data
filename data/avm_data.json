@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3255,12 +3255,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -6266,8 +6266,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6786,77 +6786,77 @@
                 "priority": 10033,
                 "schema": "# `web_app_routing_dns_zone_ids` is Optional in module\nweb_app_routing_dns_zone_ids = {\n  example_key = []\n}\n\n"
             },
-            "api_server_access_profile": {
-                "required": false,
-                "description": "- `authorized_ip_ranges` - (Optional) Set of authorized IP ranges to allow access to API server, e.g. [\"198.51.100.0/24\"].",
-                "priority": 10034,
-                "schema": "# `api_server_access_profile` is Optional in module\napi_server_access_profile = {\n  # `authorized_ip_ranges` is Optional in `api_server_access_profile`\nauthorized_ip_ranges = []\n}\n\n"
-            },
             "confidential_computing": {
                 "required": false,
                 "description": "- `sgx_quote_helper_enabled` - (Required) Should the SGX quote helper be enabled?",
-                "priority": 10035,
+                "priority": 10034,
                 "schema": "# `confidential_computing` is Optional in module\nconfidential_computing = {\n  # `sgx_quote_helper_enabled` is Required in `confidential_computing`\nsgx_quote_helper_enabled = false\n}\n\n"
             },
             "key_management_service": {
                 "required": false,
                 "description": "The key management service for the Kubernetes cluster.",
-                "priority": 10036,
+                "priority": 10035,
                 "schema": "# `key_management_service` is Optional in module\nkey_management_service = {\n  # `key_vault_key_id` is Required in `key_management_service`\nkey_vault_key_id = var.string_key_management_service_key_vault_key_id\n  # `key_vault_network_access` is Required in `key_management_service`\nkey_vault_network_access = var.string_key_management_service_key_vault_network_access\n}\n\n"
             },
             "key_vault_secrets_provider": {
                 "required": false,
                 "description": "The key vault secrets provider for the Kubernetes cluster. Either rotation enabled or rotation interval must be specified.",
-                "priority": 10037,
+                "priority": 10036,
                 "schema": "# `key_vault_secrets_provider` is Optional in module\nkey_vault_secrets_provider = {\n  # `secret_rotation_enabled` is Optional in `key_vault_secrets_provider`\nsecret_rotation_enabled = false\n  # `secret_rotation_interval` is Optional in `key_vault_secrets_provider`\nsecret_rotation_interval = \"\"\n}\n\n"
             },
             "linux_profile": {
                 "required": false,
                 "description": "The Linux profile for the Kubernetes cluster.",
-                "priority": 10038,
+                "priority": 10037,
                 "schema": "# `linux_profile` is Optional in module\nlinux_profile = {\n  # `admin_username` is Required in `linux_profile`\nadmin_username = var.string_linux_profile_admin_username\n  # `ssh_key` is Required in `linux_profile`\nssh_key = var.string_linux_profile_ssh_key\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10039,
+                "priority": 10038,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10040,
+                "priority": 10039,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "monitor_metrics": {
                 "required": false,
                 "description": "The monitor metrics for the Kubernetes cluster. Both required if enabling Prometheus",
-                "priority": 10041,
+                "priority": 10040,
                 "schema": "# `monitor_metrics` is Optional in module\nmonitor_metrics = {\n  # `annotations_allowed` is Optional in `monitor_metrics`\nannotations_allowed = \"\"\n  # `labels_allowed` is Optional in `monitor_metrics`\nlabels_allowed = \"\"\n}\n\n"
             },
             "oms_agent": {
                 "required": false,
                 "description": "Optional. The OMS agent for the Kubernetes cluster.",
-                "priority": 10042,
+                "priority": 10041,
                 "schema": "# `oms_agent` is Optional in module\noms_agent = {\n  # `log_analytics_workspace_id` is Required in `oms_agent`\nlog_analytics_workspace_id = var.string_oms_agent_log_analytics_workspace_id\n  # `msi_auth_for_monitoring_enabled` is Optional in `oms_agent`\nmsi_auth_for_monitoring_enabled = false\n}\n\n"
             },
             "service_principal": {
                 "required": false,
                 "description": "The service principal for the Kubernetes cluster. Only specify this or identity, not both.",
-                "priority": 10043,
+                "priority": 10042,
                 "schema": "# `service_principal` is Optional in module\nservice_principal = {\n  # `client_id` is Required in `service_principal`\nclient_id = \"00000000-0000-0000-0000-000000000000\"\n  # `client_secret` is Required in `service_principal`\nclient_secret = var.string_service_principal_client_secret\n}\n\n"
             },
             "upgrade_override": {
                 "required": false,
                 "description": "(Optional) The upgrade override for the Kubernetes cluster. Once set, this block cannot be removed from the configuration. This is used to force an upgrade of the cluster even if it is not required. The `effective_until` field is used to specify the date until which the override is effective.",
-                "priority": 10044,
+                "priority": 10043,
                 "schema": "# `upgrade_override` is Optional in module\nupgrade_override = {\n  # `force_upgrade_enabled` is Required in `upgrade_override`\nforce_upgrade_enabled = false\n  # `effective_until` is Optional in `upgrade_override`\neffective_until = \"\"\n}\n\n"
             },
             "workload_autoscaler_profile": {
                 "required": false,
                 "description": "The workload autoscaler profile for the Kubernetes cluster.",
-                "priority": 10045,
+                "priority": 10044,
                 "schema": "# `workload_autoscaler_profile` is Optional in module\nworkload_autoscaler_profile = {\n  # `keda_enabled` is Optional in `workload_autoscaler_profile`\nkeda_enabled = false\n  # `vpa_enabled` is Optional in `workload_autoscaler_profile`\nvpa_enabled = false\n}\n\n"
+            },
+            "api_server_access_profile": {
+                "required": false,
+                "description": "- `authorized_ip_ranges` - (Optional) Set of authorized IP ranges to allow access to API server, e.g. [\"198.51.100.0/24\"].\n- `subnet_id` - (Optional) The ID of the Subnet where the API server endpoint is delegated to.\n- `virtual_network_integration_enabled` - (Optional) Whether to enable virtual network integration for the API Server. Defaults to false.",
+                "priority": 10045,
+                "schema": "# `api_server_access_profile` is Optional in module\napi_server_access_profile = {\n  # `authorized_ip_ranges` is Optional in `api_server_access_profile`\nauthorized_ip_ranges = []\n  # `subnet_id` is Optional in `api_server_access_profile`\nsubnet_id = \"\"\n  # `virtual_network_integration_enabled` is Optional in `api_server_access_profile`\nvirtual_network_integration_enabled = false\n}\n\n"
             },
             "azure_active_directory_role_based_access_control": {
                 "required": false,
@@ -7019,7 +7019,6 @@
                 "workload_identity_enabled": [],
                 "tags": [],
                 "web_app_routing_dns_zone_ids": [],
-                "api_server_access_profile": [],
                 "confidential_computing": [],
                 "key_management_service": [],
                 "key_vault_secrets_provider": [],
@@ -7031,6 +7030,7 @@
                 "service_principal": [],
                 "upgrade_override": [],
                 "workload_autoscaler_profile": [],
+                "api_server_access_profile": [],
                 "azure_active_directory_role_based_access_control": [],
                 "kubelet_identity": [],
                 "http_proxy_config": [],
@@ -8531,12 +8531,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8896,8 +8896,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -10772,12 +10772,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -12969,8 +12969,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13380,12 +13380,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -15913,11 +15913,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-routetable",
                 "avm-res-network-natgateway",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15952,10 +15952,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-natgateway",
                     "avm-res-network-routetable",
-                    "avm-res-network-networksecuritygroup"
+                    "avm-res-network-natgateway",
+                    "avm-res-network-networksecuritygroup",
+                    "avm-res-managedidentity-userassignedidentity"
                 ]
             }
         },
@@ -16620,14 +16620,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
+                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -16983,11 +16983,11 @@
         },
         "priority": 68
     },
-    "avm-res-redhatopenShift-openshiftcluster": {
-        "module_name": "avm-res-redhatopenShift-openshiftcluster",
+    "avm-res-redhatopenshift-openshiftcluster": {
+        "module_name": "avm-res-redhatopenshift-openshiftcluster",
         "display_name": "OpenShift Cluster",
-        "source": "Azure/avm-res-redhatopenShift-openshiftcluster/azurerm",
-        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-redhatopenShift-openshiftcluster",
+        "source": "Azure/avm-res-redhatopenshift-openshiftcluster/azurerm",
+        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-redhatopenshift-openshiftcluster",
         "description": "Manages OpenShift Cluster.",
         "outputs": [
             "private_endpoints",
