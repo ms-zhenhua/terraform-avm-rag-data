@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3255,12 +3255,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -4862,12 +4862,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5694,8 +5694,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6266,8 +6266,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6484,9 +6484,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6520,8 +6520,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -7870,9 +7870,8 @@
         "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-dbformysql-flexibleserver",
         "description": "Manages DB for MySQL Flexible Server.",
         "outputs": [
-            "resouce_name",
-            "resource",
-            "resource_id"
+            "resource_id",
+            "resource_name"
         ],
         "variables": {
             "location": {
@@ -7955,7 +7954,7 @@
             },
             "mysql_version": {
                 "required": false,
-                "description": "(Optional) The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.",
+                "description": "(Optional) The version of the MySQL Flexible Server to use. Supported values are `5.7` and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.",
                 "priority": 10010,
                 "schema": "# `mysql_version` is Optional in module\nmysql_version = \"\"\n"
             },
@@ -8565,12 +8564,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8930,8 +8929,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9719,9 +9718,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9764,8 +9763,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10637,12 +10636,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -10806,12 +10805,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -11915,8 +11914,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13003,8 +13002,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13414,12 +13413,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -14636,7 +14635,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 49,
+        "priority": 51,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15013,7 +15012,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 49,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15375,12 +15374,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -15940,18 +15939,18 @@
             },
             "subnets": {
                 "required": false,
-                "description": "(Optional) A map of subnets to create\n\n - `address_prefix` - (Optional) The address prefix to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `address_prefixes` - (Optional) The address prefixes to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `ipam_pools` - (Optional) IPAM pools to allocate address space from. When specified, the subnet will request address space from these pools. Each pool configuration supports:\n   - `pool_id`: Resource ID of the IPAM pool to allocate from\n   - `prefix_length`: The CIDR prefix length for this subnet (e.g., 24 for /24, 26 for /26)\n   - `allocation_type`: Type of allocation - \"Static\" (default) or \"Dynamic\"\n - `enforce_private_link_endpoint_network_policies` -\n - `enforce_private_link_service_network_policies` -\n - `name` - (Required) The name of the subnet. Changing this forces a new resource to be created.\n - `default_outbound_access_enabled` - (Optional) Whether to allow internet access from the subnet. Defaults to `false`.\n - `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Enabled`.\n - `private_link_service_network_policies_enabled` - (Optional) Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.\n - `service_endpoint_policies` - (Optional) The map of objects with IDs of Service Endpoint Policies to associate with the subnet.\n - `service_endpoints` - DEPRECATED: (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`. Use `service_endpoints_with_location` instead for the new format with location support.\n - `service_endpoints_with_location` - (Optional) Service endpoints with location restrictions to associate with the subnet. Cannot be used together with `service_endpoints`. Each service endpoint is an object with the following properties:\n   - `service` - (Required) The service name. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.\n   - `locations` - (Optional) A set of Azure region names where the service endpoint should apply. Default is `[\"*\"]` to apply to all regions.\n\n ---\n `delegation` (This setting is deprecated, use `delegations` instead) supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n`delegations` supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n ---\n `nat_gateway` supports the following:\n - `id` - (Optional) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.\n\n ---\n `network_security_group` supports the following:\n - `id` - (Optional) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `route_table` supports the following:\n - `id` - (Optional) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n\n ---\n `role_assignments` supports the following:\n - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n - `principal_id` - The ID of the principal to assign the role to.\n - `description` - (Optional) The description of the role assignment.\n - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n - `condition` - (Optional) The condition which will be used to scope the role assignment.\n - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.",
+                "description": "(Optional) A map of subnets to create\n\n - `address_prefix` - (Optional) The address prefix to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `address_prefixes` - (Optional) The address prefixes to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `ipam_pools` - (Optional) IPAM pools to allocate address space from. When specified, the subnet will request address space from these pools. Each pool configuration supports:\n   - `pool_id`: Resource ID of the IPAM pool to allocate from\n   - `prefix_length`: The CIDR prefix length for this subnet (e.g., 24 for /24, 26 for /26)\n   - `allocation_type`: Type of allocation - \"Static\" (default) or \"Dynamic\"\n - `enforce_private_link_endpoint_network_policies` -\n - `enforce_private_link_service_network_policies` -\n - `name` - (Required) The name of the subnet. Changing this forces a new resource to be created.\n - `default_outbound_access_enabled` - (Optional) Whether to allow internet access from the subnet. Defaults to `false`.\n - `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Enabled`.\n - `private_link_service_network_policies_enabled` - (Optional) Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.\n - `service_endpoint_policies` - (Optional) The map of objects with IDs of Service Endpoint Policies to associate with the subnet.\n - `service_endpoints_with_location` - (Optional) Service endpoints with location restrictions to associate with the subnet. Each service endpoint is an object with the following properties:\n   - `service` - (Required) The service name. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.\n   - `locations` - (Optional) A set of Azure region names where the service endpoint should apply. Default is `[\"*\"]` to apply to all regions.\n\n ---\n `delegation` (This setting is deprecated, use `delegations` instead) supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n`delegations` supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n ---\n `nat_gateway` supports the following:\n - `id` - (Optional) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.\n\n ---\n `network_security_group` supports the following:\n - `id` - (Optional) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `route_table` supports the following:\n - `id` - (Optional) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n\n ---\n `role_assignments` supports the following:\n - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n - `principal_id` - The ID of the principal to assign the role to.\n - `description` - (Optional) The description of the role assignment.\n - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n - `condition` - (Optional) The condition which will be used to scope the role assignment.\n - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.",
                 "priority": 10018,
-                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `ipam_pools` is Optional in `subnets`\nipam_pools = [{\n  # `pool_id` is Required in `ipam_pools`\npool_id = var.string_ipam_pools_pool_id\n  # `prefix_length` is Optional in `ipam_pools`\nprefix_length = 0\n  # `allocation_type` is Optional in `ipam_pools`\nallocation_type = \"Static\"\n}\n]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource.id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints` is Optional in `subnets`\nservice_endpoints = [\"Microsoft.KeyVault\"]\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = var.string_service_endpoints_with_location_service\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = []\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
+                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `ipam_pools` is Optional in `subnets`\nipam_pools = [{\n  # `pool_id` is Required in `ipam_pools`\npool_id = var.string_ipam_pools_pool_id\n  # `prefix_length` is Optional in `ipam_pools`\nprefix_length = 0\n  # `allocation_type` is Optional in `ipam_pools`\nallocation_type = \"Static\"\n}\n]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource.id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = \"Microsoft.KeyVault\"\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = [\"\"]\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-routetable",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-routetable",
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16654,14 +16653,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17712,9 +17711,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -17744,8 +17743,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18611,9 +18610,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18661,8 +18660,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
