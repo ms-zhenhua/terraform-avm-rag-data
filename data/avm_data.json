@@ -451,7 +451,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 78,
+        "priority": 79,
         "rules": "For cloud resource of App Configuration Store: it should be configured with module(source=\"Azure/avm-res-appconfiguration-configurationstore/azure\");"
     },
     "avm-res-app-containerapp": {
@@ -617,12 +617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -656,7 +656,7 @@
                 "auth_configs": []
             }
         },
-        "priority": 94,
+        "priority": 95,
         "rules": "For cloud resource of Container App: it should be configured with module(source=\"Azure/avm-res-app-containerapp/azurerm\");"
     },
     "avm-res-app-job": {
@@ -1006,7 +1006,7 @@
                 "dapr_components": []
             }
         },
-        "priority": 87,
+        "priority": 88,
         "rules": "For cloud resource of App Managed Environment: it should be configured with module(source=\"Azure/avm-res-app-managedenvironment/azurerm\");"
     },
     "avm-res-authorization-roleassignment": {
@@ -3255,12 +3255,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -3293,7 +3293,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 95,
+        "priority": 96,
         "rules": "For cloud resource of Batch Account: it should be configured with module(source=\"Azure/avm-res-batch-batchaccount/azurerm\");"
     },
     "avm-res-cache-redis": {
@@ -4893,7 +4893,7 @@
                 "managed_identities": []
             }
         },
-        "priority": 79,
+        "priority": 80,
         "rules": "For cloud resource of Disk Encryption Set: it should be configured with module(source=\"Azure/avm-res-compute-diskencryptionset/azurerm\");"
     },
     "avm-res-compute-gallery": {
@@ -5776,7 +5776,7 @@
                 "data_disk_managed_disks": []
             }
         },
-        "priority": 80,
+        "priority": 81,
         "rules": "For cloud resource of Virtual Machine: it should be configured with module(source=\"Azure/avm-res-compute-virtualmachine/azurerm\");"
     },
     "avm-res-compute-virtualmachinescaleset": {
@@ -6307,7 +6307,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 88,
+        "priority": 89,
         "rules": "For cloud resource of Container Instance: it should be configured with module(source=\"Azure/avm-res-containerinstance-containergroup/azurerm\");"
     },
     "avm-res-containerregistry-registry": {
@@ -6484,8 +6484,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -6520,8 +6520,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -6529,7 +6529,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 82,
+        "priority": 83,
         "rules": "For cloud resource of Azure Container Registry (ACR): it should be configured with module(source=\"Azure/avm-res-containerregistry-registry/azurerm\");"
     },
     "avm-res-containerservice-managedcluster": {
@@ -8564,12 +8564,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8598,7 +8598,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 91,
+        "priority": 92,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Application Group: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-applicationgroup/azurerm\");"
     },
     "avm-res-desktopvirtualization-hostpool": {
@@ -8929,8 +8929,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8961,7 +8961,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 92,
+        "priority": 93,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Scaling Plan: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-scalingplan/azurerm\");"
     },
     "avm-res-desktopvirtualization-workspace": {
@@ -9718,8 +9718,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -9763,8 +9763,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -9774,7 +9774,7 @@
                 "sql_databases": []
             }
         },
-        "priority": 84,
+        "priority": 85,
         "rules": "For cloud resource of CosmosDB Database Account: it should be configured with module(source=\"Azure/avm-res-documentdb-databaseaccount/azurerm\");"
     },
     "avm-res-documentdb-mongocluster": {
@@ -10636,12 +10636,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -10664,7 +10664,7 @@
                 "notification": []
             }
         },
-        "priority": 90,
+        "priority": 91,
         "rules": "For cloud resource of Auto scale settings: it should be configured with module(source=\"Azure/avm-res-insights-autoscalesetting/azurerm\");"
     },
     "avm-res-insights-component": {
@@ -10843,7 +10843,7 @@
                 "monitor_private_link_scope": []
             }
         },
-        "priority": 89,
+        "priority": 90,
         "rules": "For cloud resource of Application Insight: it should be configured with module(source=\"Azure/avm-res-insights-component/azurerm\");"
     },
     "avm-res-insights-datacollectionendpoint": {
@@ -11944,7 +11944,7 @@
                 "install_patches": []
             }
         },
-        "priority": 85,
+        "priority": 86,
         "rules": "For cloud resource of Maintenance Configuration: it should be configured with module(source=\"Azure/avm-res-maintenance-maintenanceconfiguration/azurerm\");"
     },
     "avm-res-managedidentity-userassignedidentity": {
@@ -12023,6 +12023,75 @@
         },
         "priority": 4,
         "rules": "For cloud resource of User Assigned Identity: it should be configured with module(source=\"Azure/avm-res-managedidentity-userassignedidentity/azurerm\");"
+    },
+    "avm-res-management-servicegroup": {
+        "module_name": "avm-res-management-servicegroup",
+        "display_name": "Management Service Groups",
+        "source": "Azure/avm-res-management-servicegroup/azurerm",
+        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-management-servicegroup",
+        "description": "Manages Management Service Groups.",
+        "outputs": [
+            "resource_id",
+            "service_group_members",
+            "service_group_name"
+        ],
+        "variables": {
+            "name": {
+                "required": true,
+                "description": "The name (ID) of the Service Group. This will form part of the resource ID.",
+                "priority": 0,
+                "schema": "# `name` is Required in module\nname = \"example1\"\n"
+            },
+            "display_name": {
+                "required": false,
+                "description": "The name of the service group, if not specified the `name` will be used.",
+                "priority": 10000,
+                "schema": "# `display_name` is Optional in module\ndisplay_name = \"\"\n"
+            },
+            "enable_telemetry": {
+                "required": false,
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10001,
+                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
+            },
+            "parent_service_group_id": {
+                "required": false,
+                "description": "The ID (name, not resource ID) of the parent Service Group. If not provided, the tenant level service group will be used as the parent.",
+                "priority": 10002,
+                "schema": "# `parent_service_group_id` is Optional in module\nparent_service_group_id = \"\"\n"
+            },
+            "service_group_members": {
+                "required": false,
+                "description": "  A map of service group members to add to the service group. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the service group member.\n  - `target_id` - The target ID of the resource to be added as a member\n  - `target_tenant_id` - The tenant ID where the service group is located. If not provided, the current tenant ID will be used.\"\n\n  In order to use cross tenant resources, you must authenticate using a principal that has access to both tenants.\n  The <https://registry.terraform.io/providers/Azure/azapi/latest/docs#auxiliary_tenant_ids-1> property can be used to add additional tenants to the provider.\n\n  The process to enable cross tenant service principals is outside the scope of this module.",
+                "priority": 10003,
+                "schema": "# `service_group_members` is Optional in module\nservice_group_members = {\n  test-resource-group-one = {\n  # `name` is Required in `service_group_members`\nname = \"test-resource-group-two\"\n  # `target_id` is Required in `service_group_members`\ntarget_id = module.avm_res_resources_resourcegroup.resource.id\n  # `target_tenant_id` is Optional in `service_group_members`\ntarget_tenant_id = \"\"\n}\n\n}\n\n"
+            },
+            "role_assignments": {
+                "required": false,
+                "description": "  A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - The description of the role assignment.\n  - `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - The condition which will be used to scope the role assignment.\n  - `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.\n  - `principal_type` - The type of the principal_id. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
+                "priority": 10004,
+                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  test-role = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
+            }
+        },
+        "denpends_on": {
+            "avm_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required_depends_on": [],
+            "required": {
+                "name": []
+            },
+            "optional": {
+                "display_name": [],
+                "enable_telemetry": [],
+                "parent_service_group_id": [],
+                "service_group_members": [
+                    "avm-res-resources-resourcegroup"
+                ],
+                "role_assignments": []
+            }
+        },
+        "priority": 44
     },
     "avm-res-netapp-netappaccount": {
         "module_name": "avm-res-netapp-netappaccount",
@@ -12173,7 +12242,7 @@
                 "volumes": []
             }
         },
-        "priority": 44,
+        "priority": 45,
         "rules": "For cloud resource of Azure NetApp File: it should be configured with module(source=\"Azure/avm-res-netapp-netappaccount/azurerm\");"
     },
     "avm-res-network-applicationgateway": {
@@ -12510,7 +12579,7 @@
                 "rewrite_rule_set": []
             }
         },
-        "priority": 45,
+        "priority": 46,
         "rules": "For cloud resource of Application Gateway: it should be configured with module(source=\"Azure/avm-res-network-applicationgateway/azurerm\");"
     },
     "avm-res-network-applicationgatewaywebapplicationfirewallpolicy": {
@@ -12620,7 +12689,7 @@
                 "custom_rules": []
             }
         },
-        "priority": 46,
+        "priority": 47,
         "rules": "For cloud resource of Application Gateway Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-applicationgatewaywebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-applicationsecuritygroup": {
@@ -12700,7 +12769,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 47,
+        "priority": 48,
         "rules": "For cloud resource of Application Security Group (ASG): it should be configured with module(source=\"Azure/avm-res-network-applicationsecuritygroup/azurerm\");"
     },
     "avm-res-network-azurefirewall": {
@@ -12857,7 +12926,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 48,
+        "priority": 49,
         "rules": "For cloud resource of Azure Firewall: it should be configured with module(source=\"Azure/avm-res-network-azurefirewall/azurerm\");"
     },
     "avm-res-network-bastionhost": {
@@ -13002,8 +13071,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13040,7 +13109,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 96,
+        "priority": 97,
         "rules": "For cloud resource of Bastion Host: it should be configured with module(source=\"Azure/avm-res-network-bastionhost/azurerm\");"
     },
     "avm-res-network-connection": {
@@ -13252,7 +13321,7 @@
                 "ipsec_policy": []
             }
         },
-        "priority": 52,
+        "priority": 53,
         "rules": "For cloud resource of Virtual Network Gateway Connection: it should be configured with module(source=\"Azure/avm-res-network-connection/azurerm\");"
     },
     "avm-res-network-ddosprotectionplan": {
@@ -13331,7 +13400,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 53,
+        "priority": 54,
         "rules": "For cloud resource of DDoS Protection: it should be configured with module(source=\"Azure/avm-res-network-ddosprotectionplan/azurerm\");"
     },
     "avm-res-network-dnsresolver": {
@@ -13413,12 +13482,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -13439,7 +13508,7 @@
                 "outbound_endpoints": []
             }
         },
-        "priority": 97,
+        "priority": 98,
         "rules": "For cloud resource of DNS Resolver: it should be configured with module(source=\"Azure/avm-res-network-dnsresolver/azurerm\");"
     },
     "avm-res-network-dnszone": {
@@ -13588,7 +13657,7 @@
                 ]
             }
         },
-        "priority": 54,
+        "priority": 55,
         "rules": "For cloud resource of Public DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-dnszone/azurerm\");"
     },
     "avm-res-network-expressroutecircuit": {
@@ -13779,7 +13848,7 @@
                 "peerings": []
             }
         },
-        "priority": 55,
+        "priority": 56,
         "rules": "For cloud resource of ExpressRoute Circuit: it should be configured with module(source=\"Azure/avm-res-network-expressroutecircuit/azurerm\");"
     },
     "avm-res-network-firewallpolicy": {
@@ -13964,7 +14033,7 @@
                 "firewall_policy_intrusion_detection": []
             }
         },
-        "priority": 56,
+        "priority": 57,
         "rules": "For cloud resource of Azure Firewall Policy: it should be configured with module(source=\"Azure/avm-res-network-firewallpolicy/azurerm\");"
     },
     "avm-res-network-frontdoorwebapplicationfirewallpolicy": {
@@ -14098,7 +14167,7 @@
                 "managed_rules": []
             }
         },
-        "priority": 57,
+        "priority": 58,
         "rules": "For cloud resource of Front Door Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-frontdoorwebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-ipgroup": {
@@ -14185,7 +14254,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 58,
+        "priority": 59,
         "rules": "For cloud resource of IP Group: it should be configured with module(source=\"Azure/avm-res-network-ipgroup/azurerm\");"
     },
     "avm-res-network-loadbalancer": {
@@ -14382,7 +14451,7 @@
                 "public_ip_address_configuration": []
             }
         },
-        "priority": 59,
+        "priority": 60,
         "rules": "For cloud resource of Loadbalancer: it should be configured with module(source=\"Azure/avm-res-network-loadbalancer/azurerm\");"
     },
     "avm-res-network-localnetworkgateway": {
@@ -14497,7 +14566,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 60,
+        "priority": 61,
         "rules": "For cloud resource of Local Network Gateway: it should be configured with module(source=\"Azure/avm-res-network-localnetworkgateway/azurerm\");"
     },
     "avm-res-network-natgateway": {
@@ -14635,7 +14704,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 51,
+        "priority": 52,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14787,7 +14856,7 @@
                 "nat_rule_association": []
             }
         },
-        "priority": 61,
+        "priority": 62,
         "rules": "For cloud resource of Network Interface: it should be configured with module(source=\"Azure/avm-res-network-networkinterface/azurerm\");"
     },
     "avm-res-network-networkmanager": {
@@ -14910,7 +14979,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 62,
+        "priority": 63,
         "rules": "For cloud resource of Azure Virtual Network Manager: it should be configured with module(source=\"Azure/avm-res-network-networkmanager/azurerm\");"
     },
     "avm-res-network-networksecuritygroup": {
@@ -15012,7 +15081,7 @@
                 "security_rules": []
             }
         },
-        "priority": 49,
+        "priority": 51,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15115,7 +15184,7 @@
                 "condition_monitor": []
             }
         },
-        "priority": 63,
+        "priority": 64,
         "rules": "For cloud resource of Azure Network Watcher: it should be configured with module(source=\"Azure/avm-res-network-networkwatcher/azurerm\");"
     },
     "avm-res-network-privatednszone": {
@@ -15408,7 +15477,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 81,
+        "priority": 82,
         "rules": "For cloud resource of Private Endpoint: it should be configured with module(source=\"Azure/avm-res-network-privateendpoint/azurerm\");"
     },
     "avm-res-network-publicipaddress": {
@@ -15586,7 +15655,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 64,
+        "priority": 65,
         "rules": "For cloud resource of Public IP Address: it should be configured with module(source=\"Azure/avm-res-network-publicipaddress/azurerm\");"
     },
     "avm-res-network-publicipprefix": {
@@ -15695,7 +15764,7 @@
                 "lock": []
             }
         },
-        "priority": 65,
+        "priority": 66,
         "rules": "For cloud resource of Public IP Prefix: it should be configured with module(source=\"Azure/avm-res-network-publicipprefix/azurerm\");"
     },
     "avm-res-network-routetable": {
@@ -15946,10 +16015,10 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-routetable",
+                "avm-res-network-networksecuritygroup",
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-natgateway"
             ],
             "required_depends_on": [
@@ -15985,14 +16054,14 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
+                    "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable"
+                    "avm-res-network-natgateway"
                 ]
             }
         },
-        "priority": 93,
+        "priority": 94,
         "rules": "For cloud resource of Virtual Network: it should be configured with module(source=\"Azure/avm-res-network-virtualnetwork/azurerm\");"
     },
     "avm-res-operationalinsights-workspace": {
@@ -16389,7 +16458,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 66,
+        "priority": 67,
         "rules": "For cloud resource of Oracle Exadata Infrastructure: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudexadatainfrastructure/azurerm\");"
     },
     "avm-res-oracledatabase-cloudvmcluster": {
@@ -16653,14 +16722,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -16716,7 +16785,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 98,
+        "priority": 99,
         "rules": "For cloud resource of Oracle VM cluster: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudvmcluster/azurerm\");"
     },
     "avm-res-portal-dashboard": {
@@ -16796,7 +16865,7 @@
                 "template_file_variables": []
             }
         },
-        "priority": 67,
+        "priority": 68,
         "rules": "For cloud resource of Azure Portal Dashboard: it should be configured with module(source=\"Azure/avm-res-portal-dashboard/azurerm\");"
     },
     "avm-res-recoveryservices-vault": {
@@ -17014,7 +17083,7 @@
                 "workload_backup_policy": []
             }
         },
-        "priority": 68
+        "priority": 69
     },
     "avm-res-redhatopenshift-openshiftcluster": {
         "module_name": "avm-res-redhatopenshift-openshiftcluster",
@@ -17185,7 +17254,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 69
+        "priority": 70
     },
     "avm-res-resourcegraph-query": {
         "module_name": "avm-res-resourcegraph-query",
@@ -17282,7 +17351,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 70,
+        "priority": 71,
         "rules": "For cloud resource of Resource Graph Query: it should be configured with module(source=\"Azure/avm-res-resourcegraph-query/azurerm\");"
     },
     "avm-res-resources-resourcegroup": {
@@ -17539,7 +17608,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 71,
+        "priority": 72,
         "rules": "For cloud resource of Search Service: it should be configured with module(source=\"Azure/avm-res-search-searchservice/azurerm\");"
     },
     "avm-res-servicebus-namespace": {
@@ -17711,8 +17780,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -17743,8 +17812,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -17754,7 +17823,7 @@
                 "topics": []
             }
         },
-        "priority": 86,
+        "priority": 87,
         "rules": "For cloud resource of Service Bus Namespace: it should be configured with module(source=\"Azure/avm-res-servicebus-namespace/azurerm\");"
     },
     "avm-res-sql-managedinstance": {
@@ -18053,7 +18122,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 72,
+        "priority": 73,
         "rules": "For cloud resource of SQL Managed Instance: it should be configured with module(source=\"Azure/avm-res-sql-managedinstance/azurerm\");"
     },
     "avm-res-sql-server": {
@@ -18256,7 +18325,7 @@
                 "databases": []
             }
         },
-        "priority": 73,
+        "priority": 74,
         "rules": "For cloud resource of Azure SQL Server: it should be configured with module(source=\"Azure/avm-res-sql-server/azurerm\");"
     },
     "avm-res-storage-storageaccount": {
@@ -18610,8 +18679,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
@@ -18660,8 +18729,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
@@ -18684,7 +18753,7 @@
                 "storage_management_policy_rule": []
             }
         },
-        "priority": 83,
+        "priority": 84,
         "rules": "For cloud resource of Storage Account: it should be configured with module(source=\"Azure/avm-res-storage-storageaccount/azurerm\");"
     },
     "avm-res-web-hostingenvironment": {
@@ -18826,7 +18895,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 74,
+        "priority": 75,
         "rules": "For cloud resource of App Service Environment: it should be configured with module(source=\"Azure/avm-res-web-hostingenvironment/azurerm\");"
     },
     "avm-res-web-serverfarm": {
@@ -18963,7 +19032,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 75,
+        "priority": 76,
         "rules": "For cloud resource of App Service Plan: it should be configured with module(source=\"Azure/avm-res-web-serverfarm/azurerm\");"
     },
     "avm-res-web-site": {
@@ -19525,7 +19594,7 @@
                 "deployment_slots": []
             }
         },
-        "priority": 76,
+        "priority": 77,
         "rules": "For cloud resource of Web/Function App: it should be configured with module(source=\"Azure/avm-res-web-site/azurerm\");"
     },
     "avm-res-web-staticsite": {
@@ -19729,7 +19798,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 77,
+        "priority": 78,
         "rules": "For cloud resource of Static Web App: it should be configured with module(source=\"Azure/avm-res-web-staticsite/azurerm\");"
     }
 }
