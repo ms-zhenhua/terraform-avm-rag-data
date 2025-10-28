@@ -3255,12 +3255,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -8564,12 +8564,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8929,8 +8929,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14704,7 +14704,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 51,
+        "priority": 50,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15081,7 +15081,7 @@
                 "security_rules": []
             }
         },
-        "priority": 50,
+        "priority": 51,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16015,10 +16015,10 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-networksecuritygroup",
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-natgateway",
-                "avm-res-resources-resourcegroup",
+                "avm-res-network-networksecuritygroup",
                 "avm-res-network-routetable"
             ],
             "required_depends_on": [
@@ -16054,10 +16054,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable",
                     "avm-res-network-natgateway",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-network-routetable",
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
