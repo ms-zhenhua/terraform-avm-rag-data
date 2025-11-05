@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -617,12 +617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -1619,7 +1619,7 @@
             },
             "sku_name": {
                 "required": true,
-                "description": "The sku value for the AVS SDDC management cluster nodes. Valid values are av20, av36, av36t, av36pt, av48, av52, and av64.",
+                "description": "The sku value for the AVS SDDC management cluster nodes. Valid values are av20, av36, av36p, av36t, av36pt, av48, av52, and av64.",
                 "priority": 5,
                 "schema": "# `sku_name` is Required in module\nsku_name = var.string_sku_name\n"
             },
@@ -1757,7 +1757,7 @@
             },
             "segments": {
                 "required": false,
-                "description": "This map object describes the additional segments to configure on the private cloud. It can remain unconfigured or define one or more new network segments. Defaults to unconfigured. If the connected_gateway value is left undefined, the configuration will default to using the default T1 gateway provisioned as part of the managed service.\n\n- `<map key>` - Provide a key value that will be used as the segment name\n  - `display_name`       = (Required) - The display name for the dhcp configuration being created\n  - `gateway_address`    = (Required) - The CIDR range to use for the segment\n  - `dhcp_ranges`        = (Optional) - One or more ranges of IP addresses or CIDR blocks entered as a list of string\n  - `connected_gateway`  = (Optional) - The name of the T1 gateway to connect this segment to.  Defaults to the managed t1 gateway if left unconfigured.\n\nExample Input:\n```hcl\nsegment_1 = {\n  display_name    = \"segment_1\"\n  gateway_address = \"10.20.0.1/24\"\n  dhcp_ranges     = [\"10.20.0.5-10.20.0.100\"]\n}\nsegment_2 = {\n  display_name    = \"segment_2\"\n  gateway_address = \"10.30.0.1/24\"\n  dhcp_ranges     = [\"10.30.0.0/24\"]\n}\n```",
+                "description": "This map object describes the additional segments to configure on the private cloud. It can remain unconfigured or define one or more new network segments. Defaults to unconfigured. If the connected_gateway value is left undefined, the configuration will default to using the default T1 gateway provisioned as part of the managed service.\n\n- `<map key>` - Provide a key value that will be used as the segment name\n  - `display_name`       = (Required) - The display name for the dhcp configuration being created\n  - `gateway_address`    = (Required) - The CIDR range to use for the segment, starting with the gateway address.  Example: `10.20.0.1/24` **notice the range starts with `1` and not `0`**.\n  - `dhcp_ranges`        = (Optional) - One or more ranges of IP addresses or CIDR blocks entered as a list of string\n  - `connected_gateway`  = (Optional) - The name of the T1 gateway to connect this segment to.  Defaults to the managed t1 gateway if left unconfigured.\n\nExample Input:\n```hcl\nsegment_1 = {\n  display_name    = \"segment_1\"\n  gateway_address = \"10.20.0.1/24\"\n  dhcp_ranges     = [\"10.20.0.5-10.20.0.100\"]\n}\nsegment_2 = {\n  display_name    = \"segment_2\"\n  gateway_address = \"10.30.0.1/24\"\n  dhcp_ranges     = [\"10.30.0.0/24\"]\n}\n```",
                 "priority": 10022,
                 "schema": "# `segments` is Optional in module\nsegments = {\n  example_key = {\n  # `display_name` is Required in `segments`\ndisplay_name = var.string_segments_display_name\n  # `gateway_address` is Required in `segments`\ngateway_address = var.string_segments_gateway_address\n  # `dhcp_ranges` is Optional in `segments`\ndhcp_ranges = []\n  # `connected_gateway` is Optional in `segments`\nconnected_gateway = \"\"\n}\n\n}\n\n"
             },
@@ -1805,7 +1805,7 @@
             },
             "expressroute_connections": {
                 "required": false,
-                "description": "Map of string objects describing one or more ExpressRoute connections to be configured by the private cloud. The map key will be used for the connection name.\n\n- `<map key>` - Provide an arbitrary key value that will be used to identify this expressRoute connection\n  - `name`                                 = (Required) - The name to use for the expressRoute connection.\n  - `expressroute_gateway_resource_id`     = (Required) - The Azure Resource ID for the ExpressRoute gateway where the connection will be made.\n  - `vwan_hub_connection`                  = (Optional) - Set this to true if making a connection to a VWAN hub.  Leave as false if connecting to an ExpressRoute gateway in a virtual network hub.\n  - `authorization_key_name`               = (Optional) - The authorization key name that should be used from the auth key map. If no key is provided a name will be generated from the map key.\n  - `fast_path_enabled`                    = (Optional) - Should fast path gateway bypass be enabled. There are sku and cost considerations to be aware of when enabling fast path. Defaults to false\n  - `routing_weight`                       = (Optional) - The routing weight value to use for this connection.  Defaults to 0.\n  - `enable_internet_security`             = (Optional) - Set this to true if connecting to a secure VWAN hub and you want the hub NVA to publish a default route to AVS.\n  - `tags`                                 = (Optional) - Map of strings describing any custom tags to apply to this connection resource\n  - `network_resource_group_resource_id`   = (Optional) - The resource ID of an external resource group. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `network_resource_group_location`      = (Optional) - The location of an external resource group. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `routing`                              = (Optional) - Map of objects used to describe any VWAN and Virtual Hub custom routing for this connection\n    - `associated_route_table_resource_id` = (Optional) - The Azure Resource ID of the Virtual Hub Route Table associated with this Express Route Connection.\n    - `inbound_route_map_resource_id`      = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for inbound learned routes\n    - `outbound_route_map_resource_id`     = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for outbound advertised routes\n    - `propagated_route_table` = object({\n      - `labels` = (Optional) - The list of labels for route tables where the routes will be propagated to\n      - `ids`    = (Optional) - The list of Azure Resource IDs for route tables where the routes will be propagated to\n\nExample Input:\n```hcl\n{\n  exr_region_1 = {\n    expressroute_gateway_resource_id      = \"<expressRoute Gateway Resource ID>\"\n    peer_expressroute_circuit_resource_id = \"Azure Resource ID for the peer expressRoute circuit\"'\n  }\n}\n```",
+                "description": "Map of string objects describing one or more ExpressRoute connections to be configured by the private cloud. The map key will be used for the connection name.\n\n- `<map key>` - Provide an arbitrary key value that will be used to identify this expressRoute connection\n  - `name`                                 = (Required) - The name to use for the expressRoute connection.\n  - `expressroute_gateway_resource_id`     = (Required) - The Azure Resource ID for the ExpressRoute gateway where the connection will be made.\n  - `vwan_hub_connection`                  = (Optional) - Set this to true if making a connection to a VWAN hub.  Leave as false if connecting to an ExpressRoute gateway in a virtual network hub.\n  - `authorization_key_name`               = (Optional) - The authorization key name that should be used from the auth key map. If no key is provided a name will be generated from the map key.\n  - `fast_path_enabled`                    = (Optional) - Should fast path gateway bypass be enabled. There are sku and cost considerations to be aware of when enabling fast path. Defaults to false\n  - `routing_weight`                       = (Optional) - The routing weight value to use for this connection.  Defaults to 0.\n  - `enable_internet_security`             = (Optional) - Set this to true if connecting to a secure VWAN hub and you want the hub NVA to publish a default route to AVS.\n  - `tags`                                 = (Optional) - Map of strings describing any custom tags to apply to this connection resource\n  - `network_resource_group_resource_id`   = (Optional) - The resource ID of an external resource group, **must be the same resource group as the virtual network gateway you are connecting to**. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `network_resource_group_location`      = (Optional) - The location of an external resource group. This is used to place the virtual network gateway connection resource with the virtual network gateway if the gateway is in a separate location.\n  - `routing`                              = (Optional) - Map of objects used to describe any VWAN and Virtual Hub custom routing for this connection\n    - `associated_route_table_resource_id` = (Optional) - The Azure Resource ID of the Virtual Hub Route Table associated with this Express Route Connection.\n    - `inbound_route_map_resource_id`      = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for inbound learned routes\n    - `outbound_route_map_resource_id`     = (Optional) - The Azure Resource ID Of the Route Map associated with this Express Route Connection for outbound advertised routes\n    - `propagated_route_table` = object({\n      - `labels` = (Optional) - The list of labels for route tables where the routes will be propagated to\n      - `ids`    = (Optional) - The list of Azure Resource IDs for route tables where the routes will be propagated to\n\nExample Input:\n```hcl\n{\n  exr_region_1 = {\n    expressroute_gateway_resource_id      = \"<expressRoute Gateway Resource ID>\"\n    peer_expressroute_circuit_resource_id = \"Azure Resource ID for the peer expressRoute circuit\"'\n  }\n}\n```",
                 "priority": 10030,
                 "schema": "# `expressroute_connections` is Optional in module\nexpressroute_connections = {\n  default = {\n  # `name` is Required in `expressroute_connections`\nname = \"default_vnet_gateway_connection\"\n  # `expressroute_gateway_resource_id` is Required in `expressroute_connections`\nexpressroute_gateway_resource_id = var.string_expressroute_connections_expressroute_gateway_resource_id\n  # `deployment_order` is Optional in `expressroute_connections`\ndeployment_order = 1\n  # `vwan_hub_connection` is Optional in `expressroute_connections`\nvwan_hub_connection = false\n  # `authorization_key_name` is Optional in `expressroute_connections`\nauthorization_key_name = \"test_auth_key\"\n  # `fast_path_enabled` is Optional in `expressroute_connections`\nfast_path_enabled = false\n  # `private_link_fast_path_enabled` is Optional in `expressroute_connections`\nprivate_link_fast_path_enabled = false\n  # `routing_weight` is Optional in `expressroute_connections`\nrouting_weight = 0\n  # `enable_internet_security` is Optional in `expressroute_connections`\nenable_internet_security = false\n  # `tags` is Optional in `expressroute_connections`\ntags = {\n  example_key = \"\"\n}\n\n  # `network_resource_group_resource_id` is Optional in `expressroute_connections`\nnetwork_resource_group_resource_id = \"\"\n  # `network_resource_group_location` is Optional in `expressroute_connections`\nnetwork_resource_group_location = \"\"\n  # `routing` is Optional in `expressroute_connections`\nrouting = {\n  example_key = {\n  # `associated_route_table_resource_id` is Optional in `routing`\nassociated_route_table_resource_id = \"\"\n  # `inbound_route_map_resource_id` is Optional in `routing`\ninbound_route_map_resource_id = \"\"\n  # `outbound_route_map_resource_id` is Optional in `routing`\noutbound_route_map_resource_id = \"\"\n  # `propagated_route_table` is Optional in `routing`\npropagated_route_table = {\n  # `labels` is Optional in `propagated_route_table`\nlabels = []\n  # `ids` is Optional in `propagated_route_table`\nids = []\n}\n\n}\n\n}\n\n}\n\n}\n\n"
             }
@@ -4862,12 +4862,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5700,8 +5700,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6491,9 +6491,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6527,8 +6527,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -8571,12 +8571,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -9725,9 +9725,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9770,8 +9770,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10643,12 +10643,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -11921,8 +11921,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13078,8 +13078,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13489,12 +13489,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14711,7 +14711,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 50,
+        "priority": 52,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15088,7 +15088,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 50,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15450,12 +15450,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -15875,7 +15875,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 52,
+        "priority": 51,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16022,11 +16022,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
-                "avm-res-network-networksecuritygroup",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-routetable"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-network-routetable",
+                "avm-res-network-natgateway",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16061,10 +16061,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-networksecuritygroup",
-                    "avm-res-network-natgateway",
                     "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-routetable"
+                    "avm-res-network-routetable",
+                    "avm-res-network-natgateway",
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
@@ -16729,14 +16729,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17787,9 +17787,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -17819,8 +17819,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18699,9 +18699,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18751,8 +18751,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
