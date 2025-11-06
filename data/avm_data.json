@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4862,12 +4862,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5700,8 +5700,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6273,8 +6273,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6491,9 +6491,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6527,8 +6527,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -8571,12 +8571,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8936,8 +8936,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9725,9 +9725,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9770,8 +9770,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10812,12 +10812,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -11921,8 +11921,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15450,12 +15450,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -16022,11 +16022,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-networksecuritygroup",
                 "avm-res-network-routetable",
                 "avm-res-network-natgateway",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16061,10 +16061,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-routetable",
                     "avm-res-network-natgateway",
-                    "avm-res-network-networksecuritygroup"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-networksecuritygroup",
+                    "avm-res-network-routetable"
                 ]
             }
         },
@@ -17787,9 +17787,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -17819,8 +17819,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -18345,6 +18345,7 @@
             "containers",
             "data_lake_gen2_filesystems",
             "fqdn",
+            "local_users",
             "name",
             "private_endpoints",
             "queues",
@@ -18590,9 +18591,9 @@
             },
             "azure_files_authentication": {
                 "required": false,
-                "description": " - `directory_type` - (Required) Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.\n - `default_share_level_permission` - (Optional) Specifies the default share level permissions applied to all users. Possible values are StorageFileDataSmbShareReader, StorageFileDataSmbShareContributor, StorageFileDataSmbShareElevatedContributor, or None.\n\n ---\n `active_directory` block supports the following:\n - `domain_guid` - (Required) Specifies the domain GUID.\n - `domain_name` - (Required) Specifies the primary domain that the AD DNS server is authoritative for.\n - `domain_sid` - (Required) Specifies the security identifier (SID).\n - `forest_name` - (Required) Specifies the Active Directory forest.\n - `netbios_domain_name` - (Required) Specifies the NetBIOS domain name.\n - `storage_sid` - (Required) Specifies the security identifier (SID) for Azure Storage.",
+                "description": " - `directory_type` - (Required) Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.\n - `default_share_level_permission` - (Optional) Specifies the default share level permissions applied to all users. Possible values are StorageFileDataSmbShareReader, StorageFileDataSmbShareContributor, StorageFileDataSmbShareElevatedContributor, or None.\n\n ---\n `active_directory` block supports the following:\n - `domain_guid` - (Required) Specifies the domain GUID.\n - `domain_name` - (Required) Specifies the primary domain that the AD DNS server is authoritative for.\n - `domain_sid` - (Optional) Specifies the security identifier (SID).\n - `forest_name` - (Optional) Specifies the Active Directory forest.\n - `netbios_domain_name` - (Optional) Specifies the NetBIOS domain name.\n - `storage_sid` - (Optional) Specifies the security identifier (SID) for Azure Storage.",
                 "priority": 10036,
-                "schema": "# `azure_files_authentication` is Optional in module\nazure_files_authentication = {\n  # `directory_type` is Optional in `azure_files_authentication`\ndirectory_type = \"AADKERB\"\n  # `default_share_level_permission` is Optional in `azure_files_authentication`\ndefault_share_level_permission = \"\"\n  # `active_directory` is Optional in `azure_files_authentication`\nactive_directory = {\n  # `domain_guid` is Required in `active_directory`\ndomain_guid = var.string_active_directory_domain_guid\n  # `domain_name` is Required in `active_directory`\ndomain_name = var.string_active_directory_domain_name\n  # `domain_sid` is Required in `active_directory`\ndomain_sid = var.string_active_directory_domain_sid\n  # `forest_name` is Required in `active_directory`\nforest_name = var.string_active_directory_forest_name\n  # `netbios_domain_name` is Required in `active_directory`\nnetbios_domain_name = var.string_active_directory_netbios_domain_name\n  # `storage_sid` is Required in `active_directory`\nstorage_sid = var.string_active_directory_storage_sid\n}\n\n}\n\n"
+                "schema": "# `azure_files_authentication` is Optional in module\nazure_files_authentication = {\n  # `directory_type` is Optional in `azure_files_authentication`\ndirectory_type = \"AADKERB\"\n  # `default_share_level_permission` is Optional in `azure_files_authentication`\ndefault_share_level_permission = \"\"\n  # `active_directory` is Optional in `azure_files_authentication`\nactive_directory = {\n  # `domain_guid` is Required in `active_directory`\ndomain_guid = var.string_active_directory_domain_guid\n  # `domain_name` is Required in `active_directory`\ndomain_name = var.string_active_directory_domain_name\n  # `domain_sid` is Optional in `active_directory`\ndomain_sid = \"\"\n  # `forest_name` is Optional in `active_directory`\nforest_name = \"\"\n  # `netbios_domain_name` is Optional in `active_directory`\nnetbios_domain_name = \"\"\n  # `storage_sid` is Optional in `active_directory`\nstorage_sid = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings_blob": {
                 "required": false,
@@ -18699,9 +18700,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18751,8 +18752,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "azure_files_authentication": [],
