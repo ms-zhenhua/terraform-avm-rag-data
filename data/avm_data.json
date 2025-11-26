@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -617,12 +617,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -964,8 +964,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3255,12 +3255,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -4862,12 +4862,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5700,8 +5700,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6273,8 +6273,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6491,8 +6491,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -8571,12 +8571,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8936,8 +8936,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9725,8 +9725,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -10882,12 +10882,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -13148,8 +13148,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13559,12 +13559,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -14781,7 +14781,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 51,
+        "priority": 53,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15520,12 +15520,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15945,7 +15945,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 53,
+        "priority": 51,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16092,11 +16092,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-network-routetable",
                 "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-natgateway",
                 "avm-res-network-networksecuritygroup",
-                "avm-res-network-routetable"
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16131,9 +16131,9 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
-                    "avm-res-network-routetable",
                     "avm-res-network-networksecuritygroup",
+                    "avm-res-network-routetable",
+                    "avm-res-network-natgateway",
                     "avm-res-managedidentity-userassignedidentity"
                 ]
             }
@@ -16799,14 +16799,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17857,8 +17857,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -18653,35 +18653,35 @@
                 "priority": 10034,
                 "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = module.avm_res_keyvault_vault.resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = module.avm_res_managedidentity_userassignedidentity.resource.id\n}\n\n}\n\n"
             },
+            "diagnostic_settings_storage_account": {
+                "required": false,
+                "description": "A map of diagnostic settings to create on the Storage Account. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n**Important:** Diagnostic settings on the Storage Account resource itself support only metric_categories (logs are not supported). If you specify this block in a deployment, you must provide at least one metric category. Supported values are `Transaction` and `AllMetrics`.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
+                "priority": 10035,
+                "schema": "# `diagnostic_settings_storage_account` is Optional in module\ndiagnostic_settings_storage_account = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings_storage_account`\nname = \"\"\n  # `metric_categories` is Optional in `diagnostic_settings_storage_account`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings_storage_account`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings_storage_account`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings_storage_account`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings_storage_account`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings_storage_account`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings_storage_account`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+            },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on the resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10035,
+                "priority": 10036,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  role_assignment_1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Owner\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "azure_files_authentication": {
                 "required": false,
-                "description": " - `directory_type` - (Required) Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.\n - `default_share_level_permission` - (Optional) Specifies the default share level permissions applied to all users. Possible values are StorageFileDataSmbShareReader, StorageFileDataSmbShareContributor, StorageFileDataSmbShareElevatedContributor, or None.\n\n ---\n `active_directory` block supports the following:\n - `domain_guid` - (Required) Specifies the domain GUID.\n - `domain_name` - (Required) Specifies the primary domain that the AD DNS server is authoritative for.\n - `domain_sid` - (Optional) Specifies the security identifier (SID).\n - `forest_name` - (Optional) Specifies the Active Directory forest.\n - `netbios_domain_name` - (Optional) Specifies the NetBIOS domain name.\n - `storage_sid` - (Optional) Specifies the security identifier (SID) for Azure Storage.",
-                "priority": 10036,
+                "description": " - `directory_type` - (Required) Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.\n - `default_share_level_permission` - (Optional) Specifies the default share level permissions applied to all users. Possible values are StorageFileDataSmbShareReader, StorageFileDataSmbShareContributor, StorageFileDataSmbShareElevatedContributor, or None.\n\n ---\n `active_directory`-(Optional) A active_directory block as defined below. Required when directory_type is `AD`.:\n - `domain_guid` - (Required) Specifies the domain GUID.\n - `domain_name` - (Required) Specifies the primary domain that the AD DNS server is authoritative for.\n - `domain_sid` - (Optional) Specifies the security identifier (SID).This is required when `directory_type` is set to `AD`.\n - `forest_name` - (Optional) Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.\n - `netbios_domain_name` - (Optional) Specifies the NetBIOS domain name.This is required when `directory_type` is set to `AD`.\n - `storage_sid` - (Optional) Specifies the security identifier (SID) for Azure Storage.This is required when `directory_type` is set to `AD`.",
+                "priority": 10037,
                 "schema": "# `azure_files_authentication` is Optional in module\nazure_files_authentication = {\n  # `directory_type` is Optional in `azure_files_authentication`\ndirectory_type = \"AADKERB\"\n  # `default_share_level_permission` is Optional in `azure_files_authentication`\ndefault_share_level_permission = \"\"\n  # `active_directory` is Optional in `azure_files_authentication`\nactive_directory = {\n  # `domain_guid` is Required in `active_directory`\ndomain_guid = var.string_active_directory_domain_guid\n  # `domain_name` is Required in `active_directory`\ndomain_name = var.string_active_directory_domain_name\n  # `domain_sid` is Optional in `active_directory`\ndomain_sid = \"\"\n  # `forest_name` is Optional in `active_directory`\nforest_name = \"\"\n  # `netbios_domain_name` is Optional in `active_directory`\nnetbios_domain_name = \"\"\n  # `storage_sid` is Optional in `active_directory`\nstorage_sid = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings_blob": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Blob Storage within Storage Account. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10037,
+                "priority": 10038,
                 "schema": "# `diagnostic_settings_blob` is Optional in module\ndiagnostic_settings_blob = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings_blob`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings_blob`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings_blob`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings_blob`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings_blob`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings_blob`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings_blob`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings_blob`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings_blob`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings_blob`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings_queue": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Queue Storage within Storage Account. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10038,
-                "schema": "# `diagnostic_settings_queue` is Optional in module\ndiagnostic_settings_queue = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings_queue`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings_queue`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings_queue`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings_queue`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings_queue`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings_queue`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings_queue`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings_queue`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings_queue`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings_queue`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
-            },
-            "diagnostic_settings_storage_account": {
-                "required": false,
-                "description": "A map of diagnostic settings to create on the Storage Account. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
                 "priority": 10039,
-                "schema": "# `diagnostic_settings_storage_account` is Optional in module\ndiagnostic_settings_storage_account = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings_storage_account`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings_storage_account`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings_storage_account`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings_storage_account`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings_storage_account`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings_storage_account`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings_storage_account`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings_storage_account`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings_storage_account`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings_storage_account`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+                "schema": "# `diagnostic_settings_queue` is Optional in module\ndiagnostic_settings_queue = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings_queue`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings_queue`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings_queue`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings_queue`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings_queue`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings_queue`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings_queue`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings_queue`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings_queue`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings_queue`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings_table": {
                 "required": false,
@@ -18701,53 +18701,53 @@
                 "priority": 10042,
                 "schema": "# `network_rules` is Optional in module\nnetwork_rules = {\n  # `bypass` is Optional in `network_rules`\nbypass = [\"AzureServices\"]\n  # `default_action` is Optional in `network_rules`\ndefault_action = \"Deny\"\n  # `ip_rules` is Optional in `network_rules`\nip_rules = [\"\"]\n  # `virtual_network_subnet_ids` is Optional in `network_rules`\nvirtual_network_subnet_ids = []\n  # `private_link_access` is Optional in `network_rules`\nprivate_link_access = [{\n  # `endpoint_resource_id` is Required in `private_link_access`\nendpoint_resource_id = var.string_private_link_access_endpoint_resource_id\n  # `endpoint_tenant_id` is Optional in `private_link_access`\nendpoint_tenant_id = \"\"\n}\n]\n  # `timeouts` is Optional in `network_rules`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n"
             },
+            "storage_data_lake_gen2_paths": {
+                "required": false,
+                "description": " - `path` - (Required) The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.\n - `filesystem_name` - (Required) The name of the Data Lake Gen2 File System which should be created within the Storage Account. Changing this forces a new resource to be created.\n - `storage_account_id` - (Required) The ID of the Storage Account where the Data Lake Gen2 File System exists. Changing this forces a new resource to be created.\n - `resource` - (Required) The type of resource. Possible values are `directory` or `file`. Changing this forces a new resource to be created.\n - `owner` - (Optional) Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.\n - `group` - (Optional) Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.\n\n ---\n `ace` block supports the following:\n - `id` - (Optional) Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.\n - `permissions` - (Required) Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.\n - `scope` - (Optional) Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.\n - `type` - (Required) Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Data Lake Gen2 Path.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Data Lake Gen2 Path.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Data Lake Gen2 Path.\n - `update` - (Defaults to 30 minutes) Used when updating the Data Lake Gen2 Path.",
+                "priority": 10043,
+                "schema": "# `storage_data_lake_gen2_paths` is Optional in module\nstorage_data_lake_gen2_paths = {\n  example_key = {\n  # `path` is Required in `storage_data_lake_gen2_paths`\npath = var.string_storage_data_lake_gen2_paths_path\n  # `filesystem_name` is Required in `storage_data_lake_gen2_paths`\nfilesystem_name = var.string_storage_data_lake_gen2_paths_filesystem_name\n  # `resource` is Required in `storage_data_lake_gen2_paths`\nresource = var.string_storage_data_lake_gen2_paths_resource\n  # `owner` is Optional in `storage_data_lake_gen2_paths`\nowner = \"\"\n  # `group` is Optional in `storage_data_lake_gen2_paths`\ngroup = \"\"\n  # `ace` is Optional in `storage_data_lake_gen2_paths`\nace = [{\n  # `permissions` is Required in `ace`\npermissions = var.string_ace_permissions\n  # `type` is Required in `ace`\ntype = var.string_ace_type\n  # `id` is Optional in `ace`\nid = \"\"\n  # `scope` is Optional in `ace`\nscope = \"\"\n}\n]\n  # `timeouts` is Optional in `storage_data_lake_gen2_paths`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
+            },
             "storage_data_lake_gen2_filesystems": {
                 "required": false,
                 "description": " - `default_encryption_scope` - (Optional) The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.\n - `group` - (Optional) Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.\n - `name` - (Required) The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.\n - `owner` - (Optional) Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.\n - `properties` - (Optional) A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.\n ---\n `ace` block supports the following:\n - `id` - (Optional) Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.\n - `permissions` - (Required) Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.\n - `scope` - (Optional) Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.\n - `type` - (Required) Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Data Lake Gen2 File System.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Data Lake Gen2 File System.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Data Lake Gen2 File System.\n - `update` - (Defaults to 30 minutes) Used when updating the Data Lake Gen2 File System.",
-                "priority": 10043,
+                "priority": 10044,
                 "schema": "# `storage_data_lake_gen2_filesystems` is Optional in module\nstorage_data_lake_gen2_filesystems = {\n  example_key = {\n  # `name` is Required in `storage_data_lake_gen2_filesystems`\nname = \"example1\"\n  # `default_encryption_scope` is Optional in `storage_data_lake_gen2_filesystems`\ndefault_encryption_scope = \"\"\n  # `group` is Optional in `storage_data_lake_gen2_filesystems`\ngroup = \"\"\n  # `owner` is Optional in `storage_data_lake_gen2_filesystems`\nowner = \"\"\n  # `properties` is Optional in `storage_data_lake_gen2_filesystems`\nproperties = {\n  example_key = \"\"\n}\n\n  # `ace` is Optional in `storage_data_lake_gen2_filesystems`\nace = [{\n  # `permissions` is Required in `ace`\npermissions = var.string_ace_permissions\n  # `type` is Required in `ace`\ntype = var.string_ace_type\n  # `id` is Optional in `ace`\nid = \"\"\n  # `scope` is Optional in `ace`\nscope = \"\"\n}\n]\n  # `timeouts` is Optional in `storage_data_lake_gen2_filesystems`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "queues": {
                 "required": false,
                 "description": " - `metadata` - (Optional) A mapping of MetaData which should be assigned to this Storage Queue.\n - `name` - (Required) The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.\n\nSupply role assignments in the same way as for `var.role_assignments`.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Storage Queue.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Storage Queue.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Queue.\n - `update` - (Defaults to 30 minutes) Used when updating the Storage Queue.",
-                "priority": 10044,
+                "priority": 10045,
                 "schema": "# `queues` is Optional in module\nqueues = {\n  queue0 = {\n  # `name` is Required in `queues`\nname = \"example1\"\n  # `metadata` is Optional in `queues`\nmetadata = {\n  example_key = \"\"\n}\n\n  # `role_assignments` is Optional in `queues`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n}\n\n}\n\n  # `timeouts` is Optional in `queues`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "local_user": {
                 "required": false,
                 "description": " - `home_directory` - (Optional) The home directory of the Storage Account Local User.\n - `name` - (Required) The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.\n - `ssh_key_enabled` - (Optional) Specifies whether SSH Key Authentication is enabled. Defaults to `false`.\n - `ssh_password_enabled` - (Optional) Specifies whether SSH Password Authentication is enabled. Defaults to `false`.\n\n ---\n `permission_scope` block supports the following:\n - `resource_name` - (Required) The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.\n - `service` - (Required) The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.\n\n ---\n `permissions` block supports the following:\n - `create` - (Optional) Specifies if the Local User has the create permission for this scope. Defaults to `false`.\n - `delete` - (Optional) Specifies if the Local User has the delete permission for this scope. Defaults to `false`.\n - `list` - (Optional) Specifies if the Local User has the list permission for this scope. Defaults to `false`.\n - `read` - (Optional) Specifies if the Local User has the read permission for this scope. Defaults to `false`.\n - `write` - (Optional) Specifies if the Local User has the write permission for this scope. Defaults to `false`.\n\n ---\n `ssh_authorized_key` block supports the following:\n - `description` - (Optional) The description of this SSH authorized key.\n - `key` - (Required) The public key value of this SSH authorized key.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Storage Account Local User.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Storage Account Local User.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Account Local User.\n - `update` - (Defaults to 30 minutes) Used when updating the Storage Account Local User.",
-                "priority": 10045,
+                "priority": 10046,
                 "schema": "# `local_user` is Optional in module\nlocal_user = {\n  example_key = {\n  # `name` is Required in `local_user`\nname = \"example1\"\n  # `home_directory` is Optional in `local_user`\nhome_directory = \"\"\n  # `ssh_key_enabled` is Optional in `local_user`\nssh_key_enabled = false\n  # `ssh_password_enabled` is Optional in `local_user`\nssh_password_enabled = false\n  # `permission_scope` is Optional in `local_user`\npermission_scope = [{\n  # `resource_name` is Required in `permission_scope`\nresource_name = var.string_permission_scope_resource_name\n  # `service` is Required in `permission_scope`\nservice = var.string_permission_scope_service\n  # `permissions` is Required in `permission_scope`\npermissions = {\n  # `create` is Optional in `permissions`\ncreate = false\n  # `delete` is Optional in `permissions`\ndelete = false\n  # `list` is Optional in `permissions`\nlist = false\n  # `read` is Optional in `permissions`\nread = false\n  # `write` is Optional in `permissions`\nwrite = false\n}\n\n}\n]\n  # `ssh_authorized_key` is Optional in `local_user`\nssh_authorized_key = [{\n  # `key` is Required in `ssh_authorized_key`\nkey = var.string_ssh_authorized_key_key\n  # `description` is Optional in `ssh_authorized_key`\ndescription = \"\"\n}\n]\n  # `timeouts` is Optional in `local_user`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "queue_properties": {
                 "required": false,
                 "description": "\n ---\n `cors_rule` block supports the following:\n - `allowed_headers` - (Required) A list of headers that are allowed to be a part of the cross-origin request.\n - `allowed_methods` - (Required) A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.\n - `allowed_origins` - (Required) A list of origin domains that will be allowed by CORS.\n - `exposed_headers` - (Required) A list of response headers that are exposed to CORS clients.\n - `max_age_in_seconds` - (Required) The number of seconds the client should cache a preflight response.\n\n ---\n `diagnostic_settings` block supports the following:\n - `name` - (Optional) The name of the diagnostic setting. Defaults to `null`.\n - `log_categories` - (Optional) A set of log categories to enable. Defaults to an empty set.\n - `log_groups` - (Optional) A set of log groups to enable. Defaults to `[\"allLogs\"]`.\n - `metric_categories` - (Optional) A set of metric categories to enable. Defaults to `[\"AllMetrics\"]`.\n - `log_analytics_destination_type` - (Optional) The destination type for log analytics. Defaults to `\"Dedicated\"`.\n - `workspace_resource_id` - (Optional) The resource ID of the Log Analytics workspace. Defaults to `null`.\n - `resource_id` - (Optional) The resource ID of the target resource for diagnostics. Defaults to `null`.\n - `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the Event Hub authorization rule. Defaults to `null`.\n - `event_hub_name` - (Optional) The name of the Event Hub. Defaults to `null`.\n - `marketplace_partner_resource_id` - (Optional) The resource ID of the marketplace partner. Defaults to `null`.\n\n ---\n `hour_metrics` block supports the following:\n - `enabled` - (Required) Indicates whether hour metrics are enabled for the Queue service.\n - `include_apis` - (Optional) Indicates whether metrics should generate summary statistics for called API operations.\n - `retention_policy_days` - (Optional) Specifies the number of days that logs will be retained.\n - `version` - (Required) The version of storage analytics to configure.\n\n ---\n `logging` block supports the following:\n - `delete` - (Required) Indicates whether all delete requests should be logged.\n - `read` - (Required) Indicates whether all read requests should be logged.\n - `retention_policy_days` - (Optional) Specifies the number of days that logs will be retained.\n - `version` - (Required) The version of storage analytics to configure.\n - `write` - (Required) Indicates whether all write requests should be logged.\n\n ---\n `minute_metrics` block supports the following:\n - `enabled` - (Required) Indicates whether minute metrics are enabled for the Queue service.\n - `include_apis` - (Optional) Indicates whether metrics should generate summary statistics for called API operations.\n - `retention_policy_days` - (Optional) Specifies the number of days that logs will be retained.\n - `version` - (Required) The version of storage analytics to configure.",
-                "priority": 10046,
+                "priority": 10047,
                 "schema": "# `queue_properties` is Optional in module\nqueue_properties = {\n  example_key = {\n  # `cors_rule` is Optional in `queue_properties`\ncors_rule = {\n  example_key = {\n  # `allowed_headers` is Required in `cors_rule`\nallowed_headers = []\n  # `allowed_methods` is Required in `cors_rule`\nallowed_methods = []\n  # `allowed_origins` is Required in `cors_rule`\nallowed_origins = []\n  # `exposed_headers` is Required in `cors_rule`\nexposed_headers = []\n  # `max_age_in_seconds` is Required in `cors_rule`\nmax_age_in_seconds = 0\n}\n\n}\n\n  # `hour_metrics` is Optional in `queue_properties`\nhour_metrics = {\n  # `version` is Required in `hour_metrics`\nversion = var.string_hour_metrics_version\n  # `include_apis` is Optional in `hour_metrics`\ninclude_apis = false\n  # `retention_policy_days` is Optional in `hour_metrics`\nretention_policy_days = 0\n}\n\n  # `logging` is Optional in `queue_properties`\nlogging = {\n  # `delete` is Required in `logging`\ndelete = false\n  # `read` is Required in `logging`\nread = false\n  # `version` is Required in `logging`\nversion = var.string_logging_version\n  # `write` is Required in `logging`\nwrite = false\n  # `retention_policy_days` is Optional in `logging`\nretention_policy_days = 0\n}\n\n  # `minute_metrics` is Optional in `queue_properties`\nminute_metrics = {\n  # `version` is Required in `minute_metrics`\nversion = var.string_minute_metrics_version\n  # `include_apis` is Optional in `minute_metrics`\ninclude_apis = false\n  # `retention_policy_days` is Optional in `minute_metrics`\nretention_policy_days = 0\n}\n\n}\n\n}\n\n"
             },
             "tables": {
                 "required": false,
                 "description": " - `name` - (Required) The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.\n\n ---\n `acl` block supports the following:\n - `id` - (Required) The ID which should be used for this Shared Identifier.\n\n ---\n `access_policy` block supports the following:\n - `expiry` - (Required) The ISO8061 UTC time at which this Access Policy should be valid until.\n - `permissions` - (Required) The permissions which should associated with this Shared Identifier.\n - `start` - (Required) The ISO8061 UTC time at which this Access Policy should be valid from.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Storage Table.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Storage Table.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Table.\n - `update` - (Defaults to 30 minutes) Used when updating the Storage Table.\n\nSupply role assignments in the same way as for `var.role_assignments`.",
-                "priority": 10047,
+                "priority": 10048,
                 "schema": "# `tables` is Optional in module\ntables = {\n  table0 = {\n  # `name` is Required in `tables`\nname = \"example1\"\n  # `signed_identifiers` is Optional in `tables`\nsigned_identifiers = [{\n  # `id` is Required in `signed_identifiers`\nid = var.string_signed_identifiers_id\n  # `access_policy` is Optional in `signed_identifiers`\naccess_policy = {\n  # `expiry_time` is Required in `access_policy`\nexpiry_time = var.string_access_policy_expiry_time\n  # `permission` is Required in `access_policy`\npermission = var.string_access_policy_permission\n  # `start_time` is Required in `access_policy`\nstart_time = var.string_access_policy_start_time\n}\n\n}\n]\n  # `role_assignments` is Optional in `tables`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n}\n\n}\n\n  # `timeouts` is Optional in `tables`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "containers": {
                 "required": false,
                 "description": " - `public_access` - (Optional) Specifies whether data in the container may be accessed publicly and the level of access. Possible values are `Container`, `Blob`, and `None`. Defaults to `None`. Changing this forces a new resource to be created.\n - `metadata` - (Optional) A mapping of MetaData for this Container. All metadata keys should be lowercase.\n - `name` - (Required) The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.\n\n Supply role assignments in the same way as for `var.role_assignments`.\n\n ---\n `timeouts` block supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Storage Container.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Storage Container.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Storage Container.\n - `update` - (Defaults to 30 minutes) Used when updating the Storage Container.",
-                "priority": 10048,
+                "priority": 10049,
                 "schema": "# `containers` is Optional in module\ncontainers = {\n  blob_container0 = {\n  # `name` is Required in `containers`\nname = \"example1\"\n  # `public_access` is Optional in `containers`\npublic_access = \"None\"\n  # `metadata` is Optional in `containers`\nmetadata = {\n  example_key = \"\"\n}\n\n  # `default_encryption_scope` is Optional in `containers`\ndefault_encryption_scope = \"\"\n  # `deny_encryption_scope_override` is Optional in `containers`\ndeny_encryption_scope_override = false\n  # `enable_nfs_v3_all_squash` is Optional in `containers`\nenable_nfs_v3_all_squash = false\n  # `enable_nfs_v3_root_squash` is Optional in `containers`\nenable_nfs_v3_root_squash = false\n  # `immutable_storage_with_versioning` is Optional in `containers`\nimmutable_storage_with_versioning = {\n  # `enabled` is Required in `immutable_storage_with_versioning`\nenabled = false\n}\n\n  # `role_assignments` is Optional in `containers`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n}\n\n}\n\n  # `timeouts` is Optional in `containers`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"\"\n  # `delete` is Optional in `timeouts`\ndelete = \"\"\n  # `read` is Optional in `timeouts`\nread = \"\"\n  # `update` is Optional in `timeouts`\nupdate = \"\"\n}\n\n}\n\n}\n\n"
             },
             "share_properties": {
                 "required": false,
                 "description": "\n ---\n `cors_rule` block supports the following:\n - `allowed_headers` - (Required) A list of headers that are allowed to be a part of the cross-origin request.\n - `allowed_methods` - (Required) A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.\n - `allowed_origins` - (Required) A list of origin domains that will be allowed by CORS.\n - `exposed_headers` - (Required) A list of response headers that are exposed to CORS clients.\n - `max_age_in_seconds` - (Required) The number of seconds the client should cache a preflight response.\n\n ---\n `diagnostic_settings` block supports the following:\n - `name` - (Optional) The name of the diagnostic setting. Defaults to `null`.\n - `log_categories` - (Optional) A set of log categories to enable. Defaults to an empty set.\n - `log_groups` - (Optional) A set of log groups to enable. Defaults to `[\"allLogs\"]`.\n - `metric_categories` - (Optional) A set of metric categories to enable. Defaults to `[\"AllMetrics\"]`.\n - `log_analytics_destination_type` - (Optional) The destination type for log analytics. Defaults to `\"Dedicated\"`.\n - `workspace_resource_id` - (Optional) The resource ID of the Log Analytics workspace. Defaults to `null`.\n - `resource_id` - (Optional) The resource ID of the target resource for diagnostics. Defaults to `null`.\n - `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the Event Hub authorization rule. Defaults to `null`.\n - `event_hub_name` - (Optional) The name of the Event Hub. Defaults to `null`.\n - `marketplace_partner_resource_id` - (Optional) The resource ID of the marketplace partner. Defaults to `null`.\n\n ---\n `retention_policy` block supports the following:\n - `days` - (Optional) Specifies the number of days that the `azurerm_shares` should be retained, between `1` and `365` days. Defaults to `7`.\n\n ---\n `smb` block supports the following:\n - `authentication_types` - (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.\n - `channel_encryption_type` - (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.\n - `kerberos_ticket_encryption_type` - (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.\n - `multichannel_enabled` - (Optional) Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.\n - `versions` - (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.",
-                "priority": 10049,
-                "schema": "# `share_properties` is Optional in module\nshare_properties = {\n  # `cors_rule` is Optional in `share_properties`\ncors_rule = [{\n  # `allowed_headers` is Required in `cors_rule`\nallowed_headers = []\n  # `allowed_methods` is Required in `cors_rule`\nallowed_methods = []\n  # `allowed_origins` is Required in `cors_rule`\nallowed_origins = []\n  # `exposed_headers` is Required in `cors_rule`\nexposed_headers = []\n  # `max_age_in_seconds` is Required in `cors_rule`\nmax_age_in_seconds = 0\n}\n]\n  # `diagnostic_settings` is Optional in `share_properties`\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `resource_id` is Optional in `diagnostic_settings`\nresource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n  # `retention_policy` is Optional in `share_properties`\nretention_policy = {\n  # `days` is Optional in `retention_policy`\ndays = 0\n}\n\n  # `smb` is Optional in `share_properties`\nsmb = {\n  # `authentication_types` is Optional in `smb`\nauthentication_types = []\n  # `channel_encryption_type` is Optional in `smb`\nchannel_encryption_type = []\n  # `kerberos_ticket_encryption_type` is Optional in `smb`\nkerberos_ticket_encryption_type = []\n  # `multichannel_enabled` is Optional in `smb`\nmultichannel_enabled = false\n  # `versions` is Optional in `smb`\nversions = []\n}\n\n}\n\n"
-            },
-            "blob_properties": {
-                "required": false,
-                "description": " - `change_feed_enabled` - (Optional) Is the blob service properties for change feed events enabled? Default to `false`.\n - `change_feed_retention_in_days` - (Optional) The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.\n - `default_service_version` - (Optional) The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.\n - `last_access_time_enabled` - (Optional) Is the last access time based tracking enabled? Default to `false`.\n - `versioning_enabled` - (Optional) Is versioning enabled? Default to `true`.\n\n ---\n `container_delete_retention_policy` block supports the following:\n - `days` - (Optional) Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.\n\n ---\n `cors_rule` block supports the following:\n - `allowed_headers` - (Required) A list of headers that are allowed to be a part of the cross-origin request.\n - `allowed_methods` - (Required) A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.\n - `allowed_origins` - (Required) A list of origin domains that will be allowed by CORS.\n - `exposed_headers` - (Required) A list of response headers that are exposed to CORS clients.\n - `max_age_in_seconds` - (Required) The number of seconds the client should cache a preflight response.\n\n ---\n `delete_retention_policy` block supports the following:\n - `days` - (Optional) Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.\n\n ---\n `diagnostic_settings` block supports the following:\n - `name` - (Optional) The name of the diagnostic setting. Defaults to `null`.\n - `log_categories` - (Optional) A set of log categories to enable. Defaults to an empty set.\n - `log_groups` - (Optional) A set of log groups to enable. Defaults to `[\"allLogs\"]`.\n - `metric_categories` - (Optional) A set of metric categories to enable. Defaults to `[\"AllMetrics\"]`.\n - `log_analytics_destination_type` - (Optional) The destination type for log analytics. Defaults to `\"Dedicated\"`.\n - `workspace_resource_id` - (Optional) The resource ID of the Log Analytics workspace. Defaults to `null`.\n - `resource_id` - (Optional) The resource ID of the target resource for diagnostics. Defaults to `null`.\n - `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the Event Hub authorization rule. Defaults to `null`.\n - `event_hub_name` - (Optional) The name of the Event Hub. Defaults to `null`.\n - `marketplace_partner_resource_id` - (Optional) The resource ID of the marketplace partner. Defaults to `null`.\n\n ---\n `restore_policy` block supports the following:\n - `days` - (Required) Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.",
                 "priority": 10050,
-                "schema": "# `blob_properties` is Optional in module\nblob_properties = {\n  # `change_feed_enabled` is Optional in `blob_properties`\nchange_feed_enabled = false\n  # `change_feed_retention_in_days` is Optional in `blob_properties`\nchange_feed_retention_in_days = 0\n  # `default_service_version` is Optional in `blob_properties`\ndefault_service_version = \"\"\n  # `last_access_time_enabled` is Optional in `blob_properties`\nlast_access_time_enabled = false\n  # `versioning_enabled` is Optional in `blob_properties`\nversioning_enabled = true\n  # `container_delete_retention_policy` is Optional in `blob_properties`\ncontainer_delete_retention_policy = {\n  # `days` is Optional in `container_delete_retention_policy`\ndays = 7\n}\n\n  # `cors_rule` is Optional in `blob_properties`\ncors_rule = [{\n  # `allowed_headers` is Required in `cors_rule`\nallowed_headers = []\n  # `allowed_methods` is Required in `cors_rule`\nallowed_methods = []\n  # `allowed_origins` is Required in `cors_rule`\nallowed_origins = []\n  # `exposed_headers` is Required in `cors_rule`\nexposed_headers = []\n  # `max_age_in_seconds` is Required in `cors_rule`\nmax_age_in_seconds = 0\n}\n]\n  # `delete_retention_policy` is Optional in `blob_properties`\ndelete_retention_policy = {\n  # `days` is Optional in `delete_retention_policy`\ndays = 7\n}\n\n  # `diagnostic_settings` is Optional in `blob_properties`\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `resource_id` is Optional in `diagnostic_settings`\nresource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n  # `restore_policy` is Optional in `blob_properties`\nrestore_policy = {\n  # `days` is Required in `restore_policy`\ndays = 0\n}\n\n}\n\n"
+                "schema": "# `share_properties` is Optional in module\nshare_properties = {\n  # `cors_rule` is Optional in `share_properties`\ncors_rule = [{\n  # `allowed_headers` is Required in `cors_rule`\nallowed_headers = []\n  # `allowed_methods` is Required in `cors_rule`\nallowed_methods = []\n  # `allowed_origins` is Required in `cors_rule`\nallowed_origins = []\n  # `exposed_headers` is Required in `cors_rule`\nexposed_headers = []\n  # `max_age_in_seconds` is Required in `cors_rule`\nmax_age_in_seconds = 0\n}\n]\n  # `diagnostic_settings` is Optional in `share_properties`\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `resource_id` is Optional in `diagnostic_settings`\nresource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n  # `retention_policy` is Optional in `share_properties`\nretention_policy = {\n  # `days` is Optional in `retention_policy`\ndays = 0\n}\n\n  # `smb` is Optional in `share_properties`\nsmb = {\n  # `authentication_types` is Optional in `smb`\nauthentication_types = []\n  # `channel_encryption_type` is Optional in `smb`\nchannel_encryption_type = []\n  # `kerberos_ticket_encryption_type` is Optional in `smb`\nkerberos_ticket_encryption_type = []\n  # `multichannel_enabled` is Optional in `smb`\nmultichannel_enabled = false\n  # `versions` is Optional in `smb`\nversions = []\n}\n\n}\n\n"
             },
             "shares": {
                 "required": false,
@@ -18761,17 +18761,23 @@
                 "priority": 10052,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `subresource_name` is Required in `private_endpoints`\nsubresource_name = var.string_private_endpoints_subresource_name\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             },
+            "blob_properties": {
+                "required": false,
+                "description": " - `change_feed_enabled` - (Optional) Is the blob service properties for change feed events enabled? Default to `false`.\n - `change_feed_retention_in_days` - (Optional) The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.\n - `default_service_version` - (Optional) The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.\n - `last_access_time_enabled` - (Optional) Is the last access time based tracking enabled? Default to `false`.\n - `versioning_enabled` - (Optional) Is versioning enabled? Default to `true`.\n\n ---\n `container_delete_retention_policy` block supports the following:\n - `days` - (Optional) Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.\n - `enabled` - (Optional) Is delete retention policy enabled for containers. Defaults to `true`.\n\n ---\n `cors_rule` block supports the following:\n - `allowed_headers` - (Required) A list of headers that are allowed to be a part of the cross-origin request.\n - `allowed_methods` - (Required) A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.\n - `allowed_origins` - (Required) A list of origin domains that will be allowed by CORS.\n - `exposed_headers` - (Required) A list of response headers that are exposed to CORS clients.\n - `max_age_in_seconds` - (Required) The number of seconds the client should cache a preflight response.\n\n ---\n `delete_retention_policy` block supports the following:\n - `days` - (Optional) Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.\n - `enabled` - (Optional) Is delete retention policy enabled for blobs. Defaults to `true`.\n\n ---\n `diagnostic_settings` block supports the following:\n - `name` - (Optional) The name of the diagnostic setting. Defaults to `null`.\n - `log_categories` - (Optional) A set of log categories to enable. Defaults to an empty set.\n - `log_groups` - (Optional) A set of log groups to enable. Defaults to `[\"allLogs\"]`.\n - `metric_categories` - (Optional) A set of metric categories to enable. Defaults to `[\"AllMetrics\"]`.\n - `log_analytics_destination_type` - (Optional) The destination type for log analytics. Defaults to `\"Dedicated\"`.\n - `workspace_resource_id` - (Optional) The resource ID of the Log Analytics workspace. Defaults to `null`.\n - `resource_id` - (Optional) The resource ID of the target resource for diagnostics. Defaults to `null`.\n - `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the Event Hub authorization rule. Defaults to `null`.\n - `event_hub_name` - (Optional) The name of the Event Hub. Defaults to `null`.\n - `marketplace_partner_resource_id` - (Optional) The resource ID of the marketplace partner. Defaults to `null`.\n\n ---\n `restore_policy` block supports the following:\n - `days` - (Required) Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.",
+                "priority": 10053,
+                "schema": "# `blob_properties` is Optional in module\nblob_properties = {\n  # `change_feed_enabled` is Optional in `blob_properties`\nchange_feed_enabled = false\n  # `change_feed_retention_in_days` is Optional in `blob_properties`\nchange_feed_retention_in_days = 0\n  # `default_service_version` is Optional in `blob_properties`\ndefault_service_version = \"\"\n  # `last_access_time_enabled` is Optional in `blob_properties`\nlast_access_time_enabled = false\n  # `versioning_enabled` is Optional in `blob_properties`\nversioning_enabled = true\n  # `container_delete_retention_policy` is Optional in `blob_properties`\ncontainer_delete_retention_policy = {\n  # `enabled` is Optional in `container_delete_retention_policy`\nenabled = true\n  # `days` is Optional in `container_delete_retention_policy`\ndays = 7\n}\n\n  # `cors_rule` is Optional in `blob_properties`\ncors_rule = [{\n  # `allowed_headers` is Required in `cors_rule`\nallowed_headers = []\n  # `allowed_methods` is Required in `cors_rule`\nallowed_methods = []\n  # `allowed_origins` is Required in `cors_rule`\nallowed_origins = []\n  # `exposed_headers` is Required in `cors_rule`\nexposed_headers = []\n  # `max_age_in_seconds` is Required in `cors_rule`\nmax_age_in_seconds = 0\n}\n]\n  # `delete_retention_policy` is Optional in `blob_properties`\ndelete_retention_policy = {\n  # `enabled` is Optional in `delete_retention_policy`\nenabled = true\n  # `days` is Optional in `delete_retention_policy`\ndays = 7\n  # `permanent_delete_enabled` is Optional in `delete_retention_policy`\npermanent_delete_enabled = false\n}\n\n  # `diagnostic_settings` is Optional in `blob_properties`\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `resource_id` is Optional in `diagnostic_settings`\nresource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n  # `restore_policy` is Optional in `blob_properties`\nrestore_policy = {\n  # `days` is Required in `restore_policy`\ndays = 0\n}\n\n}\n\n"
+            },
             "storage_management_policy_rule": {
                 "required": false,
                 "description": " - `enabled` - (Required) Boolean to specify whether the rule is enabled.\n - `name` - (Required) The name of the rule. Rule name is case-sensitive. It must be unique within a policy.\n\n ---\n `actions` block supports the following:\n\n ---\n `base_blob` block supports the following:\n - `auto_tier_to_hot_from_cool_enabled` - (Optional) Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.\n - `delete_after_days_since_creation_greater_than` - (Optional) The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.\n - `delete_after_days_since_last_access_time_greater_than` - (Optional) The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.\n - `delete_after_days_since_modification_greater_than` - (Optional) The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_archive_after_days_since_creation_greater_than` - (Optional) The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.\n - `tier_to_archive_after_days_since_last_access_time_greater_than` - (Optional) The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.\n - `tier_to_archive_after_days_since_last_tier_change_greater_than` - (Optional) The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_archive_after_days_since_modification_greater_than` - (Optional) The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_cold_after_days_since_creation_greater_than` - (Optional) The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n - `tier_to_cold_after_days_since_last_access_time_greater_than` - (Optional) The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n - `tier_to_cold_after_days_since_modification_greater_than` - (Optional) The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_cool_after_days_since_creation_greater_than` - (Optional) The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n - `tier_to_cool_after_days_since_last_access_time_greater_than` - (Optional) The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n - `tier_to_cool_after_days_since_modification_greater_than` - (Optional) The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.\n\n ---\n `snapshot` block supports the following:\n - `change_tier_to_archive_after_days_since_creation` - (Optional) The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.\n - `change_tier_to_cool_after_days_since_creation` - (Optional) The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.\n - `delete_after_days_since_creation_greater_than` - (Optional) The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_archive_after_days_since_last_tier_change_greater_than` - (Optional) The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_cold_after_days_since_creation_greater_than` - (Optional) The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n\n ---\n `version` block supports the following:\n - `change_tier_to_archive_after_days_since_creation` - (Optional) The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.\n - `change_tier_to_cool_after_days_since_creation` - (Optional) The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.\n - `delete_after_days_since_creation` - (Optional) The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_archive_after_days_since_last_tier_change_greater_than` - (Optional) The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.\n - `tier_to_cold_after_days_since_creation_greater_than` - (Optional) The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.\n\n ---\n `filters` block supports the following:\n - `blob_types` - (Required) An array of predefined values. Valid options are `blockBlob` and `appendBlob`.\n - `prefix_match` - (Optional) An array of strings for prefixes to be matched.\n\n ---\n `match_blob_index_tag` block supports the following:\n - `name` - (Required) The filter tag name used for tag based filtering for blob objects.\n - `operation` - (Optional) The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.\n - `value` - (Required) The filter tag value used for tag based filtering for blob objects.",
-                "priority": 10053,
+                "priority": 10054,
                 "schema": "# `storage_management_policy_rule` is Optional in module\nstorage_management_policy_rule = {\n  example_key = {\n  # `enabled` is Required in `storage_management_policy_rule`\nenabled = false\n  # `name` is Required in `storage_management_policy_rule`\nname = \"example1\"\n  # `actions` is Required in `storage_management_policy_rule`\nactions = {\n  # `base_blob` is Optional in `actions`\nbase_blob = {\n  # `auto_tier_to_hot_from_cool_enabled` is Optional in `base_blob`\nauto_tier_to_hot_from_cool_enabled = false\n  # `delete_after_days_since_creation_greater_than` is Optional in `base_blob`\ndelete_after_days_since_creation_greater_than = 0\n  # `delete_after_days_since_last_access_time_greater_than` is Optional in `base_blob`\ndelete_after_days_since_last_access_time_greater_than = 0\n  # `delete_after_days_since_modification_greater_than` is Optional in `base_blob`\ndelete_after_days_since_modification_greater_than = 0\n  # `tier_to_archive_after_days_since_creation_greater_than` is Optional in `base_blob`\ntier_to_archive_after_days_since_creation_greater_than = 0\n  # `tier_to_archive_after_days_since_last_access_time_greater_than` is Optional in `base_blob`\ntier_to_archive_after_days_since_last_access_time_greater_than = 0\n  # `tier_to_archive_after_days_since_last_tier_change_greater_than` is Optional in `base_blob`\ntier_to_archive_after_days_since_last_tier_change_greater_than = 0\n  # `tier_to_archive_after_days_since_modification_greater_than` is Optional in `base_blob`\ntier_to_archive_after_days_since_modification_greater_than = 0\n  # `tier_to_cold_after_days_since_creation_greater_than` is Optional in `base_blob`\ntier_to_cold_after_days_since_creation_greater_than = 0\n  # `tier_to_cold_after_days_since_last_access_time_greater_than` is Optional in `base_blob`\ntier_to_cold_after_days_since_last_access_time_greater_than = 0\n  # `tier_to_cold_after_days_since_modification_greater_than` is Optional in `base_blob`\ntier_to_cold_after_days_since_modification_greater_than = 0\n  # `tier_to_cool_after_days_since_creation_greater_than` is Optional in `base_blob`\ntier_to_cool_after_days_since_creation_greater_than = 0\n  # `tier_to_cool_after_days_since_last_access_time_greater_than` is Optional in `base_blob`\ntier_to_cool_after_days_since_last_access_time_greater_than = 0\n  # `tier_to_cool_after_days_since_modification_greater_than` is Optional in `base_blob`\ntier_to_cool_after_days_since_modification_greater_than = 0\n}\n\n  # `snapshot` is Optional in `actions`\nsnapshot = {\n  # `change_tier_to_archive_after_days_since_creation` is Optional in `snapshot`\nchange_tier_to_archive_after_days_since_creation = 0\n  # `change_tier_to_cool_after_days_since_creation` is Optional in `snapshot`\nchange_tier_to_cool_after_days_since_creation = 0\n  # `delete_after_days_since_creation_greater_than` is Optional in `snapshot`\ndelete_after_days_since_creation_greater_than = 0\n  # `tier_to_archive_after_days_since_last_tier_change_greater_than` is Optional in `snapshot`\ntier_to_archive_after_days_since_last_tier_change_greater_than = 0\n  # `tier_to_cold_after_days_since_creation_greater_than` is Optional in `snapshot`\ntier_to_cold_after_days_since_creation_greater_than = 0\n}\n\n  # `version` is Optional in `actions`\nversion = {\n  # `change_tier_to_archive_after_days_since_creation` is Optional in `version`\nchange_tier_to_archive_after_days_since_creation = 0\n  # `change_tier_to_cool_after_days_since_creation` is Optional in `version`\nchange_tier_to_cool_after_days_since_creation = 0\n  # `delete_after_days_since_creation` is Optional in `version`\ndelete_after_days_since_creation = 0\n  # `tier_to_archive_after_days_since_last_tier_change_greater_than` is Optional in `version`\ntier_to_archive_after_days_since_last_tier_change_greater_than = 0\n  # `tier_to_cold_after_days_since_creation_greater_than` is Optional in `version`\ntier_to_cold_after_days_since_creation_greater_than = 0\n}\n\n}\n\n  # `filters` is Required in `storage_management_policy_rule`\nfilters = {\n  # `blob_types` is Required in `filters`\nblob_types = []\n  # `prefix_match` is Optional in `filters`\nprefix_match = []\n  # `match_blob_index_tag` is Optional in `filters`\nmatch_blob_index_tag = [{\n  # `name` is Required in `match_blob_index_tag`\nname = \"example1\"\n  # `value` is Required in `match_blob_index_tag`\nvalue = var.string_match_blob_index_tag_value\n  # `operation` is Optional in `match_blob_index_tag`\noperation = \"\"\n}\n]\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -18825,14 +18831,15 @@
                     "avm-res-keyvault-vault",
                     "avm-res-managedidentity-userassignedidentity"
                 ],
+                "diagnostic_settings_storage_account": [],
                 "role_assignments": [],
                 "azure_files_authentication": [],
                 "diagnostic_settings_blob": [],
                 "diagnostic_settings_queue": [],
-                "diagnostic_settings_storage_account": [],
                 "diagnostic_settings_table": [],
                 "diagnostic_settings_file": [],
                 "network_rules": [],
+                "storage_data_lake_gen2_paths": [],
                 "storage_data_lake_gen2_filesystems": [],
                 "queues": [],
                 "local_user": [],
@@ -18840,9 +18847,9 @@
                 "tables": [],
                 "containers": [],
                 "share_properties": [],
-                "blob_properties": [],
                 "shares": [],
                 "private_endpoints": [],
+                "blob_properties": [],
                 "storage_management_policy_rule": []
             }
         },
