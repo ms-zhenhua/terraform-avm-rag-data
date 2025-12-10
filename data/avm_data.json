@@ -415,8 +415,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4862,12 +4862,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5700,8 +5700,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6492,8 +6492,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9726,8 +9726,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14388,7 +14388,7 @@
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "  This variable controls whether or not telemetry is enabled for the module.\n  For more information see https://aka.ms/avm/telemetry.\n  If it is set to false, then no telemetry will be collected.",
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
                 "priority": 10002,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
@@ -14484,7 +14484,7 @@
             },
             "public_ip_address_configuration": {
                 "required": false,
-                "description": "  An object variable that configures the settings that will be the same for all public IPs for this Load Balancer\n\n  - `allocation_method`: (Optional) The allocation method for this IP address. Possible valuse are `Static` or `Dynamic`\n  - `resource_group_name`: (Optional) Specifies the resource group to deploy all of the public IP addresses to be created\n  - `ddos_protection_mode`: (Optional) The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.\n  - `ddos_protection_plan_resource_id`: (Optional) The ID of DDoS protection plan associated with the public IP\n  - `domain_name_label`: (Optional) The label for the Domain Name. This will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.\n  - `idle_timeout_in_minutes`: (Optional) Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.\n  - `ip_tags`: (Optional) A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.\n  - `ip_version`: (Optional) The version of IP to use for the Public IPs. Possible valuse are `IPv4` or `IPv6`. Changing this forces a new resource to be created.\n  - `public_ip_prefix_resource_id`: (Optional) If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.\n  - `reverse_fqdn`: (Optional) A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.\n  - `sku`: (Optional) The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.\n  - `sku_tier`: (Optional) The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.\n  - `tags`: (Optional) The collection of tags to be assigned to all every Public IP.\n\n  Example Input:\n  ```terraform\n  # Standard Regional IPv4 Public IP address Configuration\n  public_ip_address_configuration = {\n    allocation_method = \"Static\"\n    ddos_protection_mode = \"VirtualNetworkInherited\"\n    idle_timeout_in_minutes = 30\n    ip_version = \"IPv4\"\n    sku_tier = \"Regional\"\n  }\n  ```",
+                "description": "  An object variable that configures the settings that will be the same for all public IPs for this Load Balancer\n\n  - `allocation_method`: (Optional) The allocation method for this IP address. Possible valuse are `Static` or `Dynamic`\n  - `resource_group_name`: (Optional) Specifies the resource group to deploy all of the public IP addresses to be created\n  - `ddos_protection_mode`: (Optional) The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`. If you wish to protect the public IP with an individual DDOS IP Protection Plan, set this to enabled and `ddos_protection_plan_resource_id` to `null`.\n  - `ddos_protection_plan_resource_id`: (Optional) The ID of DDoS protection plan associated with the public IP. If you wish to protect the public IP with an individual DDOS IP Protection Plan, set this to `null` and set `ddos_protection_mode` to `Enabled`.\n  - `domain_name_label`: (Optional) The label for the Domain Name. This will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.\n  - `idle_timeout_in_minutes`: (Optional) Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.\n  - `ip_tags`: (Optional) A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.\n  - `ip_version`: (Optional) The version of IP to use for the Public IPs. Possible valuse are `IPv4` or `IPv6`. Changing this forces a new resource to be created.\n  - `public_ip_prefix_resource_id`: (Optional) If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.\n  - `reverse_fqdn`: (Optional) A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.\n  - `sku`: (Optional) The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.\n  - `sku_tier`: (Optional) The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.\n  - `tags`: (Optional) The collection of tags to be assigned to all every Public IP.\n\n  Example Input:\n  ```terraform\n  # Standard Regional IPv4 Public IP address Configuration\n  public_ip_address_configuration = {\n    allocation_method = \"Static\"\n    ddos_protection_mode = \"VirtualNetworkInherited\"\n    idle_timeout_in_minutes = 30\n    ip_version = \"IPv4\"\n    sku_tier = \"Regional\"\n  }\n  ```",
                 "priority": 10018,
                 "schema": "# `public_ip_address_configuration` is Optional in module\npublic_ip_address_configuration = {\n  # `resource_group_name` is Optional in `public_ip_address_configuration`\nresource_group_name = \"\"\n  # `allocation_method` is Optional in `public_ip_address_configuration`\nallocation_method = \"Static\"\n  # `ddos_protection_mode` is Optional in `public_ip_address_configuration`\nddos_protection_mode = \"VirtualNetworkInherited\"\n  # `ddos_protection_plan_resource_id` is Optional in `public_ip_address_configuration`\nddos_protection_plan_resource_id = \"\"\n  # `domain_name_label` is Optional in `public_ip_address_configuration`\ndomain_name_label = \"\"\n  # `idle_timeout_in_minutes` is Optional in `public_ip_address_configuration`\nidle_timeout_in_minutes = 4\n  # `ip_tags` is Optional in `public_ip_address_configuration`\nip_tags = {\n  example_key = \"\"\n}\n\n  # `ip_version` is Optional in `public_ip_address_configuration`\nip_version = \"IPv4\"\n  # `public_ip_prefix_resource_id` is Optional in `public_ip_address_configuration`\npublic_ip_prefix_resource_id = \"\"\n  # `reverse_fqdn` is Optional in `public_ip_address_configuration`\nreverse_fqdn = \"\"\n  # `sku` is Optional in `public_ip_address_configuration`\nsku = \"Standard\"\n  # `sku_tier` is Optional in `public_ip_address_configuration`\nsku_tier = \"Regional\"\n  # `tags` is Optional in `public_ip_address_configuration`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n"
             }
@@ -14781,7 +14781,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 52,
+        "priority": 53,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15158,7 +15158,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 52,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15520,12 +15520,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15945,7 +15945,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 53,
+        "priority": 51,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16093,10 +16093,10 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-network-natgateway",
                 "avm-res-network-routetable",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16131,10 +16131,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
                     "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-routetable",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable"
+                    "avm-res-network-natgateway"
                 ]
             }
         },
@@ -16799,14 +16799,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17858,8 +17858,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18777,8 +18777,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
