@@ -7,20 +7,34 @@
         "description": "Manages API Management Service.",
         "outputs": [
             "additional_locations",
+            "api_ids",
+            "api_operation_ids",
+            "api_operations",
+            "api_version_set_ids",
+            "api_version_sets",
             "apim_gateway_url",
             "apim_management_url",
+            "apis",
             "certificates",
             "developer_portal_url",
             "gateway_regional_url",
             "hostname_configuration",
             "name",
+            "named_value_ids",
+            "named_values",
+            "policy",
             "portal_url",
             "private_endpoints",
             "private_ip_addresses",
+            "product_ids",
+            "products",
             "public_ip_addresses",
             "resource",
             "resource_id",
             "scm_url",
+            "subscription_ids",
+            "subscription_keys",
+            "subscriptions",
             "tenant_access",
             "workspace_identity"
         ],
@@ -41,7 +55,7 @@
                 "required": true,
                 "description": "The email of the API Management service publisher.",
                 "priority": 2,
-                "schema": "# `publisher_email` is Required in module\npublisher_email = \"example@example.com\"\n"
+                "schema": "# `publisher_email` is Required in module\npublisher_email = \"admin@contoso.com\"\n"
             },
             "resource_group_name": {
                 "required": true,
@@ -101,13 +115,13 @@
                 "required": false,
                 "description": "The name of the API Management service publisher.",
                 "priority": 10008,
-                "schema": "# `publisher_name` is Optional in module\npublisher_name = \"Apim Example Publisher\"\n"
+                "schema": "# `publisher_name` is Optional in module\npublisher_name = \"Contoso\"\n"
             },
             "sku_name": {
                 "required": false,
                 "description": "The SKU name of the API Management service.",
                 "priority": 10009,
-                "schema": "# `sku_name` is Optional in module\nsku_name = \"Premium_3\"\n"
+                "schema": "# `sku_name` is Optional in module\nsku_name = \"Developer_1\"\n"
             },
             "virtual_network_subnet_id": {
                 "required": false,
@@ -125,97 +139,133 @@
                 "required": false,
                 "description": "Specifies a list of Availability Zones in which this API Management service should be located. Only supported in the Premium tier.",
                 "priority": 10012,
-                "schema": "# `zones` is Optional in module\nzones = [\"3\"]\n"
+                "schema": "# `zones` is Optional in module\nzones = []\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
                 "priority": 10013,
-                "schema": "# `tags` is Optional in module\ntags = {\n  environment = \"test\"\n}\n\n"
+                "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
+            },
+            "policy": {
+                "required": false,
+                "description": "Service-level (global) policy for the API Management service. This policy applies to all APIs.\n\n- `xml_content` - (Required) The XML content of the policy.\n\nExample:\n```terraform\npolicy = {\n  xml_content = <<XML\n<policies>\n  <inbound>\n    <base />\n    <cors allow-credentials=\"true\">\n      <allowed-origins>\n        <origin>https://example.com</origin>\n      </allowed-origins>\n      <allowed-methods>\n        <method>GET</method>\n        <method>POST</method>\n      </allowed-methods>\n    </cors>\n    <rate-limit-by-key calls=\"100\" renewal-period=\"60\" counter-key=\"@(context.Subscription.Id)\" />\n  </inbound>\n  <backend>\n    <base />\n  </backend>\n  <outbound>\n    <base />\n    <set-header name=\"X-Powered-By\" exists-action=\"delete\" />\n  </outbound>\n  <on-error>\n    <base />\n  </on-error>\n</policies>\nXML\n}\n```",
+                "priority": 10014,
+                "schema": "# `policy` is Optional in module\npolicy = {\n  # `xml_content` is Required in `policy`\nxml_content = var.string_policy_xml_content\n}\n\n"
             },
             "protocols": {
                 "required": false,
                 "description": "Protocol settings for the API Management service.",
-                "priority": 10014,
+                "priority": 10015,
                 "schema": "# `protocols` is Optional in module\nprotocols = {\n  # `enable_http2` is Optional in `protocols`\nenable_http2 = false\n}\n\n"
             },
             "sign_in": {
                 "required": false,
                 "description": "Sign-in settings for the API Management service. When enabled, anonymous users will be redirected to the sign-in page.",
-                "priority": 10015,
+                "priority": 10016,
                 "schema": "# `sign_in` is Optional in module\nsign_in = {\n  # `enabled` is Required in `sign_in`\nenabled = false\n}\n\n"
             },
             "tenant_access": {
                 "required": false,
                 "description": "Controls whether access to the management API is enabled. When enabled, the primary/secondary keys provide access to this API.",
-                "priority": 10016,
+                "priority": 10017,
                 "schema": "# `tenant_access` is Optional in module\ntenant_access = {\n  # `enabled` is Required in `tenant_access`\nenabled = false\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10017,
+                "priority": 10018,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10018,
-                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
+                "priority": 10019,
+                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "certificate": {
                 "required": false,
                 "description": "Certificate configurations for the API Management service.",
-                "priority": 10019,
+                "priority": 10020,
                 "schema": "# `certificate` is Optional in module\ncertificate = [{\n  # `encoded_certificate` is Required in `certificate`\nencoded_certificate = var.string_certificate_encoded_certificate\n  # `store_name` is Required in `certificate`\nstore_name = var.string_certificate_store_name\n  # `certificate_password` is Optional in `certificate`\ncertificate_password = \"\"\n}\n]\n"
             },
             "delegation": {
                 "required": false,
                 "description": "Delegation settings for the API Management service.",
-                "priority": 10020,
+                "priority": 10021,
                 "schema": "# `delegation` is Optional in module\ndelegation = {\n  # `subscriptions_enabled` is Optional in `delegation`\nsubscriptions_enabled = false\n  # `user_registration_enabled` is Optional in `delegation`\nuser_registration_enabled = false\n  # `url` is Optional in `delegation`\nurl = \"\"\n  # `validation_key` is Optional in `delegation`\nvalidation_key = \"\"\n}\n\n"
             },
             "sign_up": {
                 "required": false,
                 "description": "Sign-up settings for the API Management service.",
-                "priority": 10021,
+                "priority": 10022,
                 "schema": "# `sign_up` is Optional in module\nsign_up = {\n  # `enabled` is Required in `sign_up`\nenabled = false\n  # `terms_of_service` is Required in `sign_up`\nterms_of_service = {\n  # `consent_required` is Required in `terms_of_service`\nconsent_required = false\n  # `enabled` is Required in `terms_of_service`\nenabled = false\n  # `text` is Optional in `terms_of_service`\ntext = \"\"\n}\n\n}\n\n"
+            },
+            "api_version_sets": {
+                "required": false,
+                "description": "API Version Sets for the API Management service. Version sets enable API versioning using Header, Query, or Segment-based schemes.\n\n- `display_name` - (Required) The display name of the API version set.\n- `versioning_scheme` - (Required) The versioning scheme. Valid values: `Header`, `Query`, `Segment`.\n- `description` - (Optional) Description of the API version set.\n- `version_header_name` - (Optional) Name of the HTTP header parameter for the `Header` versioning scheme. Required when `versioning_scheme` is `Header`.\n- `version_query_name` - (Optional) Name of the query string parameter for the `Query` versioning scheme. Required when `versioning_scheme` is `Query`.\n\nExample:\n```terraform\napi_version_sets = {\n  \"my-api-versions\" = {\n    display_name        = \"My API Versions\"\n    versioning_scheme   = \"Header\"\n    version_header_name = \"api-version\"\n    description         = \"Version set for My API\"\n  }\n}\n```",
+                "priority": 10023,
+                "schema": "# `api_version_sets` is Optional in module\napi_version_sets = {\n  example_key = {\n  # `display_name` is Required in `api_version_sets`\ndisplay_name = var.string_api_version_sets_display_name\n  # `versioning_scheme` is Required in `api_version_sets`\nversioning_scheme = var.string_api_version_sets_versioning_scheme\n  # `description` is Optional in `api_version_sets`\ndescription = \"\"\n  # `version_header_name` is Optional in `api_version_sets`\nversion_header_name = \"\"\n  # `version_query_name` is Optional in `api_version_sets`\nversion_query_name = \"\"\n}\n\n}\n\n"
             },
             "additional_location": {
                 "required": false,
                 "description": "Additional datacenter locations where the API Management service should be provisioned.",
-                "priority": 10022,
+                "priority": 10024,
                 "schema": "# `additional_location` is Optional in module\nadditional_location = [{\n  # `location` is Required in `additional_location`\nlocation = \"westeurope\"\n  # `capacity` is Optional in `additional_location`\ncapacity = 0\n  # `zones` is Optional in `additional_location`\nzones = []\n  # `public_ip_address_id` is Optional in `additional_location`\npublic_ip_address_id = \"\"\n  # `gateway_disabled` is Optional in `additional_location`\ngateway_disabled = false\n  # `virtual_network_configuration` is Optional in `additional_location`\nvirtual_network_configuration = {\n  # `subnet_id` is Required in `virtual_network_configuration`\nsubnet_id = var.string_virtual_network_configuration_subnet_id\n}\n\n}\n]\n"
+            },
+            "named_values": {
+                "required": false,
+                "description": "Named values for the API Management service. Named values are a collection of key/value pairs that can be referenced in policies and API configurations.\n\n- `display_name` - (Required) The display name of the named value. Must be unique within the API Management service.\n- `value` - (Optional) The value of the named value. Conflicts with `value_from_key_vault`. If neither is specified, the named value must be set through other means.\n- `secret` - (Optional) Whether the value is a secret and should be encrypted. Defaults to `false`.\n- `tags` - (Optional) A list of tags that can be used to filter the named values list.\n- `value_from_key_vault` - (Optional) A Key Vault configuration for secret values. Conflicts with `value`.\n  - `secret_id` - (Required) The versioned secret ID from Key Vault (e.g., `https://myvault.vault.azure.net/secrets/mysecret/version`).\n  - `identity_client_id` - (Optional) The client ID of a user-assigned managed identity to use for Key Vault access. If not specified, the system-assigned identity will be used.\n\nExample:\n```terraform\nnamed_values = {\n  \"api-key\" = {\n    display_name = \"API Key\"\n    value        = \"my-secret-key\"\n    secret       = true\n    tags         = [\"production\", \"api\"]\n  }\n  \"keyvault-secret\" = {\n    display_name = \"Database Connection String\"\n    secret       = true\n    value_from_key_vault = {\n      secret_id = \"https://myvault.vault.azure.net/secrets/db-conn/abc123\"\n    }\n  }\n}\n```",
+                "priority": 10025,
+                "schema": "# `named_values` is Optional in module\nnamed_values = {\n  backend-url = {\n  # `display_name` is Required in `named_values`\ndisplay_name = \"Environment\"\n  # `value` is Optional in `named_values`\nvalue = \"development\"\n  # `secret` is Optional in `named_values`\nsecret = true\n  # `tags` is Optional in `named_values`\ntags = [\"environment\"]\n  # `value_from_key_vault` is Optional in `named_values`\nvalue_from_key_vault = {\n  # `secret_id` is Required in `value_from_key_vault`\nsecret_id = var.string_value_from_key_vault_secret_id\n  # `identity_client_id` is Optional in `value_from_key_vault`\nidentity_client_id = \"\"\n}\n\n}\n\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10023,
+                "priority": 10026,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
+            },
+            "subscriptions": {
+                "required": false,
+                "description": "Subscriptions for the API Management service. The map key is the subscription identifier.\n\n- `display_name` - (Required) The display name of the subscription.\n- `scope_type` - (Required) The scope type. Valid values: `product`, `api`, `all_apis`.\n- `scope_identifier` - (Optional) The product ID or API name. Required for `product` and `api` scope types. Not needed for `all_apis`.\n- `user_id` - (Optional) The user ID for this subscription (format: /users/{userId}).\n- `primary_key` - (Optional) Custom primary subscription key.\n- `secondary_key` - (Optional) Custom secondary subscription key.\n- `state` - (Optional) The state of the subscription. Valid values: `active`, `suspended`, `submitted`, `rejected`, `cancelled`. Default is `active`.\n- `allow_tracing` - (Optional) Whether tracing is allowed. Default is `false`.\n\nExample:\n```terraform\nsubscriptions = {\n  \"developer-sub\" = {\n    display_name     = \"Developer Subscription\"\n    scope_type       = \"product\"\n    scope_identifier = \"starter\"\n    state            = \"active\"\n    allow_tracing    = true\n  }\n  \"api-specific-sub\" = {\n    display_name     = \"Petstore API Subscription\"\n    scope_type       = \"api\"\n    scope_identifier = \"petstore-api\"\n    state            = \"active\"\n  }\n}\n```",
+                "priority": 10027,
+                "schema": "# `subscriptions` is Optional in module\nsubscriptions = {\n  starter-subscription = {\n  # `display_name` is Required in `subscriptions`\ndisplay_name = \"Premium Subscription\"\n  # `scope_type` is Required in `subscriptions`\nscope_type = \"product\"\n  # `scope_identifier` is Optional in `subscriptions`\nscope_identifier = \"premium\"\n  # `user_id` is Optional in `subscriptions`\nuser_id = \"\"\n  # `primary_key` is Optional in `subscriptions`\nprimary_key = \"\"\n  # `secondary_key` is Optional in `subscriptions`\nsecondary_key = \"\"\n  # `state` is Optional in `subscriptions`\nstate = \"submitted\"\n  # `allow_tracing` is Optional in `subscriptions`\nallow_tracing = true\n}\n\n}\n\n"
+            },
+            "products": {
+                "required": false,
+                "description": "Products for the API Management service. The map key is the product identifier.\n\n- `display_name` - (Required) The display name of the product.\n- `description` - (Optional) Description of the product.\n- `terms` - (Optional) Terms of use for the product.\n- `subscription_required` - (Optional) Whether a subscription is required to access APIs in this product. Default is `false`.\n- `approval_required` - (Optional) Whether subscription approval is required. Default is `false`.\n- `subscriptions_limit` - (Optional) Maximum number of subscriptions allowed for this product.\n- `state` - (Optional) Publication state of the product. Valid values: `published`, `notPublished`. Default is `published`.\n- `api_names` - (Optional) List of API names to associate with this product.\n- `group_names` - (Optional) List of group names to associate with this product (e.g., \"developers\", \"administrators\", \"guests\").\n\nExample:\n```terraform\nproducts = {\n  \"starter\" = {\n    display_name          = \"Starter\"\n    description           = \"Starter product for new developers\"\n    subscription_required = true\n    approval_required     = false\n    state                 = \"published\"\n    api_names             = [\"petstore-api\", \"weather-api\"]\n    group_names           = [\"developers\"]\n  }\n}\n```",
+                "priority": 10028,
+                "schema": "# `products` is Optional in module\nproducts = {\n  starter = {\n  # `display_name` is Required in `products`\ndisplay_name = \"Premium\"\n  # `description` is Optional in `products`\ndescription = \"Premium access with higher rate limits - requires approval\"\n  # `terms` is Optional in `products`\nterms = \"By subscribing to this product, you agree to our terms of service.\"\n  # `subscription_required` is Optional in `products`\nsubscription_required = true\n  # `approval_required` is Optional in `products`\napproval_required = true\n  # `subscriptions_limit` is Optional in `products`\nsubscriptions_limit = 10.0\n  # `state` is Optional in `products`\nstate = \"published\"\n  # `api_names` is Optional in `products`\napi_names = [\"echo-api\"]\n  # `group_names` is Optional in `products`\ngroup_names = [\"guests\"]\n}\n\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10024,
+                "priority": 10029,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "security": {
                 "required": false,
                 "description": "Security settings for the API Management service.",
-                "priority": 10025,
+                "priority": 10030,
                 "schema": "# `security` is Optional in module\nsecurity = {\n  # `enable_backend_ssl30` is Optional in `security`\nenable_backend_ssl30 = false\n  # `enable_backend_tls10` is Optional in `security`\nenable_backend_tls10 = false\n  # `enable_backend_tls11` is Optional in `security`\nenable_backend_tls11 = false\n  # `enable_frontend_ssl30` is Optional in `security`\nenable_frontend_ssl30 = false\n  # `enable_frontend_tls10` is Optional in `security`\nenable_frontend_tls10 = false\n  # `enable_frontend_tls11` is Optional in `security`\nenable_frontend_tls11 = false\n  # `tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled = false\n  # `tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled = false\n  # `tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled = false\n  # `tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled = false\n  # `tls_rsa_with_aes128_cbc_sha256_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes128_cbc_sha256_ciphers_enabled = false\n  # `tls_rsa_with_aes128_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes128_cbc_sha_ciphers_enabled = false\n  # `tls_rsa_with_aes128_gcm_sha256_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes128_gcm_sha256_ciphers_enabled = false\n  # `tls_rsa_with_aes256_gcm_sha384_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes256_gcm_sha384_ciphers_enabled = false\n  # `tls_rsa_with_aes256_cbc_sha256_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes256_cbc_sha256_ciphers_enabled = false\n  # `tls_rsa_with_aes256_cbc_sha_ciphers_enabled` is Optional in `security`\ntls_rsa_with_aes256_cbc_sha_ciphers_enabled = false\n  # `triple_des_ciphers_enabled` is Optional in `security`\ntriple_des_ciphers_enabled = false\n}\n\n"
             },
             "private_endpoints": {
                 "required": false,
                 "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the IP configuration.\n  - `private_ip_address` - The private IP address of the IP configuration.",
-                "priority": 10026,
+                "priority": 10031,
                 "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             },
             "hostname_configuration": {
                 "required": false,
                 "description": "Hostname configuration for the API Management service.",
-                "priority": 10027,
+                "priority": 10032,
                 "schema": "# `hostname_configuration` is Optional in module\nhostname_configuration = {\n  # `management` is Optional in `hostname_configuration`\nmanagement = [{\n  # `host_name` is Required in `management`\nhost_name = var.string_management_host_name\n  # `key_vault_id` is Optional in `management`\nkey_vault_id = \"\"\n  # `certificate` is Optional in `management`\ncertificate = \"\"\n  # `certificate_password` is Optional in `management`\ncertificate_password = \"\"\n  # `negotiate_client_certificate` is Optional in `management`\nnegotiate_client_certificate = false\n  # `ssl_keyvault_identity_client_id` is Optional in `management`\nssl_keyvault_identity_client_id = \"\"\n}\n]\n  # `portal` is Optional in `hostname_configuration`\nportal = [{\n  # `host_name` is Required in `portal`\nhost_name = var.string_portal_host_name\n  # `key_vault_id` is Optional in `portal`\nkey_vault_id = \"\"\n  # `certificate` is Optional in `portal`\ncertificate = \"\"\n  # `certificate_password` is Optional in `portal`\ncertificate_password = \"\"\n  # `negotiate_client_certificate` is Optional in `portal`\nnegotiate_client_certificate = false\n  # `ssl_keyvault_identity_client_id` is Optional in `portal`\nssl_keyvault_identity_client_id = \"\"\n}\n]\n  # `developer_portal` is Optional in `hostname_configuration`\ndeveloper_portal = [{\n  # `host_name` is Required in `developer_portal`\nhost_name = var.string_developer_portal_host_name\n  # `key_vault_id` is Optional in `developer_portal`\nkey_vault_id = \"\"\n  # `certificate` is Optional in `developer_portal`\ncertificate = \"\"\n  # `certificate_password` is Optional in `developer_portal`\ncertificate_password = \"\"\n  # `negotiate_client_certificate` is Optional in `developer_portal`\nnegotiate_client_certificate = false\n  # `ssl_keyvault_identity_client_id` is Optional in `developer_portal`\nssl_keyvault_identity_client_id = \"\"\n}\n]\n  # `proxy` is Optional in `hostname_configuration`\nproxy = [{\n  # `host_name` is Required in `proxy`\nhost_name = var.string_proxy_host_name\n  # `default_ssl_binding` is Optional in `proxy`\ndefault_ssl_binding = false\n  # `key_vault_id` is Optional in `proxy`\nkey_vault_id = \"\"\n  # `certificate` is Optional in `proxy`\ncertificate = \"\"\n  # `certificate_password` is Optional in `proxy`\ncertificate_password = \"\"\n  # `negotiate_client_certificate` is Optional in `proxy`\nnegotiate_client_certificate = false\n  # `ssl_keyvault_identity_client_id` is Optional in `proxy`\nssl_keyvault_identity_client_id = \"\"\n}\n]\n  # `scm` is Optional in `hostname_configuration`\nscm = [{\n  # `host_name` is Required in `scm`\nhost_name = var.string_scm_host_name\n  # `key_vault_id` is Optional in `scm`\nkey_vault_id = \"\"\n  # `certificate` is Optional in `scm`\ncertificate = \"\"\n  # `certificate_password` is Optional in `scm`\ncertificate_password = \"\"\n  # `negotiate_client_certificate` is Optional in `scm`\nnegotiate_client_certificate = false\n  # `ssl_keyvault_identity_client_id` is Optional in `scm`\nssl_keyvault_identity_client_id = \"\"\n}\n]\n}\n\n"
+            },
+            "apis": {
+                "required": false,
+                "description": "APIs for the API Management service. APIs define the operations available to API consumers.\n\n- `display_name` - (Required) The display name of the API.\n- `path` - (Required) The relative path for the API. Must be unique within the API Management service.\n- `protocols` - (Optional) A list of protocols the API supports. Valid values: `http`, `https`, `ws`, `wss`. Defaults to `[\"https\"]`.\n- `revision` - (Optional) The revision number of the API. Defaults to `\"1\"`.\n- `service_url` - (Optional) The backend service URL for the API.\n- `description` - (Optional) Description of the API.\n- `subscription_required` - (Optional) Whether a subscription key is required to access the API. Defaults to `true`.\n\nVersioning:\n- `api_version` - (Optional) The version identifier for the API.\n- `api_version_set_name` - (Optional) The name of the API version set to associate with this API.\n- `revision_description` - (Optional) Description of the API revision.\n\nImport:\n- `import` - (Optional) Import configuration for OpenAPI, WSDL, WADL specifications.\n  - `content_format` - (Required) Format of the content. Valid values: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl`, `wsdl-link`.\n  - `content_value` - (Required) The API definition content or URL.\n  - `wsdl_selector` - (Optional) WSDL selector for SOAP APIs.\n\nOperations:\n- `operations` - (Optional) Map of API operations. Each operation defines an HTTP method and URL template.\n\nPolicies:\n- `policy` - (Optional) API-level policy configuration.\n  - `xml_content` - (Optional) XML policy content.\n  - `xml_link` - (Optional) URL to XML policy content.\n\nExample:\n```terraform\napis = {\n  \"petstore-api\" = {\n    display_name = \"Petstore API\"\n    path         = \"petstore\"\n    protocols    = [\"https\"]\n    service_url  = \"https://petstore.swagger.io/v2\"\n\n    operations = {\n      \"get-pets\" = {\n        display_name = \"Get all pets\"\n        method       = \"GET\"\n        url_template = \"/pets\"\n      }\n    }\n  }\n}\n```",
+                "priority": 10033,
+                "schema": "# `apis` is Optional in module\napis = {\n  echo-api = {\n  # `display_name` is Required in `apis`\ndisplay_name = \"Echo API\"\n  # `path` is Required in `apis`\npath = \"echo\"\n  # `protocols` is Optional in `apis`\nprotocols = [\"https\"]\n  # `revision` is Optional in `apis`\nrevision = \"1\"\n  # `service_url` is Optional in `apis`\nservice_url = \"http://echoapi.cloudapp.net/api\"\n  # `description` is Optional in `apis`\ndescription = \"Simple echo API for testing - returns request information\"\n  # `subscription_required` is Optional in `apis`\nsubscription_required = true\n  # `api_version` is Optional in `apis`\napi_version = \"\"\n  # `api_version_set_name` is Optional in `apis`\napi_version_set_name = \"\"\n  # `revision_description` is Optional in `apis`\nrevision_description = \"\"\n  # `import` is Optional in `apis`\nimport = {\n  # `content_format` is Required in `import`\ncontent_format = var.string_import_content_format\n  # `content_value` is Required in `import`\ncontent_value = var.string_import_content_value\n  # `wsdl_selector` is Optional in `import`\nwsdl_selector = {\n  # `service_name` is Required in `wsdl_selector`\nservice_name = var.string_wsdl_selector_service_name\n  # `endpoint_name` is Required in `wsdl_selector`\nendpoint_name = var.string_wsdl_selector_endpoint_name\n}\n\n}\n\n  # `source_api_id` is Optional in `apis`\nsource_api_id = \"\"\n  # `oauth2_authorization` is Optional in `apis`\noauth2_authorization = {\n  # `authorization_server_name` is Required in `oauth2_authorization`\nauthorization_server_name = var.string_oauth2_authorization_authorization_server_name\n  # `scope` is Optional in `oauth2_authorization`\nscope = \"\"\n}\n\n  # `openid_authentication` is Optional in `apis`\nopenid_authentication = {\n  # `openid_provider_name` is Required in `openid_authentication`\nopenid_provider_name = var.string_openid_authentication_openid_provider_name\n  # `bearer_token_sending_methods` is Optional in `openid_authentication`\nbearer_token_sending_methods = []\n}\n\n  # `subscription_key_parameter_names` is Optional in `apis`\nsubscription_key_parameter_names = {\n  # `header` is Required in `subscription_key_parameter_names`\nheader = var.string_subscription_key_parameter_names_header\n  # `query` is Required in `subscription_key_parameter_names`\nquery = var.string_subscription_key_parameter_names_query\n}\n\n  # `contact` is Optional in `apis`\ncontact = {\n  # `email` is Optional in `contact`\nemail = \"\"\n  # `name` is Optional in `contact`\nname = \"\"\n  # `url` is Optional in `contact`\nurl = \"\"\n}\n\n  # `license` is Optional in `apis`\nlicense = {\n  # `name` is Optional in `license`\nname = \"\"\n  # `url` is Optional in `license`\nurl = \"\"\n}\n\n  # `terms_of_service_url` is Optional in `apis`\nterms_of_service_url = \"\"\n  # `policy` is Optional in `apis`\npolicy = {\n  # `xml_content` is Optional in `policy`\nxml_content = \"\"\n  # `xml_link` is Optional in `policy`\nxml_link = \"\"\n}\n\n  # `operations` is Optional in `apis`\noperations = {\n  get-resource = {\n  # `display_name` is Required in `operations`\ndisplay_name = \"Get Resource\"\n  # `method` is Required in `operations`\nmethod = \"GET\"\n  # `url_template` is Required in `operations`\nurl_template = \"/resource\"\n  # `description` is Optional in `operations`\ndescription = \"Echo back request information\"\n  # `template_parameters` is Optional in `operations`\ntemplate_parameters = [{\n  # `name` is Required in `template_parameters`\nname = \"example1\"\n  # `required` is Required in `template_parameters`\nrequired = false\n  # `type` is Required in `template_parameters`\ntype = var.string_template_parameters_type\n  # `description` is Optional in `template_parameters`\ndescription = \"\"\n  # `default_value` is Optional in `template_parameters`\ndefault_value = \"\"\n  # `values` is Optional in `template_parameters`\nvalues = []\n}\n]\n  # `request` is Optional in `operations`\nrequest = {\n  # `description` is Optional in `request`\ndescription = \"\"\n  # `query_parameters` is Optional in `request`\nquery_parameters = [{\n  # `name` is Required in `query_parameters`\nname = \"example1\"\n  # `required` is Required in `query_parameters`\nrequired = false\n  # `type` is Required in `query_parameters`\ntype = var.string_query_parameters_type\n  # `description` is Optional in `query_parameters`\ndescription = \"\"\n  # `default_value` is Optional in `query_parameters`\ndefault_value = \"\"\n  # `values` is Optional in `query_parameters`\nvalues = []\n}\n]\n  # `headers` is Optional in `request`\nheaders = [{\n  # `name` is Required in `headers`\nname = \"example1\"\n  # `required` is Required in `headers`\nrequired = false\n  # `type` is Required in `headers`\ntype = var.string_headers_type\n  # `description` is Optional in `headers`\ndescription = \"\"\n  # `default_value` is Optional in `headers`\ndefault_value = \"\"\n  # `values` is Optional in `headers`\nvalues = []\n}\n]\n  # `representations` is Optional in `request`\nrepresentations = [{\n  # `content_type` is Required in `representations`\ncontent_type = var.string_representations_content_type\n  # `schema_id` is Optional in `representations`\nschema_id = \"\"\n  # `type_name` is Optional in `representations`\ntype_name = \"\"\n  # `form_parameters` is Optional in `representations`\nform_parameters = [{\n  # `name` is Required in `form_parameters`\nname = \"example1\"\n  # `required` is Required in `form_parameters`\nrequired = false\n  # `type` is Required in `form_parameters`\ntype = var.string_form_parameters_type\n  # `description` is Optional in `form_parameters`\ndescription = \"\"\n  # `default_value` is Optional in `form_parameters`\ndefault_value = \"\"\n  # `values` is Optional in `form_parameters`\nvalues = []\n}\n]\n}\n]\n}\n\n  # `responses` is Optional in `operations`\nresponses = [{\n  # `status_code` is Required in `responses`\nstatus_code = 200.0\n  # `description` is Optional in `responses`\ndescription = \"Success - returns request echo\"\n  # `headers` is Optional in `responses`\nheaders = [{\n  # `name` is Required in `headers`\nname = \"example1\"\n  # `required` is Required in `headers`\nrequired = false\n  # `type` is Required in `headers`\ntype = var.string_headers_type\n  # `description` is Optional in `headers`\ndescription = \"\"\n  # `default_value` is Optional in `headers`\ndefault_value = \"\"\n  # `values` is Optional in `headers`\nvalues = []\n}\n]\n  # `representations` is Optional in `responses`\nrepresentations = [{\n  # `content_type` is Required in `representations`\ncontent_type = \"application/json\"\n  # `schema_id` is Optional in `representations`\nschema_id = \"\"\n  # `type_name` is Optional in `representations`\ntype_name = \"\"\n  # `form_parameters` is Optional in `representations`\nform_parameters = [{\n  # `name` is Required in `form_parameters`\nname = \"example1\"\n  # `required` is Required in `form_parameters`\nrequired = false\n  # `type` is Required in `form_parameters`\ntype = var.string_form_parameters_type\n  # `description` is Optional in `form_parameters`\ndescription = \"\"\n  # `default_value` is Optional in `form_parameters`\ndefault_value = \"\"\n  # `values` is Optional in `form_parameters`\nvalues = []\n}\n]\n}\n]\n}\n]\n  # `policy` is Optional in `operations`\npolicy = {\n  # `xml_content` is Optional in `policy`\nxml_content = \"\"\n  # `xml_link` is Optional in `policy`\nxml_link = \"\"\n}\n\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -250,6 +300,7 @@
                 "virtual_network_type": [],
                 "zones": [],
                 "tags": [],
+                "policy": [],
                 "protocols": [],
                 "sign_in": [],
                 "tenant_access": [],
@@ -258,12 +309,17 @@
                 "certificate": [],
                 "delegation": [],
                 "sign_up": [],
+                "api_version_sets": [],
                 "additional_location": [],
+                "named_values": [],
                 "role_assignments": [],
+                "subscriptions": [],
+                "products": [],
                 "diagnostic_settings": [],
                 "security": [],
                 "private_endpoints": [],
-                "hostname_configuration": []
+                "hostname_configuration": [],
+                "apis": []
             }
         },
         "priority": 3,
@@ -415,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -451,7 +507,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 81,
+        "priority": 84,
         "rules": "For cloud resource of App Configuration Store: it should be configured with module(source=\"Azure/avm-res-appconfiguration-configurationstore/azure\");"
     },
     "avm-res-app-containerapp": {
@@ -656,7 +712,7 @@
                 "auth_configs": []
             }
         },
-        "priority": 97,
+        "priority": 100,
         "rules": "For cloud resource of Container App: it should be configured with module(source=\"Azure/avm-res-app-containerapp/azurerm\");"
     },
     "avm-res-app-job": {
@@ -1064,7 +1120,7 @@
                 "dapr_components": []
             }
         },
-        "priority": 90,
+        "priority": 93,
         "rules": "For cloud resource of App Managed Environment: it should be configured with module(source=\"Azure/avm-res-app-managedenvironment/azurerm\");"
     },
     "avm-res-authorization-roleassignment": {
@@ -3313,12 +3369,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -3351,7 +3407,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 98,
+        "priority": 101,
         "rules": "For cloud resource of Batch Account: it should be configured with module(source=\"Azure/avm-res-batch-batchaccount/azurerm\");"
     },
     "avm-res-cache-redis": {
@@ -4920,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -4951,7 +5007,7 @@
                 "managed_identities": []
             }
         },
-        "priority": 82,
+        "priority": 85,
         "rules": "For cloud resource of Disk Encryption Set: it should be configured with module(source=\"Azure/avm-res-compute-diskencryptionset/azurerm\");"
     },
     "avm-res-compute-gallery": {
@@ -5758,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -5841,7 +5897,7 @@
                 "data_disk_managed_disks": []
             }
         },
-        "priority": 83,
+        "priority": 86,
         "rules": "For cloud resource of Virtual Machine: it should be configured with module(source=\"Azure/avm-res-compute-virtualmachine/azurerm\");"
     },
     "avm-res-compute-virtualmachinescaleset": {
@@ -6372,7 +6428,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 91,
+        "priority": 94,
         "rules": "For cloud resource of Container Instance: it should be configured with module(source=\"Azure/avm-res-containerinstance-containergroup/azurerm\");"
     },
     "avm-res-containerregistry-registry": {
@@ -6549,8 +6605,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -6594,7 +6650,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 85,
+        "priority": 88,
         "rules": "For cloud resource of Azure Container Registry (ACR): it should be configured with module(source=\"Azure/avm-res-containerregistry-registry/azurerm\");"
     },
     "avm-res-containerservice-managedcluster": {
@@ -8629,12 +8685,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -8663,7 +8719,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 94,
+        "priority": 97,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Application Group: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-applicationgroup/azurerm\");"
     },
     "avm-res-desktopvirtualization-hostpool": {
@@ -8994,8 +9050,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9026,7 +9082,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 95,
+        "priority": 98,
         "rules": "For cloud resource of Azure Virtual Desktop (AVD) Scaling Plan: it should be configured with module(source=\"Azure/avm-res-desktopvirtualization-scalingplan/azurerm\");"
     },
     "avm-res-desktopvirtualization-workspace": {
@@ -9783,8 +9839,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -9839,7 +9895,7 @@
                 "sql_databases": []
             }
         },
-        "priority": 87,
+        "priority": 90,
         "rules": "For cloud resource of CosmosDB Database Account: it should be configured with module(source=\"Azure/avm-res-documentdb-databaseaccount/azurerm\");"
     },
     "avm-res-documentdb-mongocluster": {
@@ -10187,6 +10243,388 @@
         "priority": 38,
         "rules": "For cloud resource of Azure Arc Site manager: it should be configured with module(source=\"Azure/avm-res-edge-site/azurerm\");"
     },
+    "avm-res-eventgrid-domain": {
+        "module_name": "avm-res-eventgrid-domain",
+        "display_name": "Event Grid Domain",
+        "source": "Azure/avm-res-eventgrid-domain/azurerm",
+        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-eventgrid-domain",
+        "description": "Manages Event Grid Domain.",
+        "outputs": [
+            "domain_endpoint",
+            "domain_topic_event_subscriptions",
+            "domain_topics",
+            "identity",
+            "name",
+            "private_endpoints",
+            "resource_id",
+            "system_assigned_mi_principal_id"
+        ],
+        "variables": {
+            "location": {
+                "required": true,
+                "description": "Azure region where the resource should be deployed.",
+                "priority": 1,
+                "schema": "# `location` is Required in module\nlocation = module.avm_res_resources_resourcegroup.resource.location\n"
+            },
+            "name": {
+                "required": true,
+                "description": "The name of the Event Grid Domain.",
+                "priority": 0,
+                "schema": "# `name` is Required in module\nname = \"example1\"\n"
+            },
+            "parent_id": {
+                "required": true,
+                "description": "The ID of the resource group where the Event Grid Domain will be deployed.",
+                "priority": 2,
+                "schema": "# `parent_id` is Required in module\nparent_id = module.avm_res_resources_resourcegroup.resource.id\n"
+            },
+            "auto_create_topic_with_first_subscription": {
+                "required": false,
+                "description": "Automatically create a topic within this domain when the first event subscription is created. Defaults to null (API default).",
+                "priority": 10000,
+                "schema": "# `auto_create_topic_with_first_subscription` is Optional in module\nauto_create_topic_with_first_subscription = false\n"
+            },
+            "auto_delete_topic_with_last_subscription": {
+                "required": false,
+                "description": "Automatically delete a topic within this domain when the last event subscription is deleted. Defaults to null (API default).",
+                "priority": 10001,
+                "schema": "# `auto_delete_topic_with_last_subscription` is Optional in module\nauto_delete_topic_with_last_subscription = false\n"
+            },
+            "data_residency_boundary": {
+                "required": false,
+                "description": "Data residency boundary to set on the Event Grid Domain. Maps to the ARM property `dataResidencyBoundary`. Allowed values: 'WithinGeopair' (API default) and 'WithinRegion'. If `null`, the module will set `WithinGeopair` in the ARM payload to make the default explicit.",
+                "priority": 10002,
+                "schema": "# `data_residency_boundary` is Optional in module\ndata_residency_boundary = \"\"\n"
+            },
+            "disable_local_auth": {
+                "required": false,
+                "description": "When true the Event Grid Domain will have local authentication disabled (ARM property `disableLocalAuth`). The module will always set this property; default is `true` (local auth disabled).",
+                "priority": 10003,
+                "schema": "# `disable_local_auth` is Optional in module\ndisable_local_auth = false\n"
+            },
+            "enable_telemetry": {
+                "required": false,
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10004,
+                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
+            },
+            "input_schema": {
+                "required": false,
+                "description": "Optional input schema for the domain. Allowed values: 'EventGridSchema' (default), 'CloudEventSchemaV1_0', 'CustomEventSchema'.",
+                "priority": 10005,
+                "schema": "# `input_schema` is Optional in module\ninput_schema = \"\"\n"
+            },
+            "minimum_tls_version_allowed": {
+                "required": false,
+                "description": "Minimum TLS version allowed for the Event Grid Domain. This maps to the ARM property `minimumTlsVersionAllowed`.",
+                "priority": 10006,
+                "schema": "# `minimum_tls_version_allowed` is Optional in module\nminimum_tls_version_allowed = \"\"\n"
+            },
+            "private_endpoints_manage_dns_zone_group": {
+                "required": false,
+                "description": "Whether to manage private DNS zone groups with this module. If set to false, you must manage private DNS zone groups externally, e.g. using Azure Policy.",
+                "priority": 10007,
+                "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = false\n"
+            },
+            "public_network_access": {
+                "required": false,
+                "description": "Controls public network access for the domain. Must be one of: 'Enabled', 'Disabled'. Defaults to 'Disabled' to reduce public exposure by default.",
+                "priority": 10008,
+                "schema": "# `public_network_access` is Optional in module\npublic_network_access = \"\"\n"
+            },
+            "properties": {
+                "required": false,
+                "description": "A map of additional string properties to set on the Event Grid Domain resource. This allows passing ARM schema properties that are not explicitly modeled by this module. For complex object properties, use the explicitly-defined module variables. See schema at: https://learn.microsoft.com/en-us/azure/templates/microsoft.eventgrid/2025-02-15/domains",
+                "priority": 10009,
+                "schema": "# `properties` is Optional in module\nproperties = {\n  example_key = \"\"\n}\n\n"
+            },
+            "tags": {
+                "required": false,
+                "description": "(Optional) Tags of the resource.",
+                "priority": 10010,
+                "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
+            },
+            "inbound_ip_rules": {
+                "required": false,
+                "description": "A list of inbound IP rules to restrict network access to the domain. Each rule must have an `ip_mask` and an `action` (e.g. 'Allow' or 'Deny').",
+                "priority": 10011,
+                "schema": "# `inbound_ip_rules` is Optional in module\ninbound_ip_rules = [{\n  # `ip_mask` is Required in `inbound_ip_rules`\nip_mask = var.string_inbound_ip_rules_ip_mask\n  # `action` is Required in `inbound_ip_rules`\naction = var.string_inbound_ip_rules_action\n}\n]\n"
+            },
+            "lock": {
+                "required": false,
+                "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
+                "priority": 10012,
+                "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
+            },
+            "managed_identities": {
+                "required": false,
+                "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
+                "priority": 10013,
+                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
+            },
+            "customer_managed_key": {
+                "required": false,
+                "description": "A map describing customer-managed keys to associate with the resource. This includes the following properties:\n- `key_vault_resource_id` - The resource ID of the Key Vault where the key is stored.\n- `key_name` - The name of the key.\n- `key_version` - (Optional) The version of the key. If not specified, the latest version is used.\n- `user_assigned_identity` - (Optional) An object representing a user-assigned identity with the following properties:\n  - `resource_id` - The resource ID of the user-assigned identity.",
+                "priority": 10014,
+                "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = var.string_customer_managed_key_key_vault_resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = var.string_user_assigned_identity_resource_id\n}\n\n}\n\n"
+            },
+            "event_type_info": {
+                "required": false,
+                "description": "Event type information for the domain. This includes:\n- `kind` - (Optional) The kind of event type info.\n- `inline_event_types` - (Optional) Map of inline event types with their metadata.",
+                "priority": 10015,
+                "schema": "# `event_type_info` is Optional in module\nevent_type_info = {\n  # `kind` is Optional in `event_type_info`\nkind = \"\"\n  # `inline_event_types` is Optional in `event_type_info`\ninline_event_types = {\n  example_key = {\n  # `description` is Optional in `inline_event_types`\ndescription = \"\"\n  # `display_name` is Optional in `inline_event_types`\ndisplay_name = \"\"\n  # `data_schema_url` is Optional in `inline_event_types`\ndata_schema_url = \"\"\n  # `documentation_url` is Optional in `inline_event_types`\ndocumentation_url = \"\"\n}\n\n}\n\n}\n\n"
+            },
+            "role_assignments": {
+                "required": false,
+                "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.\n- `principal_type` - The type of the principal_id. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
+                "priority": 10016,
+                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
+            },
+            "diagnostic_settings": {
+                "required": false,
+                "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
+                "priority": 10017,
+                "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+            },
+            "input_schema_mapping": {
+                "required": false,
+                "description": "Optional input schema mapping object. Use this to provide mappings when `input_schema` is 'CustomEventSchema'. The structure follows the ARM schema for JSON input mappings. Set `input_schema_mapping_type` to 'Json' and provide field mappings in the `properties` object.",
+                "priority": 10018,
+                "schema": "# `input_schema_mapping` is Optional in module\ninput_schema_mapping = {\n  # `input_schema_mapping_type` is Required in `input_schema_mapping`\ninput_schema_mapping_type = var.string_input_schema_mapping_input_schema_mapping_type\n  # `properties` is Optional in `input_schema_mapping`\nproperties = {\n  # `data_version` is Optional in `properties`\ndata_version = {\n  # `default_value` is Optional in `data_version`\ndefault_value = \"\"\n  # `source_field` is Optional in `data_version`\nsource_field = \"\"\n}\n\n  # `event_time` is Optional in `properties`\nevent_time = {\n  # `source_field` is Optional in `event_time`\nsource_field = \"\"\n}\n\n  # `event_type` is Optional in `properties`\nevent_type = {\n  # `default_value` is Optional in `event_type`\ndefault_value = \"\"\n  # `source_field` is Optional in `event_type`\nsource_field = \"\"\n}\n\n  # `id` is Optional in `properties`\nid = {\n  # `source_field` is Optional in `id`\nsource_field = \"\"\n}\n\n  # `subject` is Optional in `properties`\nsubject = {\n  # `default_value` is Optional in `subject`\ndefault_value = \"\"\n  # `source_field` is Optional in `subject`\nsource_field = \"\"\n}\n\n  # `topic` is Optional in `properties`\ntopic = {\n  # `source_field` is Optional in `topic`\nsource_field = \"\"\n}\n\n}\n\n}\n\n"
+            },
+            "domain_topics": {
+                "required": false,
+                "description": "A map of domain topics to create with their nested event subscriptions.\n\nEach topic supports:\n- `name` - (Required) The name of the domain topic.\n- `event_subscriptions` - (Optional) A map of event subscriptions for this topic. Each subscription supports:\n  - `name` - (Required) The name of the event subscription.\n  - `destination` - (Optional) The destination for events.\n  - `delivery_with_resource_identity` - (Optional) Delivery configuration with managed identity.\n  - `filter` - (Optional) Event filtering configuration.\n  - `labels` - (Optional) List of labels for the subscription.\n  - `event_delivery_schema` - (Optional) Event delivery schema (EventGridSchema, CloudEventSchemaV1_0, CustomInputSchema).\n  - `retry_policy` - (Optional) Retry policy configuration.\n  - `expiration_time_utc` - (Optional) Expiration time in UTC.\n  - `dead_letter_destination` - (Optional) Dead letter destination configuration.\n  - `dead_letter_with_resource_identity` - (Optional) Dead letter destination with managed identity.\n  - `properties` - (Optional) Additional properties to pass directly.\n\nExample:\n```terraform\ndomain_topics = {\n  topic1 = {\n    name = \"my-topic\"\n    event_subscriptions = {\n      sub1 = {\n        name = \"my-subscription\"\n        destination = {\n          endpointType = \"EventHub\"\n          properties = {\n            resourceId = \"/subscriptions/.../eventhubs/...\"\n          }\n        }\n      }\n    }\n  }\n}\n```",
+                "priority": 10019,
+                "schema": "# `domain_topics` is Optional in module\ndomain_topics = {\n  example_key = {\n  # `name` is Required in `domain_topics`\nname = \"example1\"\n  # `event_subscriptions` is Optional in `domain_topics`\nevent_subscriptions = {\n  example_key = {\n  # `name` is Required in `event_subscriptions`\nname = \"example1\"\n  # `destination` is Optional in `event_subscriptions`\ndestination = \"\"\n  # `delivery_with_resource_identity` is Optional in `event_subscriptions`\ndelivery_with_resource_identity = \"\"\n  # `filter` is Optional in `event_subscriptions`\nfilter = {\n  # `advanced_filters` is Optional in `filter`\nadvanced_filters = []\n  # `enable_advanced_filtering_on_arrays` is Optional in `filter`\nenable_advanced_filtering_on_arrays = false\n  # `included_event_types` is Optional in `filter`\nincluded_event_types = []\n  # `is_subject_case_sensitive` is Optional in `filter`\nis_subject_case_sensitive = false\n  # `subject_begins_with` is Optional in `filter`\nsubject_begins_with = \"\"\n  # `subject_ends_with` is Optional in `filter`\nsubject_ends_with = \"\"\n}\n\n  # `labels` is Optional in `event_subscriptions`\nlabels = []\n  # `event_delivery_schema` is Optional in `event_subscriptions`\nevent_delivery_schema = \"\"\n  # `retry_policy` is Optional in `event_subscriptions`\nretry_policy = {\n  # `event_time_to_live_in_minutes` is Optional in `retry_policy`\nevent_time_to_live_in_minutes = 1440\n  # `max_delivery_attempts` is Optional in `retry_policy`\nmax_delivery_attempts = 30\n}\n\n  # `expiration_time_utc` is Optional in `event_subscriptions`\nexpiration_time_utc = \"\"\n  # `dead_letter_destination` is Optional in `event_subscriptions`\ndead_letter_destination = \"\"\n  # `dead_letter_with_resource_identity` is Optional in `event_subscriptions`\ndead_letter_with_resource_identity = \"\"\n  # `properties` is Optional in `event_subscriptions`\nproperties = \"{}\"\n}\n\n}\n\n}\n\n}\n\n"
+            },
+            "private_endpoints": {
+                "required": false,
+                "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the IP configuration.\n  - `private_ip_address` - The private IP address of the IP configuration.",
+                "priority": 10020,
+                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
+            }
+        },
+        "denpends_on": {
+            "avm_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required": {
+                "location": [
+                    "avm-res-resources-resourcegroup"
+                ],
+                "name": [],
+                "parent_id": [
+                    "avm-res-resources-resourcegroup"
+                ]
+            },
+            "optional": {
+                "auto_create_topic_with_first_subscription": [],
+                "auto_delete_topic_with_last_subscription": [],
+                "data_residency_boundary": [],
+                "disable_local_auth": [],
+                "enable_telemetry": [],
+                "input_schema": [],
+                "minimum_tls_version_allowed": [],
+                "private_endpoints_manage_dns_zone_group": [],
+                "public_network_access": [],
+                "properties": [],
+                "tags": [],
+                "inbound_ip_rules": [],
+                "lock": [],
+                "managed_identities": [],
+                "customer_managed_key": [],
+                "event_type_info": [],
+                "role_assignments": [],
+                "diagnostic_settings": [],
+                "input_schema_mapping": [],
+                "domain_topics": [],
+                "private_endpoints": []
+            }
+        },
+        "priority": 39
+    },
+    "avm-res-eventgrid-topic": {
+        "module_name": "avm-res-eventgrid-topic",
+        "display_name": "Event Grid Topic",
+        "source": "Azure/avm-res-eventgrid-topic/azurerm",
+        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-eventgrid-topic",
+        "description": "Manages Event Grid Topic.",
+        "outputs": [
+            "event_subscription_ids",
+            "event_subscription_names",
+            "identity",
+            "name",
+            "resource_id",
+            "system_assigned_mi_principal_id",
+            "topic_id",
+            "topic_location",
+            "topic_name",
+            "topic_tags"
+        ],
+        "variables": {
+            "location": {
+                "required": true,
+                "description": "Azure region where the resource should be deployed.",
+                "priority": 1,
+                "schema": "# `location` is Required in module\nlocation = module.avm_res_resources_resourcegroup.resource.location\n"
+            },
+            "name": {
+                "required": true,
+                "description": "The name of the this resource.",
+                "priority": 0,
+                "schema": "# `name` is Required in module\nname = \"example1\"\n"
+            },
+            "parent_id": {
+                "required": true,
+                "description": "(Optional) The ID of the resource group where the virtual network will be deployed.",
+                "priority": 2,
+                "schema": "# `parent_id` is Required in module\nparent_id = module.avm_res_resources_resourcegroup.resource.id\n"
+            },
+            "data_residency_boundary": {
+                "required": false,
+                "description": "(Optional) Data residency boundary to set on the Event Grid Topic. Maps to the ARM property `dataResidencyBoundary`. Allowed values: 'WithinGeopair' (API default) and 'WithinRegion'. If `null`, the module will set `WithinGeopair` in the ARM payload to make the default explicit.",
+                "priority": 10000,
+                "schema": "# `data_residency_boundary` is Optional in module\ndata_residency_boundary = \"WithinRegion\"\n"
+            },
+            "disable_local_auth": {
+                "required": false,
+                "description": "When true the Event Grid Topic will have local authentication disabled (ARM property `disableLocalAuth`). The module will always set this property; default is `true` (local auth disabled).",
+                "priority": 10001,
+                "schema": "# `disable_local_auth` is Optional in module\ndisable_local_auth = true\n"
+            },
+            "enable_telemetry": {
+                "required": false,
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10002,
+                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = true\n"
+            },
+            "input_schema": {
+                "required": false,
+                "description": "Optional input schema for the topic. Allowed values: 'EventGridSchema' (default), 'CloudEventSchemaV1_0', 'Custom'.",
+                "priority": 10003,
+                "schema": "# `input_schema` is Optional in module\ninput_schema = \"EventGridSchema\"\n"
+            },
+            "minimum_tls_version_allowed": {
+                "required": false,
+                "description": "Minimum TLS version allowed for the Event Grid Topic. This maps to the ARM property `minimumTlsVersionAllowed`.",
+                "priority": 10004,
+                "schema": "# `minimum_tls_version_allowed` is Optional in module\nminimum_tls_version_allowed = \"\"\n"
+            },
+            "private_endpoints_manage_dns_zone_group": {
+                "required": false,
+                "description": "Whether the module should create/manage private DNS zone group(s) for private endpoints. If set to false, DNS zone group management is left to the caller (e.g., managed externally or via Azure Policy).",
+                "priority": 10005,
+                "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = true\n"
+            },
+            "public_network_access": {
+                "required": false,
+                "description": "Controls public network access for the topic. Must be one of: 'Enabled', 'Disabled'. Defaults to 'Disabled' to reduce public exposure by default.",
+                "priority": 10006,
+                "schema": "# `public_network_access` is Optional in module\npublic_network_access = \"\"\n"
+            },
+            "properties": {
+                "required": false,
+                "description": "A map of additional string properties to set on the Event Grid Topic resource. This allows passing ARM schema properties that are not explicitly modeled by this module. For complex object properties, use the explicitly-defined module variables. See schema at: https://learn.microsoft.com/en-us/azure/templates/microsoft.eventgrid/2025-02-15/topics",
+                "priority": 10007,
+                "schema": "# `properties` is Optional in module\nproperties = {\n  example_key = \"\"\n}\n\n"
+            },
+            "tags": {
+                "required": false,
+                "description": "(Optional) Tags of the resource.",
+                "priority": 10008,
+                "schema": "# `tags` is Optional in module\ntags = {\n  environment = \"example\"\n}\n\n"
+            },
+            "inbound_ip_rules": {
+                "required": false,
+                "description": "A list of inbound IP rules to restrict network access to the topic. Each rule must have an `ip_mask` and an `action` (e.g. 'Allow' or 'Deny').",
+                "priority": 10009,
+                "schema": "# `inbound_ip_rules` is Optional in module\ninbound_ip_rules = [{\n  # `ip_mask` is Required in `inbound_ip_rules`\nip_mask = var.string_inbound_ip_rules_ip_mask\n  # `action` is Required in `inbound_ip_rules`\naction = var.string_inbound_ip_rules_action\n}\n]\n"
+            },
+            "lock": {
+                "required": false,
+                "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
+                "priority": 10010,
+                "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
+            },
+            "managed_identities": {
+                "required": false,
+                "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
+                "priority": 10011,
+                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = [\"\"]\n}\n\n"
+            },
+            "role_assignments": {
+                "required": false,
+                "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.\n- `principal_type` - The type of the principal_id. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
+                "priority": 10012,
+                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
+            },
+            "diagnostic_settings": {
+                "required": false,
+                "description": "A map of diagnostic settings to create on the Event Grid Topic. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
+                "priority": 10013,
+                "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  la = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+            },
+            "input_schema_mapping": {
+                "required": false,
+                "description": "Optional input schema mapping object. Use this to provide mappings when `input_schema` is 'CustomEventSchema'. The structure follows the ARM schema for JSON input mappings. Set `input_schema_mapping_type` to 'Json' and provide field mappings in the `properties` object.",
+                "priority": 10014,
+                "schema": "# `input_schema_mapping` is Optional in module\ninput_schema_mapping = {\n  # `input_schema_mapping_type` is Required in `input_schema_mapping`\ninput_schema_mapping_type = var.string_input_schema_mapping_input_schema_mapping_type\n  # `properties` is Optional in `input_schema_mapping`\nproperties = {\n  # `data_version` is Optional in `properties`\ndata_version = {\n  # `default_value` is Optional in `data_version`\ndefault_value = \"\"\n  # `source_field` is Optional in `data_version`\nsource_field = \"\"\n}\n\n  # `event_time` is Optional in `properties`\nevent_time = {\n  # `source_field` is Optional in `event_time`\nsource_field = \"\"\n}\n\n  # `event_type` is Optional in `properties`\nevent_type = {\n  # `default_value` is Optional in `event_type`\ndefault_value = \"\"\n  # `source_field` is Optional in `event_type`\nsource_field = \"\"\n}\n\n  # `id` is Optional in `properties`\nid = {\n  # `source_field` is Optional in `id`\nsource_field = \"\"\n}\n\n  # `subject` is Optional in `properties`\nsubject = {\n  # `default_value` is Optional in `subject`\ndefault_value = \"\"\n  # `source_field` is Optional in `subject`\nsource_field = \"\"\n}\n\n  # `topic` is Optional in `properties`\ntopic = {\n  # `source_field` is Optional in `topic`\nsource_field = \"\"\n}\n\n}\n\n}\n\n"
+            },
+            "private_endpoints": {
+                "required": false,
+                "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `name` - The name of the IP configuration.\n- `private_ip_address` - The private IP address of the IP configuration.",
+                "priority": 10015,
+                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  pe1 = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"psc-eventgrid-topic\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
+            },
+            "event_subscriptions": {
+                "required": false,
+                "description": "A map of event subscriptions to create on the Event Grid Topic.\n\nEach event subscription supports the following:\n\n- `name` - (Required) The name of the event subscription.\n\n- `destination` - (Optional) Direct delivery destination. Specify exactly one destination type:\n  - `azure_function` - Azure Function destination with `resource_id`, optional `max_events_per_batch`, `preferred_batch_size_in_kilobytes`, and `delivery_attribute_mappings`.\n  - `event_hub` - Event Hub destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `hybrid_connection` - Hybrid Connection destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `monitor_alert` - Monitor Alert destination with `severity` (Sev0-Sev4), optional `action_groups` and `description`.\n  - `namespace_topic` - Event Grid Namespace Topic destination with `resource_id`.\n  - `service_bus_queue` - Service Bus Queue destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `service_bus_topic` - Service Bus Topic destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `storage_queue` - Storage Queue destination with `resource_id`, `queue_name`, and optional `queue_message_time_to_live_in_seconds`.\n  - `webhook` - WebHook destination with `endpoint_url`, optional `max_events_per_batch`, `preferred_batch_size_in_kilobytes`, `azure_active_directory_tenant_id`, `azure_active_directory_app_id_or_uri`, `minimum_tls_version_allowed`, and `delivery_attribute_mappings`.\n\n- `delivery_with_resource_identity` - (Optional) Delivery using managed identity (recommended for secure RBAC-based delivery):\n  - `identity` - Identity configuration with `type` (\"SystemAssigned\" or \"UserAssigned\") and optional `user_assigned_identity`.\n  - `destination` - Same destination types as above.\n\n- `dead_letter_destination` - (Optional) Dead letter destination (only StorageBlob supported):\n  - `storage_blob` - Storage blob with `resource_id` and `blob_container_name`.\n\n- `dead_letter_with_resource_identity` - (Optional) Dead letter using managed identity.\n\n- `event_delivery_schema` - (Optional) Schema for delivered events: \"EventGridSchema\", \"CloudEventSchemaV1_0\", \"CustomInputSchema\".\n\n- `filter` - (Optional) Event filtering configuration:\n  - `subject_begins_with` - Subject prefix filter.\n  - `subject_ends_with` - Subject suffix filter.\n  - `included_event_types` - List of event types to include.\n  - `is_subject_case_sensitive` - Case sensitivity for subject filters.\n  - `enable_advanced_filtering_on_arrays` - Enable advanced filtering on arrays.\n  - `advanced_filters` - List of advanced filters with `key`, `operator_type`, `value`, and `values`.\n\n- `labels` - (Optional) List of labels.\n\n- `retry_policy` - (Optional) Retry policy with `max_delivery_attempts` and `event_time_to_live_in_minutes`.\n\nExample - Storage Queue with managed identity:\n```hcl\nevent_subscriptions = {\n  storage_queue_sub = {\n    name = \"my-storage-queue-subscription\"\n    delivery_with_resource_identity = {\n      identity = {\n        type = \"SystemAssigned\"\n      }\n      destination = {\n        storage_queue = {\n          resource_id                          = \"/subscriptions/.../storageAccounts/mystorageaccount\"\n          queue_name                           = \"myqueue\"\n          queue_message_time_to_live_in_seconds = 300\n        }\n      }\n    }\n    filter = {\n      subject_begins_with = \"/myapp/\"\n      included_event_types = [\"Microsoft.Storage.BlobCreated\"]\n    }\n  }\n}\n```\n\nExample - WebHook destination:\n```hcl\nevent_subscriptions = {\n  webhook_sub = {\n    name = \"my-webhook-subscription\"\n    destination = {\n      webhook = {\n        endpoint_url          = \"https://example.com/webhook\"\n        max_events_per_batch  = 10\n        minimum_tls_version_allowed = \"1.2\"\n      }\n    }\n  }\n}\n```",
+                "priority": 10016,
+                "schema": "# `event_subscriptions` is Optional in module\nevent_subscriptions = {\n  direct_to_queue = {\n  # `name` is Required in `event_subscriptions`\nname = \"example1\"\n  # `destination` is Optional in `event_subscriptions`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 600.0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n  # `delivery_with_resource_identity` is Optional in `event_subscriptions`\ndelivery_with_resource_identity = {\n  # `identity` is Required in `delivery_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `destination` is Required in `delivery_with_resource_identity`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n}\n\n  # `dead_letter_destination` is Optional in `event_subscriptions`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n  # `dead_letter_with_resource_identity` is Optional in `event_subscriptions`\ndead_letter_with_resource_identity = {\n  # `identity` is Required in `dead_letter_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `dead_letter_destination` is Required in `dead_letter_with_resource_identity`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n}\n\n  # `event_delivery_schema` is Optional in `event_subscriptions`\nevent_delivery_schema = \"EventGridSchema\"\n  # `expiration_time_utc` is Optional in `event_subscriptions`\nexpiration_time_utc = \"\"\n  # `filter` is Optional in `event_subscriptions`\nfilter = {\n  # `subject_begins_with` is Optional in `filter`\nsubject_begins_with = \"/blobServices/\"\n  # `subject_ends_with` is Optional in `filter`\nsubject_ends_with = \"\"\n  # `included_event_types` is Optional in `filter`\nincluded_event_types = []\n  # `is_subject_case_sensitive` is Optional in `filter`\nis_subject_case_sensitive = false\n  # `enable_advanced_filtering_on_arrays` is Optional in `filter`\nenable_advanced_filtering_on_arrays = false\n  # `advanced_filters` is Optional in `filter`\nadvanced_filters = [{\n  # `key` is Required in `advanced_filters`\nkey = var.string_advanced_filters_key\n  # `operator_type` is Required in `advanced_filters`\noperator_type = var.string_advanced_filters_operator_type\n  # `value` is Optional in `advanced_filters`\nvalue = \"\"\n  # `values` is Optional in `advanced_filters`\nvalues = []\n}\n]\n}\n\n  # `labels` is Optional in `event_subscriptions`\nlabels = []\n  # `retry_policy` is Optional in `event_subscriptions`\nretry_policy = {\n  # `max_delivery_attempts` is Optional in `retry_policy`\nmax_delivery_attempts = 30.0\n  # `event_time_to_live_in_minutes` is Optional in `retry_policy`\nevent_time_to_live_in_minutes = 1440.0\n}\n\n}\n\n}\n\n"
+            }
+        },
+        "denpends_on": {
+            "avm_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required": {
+                "location": [
+                    "avm-res-resources-resourcegroup"
+                ],
+                "name": [],
+                "parent_id": [
+                    "avm-res-resources-resourcegroup"
+                ]
+            },
+            "optional": {
+                "data_residency_boundary": [],
+                "disable_local_auth": [],
+                "enable_telemetry": [],
+                "input_schema": [],
+                "minimum_tls_version_allowed": [],
+                "private_endpoints_manage_dns_zone_group": [],
+                "public_network_access": [],
+                "properties": [],
+                "tags": [],
+                "inbound_ip_rules": [],
+                "lock": [],
+                "managed_identities": [],
+                "role_assignments": [],
+                "diagnostic_settings": [],
+                "input_schema_mapping": [],
+                "private_endpoints": [],
+                "event_subscriptions": []
+            }
+        },
+        "priority": 40
+    },
     "avm-res-eventhub-namespace": {
         "module_name": "avm-res-eventhub-namespace",
         "display_name": "Event Hub Namespace",
@@ -10373,7 +10811,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 39,
+        "priority": 41,
         "rules": "For cloud resource of Event Hub Namespace: it should be configured with module(source=\"Azure/avm-res-eventhub-namespace/azurerm\");"
     },
     "avm-res-features-feature": {
@@ -10693,7 +11131,7 @@
                 "additional_nodepools": []
             }
         },
-        "priority": 40,
+        "priority": 42,
         "rules": "For cloud resource of AKS Arc: it should be configured with module(source=\"Azure/avm-res-hybridcontainerservice-provisionedclusterinstance/azurerm\");"
     },
     "avm-res-insights-autoscalesetting": {
@@ -10771,12 +11209,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -10799,7 +11237,7 @@
                 "notification": []
             }
         },
-        "priority": 93,
+        "priority": 96,
         "rules": "For cloud resource of Auto scale settings: it should be configured with module(source=\"Azure/avm-res-insights-autoscalesetting/azurerm\");"
     },
     "avm-res-insights-component": {
@@ -10978,7 +11416,7 @@
                 "monitor_private_link_scope": []
             }
         },
-        "priority": 92,
+        "priority": 95,
         "rules": "For cloud resource of Application Insight: it should be configured with module(source=\"Azure/avm-res-insights-component/azurerm\");"
     },
     "avm-res-insights-datacollectionendpoint": {
@@ -11060,7 +11498,7 @@
                 "tags": []
             }
         },
-        "priority": 41,
+        "priority": 43,
         "rules": "For cloud resource of Data Collection Endpoint: it should be configured with module(source=\"Azure/avm-res-insights-datacollectionendpoint/azurerm\");"
     },
     "avm-res-keyvault-vault": {
@@ -11538,7 +11976,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 42,
+        "priority": 44,
         "rules": "For cloud resource of Kusto Clusters: it should be configured with module(source=\"Azure/avm-res-kusto-cluster/azurerm\");"
     },
     "avm-res-logic-workflow": {
@@ -11697,7 +12135,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 43,
+        "priority": 45,
         "rules": "For cloud resource of Logic Apps (Workflow): it should be configured with module(source=\"Azure/avm-res-logic-workflow/azurerm\");"
     },
     "avm-res-machinelearningservices-workspace": {
@@ -11954,7 +12392,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 44,
+        "priority": 46,
         "rules": "For cloud resource of Machine Learning Services Workspace: it should be configured with module(source=\"Azure/avm-res-machinelearningservices-workspace/azurerm\");"
     },
     "avm-res-maintenance-maintenanceconfiguration": {
@@ -12079,7 +12517,7 @@
                 "install_patches": []
             }
         },
-        "priority": 88,
+        "priority": 91,
         "rules": "For cloud resource of Maintenance Configuration: it should be configured with module(source=\"Azure/avm-res-maintenance-maintenanceconfiguration/azurerm\");"
     },
     "avm-res-managedidentity-userassignedidentity": {
@@ -12226,7 +12664,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 45
+        "priority": 47
     },
     "avm-res-netapp-netappaccount": {
         "module_name": "avm-res-netapp-netappaccount",
@@ -12377,7 +12815,7 @@
                 "volumes": []
             }
         },
-        "priority": 46,
+        "priority": 48,
         "rules": "For cloud resource of Azure NetApp File: it should be configured with module(source=\"Azure/avm-res-netapp-netappaccount/azurerm\");"
     },
     "avm-res-network-applicationgateway": {
@@ -12714,7 +13152,7 @@
                 "rewrite_rule_set": []
             }
         },
-        "priority": 47,
+        "priority": 49,
         "rules": "For cloud resource of Application Gateway: it should be configured with module(source=\"Azure/avm-res-network-applicationgateway/azurerm\");"
     },
     "avm-res-network-applicationgatewaywebapplicationfirewallpolicy": {
@@ -12824,7 +13262,7 @@
                 "custom_rules": []
             }
         },
-        "priority": 48,
+        "priority": 50,
         "rules": "For cloud resource of Application Gateway Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-applicationgatewaywebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-applicationsecuritygroup": {
@@ -12904,7 +13342,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 49,
+        "priority": 51,
         "rules": "For cloud resource of Application Security Group (ASG): it should be configured with module(source=\"Azure/avm-res-network-applicationsecuritygroup/azurerm\");"
     },
     "avm-res-network-azurefirewall": {
@@ -13061,7 +13499,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 50,
+        "priority": 52,
         "rules": "For cloud resource of Azure Firewall: it should be configured with module(source=\"Azure/avm-res-network-azurefirewall/azurerm\");"
     },
     "avm-res-network-bastionhost": {
@@ -13206,8 +13644,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13244,7 +13682,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 99,
+        "priority": 102,
         "rules": "For cloud resource of Bastion Host: it should be configured with module(source=\"Azure/avm-res-network-bastionhost/azurerm\");"
     },
     "avm-res-network-connection": {
@@ -13456,7 +13894,7 @@
                 "ipsec_policy": []
             }
         },
-        "priority": 54,
+        "priority": 56,
         "rules": "For cloud resource of Virtual Network Gateway Connection: it should be configured with module(source=\"Azure/avm-res-network-connection/azurerm\");"
     },
     "avm-res-network-ddosprotectionplan": {
@@ -13535,7 +13973,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 55,
+        "priority": 57,
         "rules": "For cloud resource of DDoS Protection: it should be configured with module(source=\"Azure/avm-res-network-ddosprotectionplan/azurerm\");"
     },
     "avm-res-network-dnsresolver": {
@@ -13617,12 +14055,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -13643,7 +14081,7 @@
                 "outbound_endpoints": []
             }
         },
-        "priority": 100,
+        "priority": 103,
         "rules": "For cloud resource of DNS Resolver: it should be configured with module(source=\"Azure/avm-res-network-dnsresolver/azurerm\");"
     },
     "avm-res-network-dnszone": {
@@ -13792,7 +14230,7 @@
                 ]
             }
         },
-        "priority": 56,
+        "priority": 58,
         "rules": "For cloud resource of Public DNS Zone: it should be configured with module(source=\"Azure/avm-res-network-dnszone/azurerm\");"
     },
     "avm-res-network-expressroutecircuit": {
@@ -13983,7 +14421,7 @@
                 "peerings": []
             }
         },
-        "priority": 57,
+        "priority": 59,
         "rules": "For cloud resource of ExpressRoute Circuit: it should be configured with module(source=\"Azure/avm-res-network-expressroutecircuit/azurerm\");"
     },
     "avm-res-network-firewallpolicy": {
@@ -14168,7 +14606,7 @@
                 "firewall_policy_intrusion_detection": []
             }
         },
-        "priority": 58,
+        "priority": 60,
         "rules": "For cloud resource of Azure Firewall Policy: it should be configured with module(source=\"Azure/avm-res-network-firewallpolicy/azurerm\");"
     },
     "avm-res-network-frontdoorwebapplicationfirewallpolicy": {
@@ -14302,7 +14740,7 @@
                 "managed_rules": []
             }
         },
-        "priority": 59,
+        "priority": 61,
         "rules": "For cloud resource of Front Door Web Application Firewall (WAF) Policy: it should be configured with module(source=\"Azure/avm-res-network-frontdoorwebapplicationfirewallpolicy/azurerm\");"
     },
     "avm-res-network-ipgroup": {
@@ -14389,7 +14827,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 60,
+        "priority": 62,
         "rules": "For cloud resource of IP Group: it should be configured with module(source=\"Azure/avm-res-network-ipgroup/azurerm\");"
     },
     "avm-res-network-loadbalancer": {
@@ -14586,7 +15024,7 @@
                 "public_ip_address_configuration": []
             }
         },
-        "priority": 61,
+        "priority": 63,
         "rules": "For cloud resource of Loadbalancer: it should be configured with module(source=\"Azure/avm-res-network-loadbalancer/azurerm\");"
     },
     "avm-res-network-localnetworkgateway": {
@@ -14701,7 +15139,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 62,
+        "priority": 64,
         "rules": "For cloud resource of Local Network Gateway: it should be configured with module(source=\"Azure/avm-res-network-localnetworkgateway/azurerm\");"
     },
     "avm-res-network-natgateway": {
@@ -14839,7 +15277,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 53,
+        "priority": 55,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -14991,7 +15429,7 @@
                 "nat_rule_association": []
             }
         },
-        "priority": 63,
+        "priority": 65,
         "rules": "For cloud resource of Network Interface: it should be configured with module(source=\"Azure/avm-res-network-networkinterface/azurerm\");"
     },
     "avm-res-network-networkmanager": {
@@ -15114,7 +15552,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 64,
+        "priority": 66,
         "rules": "For cloud resource of Azure Virtual Network Manager: it should be configured with module(source=\"Azure/avm-res-network-networkmanager/azurerm\");"
     },
     "avm-res-network-networksecuritygroup": {
@@ -15216,7 +15654,7 @@
                 "security_rules": []
             }
         },
-        "priority": 51,
+        "priority": 53,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15319,7 +15757,7 @@
                 "condition_monitor": []
             }
         },
-        "priority": 65,
+        "priority": 67,
         "rules": "For cloud resource of Azure Network Watcher: it should be configured with module(source=\"Azure/avm-res-network-networkwatcher/azurerm\");"
     },
     "avm-res-network-privatednszone": {
@@ -15578,12 +16016,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -15612,7 +16050,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 84,
+        "priority": 87,
         "rules": "For cloud resource of Private Endpoint: it should be configured with module(source=\"Azure/avm-res-network-privateendpoint/azurerm\");"
     },
     "avm-res-network-publicipaddress": {
@@ -15790,7 +16228,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 66,
+        "priority": 68,
         "rules": "For cloud resource of Public IP Address: it should be configured with module(source=\"Azure/avm-res-network-publicipaddress/azurerm\");"
     },
     "avm-res-network-publicipprefix": {
@@ -15899,7 +16337,7 @@
                 "lock": []
             }
         },
-        "priority": 67,
+        "priority": 69,
         "rules": "For cloud resource of Public IP Prefix: it should be configured with module(source=\"Azure/avm-res-network-publicipprefix/azurerm\");"
     },
     "avm-res-network-routetable": {
@@ -16003,7 +16441,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 52,
+        "priority": 54,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16153,8 +16591,8 @@
                 "avm-res-network-networksecuritygroup",
                 "avm-res-network-routetable",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-natgateway",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16189,14 +16627,14 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-natgateway",
+                    "avm-res-network-routetable"
                 ]
             }
         },
-        "priority": 96,
+        "priority": 99,
         "rules": "For cloud resource of Virtual Network: it should be configured with module(source=\"Azure/avm-res-network-virtualnetwork/azurerm\");"
     },
     "avm-res-operationalinsights-workspace": {
@@ -16635,7 +17073,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 68,
+        "priority": 70,
         "rules": "For cloud resource of Oracle Exadata Infrastructure: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudexadatainfrastructure/azurerm\");"
     },
     "avm-res-oracledatabase-cloudvmcluster": {
@@ -16899,14 +17337,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -16962,7 +17400,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 101,
+        "priority": 104,
         "rules": "For cloud resource of Oracle VM cluster: it should be configured with module(source=\"Azure/avm-res-oracledatabase-cloudvmcluster/azurerm\");"
     },
     "avm-res-portal-dashboard": {
@@ -17042,7 +17480,7 @@
                 "template_file_variables": []
             }
         },
-        "priority": 69,
+        "priority": 71,
         "rules": "For cloud resource of Azure Portal Dashboard: it should be configured with module(source=\"Azure/avm-res-portal-dashboard/azurerm\");"
     },
     "avm-res-recoveryservices-vault": {
@@ -17260,7 +17698,7 @@
                 "workload_backup_policy": []
             }
         },
-        "priority": 70
+        "priority": 72
     },
     "avm-res-redhatopenshift-openshiftcluster": {
         "module_name": "avm-res-redhatopenshift-openshiftcluster",
@@ -17431,7 +17869,124 @@
                 "private_endpoints": []
             }
         },
-        "priority": 71
+        "priority": 73
+    },
+    "avm-res-relay-namespace": {
+        "module_name": "avm-res-relay-namespace",
+        "display_name": "Relay Namespace",
+        "source": "Azure/avm-res-relay-namespace/azurerm",
+        "git_hub_url": "https://github.com/Azure/terraform-azurerm-avm-res-relay-namespace",
+        "description": "Manages Relay Namespace.",
+        "outputs": [
+            "location",
+            "name",
+            "private_endpoints",
+            "resource",
+            "resource_id"
+        ],
+        "variables": {
+            "location": {
+                "required": true,
+                "description": "Azure region where the resource should be deployed.",
+                "priority": 1,
+                "schema": "# `location` is Required in module\nlocation = module.avm_res_resources_resourcegroup.resource.location\n"
+            },
+            "name": {
+                "required": true,
+                "description": "The name of the Azure Relay namespace.",
+                "priority": 0,
+                "schema": "# `name` is Required in module\nname = \"example1\"\n"
+            },
+            "resource_group_id": {
+                "required": true,
+                "description": "The resource ID of the resource group where the Relay namespace will be deployed.",
+                "priority": 2,
+                "schema": "# `resource_group_id` is Required in module\nresource_group_id = module.avm_res_resources_resourcegroup.resource.id\n"
+            },
+            "enable_telemetry": {
+                "required": false,
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10000,
+                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
+            },
+            "private_endpoints_manage_dns_zone_group": {
+                "required": false,
+                "description": "Whether to manage private DNS zone groups with this module. If set to false, you must manage private DNS zone groups externally, e.g. using Azure Policy.",
+                "priority": 10001,
+                "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = false\n"
+            },
+            "public_network_access": {
+                "required": false,
+                "description": "Controls access to the Relay namespace via public network. Possible values are 'Enabled', 'Disabled', or 'SecuredByPerimeter'.",
+                "priority": 10002,
+                "schema": "# `public_network_access` is Optional in module\npublic_network_access = \"\"\n"
+            },
+            "tags": {
+                "required": false,
+                "description": "(Optional) Tags of the resource.",
+                "priority": 10003,
+                "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
+            },
+            "lock": {
+                "required": false,
+                "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
+                "priority": 10004,
+                "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
+            },
+            "sku": {
+                "required": false,
+                "description": "The SKU of the Azure Relay namespace. The following properties can be specified:\n\n- `name` - (Required) The name of the SKU. Possible value is 'Standard'.\n- `tier` - (Required) The tier of the SKU. Possible value is 'Standard'.",
+                "priority": 10005,
+                "schema": "# `sku` is Optional in module\nsku = {\n  # `name` is Required in `sku`\nname = \"example1\"\n  # `tier` is Required in `sku`\ntier = var.string_sku_tier\n}\n\n"
+            },
+            "role_assignments": {
+                "required": false,
+                "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.\n- `principal_type` - The type of the principal_id. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
+                "priority": 10006,
+                "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
+            },
+            "diagnostic_settings": {
+                "required": false,
+                "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
+                "priority": 10007,
+                "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  diag1 = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = [\"allLogs\"]\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = [\"AllMetrics\"]\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+            },
+            "private_endpoints": {
+                "required": false,
+                "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n  - `name` - The name of the IP configuration.\n  - `private_ip_address` - The private IP address of the IP configuration.",
+                "priority": 10008,
+                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  example_key = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
+            }
+        },
+        "denpends_on": {
+            "avm_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required_depends_on": [
+                "avm-res-resources-resourcegroup"
+            ],
+            "required": {
+                "location": [
+                    "avm-res-resources-resourcegroup"
+                ],
+                "name": [],
+                "resource_group_id": [
+                    "avm-res-resources-resourcegroup"
+                ]
+            },
+            "optional": {
+                "enable_telemetry": [],
+                "private_endpoints_manage_dns_zone_group": [],
+                "public_network_access": [],
+                "tags": [],
+                "lock": [],
+                "sku": [],
+                "role_assignments": [],
+                "diagnostic_settings": [],
+                "private_endpoints": []
+            }
+        },
+        "priority": 74
     },
     "avm-res-resourcegraph-query": {
         "module_name": "avm-res-resourcegraph-query",
@@ -17528,7 +18083,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 72,
+        "priority": 75,
         "rules": "For cloud resource of Resource Graph Query: it should be configured with module(source=\"Azure/avm-res-resourcegraph-query/azurerm\");"
     },
     "avm-res-resources-resourcegroup": {
@@ -17785,7 +18340,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 73,
+        "priority": 76,
         "rules": "For cloud resource of Search Service: it should be configured with module(source=\"Azure/avm-res-search-searchservice/azurerm\");"
     },
     "avm-res-servicebus-namespace": {
@@ -17957,8 +18512,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -18000,7 +18555,7 @@
                 "topics": []
             }
         },
-        "priority": 89,
+        "priority": 92,
         "rules": "For cloud resource of Service Bus Namespace: it should be configured with module(source=\"Azure/avm-res-servicebus-namespace/azurerm\");"
     },
     "avm-res-sql-managedinstance": {
@@ -18299,7 +18854,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 74,
+        "priority": 77,
         "rules": "For cloud resource of SQL Managed Instance: it should be configured with module(source=\"Azure/avm-res-sql-managedinstance/azurerm\");"
     },
     "avm-res-sql-server": {
@@ -18502,7 +19057,7 @@
                 "databases": []
             }
         },
-        "priority": 75,
+        "priority": 78,
         "rules": "For cloud resource of Azure SQL Server: it should be configured with module(source=\"Azure/avm-res-sql-server/azurerm\");"
     },
     "avm-res-storage-storageaccount": {
@@ -18876,8 +19431,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault",
                 "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
@@ -18953,7 +19508,7 @@
                 "storage_management_policy_rule": []
             }
         },
-        "priority": 86,
+        "priority": 89,
         "rules": "For cloud resource of Storage Account: it should be configured with module(source=\"Azure/avm-res-storage-storageaccount/azurerm\");"
     },
     "avm-res-web-connection": {
@@ -19046,7 +19601,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 76
+        "priority": 79
     },
     "avm-res-web-hostingenvironment": {
         "module_name": "avm-res-web-hostingenvironment",
@@ -19187,7 +19742,7 @@
                 "diagnostic_settings": []
             }
         },
-        "priority": 77,
+        "priority": 80,
         "rules": "For cloud resource of App Service Environment: it should be configured with module(source=\"Azure/avm-res-web-hostingenvironment/azurerm\");"
     },
     "avm-res-web-serverfarm": {
@@ -19324,7 +19879,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 78,
+        "priority": 81,
         "rules": "For cloud resource of App Service Plan: it should be configured with module(source=\"Azure/avm-res-web-serverfarm/azurerm\");"
     },
     "avm-res-web-site": {
@@ -19886,7 +20441,7 @@
                 "deployment_slots": []
             }
         },
-        "priority": 79,
+        "priority": 82,
         "rules": "For cloud resource of Web/Function App: it should be configured with module(source=\"Azure/avm-res-web-site/azurerm\");"
     },
     "avm-res-web-staticsite": {
@@ -20090,7 +20645,7 @@
                 "private_endpoints": []
             }
         },
-        "priority": 80,
+        "priority": 83,
         "rules": "For cloud resource of Static Web App: it should be configured with module(source=\"Azure/avm-res-web-staticsite/azurerm\");"
     }
 }
