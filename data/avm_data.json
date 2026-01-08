@@ -1070,8 +1070,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -6387,8 +6387,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6605,8 +6605,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
@@ -8685,12 +8685,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -9050,8 +9050,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9839,8 +9839,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
@@ -11378,12 +11378,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -12487,8 +12487,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13644,8 +13644,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14055,12 +14055,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -15277,7 +15277,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 55,
+        "priority": 54,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15654,7 +15654,7 @@
                 "security_rules": []
             }
         },
-        "priority": 53,
+        "priority": 55,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16441,7 +16441,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 54,
+        "priority": 53,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16588,11 +16588,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-networksecuritygroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-routetable",
-                "avm-res-network-natgateway"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-natgateway",
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-networksecuritygroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16627,10 +16627,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
-                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-networksecuritygroup",
                     "avm-res-network-routetable",
-                    "avm-res-network-networksecuritygroup"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-network-natgateway"
                 ]
             }
         },
@@ -16939,71 +16939,71 @@
                 "priority": 6,
                 "schema": "# `zone` is Required in module\nzone = \"1\"\n"
             },
-            "enable_telemetry": {
+            "custom_action_timeout_in_mins": {
                 "required": false,
-                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "description": "Determines the amount of time the system will wait before the start of each database server patching operation. Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive).",
                 "priority": 10000,
-                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
-            },
-            "maintenance_window_leadtime_in_weeks": {
-                "required": false,
-                "description": "The maintenance window load time in weeks.",
-                "priority": 10001,
-                "schema": "# `maintenance_window_leadtime_in_weeks` is Optional in module\nmaintenance_window_leadtime_in_weeks = 0.0\n"
-            },
-            "maintenance_window_patching_mode": {
-                "required": false,
-                "description": "The maintenance window patching mode.",
-                "priority": 10002,
-                "schema": "# `maintenance_window_patching_mode` is Optional in module\nmaintenance_window_patching_mode = \"Rolling\"\n"
-            },
-            "maintenance_window_preference": {
-                "required": false,
-                "description": "The maintenance window preference. Valid values: CustomPreference, NoPreference",
-                "priority": 10003,
-                "schema": "# `maintenance_window_preference` is Optional in module\nmaintenance_window_preference = \"NoPreference\"\n"
-            },
-            "shape": {
-                "required": false,
-                "description": "The shape of the infrastructure. Valid value Exadata.X9M and Exadata.X11M",
-                "priority": 10004,
-                "schema": "# `shape` is Optional in module\nshape = \"Exadata.X9M\"\n"
+                "schema": "# `custom_action_timeout_in_mins` is Optional in module\ncustom_action_timeout_in_mins = 0\n"
             },
             "database_server_type": {
                 "required": false,
                 "description": "The database server model type of the cloud Exadata infrastructure resource. Null for X9M. Default to X11M for X11M",
-                "priority": 10005,
+                "priority": 10001,
                 "schema": "# `database_server_type` is Optional in module\ndatabase_server_type = \"\"\n"
             },
-            "storage_server_type": {
+            "enable_telemetry": {
                 "required": false,
-                "description": "The storage server model type of the cloud Exadata infrastructure resource. Null for X9M. Default to X11M-HC for X11M",
-                "priority": 10006,
-                "schema": "# `storage_server_type` is Optional in module\nstorage_server_type = \"\"\n"
-            },
-            "custom_action_timeout_in_mins": {
-                "required": false,
-                "description": "Determines the amount of time the system will wait before the start of each database server patching operation. Custom action timeout is in minutes and valid value is between 15 to 120 (inclusive).",
-                "priority": 10007,
-                "schema": "# `custom_action_timeout_in_mins` is Optional in module\ncustom_action_timeout_in_mins = 0\n"
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
+                "priority": 10002,
+                "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
             "is_custom_action_timeout_enabled": {
                 "required": false,
                 "description": "If true, enables the configuration of a custom action timeout (waiting period) between database server patching operations.",
-                "priority": 10008,
+                "priority": 10003,
                 "schema": "# `is_custom_action_timeout_enabled` is Optional in module\nis_custom_action_timeout_enabled = false\n"
             },
             "maintenance_window_hours_of_day": {
                 "required": false,
                 "description": "The window of hours during the day when maintenance should be performed. The window is a 4 hour slot. Valid values are - 0 - represents time slot 0:00 - 3:59 UTC - 4 - represents time slot 4:00 - 7:59 UTC - 8 - represents time slot 8:00 - 11:59 UTC - 12 - represents time slot 12:00 - 15:59 UTC - 16 - represents time slot 16:00 - 19:59 UTC - 20 - represents time slot 20:00 - 23:59 UTC",
-                "priority": 10009,
+                "priority": 10004,
                 "schema": "# `maintenance_window_hours_of_day` is Optional in module\nmaintenance_window_hours_of_day = []\n"
+            },
+            "maintenance_window_leadtime_in_weeks": {
+                "required": false,
+                "description": "The maintenance window load time in weeks.",
+                "priority": 10005,
+                "schema": "# `maintenance_window_leadtime_in_weeks` is Optional in module\nmaintenance_window_leadtime_in_weeks = 0.0\n"
+            },
+            "maintenance_window_patching_mode": {
+                "required": false,
+                "description": "The maintenance window patching mode.",
+                "priority": 10006,
+                "schema": "# `maintenance_window_patching_mode` is Optional in module\nmaintenance_window_patching_mode = \"Rolling\"\n"
+            },
+            "maintenance_window_preference": {
+                "required": false,
+                "description": "The maintenance window preference. Valid values: CustomPreference, NoPreference",
+                "priority": 10007,
+                "schema": "# `maintenance_window_preference` is Optional in module\nmaintenance_window_preference = \"NoPreference\"\n"
             },
             "maintenance_window_weeks_of_month": {
                 "required": false,
                 "description": "Weeks during the month when maintenance should be performed. Weeks start on the 1st, 8th, 15th, and 22nd days of the month, and have a duration of 7 days. Weeks start and end based on calendar dates, not days of the week. For example, to allow maintenance during the 2nd week of the month (from the 8th day to the 14th day of the month), use the value 2. Maintenance cannot be scheduled for the fifth week of months that contain more than 28 days. Note that this parameter works in conjunction with the daysOfWeek and hoursOfDay parameters to allow you to specify specific days of the week and hours that maintenance will be performed.",
-                "priority": 10010,
+                "priority": 10008,
                 "schema": "# `maintenance_window_weeks_of_month` is Optional in module\nmaintenance_window_weeks_of_month = []\n"
+            },
+            "shape": {
+                "required": false,
+                "description": "The shape of the infrastructure. Valid value Exadata.X9M and Exadata.X11M",
+                "priority": 10009,
+                "schema": "# `shape` is Optional in module\nshape = \"Exadata.X9M\"\n"
+            },
+            "storage_server_type": {
+                "required": false,
+                "description": "The storage server model type of the cloud Exadata infrastructure resource. Null for X9M. Default to X11M-HC for X11M",
+                "priority": 10010,
+                "schema": "# `storage_server_type` is Optional in module\nstorage_server_type = \"\"\n"
             },
             "tags": {
                 "required": false,
@@ -17011,23 +17011,23 @@
                 "priority": 10011,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
+            "customer_contacts": {
+                "required": false,
+                "description": "The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource. Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators. Up to 10 email addresses can be added to the customer contacts for a cloud Exadata infrastructure instance.",
+                "priority": 10012,
+                "schema": "# `customer_contacts` is Optional in module\ncustomer_contacts = [{\n  # `email` is Required in `customer_contacts`\nemail = \"example@example.com\"\n}\n]\n"
+            },
             "maintenance_window_days_of_week": {
                 "required": false,
                 "description": "Days during the week when maintenance should be performed.",
-                "priority": 10012,
+                "priority": 10013,
                 "schema": "# `maintenance_window_days_of_week` is Optional in module\nmaintenance_window_days_of_week = [{\n  # `name` is Required in `maintenance_window_days_of_week`\nname = \"example1\"\n}\n]\n"
             },
             "maintenance_window_months": {
                 "required": false,
                 "description": "Months during the year when maintenance should be performed.",
-                "priority": 10013,
-                "schema": "# `maintenance_window_months` is Optional in module\nmaintenance_window_months = [{\n  # `name` is Required in `maintenance_window_months`\nname = \"example1\"\n}\n]\n"
-            },
-            "customer_contacts": {
-                "required": false,
-                "description": "The list of customer email addresses that receive information from Oracle about the specified OCI Database service resource. Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators. Up to 10 email addresses can be added to the customer contacts for a cloud Exadata infrastructure instance.",
                 "priority": 10014,
-                "schema": "# `customer_contacts` is Optional in module\ncustomer_contacts = [{\n  # `email` is Required in `customer_contacts`\nemail = \"example@example.com\"\n}\n]\n"
+                "schema": "# `maintenance_window_months` is Optional in module\nmaintenance_window_months = [{\n  # `name` is Required in `maintenance_window_months`\nname = \"example1\"\n}\n]\n"
             },
             "role_assignments": {
                 "required": false,
@@ -17055,21 +17055,21 @@
                 "zone": []
             },
             "optional": {
+                "custom_action_timeout_in_mins": [],
+                "database_server_type": [],
                 "enable_telemetry": [],
+                "is_custom_action_timeout_enabled": [],
+                "maintenance_window_hours_of_day": [],
                 "maintenance_window_leadtime_in_weeks": [],
                 "maintenance_window_patching_mode": [],
                 "maintenance_window_preference": [],
-                "shape": [],
-                "database_server_type": [],
-                "storage_server_type": [],
-                "custom_action_timeout_in_mins": [],
-                "is_custom_action_timeout_enabled": [],
-                "maintenance_window_hours_of_day": [],
                 "maintenance_window_weeks_of_month": [],
+                "shape": [],
+                "storage_server_type": [],
                 "tags": [],
+                "customer_contacts": [],
                 "maintenance_window_days_of_week": [],
                 "maintenance_window_months": [],
-                "customer_contacts": [],
                 "role_assignments": []
             }
         },
@@ -17337,14 +17337,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18512,8 +18512,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
@@ -19431,8 +19431,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
