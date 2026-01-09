@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -6606,8 +6606,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6641,8 +6641,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -9840,8 +9840,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9884,8 +9884,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -15277,7 +15277,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 54,
+        "priority": 55,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15654,7 +15654,7 @@
                 "security_rules": []
             }
         },
-        "priority": 55,
+        "priority": 53,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16441,7 +16441,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 53,
+        "priority": 54,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16588,11 +16588,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-routetable",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-natgateway",
+                "avm-res-network-networksecuritygroup",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-networksecuritygroup"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-routetable",
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16627,10 +16627,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-networksecuritygroup",
                     "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-natgateway"
+                    "avm-res-network-natgateway",
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
@@ -17152,7 +17152,7 @@
                 "required": true,
                 "description": "The subnet ID.",
                 "priority": 11,
-                "schema": "# `subnet_id` is Required in module\nsubnet_id = module.avm_res_network_virtualnetwork.subnets.snet-odaa.resource_id\n"
+                "schema": "# `subnet_id` is Required in module\nsubnet_id = module.avm_res_network_virtualnetwork.resource_id\n"
             },
             "vnet_id": {
                 "required": true,
@@ -17232,47 +17232,47 @@
                 "priority": 10011,
                 "schema": "# `license_model` is Optional in module\nlicense_model = \"LicenseIncluded\"\n"
             },
+            "ocpu_count": {
+                "required": false,
+                "description": "The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part.",
+                "priority": 10012,
+                "schema": "# `ocpu_count` is Optional in module\nocpu_count = 0\n"
+            },
             "private_endpoints_manage_dns_zone_group": {
                 "required": false,
                 "description": "Whether to manage private DNS zone groups with this module. If set to false, you must manage private DNS zone groups externally, e.g. using Azure Policy.",
-                "priority": 10012,
+                "priority": 10013,
                 "schema": "# `private_endpoints_manage_dns_zone_group` is Optional in module\nprivate_endpoints_manage_dns_zone_group = false\n"
             },
             "scan_listener_port_tcp": {
                 "required": false,
                 "description": "The TCP Single Client Access Name (SCAN) port. The default port is 1521.",
-                "priority": 10013,
+                "priority": 10014,
                 "schema": "# `scan_listener_port_tcp` is Optional in module\nscan_listener_port_tcp = 0\n"
             },
             "scan_listener_port_tcp_ssl": {
                 "required": false,
                 "description": "The TCP Single Client Access Name (SCAN) port for SSL. The default port is 2484.",
-                "priority": 10014,
+                "priority": 10015,
                 "schema": "# `scan_listener_port_tcp_ssl` is Optional in module\nscan_listener_port_tcp_ssl = 0\n"
+            },
+            "storage_size_in_gbs": {
+                "required": false,
+                "description": "The local node storage to be allocated in GBs.",
+                "priority": 10016,
+                "schema": "# `storage_size_in_gbs` is Optional in module\nstorage_size_in_gbs = 0\n"
             },
             "system_version": {
                 "required": false,
                 "description": "Operating system version of the image.",
-                "priority": 10015,
+                "priority": 10017,
                 "schema": "# `system_version` is Optional in module\nsystem_version = \"\"\n"
             },
             "time_zone": {
                 "required": false,
                 "description": "The time zone of the cluster.",
-                "priority": 10016,
-                "schema": "# `time_zone` is Optional in module\ntime_zone = \"UTC\"\n"
-            },
-            "ocpu_count": {
-                "required": false,
-                "description": "The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part.",
-                "priority": 10017,
-                "schema": "# `ocpu_count` is Optional in module\nocpu_count = 0\n"
-            },
-            "storage_size_in_gbs": {
-                "required": false,
-                "description": "The local node storage to be allocated in GBs.",
                 "priority": 10018,
-                "schema": "# `storage_size_in_gbs` is Optional in module\nstorage_size_in_gbs = 0\n"
+                "schema": "# `time_zone` is Optional in module\ntime_zone = \"UTC\"\n"
             },
             "zone_id": {
                 "required": false,
@@ -17286,23 +17286,23 @@
                 "priority": 10020,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
+            "file_system_configuration_details": {
+                "required": false,
+                "description": "Array of mount path and size.",
+                "priority": 10021,
+                "schema": "# `file_system_configuration_details` is Optional in module\nfile_system_configuration_details = [{\n  # `fileSystemSizeGb` is Required in `file_system_configuration_details`\nfileSystemSizeGb = 0\n  # `mountPoint` is Required in `file_system_configuration_details`\nmountPoint = var.string_file_system_configuration_details_mountPoint\n}\n]\n"
+            },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10021,
+                "priority": 10022,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10022,
-                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
-            },
-            "file_system_configuration_details": {
-                "required": false,
-                "description": "Array of mount path and size.",
                 "priority": 10023,
-                "schema": "# `file_system_configuration_details` is Optional in module\nfile_system_configuration_details = [{\n  # `fileSystemSizeGb` is Required in `file_system_configuration_details`\nfileSystemSizeGb = 0\n  # `mountPoint` is Required in `file_system_configuration_details`\nmountPoint = var.string_file_system_configuration_details_mountPoint\n}\n]\n"
+                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "nsg_cidrs": {
                 "required": false,
@@ -17338,13 +17338,13 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -17381,18 +17381,18 @@
                 "is_local_backup_enabled": [],
                 "is_sparse_diskgroup_enabled": [],
                 "license_model": [],
+                "ocpu_count": [],
                 "private_endpoints_manage_dns_zone_group": [],
                 "scan_listener_port_tcp": [],
                 "scan_listener_port_tcp_ssl": [],
+                "storage_size_in_gbs": [],
                 "system_version": [],
                 "time_zone": [],
-                "ocpu_count": [],
-                "storage_size_in_gbs": [],
                 "zone_id": [],
                 "tags": [],
+                "file_system_configuration_details": [],
                 "lock": [],
                 "managed_identities": [],
-                "file_system_configuration_details": [],
                 "nsg_cidrs": [],
                 "customer_managed_key": [],
                 "role_assignments": [],
@@ -18513,8 +18513,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18544,8 +18544,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -19432,8 +19432,8 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19483,8 +19483,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "diagnostic_settings_storage_account": [],
                 "role_assignments": [],
