@@ -471,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -1070,8 +1070,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -3369,12 +3369,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-storage-storageaccount"
+                "avm-res-storage-storageaccount",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5814,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6387,8 +6387,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6605,9 +6605,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6641,8 +6641,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -9050,8 +9050,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9839,9 +9839,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9884,8 +9884,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -11209,12 +11209,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -11378,12 +11378,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-operationalinsights-workspace"
+                "avm-res-operationalinsights-workspace",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -12487,8 +12487,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13644,8 +13644,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14055,12 +14055,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -15654,7 +15654,7 @@
                 "security_rules": []
             }
         },
-        "priority": 53,
+        "priority": 54,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -15805,76 +15805,82 @@
                 "priority": 10001,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
+            "lock": {
+                "required": false,
+                "description": "  Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n  - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n  - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
+                "priority": 10002,
+                "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
+            },
             "retry": {
                 "required": false,
                 "description": "Retry configuration for the resource operations",
-                "priority": 10002,
+                "priority": 10003,
                 "schema": "# `retry` is Optional in module\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = [\"CannotDeleteResource\"]\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n  # `multiplier` is Optional in `retry`\nmultiplier = 1.5\n  # `randomization_factor` is Optional in `retry`\nrandomization_factor = 0.5\n}\n\n"
             },
             "a_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a A record.",
-                "priority": 10003,
+                "priority": 10004,
                 "schema": "# `a_records` is Optional in module\na_records = {\n  example_key = {\n  # `name` is Required in `a_records`\nname = \"example1\"\n  # `ttl` is Required in `a_records`\nttl = 0\n  # `records` is Optional in `a_records`\nrecords = []\n  # `ip_addresses` is Optional in `a_records`\nip_addresses = []\n}\n\n}\n\n"
             },
             "aaaa_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a AAAA record.",
-                "priority": 10004,
+                "priority": 10005,
                 "schema": "# `aaaa_records` is Optional in module\naaaa_records = {\n  example_key = {\n  # `name` is Required in `aaaa_records`\nname = \"example1\"\n  # `ttl` is Required in `aaaa_records`\nttl = 0\n  # `records` is Optional in `aaaa_records`\nrecords = []\n  # `ip_addresses` is Optional in `aaaa_records`\nip_addresses = []\n}\n\n}\n\n"
             },
             "cname_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a CNAME record.",
-                "priority": 10005,
+                "priority": 10006,
                 "schema": "# `cname_records` is Optional in module\ncname_records = {\n  example_key = {\n  # `name` is Required in `cname_records`\nname = \"example1\"\n  # `ttl` is Required in `cname_records`\nttl = 0\n  # `record` is Optional in `cname_records`\nrecord = \"\"\n  # `cname` is Optional in `cname_records`\ncname = \"\"\n}\n\n}\n\n"
             },
             "ptr_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a PTR record.",
-                "priority": 10006,
+                "priority": 10007,
                 "schema": "# `ptr_records` is Optional in module\nptr_records = {\n  example_key = {\n  # `name` is Required in `ptr_records`\nname = \"example1\"\n  # `ttl` is Required in `ptr_records`\nttl = 0\n  # `records` is Optional in `ptr_records`\nrecords = []\n  # `domain_names` is Optional in `ptr_records`\ndomain_names = []\n}\n\n}\n\n"
             },
             "soa_record": {
                 "required": false,
                 "description": "optional soa_record variable, if included only email is required, rest are optional. Email must use username.corp.com and not username@corp.com",
-                "priority": 10007,
+                "priority": 10008,
                 "schema": "# `soa_record` is Optional in module\nsoa_record = {\n  # `email` is Required in `soa_record`\nemail = \"example@example.com\"\n  # `name` is Optional in `soa_record`\nname = \"@\"\n  # `expire_time` is Optional in `soa_record`\nexpire_time = 2419200\n  # `minimum_ttl` is Optional in `soa_record`\nminimum_ttl = 10\n  # `refresh_time` is Optional in `soa_record`\nrefresh_time = 3600\n  # `retry_time` is Optional in `soa_record`\nretry_time = 300\n  # `ttl` is Optional in `soa_record`\nttl = 3600\n}\n\n"
             },
             "txt_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a TXT record.",
-                "priority": 10008,
+                "priority": 10009,
                 "schema": "# `txt_records` is Optional in module\ntxt_records = {\n  example_key = {\n  # `name` is Required in `txt_records`\nname = \"example1\"\n  # `ttl` is Required in `txt_records`\nttl = 0\n  # `records` is Required in `txt_records`\nrecords = {\n  example_key = {\n  # `value` is Required in `records`\nvalue = []\n}\n\n}\n\n}\n\n}\n\n"
             },
             "mx_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a MX record.",
-                "priority": 10009,
+                "priority": 10010,
                 "schema": "# `mx_records` is Optional in module\nmx_records = {\n  example_key = {\n  # `ttl` is Required in `mx_records`\nttl = 0\n  # `records` is Required in `mx_records`\nrecords = {\n  example_key = {\n  # `preference` is Required in `records`\npreference = 0\n  # `exchange` is Required in `records`\nexchange = var.string_records_exchange\n}\n\n}\n\n  # `name` is Optional in `mx_records`\nname = \"@\"\n}\n\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "  A map of role assignments to create on the <RESOURCE>. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n  > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10010,
+                "priority": 10011,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "srv_records": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a SRV record.",
-                "priority": 10011,
+                "priority": 10012,
                 "schema": "# `srv_records` is Optional in module\nsrv_records = {\n  example_key = {\n  # `name` is Required in `srv_records`\nname = \"example1\"\n  # `ttl` is Required in `srv_records`\nttl = 0\n  # `records` is Required in `srv_records`\nrecords = {\n  example_key = {\n  # `priority` is Required in `records`\npriority = 0\n  # `weight` is Required in `records`\nweight = 0\n  # `port` is Required in `records`\nport = 0\n  # `target` is Required in `records`\ntarget = var.string_records_target\n}\n\n}\n\n}\n\n}\n\n"
             },
             "timeouts": {
                 "required": false,
                 "description": "A map of timeouts objects, per resource type, to apply to the creation and destruction of resources the following resources:\n\n- `dns_zones` - (Optional) The timeouts for DNS Zones.\n- `vnet_links` - (Optional) The timeouts for DNS Zones Virtual Network Links.\n\nEach timeout object has the following optional attributes:\n\n- `create` - (Optional) The timeout for creating the resource. Defaults to `5m` apart from policy assignments, where this is set to `15m`.\n- `delete` - (Optional) The timeout for deleting the resource. Defaults to `5m`.\n- `update` - (Optional) The timeout for updating the resource. Defaults to `5m`.\n- `read` - (Optional) The timeout for reading the resource. Defaults to `5m`.",
-                "priority": 10012,
+                "priority": 10013,
                 "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `dns_zones` is Optional in `timeouts`\ndns_zones = {\n  # `create` is Optional in `dns_zones`\ncreate = \"50m\"\n  # `delete` is Optional in `dns_zones`\ndelete = \"50m\"\n  # `update` is Optional in `dns_zones`\nupdate = \"50m\"\n  # `read` is Optional in `dns_zones`\nread = \"10m\"\n}\n\n  # `vnet_links` is Optional in `timeouts`\nvnet_links = {\n  # `create` is Optional in `vnet_links`\ncreate = \"50m\"\n  # `delete` is Optional in `vnet_links`\ndelete = \"50m\"\n  # `update` is Optional in `vnet_links`\nupdate = \"50m\"\n  # `read` is Optional in `vnet_links`\nread = \"10m\"\n}\n\n}\n\n"
             },
             "virtual_network_links": {
                 "required": false,
                 "description": "A map of objects where each object contains information to create a virtual network link.\nEither `name` or `vnetlinkname` must be provided, and either `virtual_network_id` or `vnetid` must be provided.",
-                "priority": 10013,
+                "priority": 10014,
                 "schema": "# `virtual_network_links` is Optional in module\nvirtual_network_links = {\n  example_key = {\n  # `vnetlinkname` is Optional in `virtual_network_links`\nvnetlinkname = \"\"\n  # `name` is Optional in `virtual_network_links`\nname = \"\"\n  # `vnetid` is Optional in `virtual_network_links`\nvnetid = \"\"\n  # `virtual_network_id` is Optional in `virtual_network_links`\nvirtual_network_id = \"\"\n  # `autoregistration` is Optional in `virtual_network_links`\nautoregistration = false\n  # `registration_enabled` is Optional in `virtual_network_links`\nregistration_enabled = false\n  # `private_dns_zone_supports_private_link` is Optional in `virtual_network_links`\nprivate_dns_zone_supports_private_link = false\n  # `resolution_policy` is Optional in `virtual_network_links`\nresolution_policy = \"Default\"\n  # `tags` is Optional in `virtual_network_links`\ntags = {\n  example_key = \"\"\n}\n\n}\n\n}\n\n"
             }
         },
@@ -15888,6 +15894,7 @@
             "optional": {
                 "enable_telemetry": [],
                 "tags": [],
+                "lock": [],
                 "retry": [],
                 "a_records": [],
                 "aaaa_records": [],
@@ -16016,12 +16023,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -16441,7 +16448,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 54,
+        "priority": 53,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16588,11 +16595,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-routetable",
-                "avm-res-network-natgateway"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-natgateway",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16627,10 +16634,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
-                    "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable"
+                    "avm-res-network-routetable",
+                    "avm-res-network-natgateway",
+                    "avm-res-managedidentity-userassignedidentity"
                 ]
             }
         },
@@ -17029,10 +17036,16 @@
                 "priority": 10014,
                 "schema": "# `maintenance_window_months` is Optional in module\nmaintenance_window_months = [{\n  # `name` is Required in `maintenance_window_months`\nname = \"example1\"\n}\n]\n"
             },
+            "timeouts": {
+                "required": false,
+                "description": "Configuration for resource operation timeouts.\n\n- `create` - (Optional) The timeout for the create operation. Defaults to `6h` (6 hours) due to the extended time required to provision Oracle Exadata infrastructure.\n- `delete` - (Optional) The timeout for the delete operation. Defaults to `3h` (3 hours).\n\nNote: Update operations are not supported by Oracle Exadata Infrastructure resources. Any property change will trigger a destroy and recreate of the resource.\n\nExample:\n```hcl\ntimeouts = {\n  create = \"2h\"\n  delete = \"30m\"\n}\n```",
+                "priority": 10015,
+                "schema": "# `timeouts` is Optional in module\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"6h\"\n  # `delete` is Optional in `timeouts`\ndelete = \"3h\"\n}\n\n"
+            },
             "role_assignments": {
                 "required": false,
                 "description": "A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n- `principal_id` - The ID of the principal to assign the role to.\n- `description` - The description of the role assignment.\n- `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n- `condition` - The condition which will be used to scope the role assignment.\n- `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n- `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n- `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.\n\n\n> Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10015,
+                "priority": 10016,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             }
         },
@@ -17070,6 +17083,7 @@
                 "customer_contacts": [],
                 "maintenance_window_days_of_week": [],
                 "maintenance_window_months": [],
+                "timeouts": [],
                 "role_assignments": []
             }
         },
@@ -17337,14 +17351,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-oracledatabase-cloudexadatainfrastructure",
                 "avm-res-network-virtualnetwork",
-                "avm-res-oracledatabase-cloudexadatainfrastructure"
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18512,9 +18526,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18544,8 +18558,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -19431,9 +19445,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19483,8 +19497,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "diagnostic_settings_storage_account": [],
                 "role_assignments": [],
