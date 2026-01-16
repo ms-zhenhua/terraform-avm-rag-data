@@ -471,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -1070,8 +1070,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5814,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6387,8 +6387,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6442,8 +6442,8 @@
             "private_endpoints",
             "resource",
             "resource_id",
-            "system_assigned_mi_principal_id",
-            "scope_maps"
+            "scope_maps",
+            "system_assigned_mi_principal_id"
         ],
         "variables": {
             "location": {
@@ -6605,9 +6605,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6641,8 +6641,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -9050,8 +9050,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9839,9 +9839,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9884,8 +9884,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -10488,13 +10488,13 @@
                 "required": false,
                 "description": "(Optional) Data residency boundary to set on the Event Grid Topic. Maps to the ARM property `dataResidencyBoundary`. Allowed values: 'WithinGeopair' (API default) and 'WithinRegion'. If `null`, the module will set `WithinGeopair` in the ARM payload to make the default explicit.",
                 "priority": 10000,
-                "schema": "# `data_residency_boundary` is Optional in module\ndata_residency_boundary = \"WithinRegion\"\n"
+                "schema": "# `data_residency_boundary` is Optional in module\ndata_residency_boundary = \"\"\n"
             },
             "disable_local_auth": {
                 "required": false,
                 "description": "When true the Event Grid Topic will have local authentication disabled (ARM property `disableLocalAuth`). The module will always set this property; default is `true` (local auth disabled).",
                 "priority": 10001,
-                "schema": "# `disable_local_auth` is Optional in module\ndisable_local_auth = true\n"
+                "schema": "# `disable_local_auth` is Optional in module\ndisable_local_auth = false\n"
             },
             "enable_telemetry": {
                 "required": false,
@@ -10506,7 +10506,7 @@
                 "required": false,
                 "description": "Optional input schema for the topic. Allowed values: 'EventGridSchema' (default), 'CloudEventSchemaV1_0', 'Custom'.",
                 "priority": 10003,
-                "schema": "# `input_schema` is Optional in module\ninput_schema = \"EventGridSchema\"\n"
+                "schema": "# `input_schema` is Optional in module\ninput_schema = \"\"\n"
             },
             "minimum_tls_version_allowed": {
                 "required": false,
@@ -10536,7 +10536,7 @@
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
                 "priority": 10008,
-                "schema": "# `tags` is Optional in module\ntags = {\n  environment = \"example\"\n}\n\n"
+                "schema": "# `tags` is Optional in module\ntags = {\n  environment = \"cross-region-private-endpoint\"\n}\n\n"
             },
             "inbound_ip_rules": {
                 "required": false,
@@ -10554,7 +10554,7 @@
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
                 "priority": 10011,
-                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = [\"\"]\n}\n\n"
+                "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = false\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "role_assignments": {
                 "required": false,
@@ -10566,7 +10566,7 @@
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Event Grid Topic. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
                 "priority": 10013,
-                "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  la = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
+                "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "input_schema_mapping": {
                 "required": false,
@@ -10578,13 +10578,13 @@
                 "required": false,
                 "description": "A map of private endpoints to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the private endpoint. One will be generated if not set.\n- `role_assignments` - (Optional) A map of role assignments to create on the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time. See `var.role_assignments` for more information.\n- `lock` - (Optional) The lock level to apply to the private endpoint. Default is `None`. Possible values are `None`, `CanNotDelete`, and `ReadOnly`.\n- `tags` - (Optional) A mapping of tags to assign to the private endpoint.\n- `subnet_resource_id` - The resource ID of the subnet to deploy the private endpoint in.\n- `private_dns_zone_group_name` - (Optional) The name of the private DNS zone group. One will be generated if not set.\n- `private_dns_zone_resource_ids` - (Optional) A set of resource IDs of private DNS zones to associate with the private endpoint. If not set, no zone groups will be created and the private endpoint will not be associated with any private DNS zones. DNS records must be managed external to this module.\n- `application_security_group_resource_ids` - (Optional) A map of resource IDs of application security groups to associate with the private endpoint. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `private_service_connection_name` - (Optional) The name of the private service connection. One will be generated if not set.\n- `network_interface_name` - (Optional) The name of the network interface. One will be generated if not set.\n- `location` - (Optional) The Azure location where the resources will be deployed. Defaults to the location of the resource group.\n- `resource_group_name` - (Optional) The resource group where the resources will be deployed. Defaults to the resource group of this resource.\n- `ip_configurations` - (Optional) A map of IP configurations to create on the private endpoint. If not specified the platform will create one. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n- `name` - The name of the IP configuration.\n- `private_ip_address` - The private IP address of the IP configuration.",
                 "priority": 10015,
-                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  pe1 = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"psc-eventgrid-topic\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
+                "schema": "# `private_endpoints` is Optional in module\nprivate_endpoints = {\n  pe_crossregion = {\n  # `subnet_resource_id` is Required in `private_endpoints`\nsubnet_resource_id = var.string_private_endpoints_subnet_resource_id\n  # `name` is Optional in `private_endpoints`\nname = \"\"\n  # `role_assignments` is Optional in `private_endpoints`\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n  # `lock` is Optional in `private_endpoints`\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n  # `tags` is Optional in `private_endpoints`\ntags = {\n  example_key = \"\"\n}\n\n  # `private_dns_zone_group_name` is Optional in `private_endpoints`\nprivate_dns_zone_group_name = \"default\"\n  # `private_dns_zone_resource_ids` is Optional in `private_endpoints`\nprivate_dns_zone_resource_ids = []\n  # `application_security_group_associations` is Optional in `private_endpoints`\napplication_security_group_associations = {\n  example_key = \"\"\n}\n\n  # `private_service_connection_name` is Optional in `private_endpoints`\nprivate_service_connection_name = \"psc-eventgrid-topic-crossregion\"\n  # `network_interface_name` is Optional in `private_endpoints`\nnetwork_interface_name = \"\"\n  # `location` is Optional in `private_endpoints`\nlocation = \"\"\n  # `resource_group_name` is Optional in `private_endpoints`\nresource_group_name = \"\"\n  # `ip_configurations` is Optional in `private_endpoints`\nip_configurations = {\n  example_key = {\n  # `name` is Required in `ip_configurations`\nname = \"example1\"\n  # `private_ip_address` is Required in `ip_configurations`\nprivate_ip_address = var.string_ip_configurations_private_ip_address\n}\n\n}\n\n}\n\n}\n\n"
             },
             "event_subscriptions": {
                 "required": false,
                 "description": "A map of event subscriptions to create on the Event Grid Topic.\n\nEach event subscription supports the following:\n\n- `name` - (Required) The name of the event subscription.\n\n- `destination` - (Optional) Direct delivery destination. Specify exactly one destination type:\n  - `azure_function` - Azure Function destination with `resource_id`, optional `max_events_per_batch`, `preferred_batch_size_in_kilobytes`, and `delivery_attribute_mappings`.\n  - `event_hub` - Event Hub destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `hybrid_connection` - Hybrid Connection destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `monitor_alert` - Monitor Alert destination with `severity` (Sev0-Sev4), optional `action_groups` and `description`.\n  - `namespace_topic` - Event Grid Namespace Topic destination with `resource_id`.\n  - `service_bus_queue` - Service Bus Queue destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `service_bus_topic` - Service Bus Topic destination with `resource_id` and optional `delivery_attribute_mappings`.\n  - `storage_queue` - Storage Queue destination with `resource_id`, `queue_name`, and optional `queue_message_time_to_live_in_seconds`.\n  - `webhook` - WebHook destination with `endpoint_url`, optional `max_events_per_batch`, `preferred_batch_size_in_kilobytes`, `azure_active_directory_tenant_id`, `azure_active_directory_app_id_or_uri`, `minimum_tls_version_allowed`, and `delivery_attribute_mappings`.\n\n- `delivery_with_resource_identity` - (Optional) Delivery using managed identity (recommended for secure RBAC-based delivery):\n  - `identity` - Identity configuration with `type` (\"SystemAssigned\" or \"UserAssigned\") and optional `user_assigned_identity`.\n  - `destination` - Same destination types as above.\n\n- `dead_letter_destination` - (Optional) Dead letter destination (only StorageBlob supported):\n  - `storage_blob` - Storage blob with `resource_id` and `blob_container_name`.\n\n- `dead_letter_with_resource_identity` - (Optional) Dead letter using managed identity.\n\n- `event_delivery_schema` - (Optional) Schema for delivered events: \"EventGridSchema\", \"CloudEventSchemaV1_0\", \"CustomInputSchema\".\n\n- `filter` - (Optional) Event filtering configuration:\n  - `subject_begins_with` - Subject prefix filter.\n  - `subject_ends_with` - Subject suffix filter.\n  - `included_event_types` - List of event types to include.\n  - `is_subject_case_sensitive` - Case sensitivity for subject filters.\n  - `enable_advanced_filtering_on_arrays` - Enable advanced filtering on arrays.\n  - `advanced_filters` - List of advanced filters with `key`, `operator_type`, `value`, and `values`.\n\n- `labels` - (Optional) List of labels.\n\n- `retry_policy` - (Optional) Retry policy with `max_delivery_attempts` and `event_time_to_live_in_minutes`.\n\nExample - Storage Queue with managed identity:\n```hcl\nevent_subscriptions = {\n  storage_queue_sub = {\n    name = \"my-storage-queue-subscription\"\n    delivery_with_resource_identity = {\n      identity = {\n        type = \"SystemAssigned\"\n      }\n      destination = {\n        storage_queue = {\n          resource_id                          = \"/subscriptions/.../storageAccounts/mystorageaccount\"\n          queue_name                           = \"myqueue\"\n          queue_message_time_to_live_in_seconds = 300\n        }\n      }\n    }\n    filter = {\n      subject_begins_with = \"/myapp/\"\n      included_event_types = [\"Microsoft.Storage.BlobCreated\"]\n    }\n  }\n}\n```\n\nExample - WebHook destination:\n```hcl\nevent_subscriptions = {\n  webhook_sub = {\n    name = \"my-webhook-subscription\"\n    destination = {\n      webhook = {\n        endpoint_url          = \"https://example.com/webhook\"\n        max_events_per_batch  = 10\n        minimum_tls_version_allowed = \"1.2\"\n      }\n    }\n  }\n}\n```",
                 "priority": 10016,
-                "schema": "# `event_subscriptions` is Optional in module\nevent_subscriptions = {\n  direct_to_queue = {\n  # `name` is Required in `event_subscriptions`\nname = \"example1\"\n  # `destination` is Optional in `event_subscriptions`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 600.0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n  # `delivery_with_resource_identity` is Optional in `event_subscriptions`\ndelivery_with_resource_identity = {\n  # `identity` is Required in `delivery_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `destination` is Required in `delivery_with_resource_identity`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n}\n\n  # `dead_letter_destination` is Optional in `event_subscriptions`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n  # `dead_letter_with_resource_identity` is Optional in `event_subscriptions`\ndead_letter_with_resource_identity = {\n  # `identity` is Required in `dead_letter_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `dead_letter_destination` is Required in `dead_letter_with_resource_identity`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n}\n\n  # `event_delivery_schema` is Optional in `event_subscriptions`\nevent_delivery_schema = \"EventGridSchema\"\n  # `expiration_time_utc` is Optional in `event_subscriptions`\nexpiration_time_utc = \"\"\n  # `filter` is Optional in `event_subscriptions`\nfilter = {\n  # `subject_begins_with` is Optional in `filter`\nsubject_begins_with = \"/blobServices/\"\n  # `subject_ends_with` is Optional in `filter`\nsubject_ends_with = \"\"\n  # `included_event_types` is Optional in `filter`\nincluded_event_types = []\n  # `is_subject_case_sensitive` is Optional in `filter`\nis_subject_case_sensitive = false\n  # `enable_advanced_filtering_on_arrays` is Optional in `filter`\nenable_advanced_filtering_on_arrays = false\n  # `advanced_filters` is Optional in `filter`\nadvanced_filters = [{\n  # `key` is Required in `advanced_filters`\nkey = var.string_advanced_filters_key\n  # `operator_type` is Required in `advanced_filters`\noperator_type = var.string_advanced_filters_operator_type\n  # `value` is Optional in `advanced_filters`\nvalue = \"\"\n  # `values` is Optional in `advanced_filters`\nvalues = []\n}\n]\n}\n\n  # `labels` is Optional in `event_subscriptions`\nlabels = []\n  # `retry_policy` is Optional in `event_subscriptions`\nretry_policy = {\n  # `max_delivery_attempts` is Optional in `retry_policy`\nmax_delivery_attempts = 30.0\n  # `event_time_to_live_in_minutes` is Optional in `retry_policy`\nevent_time_to_live_in_minutes = 1440.0\n}\n\n}\n\n}\n\n"
+                "schema": "# `event_subscriptions` is Optional in module\nevent_subscriptions = {\n  example_key = {\n  # `name` is Required in `event_subscriptions`\nname = \"example1\"\n  # `destination` is Optional in `event_subscriptions`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n  # `delivery_with_resource_identity` is Optional in `event_subscriptions`\ndelivery_with_resource_identity = {\n  # `identity` is Required in `delivery_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `destination` is Required in `delivery_with_resource_identity`\ndestination = {\n  # `azure_function` is Optional in `destination`\nazure_function = {\n  # `resource_id` is Required in `azure_function`\nresource_id = var.string_azure_function_resource_id\n  # `max_events_per_batch` is Optional in `azure_function`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `azure_function`\npreferred_batch_size_in_kilobytes = 0\n  # `delivery_attribute_mappings` is Optional in `azure_function`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `event_hub` is Optional in `destination`\nevent_hub = {\n  # `resource_id` is Required in `event_hub`\nresource_id = var.string_event_hub_resource_id\n  # `delivery_attribute_mappings` is Optional in `event_hub`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `hybrid_connection` is Optional in `destination`\nhybrid_connection = {\n  # `resource_id` is Required in `hybrid_connection`\nresource_id = var.string_hybrid_connection_resource_id\n  # `delivery_attribute_mappings` is Optional in `hybrid_connection`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `monitor_alert` is Optional in `destination`\nmonitor_alert = {\n  # `severity` is Required in `monitor_alert`\nseverity = var.string_monitor_alert_severity\n  # `action_groups` is Optional in `monitor_alert`\naction_groups = []\n  # `description` is Optional in `monitor_alert`\ndescription = \"\"\n}\n\n  # `namespace_topic` is Optional in `destination`\nnamespace_topic = {\n  # `resource_id` is Required in `namespace_topic`\nresource_id = var.string_namespace_topic_resource_id\n}\n\n  # `service_bus_queue` is Optional in `destination`\nservice_bus_queue = {\n  # `resource_id` is Required in `service_bus_queue`\nresource_id = var.string_service_bus_queue_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_queue`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `service_bus_topic` is Optional in `destination`\nservice_bus_topic = {\n  # `resource_id` is Required in `service_bus_topic`\nresource_id = var.string_service_bus_topic_resource_id\n  # `delivery_attribute_mappings` is Optional in `service_bus_topic`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n  # `storage_queue` is Optional in `destination`\nstorage_queue = {\n  # `resource_id` is Required in `storage_queue`\nresource_id = var.string_storage_queue_resource_id\n  # `queue_name` is Required in `storage_queue`\nqueue_name = var.string_storage_queue_queue_name\n  # `queue_message_time_to_live_in_seconds` is Optional in `storage_queue`\nqueue_message_time_to_live_in_seconds = 0\n}\n\n  # `webhook` is Optional in `destination`\nwebhook = {\n  # `endpoint_url` is Required in `webhook`\nendpoint_url = var.string_webhook_endpoint_url\n  # `max_events_per_batch` is Optional in `webhook`\nmax_events_per_batch = 0\n  # `preferred_batch_size_in_kilobytes` is Optional in `webhook`\npreferred_batch_size_in_kilobytes = 0\n  # `azure_active_directory_tenant_id` is Optional in `webhook`\nazure_active_directory_tenant_id = \"\"\n  # `azure_active_directory_app_id_or_uri` is Optional in `webhook`\nazure_active_directory_app_id_or_uri = \"\"\n  # `minimum_tls_version_allowed` is Optional in `webhook`\nminimum_tls_version_allowed = \"\"\n  # `delivery_attribute_mappings` is Optional in `webhook`\ndelivery_attribute_mappings = [{\n  # `name` is Required in `delivery_attribute_mappings`\nname = \"example1\"\n  # `type` is Required in `delivery_attribute_mappings`\ntype = var.string_delivery_attribute_mappings_type\n  # `value` is Optional in `delivery_attribute_mappings`\nvalue = \"\"\n  # `is_secret` is Optional in `delivery_attribute_mappings`\nis_secret = false\n  # `source_field` is Optional in `delivery_attribute_mappings`\nsource_field = \"\"\n}\n]\n}\n\n}\n\n}\n\n  # `dead_letter_destination` is Optional in `event_subscriptions`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n  # `dead_letter_with_resource_identity` is Optional in `event_subscriptions`\ndead_letter_with_resource_identity = {\n  # `identity` is Required in `dead_letter_with_resource_identity`\nidentity = {\n  # `type` is Required in `identity`\ntype = var.string_identity_type\n  # `user_assigned_identity` is Optional in `identity`\nuser_assigned_identity = \"\"\n}\n\n  # `dead_letter_destination` is Required in `dead_letter_with_resource_identity`\ndead_letter_destination = {\n  # `storage_blob` is Required in `dead_letter_destination`\nstorage_blob = {\n  # `resource_id` is Required in `storage_blob`\nresource_id = var.string_storage_blob_resource_id\n  # `blob_container_name` is Required in `storage_blob`\nblob_container_name = var.string_storage_blob_blob_container_name\n}\n\n}\n\n}\n\n  # `event_delivery_schema` is Optional in `event_subscriptions`\nevent_delivery_schema = \"\"\n  # `expiration_time_utc` is Optional in `event_subscriptions`\nexpiration_time_utc = \"\"\n  # `filter` is Optional in `event_subscriptions`\nfilter = {\n  # `subject_begins_with` is Optional in `filter`\nsubject_begins_with = \"\"\n  # `subject_ends_with` is Optional in `filter`\nsubject_ends_with = \"\"\n  # `included_event_types` is Optional in `filter`\nincluded_event_types = []\n  # `is_subject_case_sensitive` is Optional in `filter`\nis_subject_case_sensitive = false\n  # `enable_advanced_filtering_on_arrays` is Optional in `filter`\nenable_advanced_filtering_on_arrays = false\n  # `advanced_filters` is Optional in `filter`\nadvanced_filters = [{\n  # `key` is Required in `advanced_filters`\nkey = var.string_advanced_filters_key\n  # `operator_type` is Required in `advanced_filters`\noperator_type = var.string_advanced_filters_operator_type\n  # `value` is Optional in `advanced_filters`\nvalue = \"\"\n  # `values` is Optional in `advanced_filters`\nvalues = []\n}\n]\n}\n\n  # `labels` is Optional in `event_subscriptions`\nlabels = []\n  # `retry_policy` is Optional in `event_subscriptions`\nretry_policy = {\n  # `max_delivery_attempts` is Optional in `retry_policy`\nmax_delivery_attempts = 0\n  # `event_time_to_live_in_minutes` is Optional in `retry_policy`\nevent_time_to_live_in_minutes = 0\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
@@ -11209,12 +11209,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required_depends_on": [
-                "avm-res-compute-virtualmachinescaleset",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-compute-virtualmachinescaleset"
             ],
             "required": {
                 "location": [
@@ -11378,12 +11378,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -12487,8 +12487,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13644,8 +13644,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14055,12 +14055,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -15277,7 +15277,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 53,
+        "priority": 55,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15563,8 +15563,8 @@
         "description": "Manages Network Security Group.",
         "outputs": [
             "name",
-            "resource",
-            "resource_id"
+            "resource_id",
+            "security_rules"
         ],
         "variables": {
             "location": {
@@ -15587,7 +15587,7 @@
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see https://aka.ms/avm/telemetryinfo.\nIf it is set to false, then no telemetry will be collected.",
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
                 "priority": 10000,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
@@ -15654,7 +15654,7 @@
                 "security_rules": []
             }
         },
-        "priority": 54,
+        "priority": 53,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16023,12 +16023,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -16448,7 +16448,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 55,
+        "priority": 54,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16590,16 +16590,16 @@
                 "required": false,
                 "description": "(Optional) A map of subnets to create\n\n - `address_prefix` - (Optional) The address prefix to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `address_prefixes` - (Optional) The address prefixes to use for the subnet. One of `address_prefix`, `address_prefixes`, or `ipam_pools` must be specified.\n - `ipam_pools` - (Optional) IPAM pools to allocate address space from. When specified, the subnet will request address space from these pools. Each pool configuration supports:\n   - `pool_id`: Resource ID of the IPAM pool to allocate from\n   - `prefix_length`: The CIDR prefix length for this subnet (e.g., 24 for /24, 26 for /26)\n   - `allocation_type`: Type of allocation - \"Static\" (default) or \"Dynamic\"\n - `enforce_private_link_endpoint_network_policies` -\n - `enforce_private_link_service_network_policies` -\n - `name` - (Required) The name of the subnet. Changing this forces a new resource to be created.\n - `default_outbound_access_enabled` - (Optional) Whether to allow internet access from the subnet. Defaults to `false`.\n - `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Enabled`.\n - `private_link_service_network_policies_enabled` - (Optional) Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.\n - `service_endpoint_policies` - (Optional) The map of objects with IDs of Service Endpoint Policies to associate with the subnet.\n - `service_endpoints_with_location` - (Optional) Service endpoints with location restrictions to associate with the subnet. Each service endpoint is an object with the following properties:\n   - `service` - (Required) The service name. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.\n   - `locations` - (Optional) A set of Azure region names where the service endpoint should apply. Default is `[\"*\"]` to apply to all regions.\n\n ---\n `delegation` (This setting is deprecated, use `delegations` instead) supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n`delegations` supports the following:\n - `name` - (Required) A name for this delegation.\n  - `service_delegation` - (Required) The service delegation to associate with the subnet. This is an object with a `name` property that specifies the name of the service delegation.\n\n ---\n `nat_gateway` supports the following:\n - `id` - (Optional) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.\n\n ---\n `network_security_group` supports the following:\n - `id` - (Optional) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `route_table` supports the following:\n - `id` - (Optional) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new association to be created.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n\n ---\n `role_assignments` supports the following:\n - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n - `principal_id` - The ID of the principal to assign the role to.\n - `description` - (Optional) The description of the role assignment.\n - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n - `condition` - (Optional) The condition which will be used to scope the role assignment.\n - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. This field is only used in cross-tenant scenario.\n - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.",
                 "priority": 10018,
-                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `ipam_pools` is Optional in `subnets`\nipam_pools = [{\n  # `pool_id` is Required in `ipam_pools`\npool_id = var.string_ipam_pools_pool_id\n  # `prefix_length` is Optional in `ipam_pools`\nprefix_length = 0\n  # `allocation_type` is Optional in `ipam_pools`\nallocation_type = \"Static\"\n}\n]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource.id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = \"Microsoft.KeyVault\"\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = [\"\"]\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
+                "schema": "# `subnets` is Optional in module\nsubnets = {\n  subnet0 = {\n  # `name` is Required in `subnets`\nname = \"example1\"\n  # `address_prefix` is Optional in `subnets`\naddress_prefix = \"\"\n  # `address_prefixes` is Optional in `subnets`\naddress_prefixes = [\"192.168.1.0/24\"]\n  # `ipam_pools` is Optional in `subnets`\nipam_pools = [{\n  # `pool_id` is Required in `ipam_pools`\npool_id = var.string_ipam_pools_pool_id\n  # `prefix_length` is Optional in `ipam_pools`\nprefix_length = 0\n  # `allocation_type` is Optional in `ipam_pools`\nallocation_type = \"Static\"\n}\n]\n  # `nat_gateway` is Optional in `subnets`\nnat_gateway = {\n  # `id` is Required in `nat_gateway`\nid = module.avm_res_network_natgateway.resource.id\n}\n\n  # `network_security_group` is Optional in `subnets`\nnetwork_security_group = {\n  # `id` is Required in `network_security_group`\nid = module.avm_res_network_networksecuritygroup.resource_id\n}\n\n  # `private_endpoint_network_policies` is Optional in `subnets`\nprivate_endpoint_network_policies = \"Enabled\"\n  # `private_link_service_network_policies_enabled` is Optional in `subnets`\nprivate_link_service_network_policies_enabled = true\n  # `route_table` is Optional in `subnets`\nroute_table = {\n  # `id` is Required in `route_table`\nid = module.avm_res_network_routetable.resource.id\n}\n\n  # `service_endpoint_policies` is Optional in `subnets`\nservice_endpoint_policies = {\n  policy1 = {\n  # `id` is Required in `service_endpoint_policies`\nid = var.string_service_endpoint_policies_id\n}\n\n}\n\n  # `service_endpoints_with_location` is Optional in `subnets`\nservice_endpoints_with_location = [{\n  # `service` is Required in `service_endpoints_with_location`\nservice = \"Microsoft.KeyVault\"\n  # `locations` is Optional in `service_endpoints_with_location`\nlocations = [\"\"]\n}\n]\n  # `default_outbound_access_enabled` is Optional in `subnets`\ndefault_outbound_access_enabled = false\n  # `sharing_scope` is Optional in `subnets`\nsharing_scope = \"\"\n  # `delegations` is Optional in `subnets`\ndelegations = [{\n  # `name` is Required in `delegations`\nname = \"Microsoft.Web.serverFarms\"\n  # `service_delegation` is Required in `delegations`\nservice_delegation = {\n  # `name` is Required in `service_delegation`\nname = \"Microsoft.Web/serverFarms\"\n}\n\n}\n]\n  # `timeouts` is Optional in `subnets`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `subnets`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n}\n\n  # `role_assignments` is Optional in `subnets`\nrole_assignments = {\n  role1 = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = \"Contributor\"\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = module.avm_res_managedidentity_userassignedidentity.resource.principal_id\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n}\n\n}\n\n"
             }
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-natgateway",
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-networksecuritygroup",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-routetable"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-network-routetable",
+                "avm-res-network-natgateway"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16634,10 +16634,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-natgateway",
+                    "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-networksecuritygroup",
-                    "avm-res-network-routetable"
+                    "avm-res-network-natgateway"
                 ]
             }
         },
@@ -17351,14 +17351,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18526,9 +18526,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18558,8 +18558,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -19445,9 +19445,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
+                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19497,8 +19497,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-keyvault-vault",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-managedidentity-userassignedidentity",
+                    "avm-res-keyvault-vault"
                 ],
                 "diagnostic_settings_storage_account": [],
                 "role_assignments": [],
