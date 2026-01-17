@@ -471,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5814,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6605,9 +6605,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6641,8 +6641,8 @@
                 "network_rule_set": [],
                 "georeplications": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -7780,70 +7780,76 @@
                 "priority": 10017,
                 "schema": "# `timeout_update` is Optional in module\ntimeout_update = \"\"\n"
             },
+            "wait_for_backup_instance_configure_duration": {
+                "required": false,
+                "description": "Additional wait after backup instance creation to allow protection status to leave ConfiguringProtection before destroy.",
+                "priority": 10018,
+                "schema": "# `wait_for_backup_instance_configure_duration` is Optional in module\nwait_for_backup_instance_configure_duration = \"\"\n"
+            },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10018,
+                "priority": 10019,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "default_retention_life_cycle": {
                 "required": false,
                 "description": "Default retention life cycle configuration for AKS backups.",
-                "priority": 10019,
+                "priority": 10020,
                 "schema": "# `default_retention_life_cycle` is Optional in module\ndefault_retention_life_cycle = {\n  # `data_store_type` is Optional in `default_retention_life_cycle`\ndata_store_type = \"OperationalStore\"\n  # `duration` is Optional in `default_retention_life_cycle`\nduration = \"P14D\"\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n- `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n- `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10020,
+                "priority": 10021,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = var.string_lock_kind\n  # `name` is Optional in `lock`\nname = \"\"\n}\n\n"
             },
             "managed_identities": {
                 "required": false,
                 "description": "Controls the Managed Identity configuration on this resource. The following properties can be specified:\n\n- `system_assigned` - (Optional) Specifies if the System Assigned Managed Identity should be enabled.\n- `user_assigned_resource_ids` - (Optional) Specifies a list of User Assigned Managed Identity resource IDs to be assigned to this resource.",
-                "priority": 10021,
+                "priority": 10022,
                 "schema": "# `managed_identities` is Optional in module\nmanaged_identities = {\n  # `system_assigned` is Optional in `managed_identities`\nsystem_assigned = true\n  # `user_assigned_resource_ids` is Optional in `managed_identities`\nuser_assigned_resource_ids = []\n}\n\n"
             },
             "customer_managed_key": {
                 "required": false,
                 "description": "Customer-managed key configuration for encrypting the Backup Vault, following the AVM interface.\n- key_vault_resource_id: The resource ID of the Key Vault containing the key.\n- key_name: The name of the Key Vault key.\n- key_version: (Optional) Specific key version. If omitted, the service uses the latest.\n- user_assigned_identity: (Optional) For future compatibility where UA-MI is supported.",
-                "priority": 10022,
+                "priority": 10023,
                 "schema": "# `customer_managed_key` is Optional in module\ncustomer_managed_key = {\n  # `key_vault_resource_id` is Required in `customer_managed_key`\nkey_vault_resource_id = var.string_customer_managed_key_key_vault_resource_id\n  # `key_name` is Required in `customer_managed_key`\nkey_name = var.string_customer_managed_key_key_name\n  # `key_version` is Optional in `customer_managed_key`\nkey_version = \"\"\n  # `user_assigned_identity` is Optional in `customer_managed_key`\nuser_assigned_identity = {\n  # `resource_id` is Required in `user_assigned_identity`\nresource_id = var.string_user_assigned_identity_resource_id\n}\n\n}\n\n"
             },
             "backup_datasource_parameters": {
                 "required": false,
                 "description": "Configuration for Kubernetes backup datasource parameters.",
-                "priority": 10023,
+                "priority": 10024,
                 "schema": "# `backup_datasource_parameters` is Optional in module\nbackup_datasource_parameters = {\n  # `excluded_namespaces` is Optional in `backup_datasource_parameters`\nexcluded_namespaces = [\"kube-public\"]\n  # `included_namespaces` is Optional in `backup_datasource_parameters`\nincluded_namespaces = [\"app-namespace\"]\n  # `excluded_resource_types` is Optional in `backup_datasource_parameters`\nexcluded_resource_types = []\n  # `included_resource_types` is Optional in `backup_datasource_parameters`\nincluded_resource_types = []\n  # `label_selectors` is Optional in `backup_datasource_parameters`\nlabel_selectors = []\n  # `cluster_scoped_resources_enabled` is Optional in `backup_datasource_parameters`\ncluster_scoped_resources_enabled = true\n  # `volume_snapshot_enabled` is Optional in `backup_datasource_parameters`\nvolume_snapshot_enabled = true\n}\n\n"
             },
             "kubernetes_retention_rules": {
                 "required": false,
                 "description": "List of retention rules for AKS backups when using direct configuration.",
-                "priority": 10024,
+                "priority": 10025,
                 "schema": "# `kubernetes_retention_rules` is Optional in module\nkubernetes_retention_rules = [{\n  # `name` is Required in `kubernetes_retention_rules`\nname = \"Monthly\"\n  # `priority` is Required in `kubernetes_retention_rules`\npriority = 20.0\n  # `duration` is Required in `kubernetes_retention_rules`\nduration = \"P365D\"\n  # `absolute_criteria` is Optional in `kubernetes_retention_rules`\nabsolute_criteria = \"FirstOfMonth\"\n  # `days_of_week` is Optional in `kubernetes_retention_rules`\ndays_of_week = []\n  # `months_of_year` is Optional in `kubernetes_retention_rules`\nmonths_of_year = []\n  # `weeks_of_month` is Optional in `kubernetes_retention_rules`\nweeks_of_month = []\n  # `data_store_type` is Optional in `kubernetes_retention_rules`\ndata_store_type = \"OperationalStore\"\n}\n]\n"
             },
             "role_assignments": {
                 "required": false,
                 "description": "  A map of role assignments to create on resources. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n  - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n  - `principal_id` - The ID of the principal to assign the role to.\n  - `scope` - (Optional) The scope at which the role assignment applies to. Defaults to the backup vault resource ID.\n  - `description` - (Optional) The description of the role assignment.\n  - `skip_service_principal_aad_check` - (Optional) If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n  - `condition` - (Optional) The condition which will be used to scope the role assignment.\n  - `condition_version` - (Optional) The version of the condition syntax. Leave as `null` if you are not using a condition, if you are then valid values are '2.0'.\n  - `delegated_managed_identity_resource_id` - (Optional) The delegated Azure Resource Id which contains a Managed Identity.\n  - `principal_type` - (Optional) The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`.",
-                "priority": 10025,
+                "priority": 10026,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `scope` is Optional in `role_assignments`\nscope = \"\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             },
             "diagnostic_settings": {
                 "required": false,
                 "description": "A map of diagnostic settings to create on the Key Vault. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n- `name` - (Optional) The name of the diagnostic setting. One will be generated if not set, however this will not be unique if you want to create multiple diagnostic setting resources.\n- `log_categories` - (Optional) A set of log categories to send to the log analytics workspace. Defaults to `[]`.\n- `log_groups` - (Optional) A set of log groups to send to the log analytics workspace. Defaults to `[\"allLogs\"]`.\n- `metric_categories` - (Optional) A set of metric categories to send to the log analytics workspace. Defaults to `[\"AllMetrics\"]`.\n- `log_analytics_destination_type` - (Optional) The destination type for the diagnostic setting. Possible values are `Dedicated` and `AzureDiagnostics`. Defaults to `Dedicated`.\n- `workspace_resource_id` - (Optional) The resource ID of the log analytics workspace to send logs and metrics to.\n- `storage_account_resource_id` - (Optional) The resource ID of the storage account to send logs and metrics to.\n- `event_hub_authorization_rule_resource_id` - (Optional) The resource ID of the event hub authorization rule to send logs and metrics to.\n- `event_hub_name` - (Optional) The name of the event hub. If none is specified, the default event hub will be selected.\n- `marketplace_partner_resource_id` - (Optional) The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic LogsLogs.",
-                "priority": 10026,
+                "priority": 10027,
                 "schema": "# `diagnostic_settings` is Optional in module\ndiagnostic_settings = {\n  example_key = {\n  # `name` is Optional in `diagnostic_settings`\nname = \"\"\n  # `log_categories` is Optional in `diagnostic_settings`\nlog_categories = []\n  # `log_groups` is Optional in `diagnostic_settings`\nlog_groups = []\n  # `metric_categories` is Optional in `diagnostic_settings`\nmetric_categories = []\n  # `log_analytics_destination_type` is Optional in `diagnostic_settings`\nlog_analytics_destination_type = \"Dedicated\"\n  # `workspace_resource_id` is Optional in `diagnostic_settings`\nworkspace_resource_id = \"\"\n  # `storage_account_resource_id` is Optional in `diagnostic_settings`\nstorage_account_resource_id = \"\"\n  # `event_hub_authorization_rule_resource_id` is Optional in `diagnostic_settings`\nevent_hub_authorization_rule_resource_id = \"\"\n  # `event_hub_name` is Optional in `diagnostic_settings`\nevent_hub_name = \"\"\n  # `marketplace_partner_resource_id` is Optional in `diagnostic_settings`\nmarketplace_partner_resource_id = \"\"\n}\n\n}\n\n"
             },
             "backup_instances": {
                 "required": false,
                 "description": "Map of backup instances to create. Each instance references a backup policy via backup_policy_key.\n\nSupported types: \"disk\", \"blob\", \"kubernetes\", \"postgresql\", \"postgresql_flexible\"\n\nCommon settings:\n- name: Display name for the backup instance\n- backup_policy_key: Reference to a key in backup_policies map\n\nType-specific settings:\n- Disk: disk_id, snapshot_resource_group_name\n- Blob: storage_account_id, storage_account_container_names\n- AKS: kubernetes_cluster_id, backup_datasource_parameters\n- PostgreSQL: postgresql_server_id, postgresql_database_id, postgresql_key_vault_secret_id\n- PostgreSQL Flexible: postgresql_flexible_server_id, postgresql_flexible_database_id, postgresql_flexible_key_vault_secret_id",
-                "priority": 10027,
+                "priority": 10028,
                 "schema": "# `backup_instances` is Optional in module\nbackup_instances = {\n  example_key = {\n  # `type` is Required in `backup_instances`\ntype = var.string_backup_instances_type\n  # `name` is Required in `backup_instances`\nname = \"example1\"\n  # `backup_policy_key` is Required in `backup_instances`\nbackup_policy_key = var.string_backup_instances_backup_policy_key\n  # `disk_id` is Optional in `backup_instances`\ndisk_id = \"\"\n  # `snapshot_resource_group_name` is Optional in `backup_instances`\nsnapshot_resource_group_name = \"\"\n  # `storage_account_id` is Optional in `backup_instances`\nstorage_account_id = \"\"\n  # `storage_account_container_names` is Optional in `backup_instances`\nstorage_account_container_names = []\n  # `kubernetes_cluster_id` is Optional in `backup_instances`\nkubernetes_cluster_id = \"\"\n  # `backup_datasource_parameters` is Optional in `backup_instances`\nbackup_datasource_parameters = {\n  # `excluded_namespaces` is Optional in `backup_datasource_parameters`\nexcluded_namespaces = []\n  # `included_namespaces` is Optional in `backup_datasource_parameters`\nincluded_namespaces = []\n  # `excluded_resource_types` is Optional in `backup_datasource_parameters`\nexcluded_resource_types = []\n  # `included_resource_types` is Optional in `backup_datasource_parameters`\nincluded_resource_types = []\n  # `label_selectors` is Optional in `backup_datasource_parameters`\nlabel_selectors = []\n  # `cluster_scoped_resources_enabled` is Optional in `backup_datasource_parameters`\ncluster_scoped_resources_enabled = false\n  # `volume_snapshot_enabled` is Optional in `backup_datasource_parameters`\nvolume_snapshot_enabled = false\n}\n\n  # `postgresql_server_id` is Optional in `backup_instances`\npostgresql_server_id = \"\"\n  # `postgresql_database_id` is Optional in `backup_instances`\npostgresql_database_id = \"\"\n  # `postgresql_key_vault_secret_id` is Optional in `backup_instances`\npostgresql_key_vault_secret_id = \"\"\n  # `postgresql_flexible_server_id` is Optional in `backup_instances`\npostgresql_flexible_server_id = \"\"\n  # `postgresql_flexible_database_id` is Optional in `backup_instances`\npostgresql_flexible_database_id = \"\"\n  # `postgresql_flexible_key_vault_secret_id` is Optional in `backup_instances`\npostgresql_flexible_key_vault_secret_id = \"\"\n}\n\n}\n\n"
             },
             "backup_policies": {
                 "required": false,
                 "description": "Map of backup policies to create. Each policy can be referenced by backup instances.\nKey is used as reference identifier for backup instances.\n\nSupported types: \"disk\", \"blob\", \"kubernetes\", \"postgresql\", \"postgresql_flexible\"\n\nCommon settings:\n- backup_repeating_time_intervals: List of ISO8601 backup schedule intervals\n- default_retention_duration: Default retention period in ISO8601 format\n- time_zone: Time zone for backup schedules\n- retention_rules: List of retention rules with criteria and lifecycle\n\nType-specific settings:\n- Blob: operational_default_retention_duration, vault_default_retention_duration\n- AKS: default_retention_life_cycle with data_store_type and duration",
-                "priority": 10028,
+                "priority": 10029,
                 "schema": "# `backup_policies` is Optional in module\nbackup_policies = {\n  example_key = {\n  # `type` is Required in `backup_policies`\ntype = var.string_backup_policies_type\n  # `name` is Required in `backup_policies`\nname = \"example1\"\n  # `backup_repeating_time_intervals` is Optional in `backup_policies`\nbackup_repeating_time_intervals = []\n  # `default_retention_duration` is Optional in `backup_policies`\ndefault_retention_duration = \"P30D\"\n  # `time_zone` is Optional in `backup_policies`\ntime_zone = \"UTC\"\n  # `operational_default_retention_duration` is Optional in `backup_policies`\noperational_default_retention_duration = \"\"\n  # `vault_default_retention_duration` is Optional in `backup_policies`\nvault_default_retention_duration = \"\"\n  # `default_retention_life_cycle` is Optional in `backup_policies`\ndefault_retention_life_cycle = {\n  # `data_store_type` is Optional in `default_retention_life_cycle`\ndata_store_type = \"OperationalStore\"\n  # `duration` is Optional in `default_retention_life_cycle`\nduration = \"P14D\"\n}\n\n  # `retention_rules` is Optional in `backup_policies`\nretention_rules = [{\n  # `name` is Required in `retention_rules`\nname = \"example1\"\n  # `priority` is Required in `retention_rules`\npriority = 0\n  # `criteria` is Required in `retention_rules`\ncriteria = [{\n  # `absolute_criteria` is Optional in `criteria`\nabsolute_criteria = \"\"\n  # `days_of_month` is Optional in `criteria`\ndays_of_month = []\n  # `days_of_week` is Optional in `criteria`\ndays_of_week = []\n  # `months_of_year` is Optional in `criteria`\nmonths_of_year = []\n  # `scheduled_backup_times` is Optional in `criteria`\nscheduled_backup_times = []\n  # `weeks_of_month` is Optional in `criteria`\nweeks_of_month = []\n}\n]\n  # `duration` is Optional in `retention_rules`\nduration = \"P30D\"\n  # `life_cycle` is Optional in `retention_rules`\nlife_cycle = [{\n  # `data_store_type` is Required in `life_cycle`\ndata_store_type = var.string_life_cycle_data_store_type\n  # `duration` is Required in `life_cycle`\nduration = var.string_life_cycle_duration\n}\n]\n}\n]\n}\n\n}\n\n"
             }
         },
@@ -7884,6 +7890,7 @@
                 "timeout_delete": [],
                 "timeout_read": [],
                 "timeout_update": [],
+                "wait_for_backup_instance_configure_duration": [],
                 "tags": [],
                 "default_retention_life_cycle": [],
                 "lock": [],
@@ -9839,9 +9846,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9884,8 +9891,8 @@
                 "backup": [],
                 "cors_rule": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "role_assignments": [],
                 "diagnostic_settings": [],
@@ -12487,8 +12494,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -15277,7 +15284,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 55,
+        "priority": 54,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -16023,12 +16030,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -16448,7 +16455,7 @@
                 "role_assignments": []
             }
         },
-        "priority": 54,
+        "priority": 55,
         "rules": "For cloud resource of Route Table: it should be configured with module(source=\"Azure/avm-res-network-routetable/azurerm\");"
     },
     "avm-res-network-virtualnetwork": {
@@ -16595,11 +16602,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-network-networksecuritygroup",
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-routetable",
-                "avm-res-network-natgateway"
+                "avm-res-network-natgateway",
+                "avm-res-network-routetable"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16634,9 +16641,9 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-networksecuritygroup",
+                    "avm-res-network-routetable",
                     "avm-res-network-natgateway"
                 ]
             }
@@ -17351,14 +17358,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required_depends_on": [
-                "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-network-virtualnetwork",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-oracledatabase-cloudexadatainfrastructure"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18526,9 +18533,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -18558,8 +18565,8 @@
                 "timeouts": [],
                 "authorization_rules": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "network_rule_config": [],
                 "role_assignments": [],
@@ -19445,9 +19452,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-keyvault-vault",
                 "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19497,8 +19504,8 @@
                 "storage_management_policy_timeouts": [],
                 "timeouts": [],
                 "customer_managed_key": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-keyvault-vault"
+                    "avm-res-keyvault-vault",
+                    "avm-res-managedidentity-userassignedidentity"
                 ],
                 "diagnostic_settings_storage_account": [],
                 "role_assignments": [],
