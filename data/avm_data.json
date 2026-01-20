@@ -471,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5814,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6605,9 +6605,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9846,9 +9846,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -12494,8 +12494,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-managedidentity-userassignedidentity",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13651,8 +13651,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14062,12 +14062,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -15284,7 +15284,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 53,
+        "priority": 55,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15661,7 +15661,7 @@
                 "security_rules": []
             }
         },
-        "priority": 55,
+        "priority": 53,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16030,12 +16030,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-keyvault-vault"
             ],
             "required": {
                 "location": [
@@ -16589,7 +16589,7 @@
             },
             "peerings": {
                 "required": false,
-                "description": "(Optional) A map of virtual network peering configurations. Each entry specifies a remote virtual network by ID and includes settings for traffic forwarding, gateway transit, and remote gateways usage.\n\n- `name`: The name of the virtual network peering configuration.\n- `remote_virtual_network_resource_id`: The resource ID of the remote virtual network.\n- `allow_forwarded_traffic`: (Optional) Enables forwarded traffic between the virtual networks. Defaults to false.\n- `allow_gateway_transit`: (Optional) Enables gateway transit for the virtual networks. Defaults to false.\n- `allow_virtual_network_access`: (Optional) Enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `do_not_verify_remote_gateways`: (Optional) Disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `enable_only_ipv6_peering`: (Optional) Enables only IPv6 peering for the virtual networks. Defaults to false.\n- `peer_complete_vnets`: (Optional) Enables the peering of complete virtual networks for the virtual networks. Defaults to false.\n- `local_peered_address_spaces`: (Optional) The address spaces to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `remote_peered_address_spaces`: (Optional) The address spaces to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `local_peered_subnets`: (Optional) The subnets to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `remote_peered_subnets`: (Optional) The subnets to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to true.\n- `use_remote_gateways`: (Optional) Enables the use of remote gateways for the virtual networks. Defaults to false.\n- `create_reverse_peering`: (Optional) Creates the reverse peering to form a complete peering.\n- `reverse_name`: (Optional) If you have selected `create_reverse_peering`, then this name will be used for the reverse peer.\n- `reverse_allow_forwarded_traffic`: (Optional) If you have selected `create_reverse_peering`, enables forwarded traffic between the virtual networks. Defaults to false.\n- `reverse_allow_gateway_transit`: (Optional) If you have selected `create_reverse_peering`, enables gateway transit for the virtual networks. Defaults to false.\n- `reverse_allow_virtual_network_access`: (Optional) If you have selected `create_reverse_peering`, enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `reverse_do_not_verify_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `reverse_enable_only_ipv6_peering`: (Optional) If you have selected `create_reverse_peering`, enables only IPv6 peering for the virtual networks. Defaults to false.\n- `reverse_peer_complete_vnets`: (Optional) If you have selected `create_reverse_peering`, enables the peering of complete virtual networks for the virtual networks. Defaults to false.\n- `reverse_local_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_remote_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_local_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_remote_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to true.\n- `reverse_use_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, enables the use of remote gateways for the virtual networks. Defaults to false.\n- `sync_remote_address_space_enabled`: (Optional) If the peering sync status changes a plan will be created to sync the peering address space with an azapi update resource. Defaults to false.\n- `sync_remote_address_space_triggers`: (Optional) A value that when changed will trigger a resync of the remote address space. This must be supplied if `sync_remote_address_space_enabled` is `true`. Defaults to null.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (Optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n  - `multiplier` - (Optional) The multiplier to apply to the interval between retries Defaults to 1.5.",
+                "description": "(Optional) A map of virtual network peering configurations. Each entry specifies a remote virtual network by ID and includes settings for traffic forwarding, gateway transit, and remote gateways usage.\n\n- `name`: The name of the virtual network peering configuration.\n- `remote_virtual_network_resource_id`: The resource ID of the remote virtual network.\n- `allow_forwarded_traffic`: (Optional) Enables forwarded traffic between the virtual networks. Defaults to false.\n- `allow_gateway_transit`: (Optional) Enables gateway transit for the virtual networks. Defaults to false.\n- `allow_virtual_network_access`: (Optional) Enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `do_not_verify_remote_gateways`: (Optional) Disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `enable_only_ipv6_peering`: (Optional) Enables only IPv6 peering for the virtual networks. Defaults to false.\n- `peer_complete_vnets`: (Optional) Enables the peering of complete virtual networks for the virtual networks. Defaults to true.\n- `local_peered_address_spaces`: (Optional) The address spaces to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to false.\n- `remote_peered_address_spaces`: (Optional) The address spaces to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to false.\n- `local_peered_subnets`: (Optional) The subnets to peer with the remote virtual network. Only used when `peer_complete_vnets` is set to false.\n- `remote_peered_subnets`: (Optional) The subnets to peer from the remote virtual network. Only used when `peer_complete_vnets` is set to false.\n- `use_remote_gateways`: (Optional) Enables the use of remote gateways for the virtual networks. Defaults to false.\n- `create_reverse_peering`: (Optional) Creates the reverse peering to form a complete peering.\n- `reverse_name`: (Optional) If you have selected `create_reverse_peering`, then this name will be used for the reverse peer.\n- `reverse_allow_forwarded_traffic`: (Optional) If you have selected `create_reverse_peering`, enables forwarded traffic between the virtual networks. Defaults to false.\n- `reverse_allow_gateway_transit`: (Optional) If you have selected `create_reverse_peering`, enables gateway transit for the virtual networks. Defaults to false.\n- `reverse_allow_virtual_network_access`: (Optional) If you have selected `create_reverse_peering`, enables access from the local virtual network to the remote virtual network. Defaults to true.\n- `reverse_do_not_verify_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, disables the verification of remote gateways for the virtual networks. Defaults to false.\n- `reverse_enable_only_ipv6_peering`: (Optional) If you have selected `create_reverse_peering`, enables only IPv6 peering for the virtual networks. Defaults to false.\n- `reverse_peer_complete_vnets`: (Optional) If you have selected `create_reverse_peering`, enables the peering of complete virtual networks for the virtual networks. Defaults to true.\n- `reverse_local_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to false.\n- `reverse_remote_peered_address_spaces`: (Optional) If you have selected `create_reverse_peering`, the address spaces to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to false.\n- `reverse_local_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer with the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to false.\n- `reverse_remote_peered_subnets`: (Optional) If you have selected `create_reverse_peering`, the subnets to peer from the remote virtual network. Only used when `reverse_peer_complete_vnets` is set to false.\n- `reverse_use_remote_gateways`: (Optional) If you have selected `create_reverse_peering`, enables the use of remote gateways for the virtual networks. Defaults to false.\n- `sync_remote_address_space_enabled`: (Optional) If the peering sync status changes a plan will be created to sync the peering address space with an azapi update resource. Defaults to false.\n- `sync_remote_address_space_triggers`: (Optional) A value that when changed will trigger a resync of the remote address space. This must be supplied if `sync_remote_address_space_enabled` is `true`. Defaults to null.\n\n ---\n `timeouts` (Optional) supports the following:\n - `create` - (Defaults to 30 minutes) Used when creating the Subnet.\n - `delete` - (Defaults to 30 minutes) Used when deleting the Subnet.\n - `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.\n - `update` - (Defaults to 30 minutes) Used when updating the Subnet.\n\n---\n  `retry` (Optional) supports the following:\n  - `error_message_regex` - (Optional) A list of regular expressions to match against the error message returned by the API. If any of these match, the retry will be triggered.\n  - `interval_seconds` - (Optional) The number of seconds to wait between retries. Defaults to 10.\n  - `max_interval_seconds` - (Optional) The maximum number of seconds to wait between retries. Defaults to 180.\n  - `multiplier` - (Optional) The multiplier to apply to the interval between retries Defaults to 1.5.",
                 "priority": 10017,
                 "schema": "# `peerings` is Optional in module\npeerings = {\n  peertovnet1 = {\n  # `name` is Required in `peerings`\nname = \"example1\"\n  # `remote_virtual_network_resource_id` is Required in `peerings`\nremote_virtual_network_resource_id = var.string_peerings_remote_virtual_network_resource_id\n  # `allow_forwarded_traffic` is Optional in `peerings`\nallow_forwarded_traffic = true\n  # `allow_gateway_transit` is Optional in `peerings`\nallow_gateway_transit = true\n  # `allow_virtual_network_access` is Optional in `peerings`\nallow_virtual_network_access = true\n  # `do_not_verify_remote_gateways` is Optional in `peerings`\ndo_not_verify_remote_gateways = false\n  # `enable_only_ipv6_peering` is Optional in `peerings`\nenable_only_ipv6_peering = false\n  # `peer_complete_vnets` is Optional in `peerings`\npeer_complete_vnets = true\n  # `local_peered_address_spaces` is Optional in `peerings`\nlocal_peered_address_spaces = [{\n  # `address_prefix` is Required in `local_peered_address_spaces`\naddress_prefix = var.string_local_peered_address_spaces_address_prefix\n}\n]\n  # `remote_peered_address_spaces` is Optional in `peerings`\nremote_peered_address_spaces = [{\n  # `address_prefix` is Required in `remote_peered_address_spaces`\naddress_prefix = var.string_remote_peered_address_spaces_address_prefix\n}\n]\n  # `local_peered_subnets` is Optional in `peerings`\nlocal_peered_subnets = [{\n  # `subnet_name` is Required in `local_peered_subnets`\nsubnet_name = var.string_local_peered_subnets_subnet_name\n}\n]\n  # `remote_peered_subnets` is Optional in `peerings`\nremote_peered_subnets = [{\n  # `subnet_name` is Required in `remote_peered_subnets`\nsubnet_name = var.string_remote_peered_subnets_subnet_name\n}\n]\n  # `use_remote_gateways` is Optional in `peerings`\nuse_remote_gateways = false\n  # `create_reverse_peering` is Optional in `peerings`\ncreate_reverse_peering = true\n  # `reverse_name` is Optional in `peerings`\nreverse_name = \"\"\n  # `reverse_allow_forwarded_traffic` is Optional in `peerings`\nreverse_allow_forwarded_traffic = false\n  # `reverse_allow_gateway_transit` is Optional in `peerings`\nreverse_allow_gateway_transit = false\n  # `reverse_allow_virtual_network_access` is Optional in `peerings`\nreverse_allow_virtual_network_access = true\n  # `reverse_do_not_verify_remote_gateways` is Optional in `peerings`\nreverse_do_not_verify_remote_gateways = false\n  # `reverse_enable_only_ipv6_peering` is Optional in `peerings`\nreverse_enable_only_ipv6_peering = false\n  # `reverse_peer_complete_vnets` is Optional in `peerings`\nreverse_peer_complete_vnets = true\n  # `reverse_local_peered_address_spaces` is Optional in `peerings`\nreverse_local_peered_address_spaces = [{\n  # `address_prefix` is Required in `reverse_local_peered_address_spaces`\naddress_prefix = var.string_reverse_local_peered_address_spaces_address_prefix\n}\n]\n  # `reverse_remote_peered_address_spaces` is Optional in `peerings`\nreverse_remote_peered_address_spaces = [{\n  # `address_prefix` is Required in `reverse_remote_peered_address_spaces`\naddress_prefix = var.string_reverse_remote_peered_address_spaces_address_prefix\n}\n]\n  # `reverse_local_peered_subnets` is Optional in `peerings`\nreverse_local_peered_subnets = [{\n  # `subnet_name` is Required in `reverse_local_peered_subnets`\nsubnet_name = var.string_reverse_local_peered_subnets_subnet_name\n}\n]\n  # `reverse_remote_peered_subnets` is Optional in `peerings`\nreverse_remote_peered_subnets = [{\n  # `subnet_name` is Required in `reverse_remote_peered_subnets`\nsubnet_name = var.string_reverse_remote_peered_subnets_subnet_name\n}\n]\n  # `reverse_use_remote_gateways` is Optional in `peerings`\nreverse_use_remote_gateways = false\n  # `sync_remote_address_space_enabled` is Optional in `peerings`\nsync_remote_address_space_enabled = true\n  # `sync_remote_address_space_triggers` is Optional in `peerings`\nsync_remote_address_space_triggers = \"['', '']\"\n  # `timeouts` is Optional in `peerings`\ntimeouts = {\n  # `create` is Optional in `timeouts`\ncreate = \"30m\"\n  # `read` is Optional in `timeouts`\nread = \"5m\"\n  # `update` is Optional in `timeouts`\nupdate = \"30m\"\n  # `delete` is Optional in `timeouts`\ndelete = \"30m\"\n}\n\n  # `retry` is Optional in `peerings`\nretry = {\n  # `error_message_regex` is Optional in `retry`\nerror_message_regex = []\n  # `interval_seconds` is Optional in `retry`\ninterval_seconds = 10\n  # `max_interval_seconds` is Optional in `retry`\nmax_interval_seconds = 180\n}\n\n}\n\n}\n\n"
             },
@@ -16602,11 +16602,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-network-networksecuritygroup",
                 "avm-res-resources-resourcegroup",
-                "avm-res-network-natgateway",
-                "avm-res-managedidentity-userassignedidentity",
                 "avm-res-network-routetable",
-                "avm-res-network-networksecuritygroup"
+                "avm-res-network-natgateway",
+                "avm-res-managedidentity-userassignedidentity"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16641,10 +16641,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
-                    "avm-res-managedidentity-userassignedidentity",
-                    "avm-res-network-routetable",
                     "avm-res-network-natgateway",
-                    "avm-res-network-networksecuritygroup"
+                    "avm-res-network-networksecuritygroup",
+                    "avm-res-network-routetable",
+                    "avm-res-managedidentity-userassignedidentity"
                 ]
             }
         },
@@ -17358,14 +17358,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18533,9 +18533,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19452,9 +19452,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-keyvault-vault",
-                "avm-res-resources-resourcegroup"
+                "avm-res-keyvault-vault"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
