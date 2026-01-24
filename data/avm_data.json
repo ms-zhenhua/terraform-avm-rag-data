@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required_depends_on": [
-                "avm-res-containerregistry-registry",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-containerregistry-registry"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -3369,12 +3369,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required_depends_on": [
-                "avm-res-storage-storageaccount",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-storage-storageaccount"
             ],
             "required": {
                 "location": [
@@ -8692,12 +8692,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -9057,8 +9057,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-desktopvirtualization-hostpool",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-desktopvirtualization-hostpool"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13651,8 +13651,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14062,12 +14062,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "location": [],
@@ -15284,7 +15284,7 @@
                 "public_ip_configuration": []
             }
         },
-        "priority": 55,
+        "priority": 54,
         "rules": "For cloud resource of NAT Gateway: it should be configured with module(source=\"Azure/avm-res-network-natgateway/azurerm\");"
     },
     "avm-res-network-networkinterface": {
@@ -15661,7 +15661,7 @@
                 "security_rules": []
             }
         },
-        "priority": 54,
+        "priority": 55,
         "rules": "For cloud resource of Network Security Group: it should be configured with module(source=\"Azure/avm-res-network-networksecuritygroup/azurerm\");"
     },
     "avm-res-network-networkwatcher": {
@@ -16130,7 +16130,7 @@
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see https://aka.ms/avm/telemetryinfo.\nIf it is set to false, then no telemetry will be collected.",
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
                 "priority": 10005,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
             },
@@ -16393,39 +16393,45 @@
             },
             "enable_telemetry": {
                 "required": false,
-                "description": "    (Optional) This variable controls whether or not telemetry is enabled for the module.\n    For more information see <https://aka.ms/avm/telemetryinfo>.\n    If it is set to false, then no telemetry will be collected.",
+                "description": "This variable controls whether or not telemetry is enabled for the module.\nFor more information see <https://aka.ms/avm/telemetryinfo>.\nIf it is set to false, then no telemetry will be collected.",
                 "priority": 10001,
                 "schema": "# `enable_telemetry` is Optional in module\nenable_telemetry = false\n"
+            },
+            "routes_legacy_mode": {
+                "required": false,
+                "description": "(Optional) When set to true, the module will use the legacy mode for managing routes. Defaults to false.",
+                "priority": 10002,
+                "schema": "# `routes_legacy_mode` is Optional in module\nroutes_legacy_mode = false\n"
             },
             "subnet_resource_ids": {
                 "required": false,
                 "description": "    (Optional) A map of string subnet ID's to associate the route table to.\n    Each value in the map must be supplied in the form of an Azure resource ID:\n```yaml annotate\n/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}\n```\nExample Input:\n```terraform\nsubnet_resource_ids = {\n    subnet1 = azurerm_subnet.this.id,\n    subnet2 = \"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}\"\n}\n```",
-                "priority": 10002,
+                "priority": 10003,
                 "schema": "# `subnet_resource_ids` is Optional in module\nsubnet_resource_ids = {\n  subnet1 = \"\"\n}\n\n"
             },
             "tags": {
                 "required": false,
                 "description": "(Optional) Tags of the resource.",
-                "priority": 10003,
+                "priority": 10004,
                 "schema": "# `tags` is Optional in module\ntags = {\n  example_key = \"\"\n}\n\n"
             },
             "lock": {
                 "required": false,
                 "description": "    (Optional) Controls the Resource Lock configuration for this resource. The following properties can be specified:\n\n    - `kind` - (Required) The type of lock. Possible values are `\"CanNotDelete\"` and `\"ReadOnly\"`.\n    - `name` - (Optional) The name of the lock. If not specified, a name will be generated based on the `kind` value. Changing this forces the creation of a new resource.",
-                "priority": 10004,
+                "priority": 10005,
                 "schema": "# `lock` is Optional in module\nlock = {\n  # `kind` is Required in `lock`\nkind = \"CanNotDelete\"\n  # `name` is Optional in `lock`\nname = \"Example-Lock\"\n}\n\n"
             },
             "routes": {
                 "required": false,
                 "description": "    (Optional) A map of route objects to create on the route table.\n\n    - `name` - (Required) The name of the route.\n    - `address_prefix` - (Required) The destination to which the route applies. Can be CIDR (such as 10.1.0.0/16) or Azure Service Tag (such as ApiManagement, AzureBackup or AzureMonitor) format.\n    - `next_hop_type` - (Required) The type of Azure hop the packet should be sent to. Possible values are VirtualNetworkGateway, VnetLocal, Internet, VirtualAppliance and None.\n    - `next_hop_in_ip_address` - (Optional) Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance\n\n    Example Input:\n\n```terraform\nroutes = {\n    route1 = {\n      name           = \"test-route-vnetlocal\"\n      address_prefix = \"10.2.0.0/32\"\n      next_hop_type  = \"VnetLocal\"\n    }\n}\n```",
-                "priority": 10005,
+                "priority": 10006,
                 "schema": "# `routes` is Optional in module\nroutes = {\n  test-route-vnetlocal = {\n  # `name` is Required in `routes`\nname = \"test-route-internet\"\n  # `address_prefix` is Required in `routes`\naddress_prefix = \"0.0.0.0/0\"\n  # `next_hop_type` is Required in `routes`\nnext_hop_type = \"Internet\"\n  # `next_hop_in_ip_address` is Optional in `routes`\nnext_hop_in_ip_address = \"10.0.0.1\"\n}\n\n}\n\n",
                 "rules": "`next_hop_in_ip_address` should not be set by default;"
             },
             "role_assignments": {
                 "required": false,
                 "description": "    (Optional) A map of role assignments to create on this resource. The map key is deliberately arbitrary to avoid issues where map keys maybe unknown at plan time.\n\n    - `role_definition_id_or_name` - The ID or name of the role definition to assign to the principal.\n    - `principal_id` - The ID of the principal to assign the role to.\n    - `description` - The description of the role assignment.\n    - `skip_service_principal_aad_check` - If set to true, skips the Azure Active Directory check for the service principal in the tenant. Defaults to false.\n    - `condition` - The condition which will be used to scope the role assignment.\n    - `condition_version` - The version of the condition syntax. Valid values are '2.0'.\n\n    > Note: only set `skip_service_principal_aad_check` to true if you are assigning a role to a service principal.",
-                "priority": 10006,
+                "priority": 10007,
                 "schema": "# `role_assignments` is Optional in module\nrole_assignments = {\n  example_key = {\n  # `role_definition_id_or_name` is Required in `role_assignments`\nrole_definition_id_or_name = var.string_role_assignments_role_definition_id_or_name\n  # `principal_id` is Required in `role_assignments`\nprincipal_id = \"00000000-0000-0000-0000-000000000000\"\n  # `description` is Optional in `role_assignments`\ndescription = \"\"\n  # `skip_service_principal_aad_check` is Optional in `role_assignments`\nskip_service_principal_aad_check = false\n  # `condition` is Optional in `role_assignments`\ncondition = \"\"\n  # `condition_version` is Optional in `role_assignments`\ncondition_version = \"\"\n  # `delegated_managed_identity_resource_id` is Optional in `role_assignments`\ndelegated_managed_identity_resource_id = \"\"\n  # `principal_type` is Optional in `role_assignments`\nprincipal_type = \"\"\n}\n\n}\n\n"
             }
         },
@@ -16448,6 +16454,7 @@
             "optional": {
                 "bgp_route_propagation_enabled": [],
                 "enable_telemetry": [],
+                "routes_legacy_mode": [],
                 "subnet_resource_ids": [],
                 "tags": [],
                 "lock": [],
@@ -16603,10 +16610,10 @@
         "denpends_on": {
             "avm_depends_on": [
                 "avm-res-network-routetable",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-resources-resourcegroup",
+                "avm-res-network-natgateway",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-natgateway"
+                "avm-res-network-networksecuritygroup",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16642,8 +16649,8 @@
                 "peerings": [],
                 "subnets": [
                     "avm-res-network-natgateway",
-                    "avm-res-network-routetable",
                     "avm-res-network-networksecuritygroup",
+                    "avm-res-network-routetable",
                     "avm-res-managedidentity-userassignedidentity"
                 ]
             }
@@ -17358,14 +17365,14 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
-                "avm-res-network-virtualnetwork",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-virtualnetwork"
             ],
             "required": {
                 "cloud_exadata_infrastructure_id": [
@@ -18116,7 +18123,8 @@
         "outputs": [
             "name",
             "resource",
-            "resource_id"
+            "resource_id",
+            "location"
         ],
         "variables": {
             "location": {
