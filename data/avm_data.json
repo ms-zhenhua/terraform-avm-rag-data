@@ -471,8 +471,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -673,12 +673,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-containerregistry-registry"
+                "avm-res-containerregistry-registry",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "container_app_environment_resource_id": [],
@@ -1070,8 +1070,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -4976,12 +4976,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "key_vault_key_id": [],
@@ -5814,8 +5814,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6387,8 +6387,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -6605,9 +6605,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -8692,12 +8692,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "virtual_desktop_application_group_host_pool_id": [
@@ -9057,8 +9057,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-desktopvirtualization-hostpool"
+                "avm-res-desktopvirtualization-hostpool",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -9846,9 +9846,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -11216,12 +11216,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-compute-virtualmachinescaleset"
+                "avm-res-compute-virtualmachinescaleset",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -11385,12 +11385,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required_depends_on": [
-                "avm-res-operationalinsights-workspace",
-                "avm-res-resources-resourcegroup"
+                "avm-res-resources-resourcegroup",
+                "avm-res-operationalinsights-workspace"
             ],
             "required": {
                 "location": [
@@ -12494,8 +12494,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -13651,8 +13651,8 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -14062,12 +14062,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-network-virtualnetwork"
+                "avm-res-network-virtualnetwork",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [],
@@ -16030,12 +16030,12 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
-                "avm-res-keyvault-vault"
+                "avm-res-keyvault-vault",
+                "avm-res-resources-resourcegroup"
             ],
             "required": {
                 "location": [
@@ -16609,11 +16609,11 @@
         },
         "denpends_on": {
             "avm_depends_on": [
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-routetable",
-                "avm-res-network-natgateway",
                 "avm-res-managedidentity-userassignedidentity",
-                "avm-res-network-networksecuritygroup",
-                "avm-res-resources-resourcegroup"
+                "avm-res-network-natgateway",
+                "avm-res-network-networksecuritygroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -16648,10 +16648,10 @@
                 "diagnostic_settings": [],
                 "peerings": [],
                 "subnets": [
+                    "avm-res-managedidentity-userassignedidentity",
                     "avm-res-network-natgateway",
-                    "avm-res-network-networksecuritygroup",
                     "avm-res-network-routetable",
-                    "avm-res-managedidentity-userassignedidentity"
+                    "avm-res-network-networksecuritygroup"
                 ]
             }
         },
@@ -17365,13 +17365,13 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork"
             ],
             "required_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-oracledatabase-cloudexadatainfrastructure",
+                "avm-res-resources-resourcegroup",
                 "avm-res-network-virtualnetwork"
             ],
             "required": {
@@ -18541,9 +18541,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
@@ -19460,9 +19460,9 @@
         },
         "denpends_on": {
             "avm_depends_on": [
-                "avm-res-resources-resourcegroup",
                 "avm-res-keyvault-vault",
-                "avm-res-managedidentity-userassignedidentity"
+                "avm-res-managedidentity-userassignedidentity",
+                "avm-res-resources-resourcegroup"
             ],
             "required_depends_on": [
                 "avm-res-resources-resourcegroup"
